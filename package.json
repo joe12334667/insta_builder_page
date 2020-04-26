@@ -1,0 +1,24 @@
+{
+  "name": "insta_builder_page",
+  "version": "1.0.0",
+  "description": "insta_builder_page",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joe12334667/insta_builder_page.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joe12334667/insta_builder_page/issues"
+  },
+  "homepage": "https://github.com/joe12334667/insta_builder_page#readme",
+  "dependencies": {
+    "jQuery": "^1.7.4",
+    "jquery": "^3.5.0"
+  },
+  "devDependencies": {}
+}
