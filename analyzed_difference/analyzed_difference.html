@@ -6,33 +6,16 @@
 -->
 <html>
 	<head>
-		<title>Analyzed-1</title>
+		<title>Analyzed_difference</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<style type="text/css" media="screen">
-			.chart_post{
-				max-width: 800px;
-				max-height: 400px;
-				margin-left: 20%;
-				/*position: absolute;
-				left: 50%;
-				top: 50%;
-				margin-left: -400px;
-				margin-top: -300px;
-				*/
-			}
-			.chart_post_small{
-				max-width: 300px;
-				max-height: 150px;
-				margin-left: 20%;
-				/*position: absolute;
-				left: 50%;
-				top: 50%;
-				margin-left: -400px;
-				margin-top: -300px;
-				*/
+			
+			.chart_small{
+				height: 200px;
+				width: 300px;
 			}
 			.row uniform{
 				margin-top: 200px;
@@ -58,11 +41,571 @@
 			}
 			#header{
 				position: absolute;
-				box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.075);
+				
 			}
 			#header .left{
 				position: fixed;
 			}
+			
+			#header .right{
+				position: fixed;
+			}
+						/* Box */
+
+			.box {
+				margin-bottom: 2rem;
+				background: #FFF;
+			}
+
+				.box .image.fit {
+					margin: 0;
+					border-radius: 0;
+				}
+
+					.box .image.fit img {
+						border-radius: 0;
+					}
+
+				.box header h2 {
+					margin-bottom: 2rem;
+				}
+
+				.box header p {
+					text-transform: uppercase;
+					font-size: .75rem;
+					font-weight: 300;
+					margin: 0 0 .25rem 0;
+					padding: 0 0 .75rem 0;
+					letter-spacing: .25rem;
+				}
+
+					.box header p:after {
+						content: '';
+						position: absolute;
+						margin: auto;
+						right: 0;
+						bottom: 0;
+						left: 0;
+						width: 50%;
+						height: 1px;
+						background-color: rgba(0, 0, 0, 0.125);
+					}
+
+				.box .content {
+					padding: 3rem;
+				}
+
+				.box > :last-child,
+				.box > :last-child > :last-child,
+				.box > :last-child > :last-child > :last-child {
+					margin-bottom: 0;
+				}
+
+				.box.alt {
+					border: 0;
+					border-radius: 0;
+					padding: 0;
+				}
+
+				@media screen and (max-width: 736px) {
+
+					.box .content {
+						padding: 2rem;
+					}
+
+				}
+
+				.box {
+					border-color: rgba(144, 144, 144, 0.25);
+				}
+				.wrapper.style2 {
+			background-color: #f2f2f2;
+			color: #a6a6a6;
+		}
+
+			.wrapper.style2 input, .wrapper.style2 select, .wrapper.style2 textarea {
+				color: #000;
+			}
+
+			.wrapper.style2 a {
+				color: #8a4680;
+			}
+
+			.wrapper.style2 strong, .wrapper.style2 b {
+				color: #000;
+			}
+
+			.wrapper.style2 h1, .wrapper.style2 h2, .wrapper.style2 h3, .wrapper.style2 h4, .wrapper.style2 h5, .wrapper.style2 h6 {
+				color: #000;
+			}
+
+			.wrapper.style2 blockquote {
+				border-left-color: rgba(0, 0, 0, 0.15);
+			}
+
+			.wrapper.style2 code {
+				background: rgba(0, 0, 0, 0.075);
+				border-color: rgba(0, 0, 0, 0.15);
+			}
+
+			.wrapper.style2 hr {
+				border-bottom-color: rgba(0, 0, 0, 0.15);
+			}
+
+			.wrapper.style2 .box {
+				border-color: rgba(0, 0, 0, 0.15);
+			}
+
+			.wrapper.style2 input[type="submit"],
+			.wrapper.style2 input[type="reset"],
+			.wrapper.style2 input[type="button"],
+			.wrapper.style2 button,
+			.wrapper.style2 .button {
+				background-color: #000;
+				color: #f2f2f2 !important;
+			}
+
+				.wrapper.style2 input[type="submit"].alt,
+				.wrapper.style2 input[type="reset"].alt,
+				.wrapper.style2 input[type="button"].alt,
+				.wrapper.style2 button.alt,
+				.wrapper.style2 .button.alt {
+					background-color: transparent;
+					box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.15);
+					color: #000 !important;
+				}
+
+					.wrapper.style2 input[type="submit"].alt:hover,
+					.wrapper.style2 input[type="reset"].alt:hover,
+					.wrapper.style2 input[type="button"].alt:hover,
+					.wrapper.style2 button.alt:hover,
+					.wrapper.style2 .button.alt:hover {
+						background-color: rgba(0, 0, 0, 0.075);
+					}
+
+					.wrapper.style2 input[type="submit"].alt:active,
+					.wrapper.style2 input[type="reset"].alt:active,
+					.wrapper.style2 input[type="button"].alt:active,
+					.wrapper.style2 button.alt:active,
+					.wrapper.style2 .button.alt:active {
+						background-color: rgba(0, 0, 0, 0.2);
+					}
+
+					.wrapper.style2 input[type="submit"].alt.icon:before,
+					.wrapper.style2 input[type="reset"].alt.icon:before,
+					.wrapper.style2 input[type="button"].alt.icon:before,
+					.wrapper.style2 button.alt.icon:before,
+					.wrapper.style2 .button.alt.icon:before {
+						color: #999999;
+					}
+
+				.wrapper.style2 input[type="submit"].special,
+				.wrapper.style2 input[type="reset"].special,
+				.wrapper.style2 input[type="button"].special,
+				.wrapper.style2 button.special,
+				.wrapper.style2 .button.special {
+					background-color: #8a4680;
+					color: #ffffff !important;
+				}
+
+					.wrapper.style2 input[type="submit"].special:hover,
+					.wrapper.style2 input[type="reset"].special:hover,
+					.wrapper.style2 input[type="button"].special:hover,
+					.wrapper.style2 button.special:hover,
+					.wrapper.style2 .button.special:hover {
+						background-color: #9b4f90;
+					}
+
+					.wrapper.style2 input[type="submit"].special:active,
+					.wrapper.style2 input[type="reset"].special:active,
+					.wrapper.style2 input[type="button"].special:active,
+					.wrapper.style2 button.special:active,
+					.wrapper.style2 .button.special:active {
+						background-color: #793d70;
+					}
+
+			.wrapper.style2 label {
+				color: #000;
+			}
+
+			.wrapper.style2 input[type="text"],
+			.wrapper.style2 input[type="password"],
+			.wrapper.style2 input[type="email"],
+			.wrapper.style2 select,
+			.wrapper.style2 textarea {
+				background: rgba(0, 0, 0, 0.075);
+				border-color: rgba(0, 0, 0, 0.15);
+			}
+
+				.wrapper.style2 input[type="text"]:focus,
+				.wrapper.style2 input[type="password"]:focus,
+				.wrapper.style2 input[type="email"]:focus,
+				.wrapper.style2 select:focus,
+				.wrapper.style2 textarea:focus {
+					border-color: #8a4680;
+					box-shadow: 0 0 0 1px #8a4680;
+				}
+
+			.wrapper.style2 .select-wrapper:before {
+				color: rgba(0, 0, 0, 0.15);
+			}
+
+			.wrapper.style2 input[type="checkbox"] + label,
+			.wrapper.style2 input[type="radio"] + label {
+				color: #a6a6a6;
+			}
+
+				.wrapper.style2 input[type="checkbox"] + label:before,
+				.wrapper.style2 input[type="radio"] + label:before {
+					background: rgba(0, 0, 0, 0.075);
+					border-color: rgba(0, 0, 0, 0.15);
+				}
+
+			.wrapper.style2 input[type="checkbox"]:checked + label:before,
+			.wrapper.style2 input[type="radio"]:checked + label:before {
+				background-color: #8a4680;
+				border-color: #8a4680;
+				color: #ffffff;
+			}
+
+			.wrapper.style2 input[type="checkbox"]:focus + label:before,
+			.wrapper.style2 input[type="radio"]:focus + label:before {
+				border-color: #8a4680;
+				box-shadow: 0 0 0 1px #8a4680;
+			}
+
+			.wrapper.style2 ::-webkit-input-placeholder {
+				color: #999999 !important;
+			}
+
+			.wrapper.style2 :-moz-placeholder {
+				color: #999999 !important;
+			}
+
+			.wrapper.style2 ::-moz-placeholder {
+				color: #999999 !important;
+			}
+
+			.wrapper.style2 :-ms-input-placeholder {
+				color: #999999 !important;
+			}
+
+			.wrapper.style2 .formerize-placeholder {
+				color: #999999 !important;
+			}
+
+			.wrapper.style2 ul.alt li {
+				border-top-color: rgba(0, 0, 0, 0.15);
+			}
+
+			.wrapper.style2 header p {
+				color: #999999;
+			}
+
+			.wrapper.style2 table tbody tr {
+				border-color: rgba(0, 0, 0, 0.15);
+			}
+
+				.wrapper.style2 table tbody tr:nth-child(2n + 1) {
+					background-color: rgba(0, 0, 0, 0.075);
+				}
+
+			.wrapper.style2 table th {
+				color: #000;
+			}
+
+			.wrapper.style2 table thead {
+				border-bottom-color: rgba(0, 0, 0, 0.15);
+			}
+
+			.wrapper.style2 table tfoot {
+				border-top-color: rgba(0, 0, 0, 0.15);
+			}
+
+			.wrapper.style2 table.alt tbody tr td {
+				border-color: rgba(0, 0, 0, 0.15);
+			}
+
+			/* Flexgrid */
+
+			.grid-style {
+				width: 100%;
+				margin: 0 0 2.5rem 0;
+				display: -moz-flex;
+				display: -webkit-flex;
+				display: -ms-flex;
+				display: flex;
+				-moz-flex-wrap: wrap;
+				-webkit-flex-wrap: wrap;
+				-ms-flex-wrap: wrap;
+				flex-wrap: wrap;
+				-moz-align-items: stretch;
+				-webkit-align-items: stretch;
+				-ms-align-items: stretch;
+				align-items: stretch;
+			}
+
+			.grid-style > * {
+				-moz-flex-shrink: 1;
+				-webkit-flex-shrink: 1;
+				-ms-flex-shrink: 1;
+				flex-shrink: 1;
+				-moz-flex-grow: 0;
+				-webkit-flex-grow: 0;
+				-ms-flex-grow: 0;
+				flex-grow: 0;
+			}
+
+			.grid-style > * {
+				width: 50%;
+			}
+
+			.grid-style > * {
+				padding: 2rem;
+				width: calc(50% + 2rem);
+			}
+
+			.grid-style > :nth-child(-n + 2) {
+				padding-top: 0;
+			}
+
+			.grid-style > :nth-last-child(-n + 2) {
+				padding-bottom: 0;
+			}
+
+			.grid-style > :nth-child(2n + 1) {
+				padding-left: 0;
+			}
+
+			.grid-style > :nth-child(2n) {
+				padding-right: 0;
+			}
+
+			.grid-style > :nth-child(2n + 1),
+			.grid-style > :nth-child(2n) {
+				width: calc(50% + 0rem);
+			}
+
+			.grid-style .box {
+				margin: 0;
+			}
+
+			@media screen and (max-width: 980px) {
+
+				.grid-style > * {
+					width: 100%;
+				}
+
+				.grid-style > * {
+					padding: 1rem;
+					width: calc(50% + 1rem);
+				}
+
+				.grid-style > :nth-child(-n + 2) {
+					padding-top: 1rem;
+				}
+
+				.grid-style > :nth-last-child(-n + 2) {
+					padding-bottom: 1rem;
+				}
+
+				.grid-style > :nth-child(2n + 1) {
+					padding-left: 1rem;
+				}
+
+				.grid-style > :nth-child(2n) {
+					padding-right: 1rem;
+				}
+
+				.grid-style > :nth-child(2n + 1),
+				.grid-style > :nth-child(2n) {
+					padding: 1rem;
+					width: calc(100% + 2rem);
+				}
+
+				.grid-style > * {
+					padding: 1rem;
+					width: calc(100% + 2rem);
+				}
+
+				.grid-style > :nth-child(-n + 1) {
+					padding-top: 0;
+				}
+
+				.grid-style > :nth-last-child(-n + 1) {
+					padding-bottom: 0;
+				}
+
+				.grid-style > :nth-child(1n + 1) {
+					padding-left: 0;
+				}
+
+				.grid-style > :nth-child(1n) {
+					padding-right: 0;
+				}
+
+				.grid-style > :nth-child(1n + 1),
+				.grid-style > :nth-child(1n) {
+					width: calc(100% + 1rem);
+				}
+
+					}
+
+				.gallery {
+					width: 100%;
+					margin: 2.5rem 0 2.5rem 0;
+					display: -moz-flex;
+					display: -webkit-flex;
+					display: -ms-flex;
+					display: flex;
+					-moz-flex-wrap: wrap;
+					-webkit-flex-wrap: wrap;
+					-ms-flex-wrap: wrap;
+					flex-wrap: wrap;
+					-moz-align-items: stretch;
+					-webkit-align-items: stretch;
+					-ms-align-items: stretch;
+					align-items: stretch;
+				}
+
+					.gallery > * {
+						-moz-flex-shrink: 1;
+						-webkit-flex-shrink: 1;
+						-ms-flex-shrink: 1;
+						flex-shrink: 1;
+						-moz-flex-grow: 0;
+						-webkit-flex-grow: 0;
+						-ms-flex-grow: 0;
+						flex-grow: 0;
+					}
+
+					.gallery > * {
+						width: 50%;
+					}
+
+					.gallery > * {
+						padding: 2rem;
+						width: calc(50% + 2rem);
+					}
+
+					.gallery > :nth-child(-n + 2) {
+						padding-top: 0;
+					}
+
+					.gallery > :nth-last-child(-n + 2) {
+						padding-bottom: 0;
+					}
+
+					.gallery > :nth-child(2n + 1) {
+						padding-left: 0;
+					}
+
+					.gallery > :nth-child(2n) {
+						padding-right: 0;
+					}
+
+					.gallery > :nth-child(2n + 1),
+					.gallery > :nth-child(2n) {
+						width: calc(50% + 0rem);
+					}
+
+					.gallery .image {
+						background: #FFF;
+						padding: 1rem;
+					}
+
+						.gallery .image.fit {
+							margin: 0;
+						}
+
+					@media screen and (max-width: 980px) {
+
+						.gallery > * {
+							width: 100%;
+						}
+
+						.gallery > * {
+							padding: 1rem;
+							width: calc(50% + 1rem);
+						}
+
+						.gallery > :nth-child(-n + 2) {
+							padding-top: 1rem;
+						}
+
+						.gallery > :nth-last-child(-n + 2) {
+							padding-bottom: 1rem;
+						}
+
+						.gallery > :nth-child(2n + 1) {
+							padding-left: 1rem;
+						}
+
+						.gallery > :nth-child(2n) {
+							padding-right: 1rem;
+						}
+
+						.gallery > :nth-child(2n + 1),
+						.gallery > :nth-child(2n) {
+							padding: 1rem;
+							width: calc(100% + 2rem);
+						}
+
+						.gallery > * {
+							padding: 1rem;
+							width: calc(100% + 2rem);
+						}
+
+						.gallery > :nth-child(-n + 1) {
+							padding-top: 0;
+						}
+
+						.gallery > :nth-last-child(-n + 1) {
+							padding-bottom: 0;
+						}
+
+						.gallery > :nth-child(1n + 1) {
+							padding-left: 0;
+						}
+
+						.gallery > :nth-child(1n) {
+							padding-right: 0;
+						}
+
+						.gallery > :nth-child(1n + 1),
+						.gallery > :nth-child(1n) {
+							width: calc(100% + 1rem);
+						}
+
+					}
+					.bigbox {
+					margin: 0 auto;
+					max-width: 65em;
+					}
+
+					@media screen and (max-width: 800px) {
+
+						.inner {
+							max-width: 90%;
+						}
+
+					}
+
+					@media screen and (max-width: 500px) {
+
+						.inner {
+							max-width: 70%;
+						}
+
+					}
+
+					@media screen and (max-width: 256px) {
+
+						.inner {
+							max-width: 85%;
+						}
+
+					}
 
 		</style>
 	</head>
@@ -98,138 +641,94 @@
 				</ul>
 			</nav>
 
-		<!-- Banner -->
-		<!--
-			<section id="search">
-				<div class="nav_search">
-					<form method="post" action="#">
-						<div class="row uniform">
-							<div class="9u 12u$(small)">
-								<input type="text" name="query" id="query" value="" placeholder="IG Account" />
-							</div>
-							<div class="3u$ 12u$(small)">
-								<input type="submit" value="Search" class="fit" />
-							</div>
-						</div>
-					</form>
-				</div>
-			</section>
-		-->
-		<!--	<section id="banner">
-				
-				<div class="nav_search">
-					<form method="post" action="#">
-						<div class="row uniform">
-							<div class="9u 12u$(small)">
-								<input type="text" name="query" id="query" value="" placeholder="IG Account" />
-							</div>
-							<div class="3u$ 12u$(small)">
-								<input type="submit" value="Search" class="fit" />
-							</div>
-						</div>
-					</form>
-				</div>
-			
-				<div class="content">					
-					
-					<img src="../images/pic06.jpg" alt="" />
-					<div class="ig_3info">
-					<a href="#" class="button alt small">Post 56</a>
-					<a href="#" class="button alt small">Follower 459</a>
-					<a href="#" class="button alt small">Following 347</a>
-					</div>
-					
-				</div>
-			</section>
-		-->
 		<!-- One -->
-			<section id="one" class="wrapper">
-				<div class="inner">
-					<h2>貼文分析一覽表</h2>
-				</div>
-				<canvas id="season" class="chart_post" ></canvas>
-				
-				<div class="inner flex flex-3">
-					<div class="flex-item left">
-						<div>
-							<h3>自動發文</h3>							
-							<p><canvas id="season" class="chart_post_small" ></canvas></p>
+			<section id="one" class="wrapper">			
+				<div class="inner">	
+				</span><h1>差異分析</h1>										
+					<div>							
+						<div class="box">		
+							<div class="content">
+								<header class="align-center">
+									<p>difference analyzed</p>
+									<h2>最新貼文與其平均之差異</h2>
+								</header>
 
-						</div>
-						<div>
-							<h3>熱門標籤</h3>
-							<p>Tristique yonve cursus jam nulla quam<br /> loreipsu gravida adipiscing lorem</p>
-						</div>
-					</div>
-					<div class="flex-item image fit round">
-						<img src="images/pic01.jpg" alt="" />
-					</div>
-					<div class="flex-item right">
-						<div>
-							<h3>洞察報告</h3>
-							<p>Sed adipiscing ornare risus. Morbi estes<br /> blandit sit et amet, sagittis magna.</p>
-						</div>
-						<div>
-							<h3>數據分析</h3>
-							<p>Pellentesque egestas sem. Suspendisse<br /> modo ullamcorper feugiat lorem.</p>
-						</div>
+								<div class="chart">
+									<canvas id="season" class="align_center" ></canvas>
+								</div>
+							</div>							
+						</div>							
 					</div>
 				</div>
 			</section>
 
-		<!-- Two -->
-			<section id="two" class="wrapper style1 special">
-				<div class="inner">
-					<canvas id="chart" width="800" height="600"></canvas>
-					<h2>About Us</h2>
-					<figure>
-					    <blockquote>
-					        "Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra<br /> magna etiam lorem ultricies in diam. Sed arcu cras consequat."
-					    </blockquote>
-					    <footer>
-					        <cite class="author">NTUB</cite>
-					        <cite class="company">CEO, Untitled</cite>
-					    </footer>
-					</figure>
-				</div>
-			</section>
 			
+		<!-- One -->
+			<div align="center"><section id="one" class="wrapper style2" >
 
-		<!-- Three -->
-			<section id="three" class="wrapper">
 				<div class="inner">
-					<h2>Plan Selection</h2>
-				</div>
-				<div class="inner flex flex-3">
-					<div class="flex-item box">
-						<div class="image fit">
-							<img src="images/pic02.jpg" alt="" />
-						</div>
-						<div class="content">
-							<a href="generic.html"><h3>銀級</h3></a>							
-							<p>Placerat ornare. Pellentesque od sed euismod in, pharetra ltricies edarcu cas consequat.</p>
-						</div>
-					</div>
-					<div class="flex-item box">
-						<div class="image fit">
-							<img src="images/pic03.jpg" alt="" />
-						</div>
-						<div class="content">
-							<a href="generic.html"><h3>黃金級</h3></a>							
-							<p>Morbi in sem quis dui placerat Pellentesque odio nisi, euismod pharetra lorem ipsum.</p>
+					<div class="grid-style">
+					<div>
+						<div class="box">				
+							<div class="content">
+								<header class="align-center">
+									<p>post analyzed</p>
+									<h2>貼文按讚數分析</h2>
+								</header>
+								<div class="chart">
+									<canvas id="season1" class="align_center" ></canvas>
+								</div>
+							</div>								
 						</div>
 					</div>
-					<div class="flex-item box">
-						<div class="image fit">
-							<img src="images/pic04.jpg" alt="" />
-						</div>
-						<div class="content">
-							<a href="generic.html"><h3>鑽石級</h3></a>
-							<p>Nam dui mi, tincidunt quis, accu an porttitor, facilisis luctus que metus vulputate sem magna.</p>
-						</div>
+					<div>						
+						<div class="box">	
+							<div class="content">
+								<header class="align-center">
+									<p>post analyzed</p>
+									<h2>貼文留言數分析</h2>
+								</header>
+								<div class="chart">
+									<canvas id="season2" class="align_center" ></canvas>
+								</div>
+							</div>								
+						</div>	
+					</div>			
+					<div>						
+						<div class="box">	
+							<div class="content">
+								<header class="align-center">
+									<p>post analyzed</p>
+									<h2>貼文珍藏數分析</h2>
+								</header>
+								<div class="chart">
+									<canvas id="season3" class="align_center" ></canvas>
+								</div>
+							</div>								
+						</div>	
+					</div>	
+					<div>						
+						<div class="box">	
+							<div class="content">
+								<header class="align-center">
+									<p>post analyzed</p>
+									<h2>貼文觸及率分析</h2>
+								</header>
+								<div class="chart">
+									<canvas id="season4" class="align_center" ></canvas>
+								</div>
+							</div>								
+						</div>	
+					</div>				
+						
+
+						
+						
 					</div>
 				</div>
 			</section>
+
+		
 
 		<!-- Footer -->
 			<footer id="footer">
@@ -307,7 +806,223 @@
 					});
 
 					</script>
-	
+					<script>
+
+						var seasonData = {
+
+						labels: ['post1', 'post2', 'post3', 'post4'],//數據的橫軸座標
+
+						datasets: [{
+
+						fillColor: 'rgba(0,0,0,0)',
+
+						strokeColor: 'rgba(140,40,225,1)',//第一組數據的線顏色
+
+						pointColor: 'rgba(140,40,225,1)',//點的顏色
+
+						data: [11,37,10,3]//第一組數據的值
+
+						}, {
+
+						fillColor: 'rgba(0,0,0,0)',
+
+						strokeColor: 'rgba(255,100,180,1)',//同上
+
+						pointColor: 'rgba(255,100,180,1)',
+
+						data: [9,29,15,1]//第二組數據的值
+
+						}]
+
+						}
+
+					</script>
+					<script>
+
+					//用ID取畫布元素
+
+					var canvas = document.getElementById('season1').getContext('2d');
+
+					//繪出圖形
+
+					var lineDemo = new Chart(canvas).Line(seasonData, {
+
+					responsive: true,//設置是否是響應式的
+
+					pointDotRadius: 10,
+
+					bezierCurve: false,
+
+					scaleShowVerticalLines: false,
+
+					scaleGridLineColor: 'gray'
+
+					});
+
+					</script>
+					<script>
+
+						var seasonData = {
+
+						labels: ['post1', 'post2', 'post3', 'post4'],//數據的橫軸座標
+
+						datasets: [{
+
+						fillColor: 'rgba(0,0,0,0)',
+
+						strokeColor: 'rgba(140,40,225,1)',//第一組數據的線顏色
+
+						pointColor: 'rgba(140,40,225,1)',//點的顏色
+
+						data: [11,37,10,3]//第一組數據的值
+
+						}, {
+
+						fillColor: 'rgba(0,0,0,0)',
+
+						strokeColor: 'rgba(255,100,180,1)',//同上
+
+						pointColor: 'rgba(255,100,180,1)',
+
+						data: [9,29,15,1]//第二組數據的值
+
+						}]
+
+						}
+
+					</script>
+					<script>
+
+					//用ID取畫布元素
+
+					var canvas = document.getElementById('season2').getContext('2d');
+
+					//繪出圖形
+
+					var lineDemo = new Chart(canvas).Line(seasonData, {
+
+					responsive: true,//設置是否是響應式的
+
+					pointDotRadius: 10,
+
+					bezierCurve: false,
+
+					scaleShowVerticalLines: false,
+
+					scaleGridLineColor: 'gray'
+
+					});
+
+					</script>
+					<script>
+
+						var seasonData = {
+
+						labels: ['post1', 'post2', 'post3', 'post4'],//數據的橫軸座標
+
+						datasets: [{
+
+						fillColor: 'rgba(0,0,0,0)',
+
+						strokeColor: 'rgba(140,40,225,1)',//第一組數據的線顏色
+
+						pointColor: 'rgba(140,40,225,1)',//點的顏色
+
+						data: [11,37,10,3]//第一組數據的值
+
+						}, {
+
+						fillColor: 'rgba(0,0,0,0)',
+
+						strokeColor: 'rgba(255,100,180,1)',//同上
+
+						pointColor: 'rgba(255,100,180,1)',
+
+						data: [9,29,15,1]//第二組數據的值
+
+						}]
+
+						}
+
+					</script>
+					<script>
+
+					//用ID取畫布元素
+
+					var canvas = document.getElementById('season3').getContext('2d');
+
+					//繪出圖形
+
+					var lineDemo = new Chart(canvas).Line(seasonData, {
+
+					responsive: true,//設置是否是響應式的
+
+					pointDotRadius: 10,
+
+					bezierCurve: false,
+
+					scaleShowVerticalLines: false,
+
+					scaleGridLineColor: 'gray'
+
+					});
+
+					</script>
+					<script>
+
+						var seasonData = {
+
+						labels: ['post1', 'post2', 'post3', 'post4'],//數據的橫軸座標
+
+						datasets: [{
+
+						fillColor: 'rgba(0,0,0,0)',
+
+						strokeColor: 'rgba(140,40,225,1)',//第一組數據的線顏色
+
+						pointColor: 'rgba(140,40,225,1)',//點的顏色
+
+						data: [11,37,10,3]//第一組數據的值
+
+						}, {
+
+						fillColor: 'rgba(0,0,0,0)',
+
+						strokeColor: 'rgba(255,100,180,1)',//同上
+
+						pointColor: 'rgba(255,100,180,1)',
+
+						data: [9,29,15,1]//第二組數據的值
+
+						}]
+
+						}
+
+					</script>
+					<script>
+
+					//用ID取畫布元素
+
+					var canvas = document.getElementById('season4').getContext('2d');
+
+					//繪出圖形
+
+					var lineDemo = new Chart(canvas).Line(seasonData, {
+
+					responsive: true,//設置是否是響應式的
+
+					pointDotRadius: 10,
+
+					bezierCurve: false,
+
+					scaleShowVerticalLines: false,
+
+					scaleGridLineColor: 'gray'
+
+					});
+
+					</script>
+					
 					
 		
 					
