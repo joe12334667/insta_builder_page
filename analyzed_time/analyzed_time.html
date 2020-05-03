@@ -9,7 +9,7 @@
 		<title>Analyzed_time</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=El+Messiri|Noto+Sans+TC&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<style type="text/css" media="screen">
 			
@@ -634,7 +634,7 @@
 					<li><a href="../analyzed_difference/analyzed_difference.html"> 差異分析</a></li>
 					<li><a href="../analyzed_follow/analyzed_follow.html"> 追蹤分析</a></li>
 					<li><a href="../analyzed_top9/analyzed_top9.html"> TOP 9 貼文</a></li>
-					<li><a href="../purchase/purchase.html"> 購買服務</a></li>
+					<li><a href="../purchase/purchase.html"> 服務升級</a></li>
 				</ul>
 				<ul class="actions vertical">
 					<li><a href="#" class="button fit">Log out</a></li>
@@ -653,8 +653,8 @@
 									<h2>同一時間區段之貼文數量</h2>
 								</header>
 
-								<div class="chart">
-									<canvas id="season" class="align_center" ></canvas>
+								<div >									
+								<canvas id="time_post" width="10" height="5"></canvas>
 								</div>
 							</div>							
 						</div>							
@@ -671,9 +671,8 @@
 									<p>time analyzed</p>
 									<h2>同一時間區段之貼文平均按讚數</h2>
 								</header>
-
-								<div class="chart">
-									<canvas id="season1" class="align_center" ></canvas>
+								<div >									
+								<canvas id="time_like" width="10" height="5"></canvas>
 								</div>
 							</div>							
 						</div>							
@@ -702,277 +701,107 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+			<script src="../node_modules/chart.js/dist/Chart.js"></script>
 			<script>
-
-						var seasonData = {
-
-						labels: ['post1', 'post2', 'post3', 'post4'],//數據的橫軸座標
-
-						datasets: [{
-
-						fillColor: 'rgba(0,0,0,0)',
-
-						strokeColor: 'rgba(140,40,225,1)',//第一組數據的線顏色
-
-						pointColor: 'rgba(140,40,225,1)',//點的顏色
-
-						data: [11,37,10,3]//第一組數據的值
-
-						}, {
-
-						fillColor: 'rgba(0,0,0,0)',
-
-						strokeColor: 'rgba(255,100,180,1)',//同上
-
-						pointColor: 'rgba(255,100,180,1)',
-
-						data: [9,29,15,1]//第二組數據的值
-
-						}]
-
-						}
-
-					</script>
-					<script>
-
-					//用ID取畫布元素
-
-					var canvas = document.getElementById('season').getContext('2d');
-
-					//繪出圖形
-
-					var lineDemo = new Chart(canvas).Line(seasonData, {
-
-					responsive: true,//設置是否是響應式的
-
-					pointDotRadius: 10,
-
-					bezierCurve: false,
-
-					scaleShowVerticalLines: false,
-
-					scaleGridLineColor: 'gray'
-
-					});
-
-					</script>
-					<script>
-
-						var seasonData = {
-
-						labels: ['post1', 'post2', 'post3', 'post4'],//數據的橫軸座標
-
-						datasets: [{
-
-						fillColor: 'rgba(0,0,0,0)',
-
-						strokeColor: 'rgba(140,40,225,1)',//第一組數據的線顏色
-
-						pointColor: 'rgba(140,40,225,1)',//點的顏色
-
-						data: [11,37,10,3]//第一組數據的值
-
-						}, {
-
-						fillColor: 'rgba(0,0,0,0)',
-
-						strokeColor: 'rgba(255,100,180,1)',//同上
-
-						pointColor: 'rgba(255,100,180,1)',
-
-						data: [9,29,15,1]//第二組數據的值
-
-						}]
-
-						}
-
-					</script>
-					<script>
-
-					//用ID取畫布元素
-
-					var canvas = document.getElementById('season1').getContext('2d');
-
-					//繪出圖形
-
-					var lineDemo = new Chart(canvas).Line(seasonData, {
-
-					responsive: true,//設置是否是響應式的
-
-					pointDotRadius: 10,
-
-					bezierCurve: false,
-
-					scaleShowVerticalLines: false,
-
-					scaleGridLineColor: 'gray'
-
-					});
-
-					</script>
-					<script>
-
-						var seasonData = {
-
-						labels: ['post1', 'post2', 'post3', 'post4'],//數據的橫軸座標
-
-						datasets: [{
-
-						fillColor: 'rgba(0,0,0,0)',
-
-						strokeColor: 'rgba(140,40,225,1)',//第一組數據的線顏色
-
-						pointColor: 'rgba(140,40,225,1)',//點的顏色
-
-						data: [11,37,10,3]//第一組數據的值
-
-						}, {
-
-						fillColor: 'rgba(0,0,0,0)',
-
-						strokeColor: 'rgba(255,100,180,1)',//同上
-
-						pointColor: 'rgba(255,100,180,1)',
-
-						data: [9,29,15,1]//第二組數據的值
-
-						}]
-
-						}
-
-					</script>
-					<script>
-
-					//用ID取畫布元素
-
-					var canvas = document.getElementById('season2').getContext('2d');
-
-					//繪出圖形
-
-					var lineDemo = new Chart(canvas).Line(seasonData, {
-
-					responsive: true,//設置是否是響應式的
-
-					pointDotRadius: 10,
-
-					bezierCurve: false,
-
-					scaleShowVerticalLines: false,
-
-					scaleGridLineColor: 'gray'
-
-					});
-
-					</script>
-					<script>
-
-						var seasonData = {
-
-						labels: ['post1', 'post2', 'post3', 'post4'],//數據的橫軸座標
-
-						datasets: [{
-
-						fillColor: 'rgba(0,0,0,0)',
-
-						strokeColor: 'rgba(140,40,225,1)',//第一組數據的線顏色
-
-						pointColor: 'rgba(140,40,225,1)',//點的顏色
-
-						data: [11,37,10,3]//第一組數據的值
-
-						}, {
-
-						fillColor: 'rgba(0,0,0,0)',
-
-						strokeColor: 'rgba(255,100,180,1)',//同上
-
-						pointColor: 'rgba(255,100,180,1)',
-
-						data: [9,29,15,1]//第二組數據的值
-
-						}]
-
-						}
-
-					</script>
-					<script>
-
-					//用ID取畫布元素
-
-					var canvas = document.getElementById('season3').getContext('2d');
-
-					//繪出圖形
-
-					var lineDemo = new Chart(canvas).Line(seasonData, {
-
-					responsive: true,//設置是否是響應式的
-
-					pointDotRadius: 10,
-
-					bezierCurve: false,
-
-					scaleShowVerticalLines: false,
-
-					scaleGridLineColor: 'gray'
-
-					});
-
-					</script>
-					<script>
-
-						var seasonData = {
-
-						labels: ['post1', 'post2', 'post3', 'post4'],//數據的橫軸座標
-
-						datasets: [{
-
-						fillColor: 'rgba(0,0,0,0)',
-
-						strokeColor: 'rgba(140,40,225,1)',//第一組數據的線顏色
-
-						pointColor: 'rgba(140,40,225,1)',//點的顏色
-
-						data: [11,37,10,3]//第一組數據的值
-
-						}, {
-
-						fillColor: 'rgba(0,0,0,0)',
-
-						strokeColor: 'rgba(255,100,180,1)',//同上
-
-						pointColor: 'rgba(255,100,180,1)',
-
-						data: [9,29,15,1]//第二組數據的值
-
-						}]
-
-						}
-
-					</script>
-					<script>
-
-					//用ID取畫布元素
-
-					var canvas = document.getElementById('season4').getContext('2d');
-
-					//繪出圖形
-
-					var lineDemo = new Chart(canvas).Line(seasonData, {
-
-					responsive: true,//設置是否是響應式的
-
-					pointDotRadius: 10,
-
-					bezierCurve: false,
-
-					scaleShowVerticalLines: false,
-
-					scaleGridLineColor: 'gray'
-
-					});
-
-					</script>
+			var ctx = document.getElementById('time_post');
+				
+			var time_post = new Chart(ctx, {
+			    type: 'doughnut',
+			    data: {
+			    	labels:['March', 'April', 'May', 'June', 'July'],
+			    	datasets: [{
+			    		label:'testone',
+			    		backgroundColor:[
+			    			'rgba(255, 99, 132, 0.2)',
+			                'rgba(54, 162, 235, 0.2)',
+			                'rgba(255, 206, 86, 0.2)',
+			                'rgba(75, 192, 192, 0.2)',
+			                'rgba(153, 102, 255, 0.2)'
+			            ],
+			    		borderColor:[
+			    			'rgba(255, 99, 132, 1)',
+			                'rgba(54, 162, 235, 1)',
+			                'rgba(255, 206, 86, 1)',
+			                'rgba(75, 192, 192, 1)',
+			                'rgba(153, 102, 255, 1)'
+			    		],
+			    		data: [ 39, 20, 25, 34, 10],
+			    		fill: false,
+			    	}]
+			    	
+			    },
+			    options: {
+			    	responsive: true,
+			    	title:{
+			    		display: true,		    		
+			    	},
+			    	scales:{
+			    		
+			    	}
+			    }
+			});
+			</script>
+			<script>
+			var ctx = document.getElementById('time_like');
+			var time_like = new Chart(ctx, {			   
+				type: 'bar',
+			    data: {
+			        datasets: [{
+			            label: 'Bar Dataset',
+			            data: [10, 20, 30, 40],
+			            backgroundColor: [
+			                'rgba(255, 99, 132, 0.2)',
+			                'rgba(54, 162, 235, 0.2)',
+			                'rgba(255, 206, 86, 0.2)',
+			                'rgba(75, 192, 192, 0.2)'			                				
+			            ],
+			            borderColor: [
+			                'rgba(255, 99, 132, 1)',
+			                'rgba(54, 162, 235, 1)',
+			                'rgba(255, 206, 86, 1)',
+			                'rgba(75, 192, 192, 1)'
+			            ],
+			            order: 1
+			        }, {
+			            label: 'Line Dataset',
+			            data: [15, 25, 15, 30],
+			            type: 'line',
+			            backgroundColor: [			                
+			                'rgba(75, 192, 192, 0.2)'			                				
+			            ],
+			            borderColor: [
+			                'rgba(75, 192, 192, 1)'
+			            ],  
+			            pointBackgroundColor: [			                
+			                'rgba(75, 192, 192, 1)',
+			                'rgba(75, 192, 192, 1)',
+			                'rgba(75, 192, 192, 1)',
+			                'rgba(75, 192, 192, 1)'			                				
+			            ],
+			            pointborderColor: [
+			                'rgba(75, 192, 192, 1)',
+			                'rgba(75, 192, 192, 1)',
+			                'rgba(75, 192, 192, 1)',
+			                'rgba(75, 192, 192, 1)'
+			            ],   
+			            fill:false,     
+			            lineTension: 0, 
+			            order: 2
+			        }],
+			        labels: ['January', 'February', 'March', 'April']
+			    },
+			    options: {
+			    	scales: {
+			            yAxes: [{
+			                ticks: {
+			                    beginAtZero: true
+			                }
+			            }]
+			        }
+			    }
+			});
+		   
+			</script>
 					
 					
 		
