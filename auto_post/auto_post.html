@@ -607,10 +607,7 @@
 						}
 
 					}
-					#one .inner h1{
-						color: #E283A0;
-						text-align: center;
-					}
+					
 					#one .inner textarea{
 						margin-bottom: 20px;
 					}
@@ -622,7 +619,34 @@
 						width: auto;
 						float: left;
 					}
+					.hashtags{
+						height: auto;
+						margin-top:30px;
+						margin-bottom: 30px;
+					}
+					.post_chech{
+						width: 400px;
+						position: relative;
+						margin-left: auto;
+						margin-right: auto;
+					}
+					.post_chech .box img{
+						width: 100%;
+						height: 100%;
+						border-radius: 0;						
+					}
+					.post_chech .box p {
+						padding-left: 20px;		
+						padding-right: 20px;			
+					}
+					.post_chech .box {
+						margin: 20px;					
+					}
 					
+					.hashtag_p{
+						padding-bottom: 20px;
+					}
+
 		</style>
 	</head>
 	<body>
@@ -658,126 +682,293 @@
 				</ul>
 			</nav>
 
-		<!-- One -->
+
+			<!-- One -->
 			<section id="one" class="wrapper">			
 				<div class="inner">	
 				<h1>自動發文</h1>										
-					<div>
-						<h2>貼文內容</h2>				
-						<div class="12u$">
-							<textarea name="message" id="message" placeholder="在此輸入內文" rows="10"></textarea>
-						</div>			
-						<div class="12u$">
-							<ul class="actions">
-								<li><input type="submit" value="選擇圖片" /></li>								
-							</ul>
-						</div>
+					<div>							
+						<div class="box">		
+							<div class="content">
+								<header class="align-center">
+									<p>自動發文</p>
+									<h2>貼文內容</h2>
+								</header>
+								<div>			
+									<div class="12u$">
+										<textarea name="message" id="message" placeholder="在此輸入內文" rows="10"></textarea>
+									</div>			
+									<div class="12u$">
+										<ul class="actions">
+											<li><input type="submit" value="選擇圖片" /></li>								
+										</ul>
+									</div>
+								</div>								
+							</div>							
+						</div>							
 					</div>
-					<div>			
-						<h2>貼文標籤</h2>			
-						<div class="12u$">
-							<div class="select-wrapper">
-								<select name="category" id="category">
-									<option value="">- 貼文類別 -</option>
-									<option value="1">食</option>
-									<option value="1">衣</option>
-									<option value="1">住</option>
-									<option value="1">行</option>
-									<option value="1">育</option>
-									<option value="1">樂</option>
-								</select>
-							</div>
-						</div>
-						
-								<div class="choose_hashtag">							
-									<div class="4u 12u$(small)">
-										<input type="radio" id="priority-low" name="priority" checked>
-										<label for="priority-low">good2eat</label>
-									</div>
-								</div>
-								<div class="choose_hashtag">							
-									<div class="4u 12u$(small)">
-										<input type="radio" id="priority-low" name="priority" checked>
-										<label for="priority-low">yummy</label>
-									</div>
-								</div>
-								<div class="choose_hashtag">							
-									<div class="4u 12u$(small)">
-										<input type="radio" id="priority-low" name="priority" checked>
-										<label for="priority-low">hashtag3</label>
-									</div>
-								</div>
-								<div class="choose_hashtag">							
-									<div class="4u 12u$(small)">
-										<input type="radio" id="priority-low" name="priority" checked>
-										<label for="priority-low">taipeifood</label>
-									</div>
-								</div>
-								<div class="choose_hashtag">							
-									<div class="4u 12u$(small)">
-										<input type="radio" id="priority-low" name="priority" checked>
-										<label for="priority-low">hashtag2</label>
-									</div>
-								</div>
-								<div class="choose_hashtag">							
-									<div class="4u 12u$(small)">
-										<input type="radio" id="priority-low" name="priority" checked>
-										<label for="priority-low">haveaniceday</label>
-									</div>
-								</div>
-								<div class="choose_hashtag">							
-									<div class="4u 12u$(small)">
-										<input type="radio" id="priority-low" name="priority" checked>
-										<label for="priority-low">eat</label>
-									</div>
-								</div>
-								<div class="choose_hashtag">							
-									<div class="4u 12u$(small)">
-										<input type="radio" id="priority-low" name="priority" checked>
-										<label for="priority-low">hashtag2</label>
-									</div>
-								</div>
-								<div class="choose_hashtag">							
-									<div class="4u 12u$(small)">
-										<input type="radio" id="priority-low" name="priority" checked>
-										<label for="priority-low">hashtag3</label>
-									</div>
-								</div>
-								<div class="choose_hashtag">							
-									<div class="4u 12u$(small)">
-										<input type="radio" id="priority-low" name="priority" checked>
-										<label for="priority-low">hashta</label>
-									</div>
-								</div>
-								<div class="choose_hashtag">							
-									<div class="4u 12u$(small)">
-										<input type="radio" id="priority-low" name="priority" checked>
-										<label for="priority-low">good2eat</label>
-									</div>
-								</div>
-							
-						
-							
-					</div>	
 				</div>
-			</section>
+				<div class="inner">											
+					<div>							
+						<div class="box">		
+							<div class="content">
+								<header class="align-center">
+									<p>自動貼文</p>
+									<h2>貼文標籤</h2>
+								</header>
+								<div>
+									<div class="12u$">
+										<div class="select-wrapper">
+											<select name="category" id="category">
+												<option value="">- 貼文類別 -</option>
+												<option value="1">食</option>
+												<option value="1">衣</option>
+												<option value="1">住</option>
+												<option value="1">行</option>
+												<option value="1">育</option>
+												<option value="1">樂</option>
+											</select>
+										</div>
+									</div>
+									<div class="hashtags">
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="priority-low" name="priority" checked>
+												<label for="priority-low">good2eat</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="priority-low" name="priority" checked>
+												<label for="priority-low">yummy</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="priority-low" name="priority" checked>
+												<label for="priority-low">hashtag3</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="priority-low" name="priority" checked>
+												<label for="priority-low">taipeifood</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="priority-low" name="priority" checked>
+												<label for="priority-low">hashtag2</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="priority-low" name="priority" checked>
+												<label for="priority-low">haveaniceday</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="priority-low" name="priority" checked>
+												<label for="priority-low">eat</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="priority-low" name="priority" checked>
+												<label for="priority-low">hashtag2</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="priority-low" name="priority" checked>
+												<label for="priority-low">hashtag3</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="priority-low" name="priority" checked>
+												<label for="priority-low">hashta</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="priority-low" name="priority" checked>
+												<label for="priority-low">good2eat</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="priority-low" name="priority" checked>
+												<label for="priority-low">yummy</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="priority-low" name="priority" checked>
+												<label for="priority-low">hashtag3</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="priority-low" name="priority" checked>
+												<label for="priority-low">taipeifood</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="priority-low" name="priority" checked>
+												<label for="priority-low">hashtag2</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="priority-low" name="priority" checked>
+												<label for="priority-low">haveaniceday</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="priority-low" name="priority" checked>
+												<label for="priority-low">eat</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="priority-low" name="priority" checked>
+												<label for="priority-low">hashtag2</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="priority-low" name="priority" checked>
+												<label for="priority-low">hashtag3</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="priority-low" name="priority" checked>
+												<label for="priority-low">hashta</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="priority-low" name="priority" checked>
+												<label for="priority-low">good2eat</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="priority-low" name="priority" checked>
+												<label for="priority-low">yummy</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="priority-low" name="priority" checked>
+												<label for="priority-low">hashtag3</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="priority-low" name="priority" checked>
+												<label for="priority-low">taipeifood</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="priority-low" name="priority" checked>
+												<label for="priority-low">hashtag2</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="priority-low" name="priority" checked>
+												<label for="priority-low">haveaniceday</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="priority-low" name="priority" checked>
+												<label for="priority-low">eat</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="priority-low" name="priority" checked>
+												<label for="priority-low">hashtag2</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="priority-low" name="priority" checked>
+												<label for="priority-low">hashtag3</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="priority-low" name="priority" checked>
+												<label for="priority-low">hashta</label>
+											</div>
+										</div>
+									</div>
+									<div class="hashtags">
+										<div class="12u$">
+											<textarea name="message" id="message" placeholder="在此輸入hashtag" rows="10"></textarea>
+										</div>	
+									</div>	
+								</div>
+							</div>							
+						</div>							
+					</div>
+				</div>
+				<div class="inner">															
+					<div>							
+						<div class="box">		
+							<div class="content">
+								<header class="align-center">
+									<p>自動發文</p>
+									<h2>確認貼文</h2>
+								</header>
+								<div>			
+									<div class="post_chech">						
+										<div class="box">	
+											<div class="box"><img src="../images/about01.jpg"></div>
+											<p>
+											   哈代說過，人在意志力和鬥爭性方面的長處或短處，往往是導致他們成功或失敗的重要原因之一。 這影響了我的價值觀。 這種事實對本人來說意義重大，相信對這個世界也是有一定意義的。 每個人都不得不面對這些問題。 在面對這種問題時，務必詳細考慮IG的各種可能。
+											</p>	
+											<p class="hashtag_p">
+												#hashtag1 #hashtag1 #hashtag1 #hashtag1 #hashtag1
+											</p>
+										</div>										
+											<ul class="actions">
+												<li><input type="submit" value="確認發文" /></li>								
+											</ul>
+									</div>
+								</div>								
+							</div>							
+						</div>							
+					</div>
+				</div>
 
 			
-		
-		
+
+	
 
 		<!-- Footer -->
+			
 			<footer id="footer">
-				<div class="inner">
+				<div class="container">
 					<h2>聯絡我們</h2>
-					<ul class="actions">
-						<li><span class="icon fa-phone"></span> <a href="#">(000) 000-0000</a></li>
-						<li><span class="icon fa-envelope"></span> <a href="#">information@untitled.tld</a></li>
-						<li><span class="icon fa-map-marker"></span> 123 Somewhere Road, Nashville, TN 00000</li>
+					<ul class="icons">
+						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
 					</ul>
 				</div>
 				<div class="copyright">
-					&copy; Untitled. Design <a href="https://templated.co">TEMPLATED</a>. Images <a href="https://unsplash.com">Unsplash</a>.
+					&copy; NTUB 109501
 				</div>
 			</footer>
 
@@ -788,238 +979,6 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			
-			<script src="../node_modules/chart.js/dist/Chart.js"></script>
-			
-			<script>
-			var ctx = document.getElementById('post_all');
-			var post_all = new Chart(ctx, {			   
-				type: 'bar',
-			    data: {
-			        datasets: [{
-			            label: 'Bar Dataset',
-			            data: [10, 20, 30, 40],
-			            backgroundColor: [
-			                'rgba(255, 99, 132, 0.2)',
-			                'rgba(54, 162, 235, 0.2)',
-			                'rgba(255, 206, 86, 0.2)',
-			                'rgba(75, 192, 192, 0.2)'			                				
-			            ],
-			            borderColor: [
-			                'rgba(255, 99, 132, 1)',
-			                'rgba(54, 162, 235, 1)',
-			                'rgba(255, 206, 86, 1)',
-			                'rgba(75, 192, 192, 1)'
-			            ],
-			            order: 1
-			        }, {
-			            label: 'Line Dataset',
-			            data: [15, 25, 15, 30],
-			            type: 'line',
-			            backgroundColor: [			                
-			                'rgba(75, 192, 192, 0.2)'			                				
-			            ],
-			            borderColor: [
-			                'rgba(75, 192, 192, 1)'
-			            ],  
-			            pointBackgroundColor: [			                
-			                'rgba(75, 192, 192, 1)',
-			                'rgba(75, 192, 192, 1)',
-			                'rgba(75, 192, 192, 1)',
-			                'rgba(75, 192, 192, 1)'			                				
-			            ],
-			            pointborderColor: [
-			                'rgba(75, 192, 192, 1)',
-			                'rgba(75, 192, 192, 1)',
-			                'rgba(75, 192, 192, 1)',
-			                'rgba(75, 192, 192, 1)'
-			            ],   
-			            fill:false,     
-			            lineTension: 0, 
-			            order: 2
-			        }],
-			        labels: ['January', 'February', 'March', 'April']
-			    },
-			    options: {
-			    	scales: {
-			            yAxes: [{
-			                ticks: {
-			                    beginAtZero: true
-			                }
-			            }]
-			        }
-			    }
-			});
-		   
-			</script>
-			<script>
-			var ctx = document.getElementById('post_like');
-			var post_like = new Chart(ctx, {
-			    type: 'bar',
-			    data: {
-			        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-			        
-			        datasets: [{
-			            label: '# of Votes',
-			            data: [12, 19, 3, 5, 2, 3],
-			            backgroundColor: [
-			                'rgba(255, 99, 132, 0.2)',
-			                'rgba(54, 162, 235, 0.2)',
-			                'rgba(255, 206, 86, 0.2)',
-			                'rgba(75, 192, 192, 0.2)',
-			                'rgba(153, 102, 255, 0.2)',
-			                'rgba(255, 159, 64, 0.2)'
-			        
-					
-			            ],
-			            borderColor: [
-			                'rgba(255, 99, 132, 1)',
-			                'rgba(54, 162, 235, 1)',
-			                'rgba(255, 206, 86, 1)',
-			                'rgba(75, 192, 192, 1)',
-			                'rgba(153, 102, 255, 1)',
-			                'rgba(255, 159, 64, 1)'
-			            ],
-			            borderWidth: 1
-			        }]
-			    },
-			    options: {
-			        scales: {
-			            yAxes: [{
-			                ticks: {
-			                    beginAtZero: true
-			                }
-			            }]
-			        }
-			    }
-			});
-			</script>
-			
-			<script>
-			var ctx = document.getElementById('post_comment');
-			var post_comment = new Chart(ctx, {
-			    type: 'bar',
-			    data: {
-			        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-			        
-			        datasets: [{
-			            label: '# of Votes',
-			            data: [12, 19, 3, 5, 2, 3],
-			            backgroundColor: [
-			                'rgba(255, 99, 132, 0.2)',
-			                'rgba(54, 162, 235, 0.2)',
-			                'rgba(255, 206, 86, 0.2)',
-			                'rgba(75, 192, 192, 0.2)',
-			                'rgba(153, 102, 255, 0.2)',
-			                'rgba(255, 159, 64, 0.2)'
-			        
-					
-			            ],
-			            borderColor: [
-			                'rgba(255, 99, 132, 1)',
-			                'rgba(54, 162, 235, 1)',
-			                'rgba(255, 206, 86, 1)',
-			                'rgba(75, 192, 192, 1)',
-			                'rgba(153, 102, 255, 1)',
-			                'rgba(255, 159, 64, 1)'
-			            ],
-			            borderWidth: 1
-			        }]
-			    },
-			    options: {
-			        scales: {
-			            yAxes: [{
-			                ticks: {
-			                    beginAtZero: true
-			                }
-			            }]
-			        }
-			    }
-			});
-			</script>
-			<script>
-			var ctx = document.getElementById('post_save');
-			var post_save = new Chart(ctx, {
-			    type: 'bar',
-			    data: {
-			        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-			        
-			        datasets: [{
-			            label: '# of Votes',
-			            data: [12, 19, 3, 5, 2, 3],
-			            backgroundColor: [
-			                'rgba(255, 99, 132, 0.2)',
-			                'rgba(54, 162, 235, 0.2)',
-			                'rgba(255, 206, 86, 0.2)',
-			                'rgba(75, 192, 192, 0.2)',
-			                'rgba(153, 102, 255, 0.2)',
-			                'rgba(255, 159, 64, 0.2)'
-			        
-					
-			            ],
-			            borderColor: [
-			                'rgba(255, 99, 132, 1)',
-			                'rgba(54, 162, 235, 1)',
-			                'rgba(255, 206, 86, 1)',
-			                'rgba(75, 192, 192, 1)',
-			                'rgba(153, 102, 255, 1)',
-			                'rgba(255, 159, 64, 1)'
-			            ],
-			            borderWidth: 1
-			        }]
-			    },
-			    options: {
-			        scales: {
-			            yAxes: [{
-			                ticks: {
-			                    beginAtZero: true
-			                }
-			            }]
-			        }
-			    }
-			});
-			</script>
-			<script>
-			var ctx = document.getElementById('post_reach');
-			var post_reach = new Chart(ctx, {
-			    type: 'bar',
-			    data: {
-			        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-			        
-			        datasets: [{
-			            label: '# of Votes',
-			            data: [12, 19, 3, 5, 2, 3],
-			            backgroundColor: [
-			                'rgba(255, 99, 132, 0.2)',
-			                'rgba(54, 162, 235, 0.2)',
-			                'rgba(255, 206, 86, 0.2)',
-			                'rgba(75, 192, 192, 0.2)',
-			                'rgba(153, 102, 255, 0.2)',
-			                'rgba(255, 159, 64, 0.2)'
-			        
-					
-			            ],
-			            borderColor: [
-			                'rgba(255, 99, 132, 1)',
-			                'rgba(54, 162, 235, 1)',
-			                'rgba(255, 206, 86, 1)',
-			                'rgba(75, 192, 192, 1)',
-			                'rgba(153, 102, 255, 1)',
-			                'rgba(255, 159, 64, 1)'
-			            ],
-			            borderWidth: 1
-			        }]
-			    },
-			    options: {
-			        scales: {
-			            yAxes: [{
-			                ticks: {
-			                    beginAtZero: true
-			                }
-			            }]
-			        }
-			    }
-			});
-			</script>
 			
 		
 					
