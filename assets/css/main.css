@@ -2384,7 +2384,7 @@
 				border-top: 0;
 			}
 
-/* Button */
+/* scrolly */
 
 	input[type="submit"],
 	input[type="reset"],
@@ -2405,7 +2405,7 @@
 		color: #ffffff;
 		cursor: pointer;
 		display: inline-block;
-		font-family: 'Noto Sans TC', sans-serif;
+		font-family: "Montserrat", sans-serif;
 		height: 3.5em;
 		line-height: 3.5em;
 		padding: 0 3.5em;
@@ -2923,7 +2923,7 @@
 
 	#banner {
 		padding: 14em 0 12em 0;
-		background-image: url(../../../images/banner.jpg);
+		background-image: url(../../images/banner.jpg);
 		background-size: cover;
 		background-position: center top;
 		background-repeat: no-repeat;
@@ -3136,96 +3136,16 @@
 	}
 
 /* Footer */
-/*
+
 	#footer {
 		padding: 6em 0 4em 0;
-		background: #c9c9ff;
+		background: #946CCC;
 		text-align: center;
 		color: #c8e7f0;
 	}
 
 		#footer h2 {
-			color: #ffffff;
-		}
-
-		#footer .icon {
-			color: #ffffff;
-		}
-
-		#footer a {
-			color: #c8e7f0;
-			text-decoration: none;
-		}
-
-		#footer ul li {
-			padding: 0 2em;
-		}
-
-		#footer .copyright {
-			display: inline-block;
-			color: #ffffff;
-			font-size: 0.75em;
-			margin: 0 0 2em 0;
-			padding: 0;
-			text-align: center;
-			border-top: 3px solid rgba(255, 255, 255, 0.25);
-			padding: 2em 10em;
-		}
-
-		@media screen and (max-width: 980px) {
-
-			#footer {
-				padding: 3em 0 1em 0;
-			}
-
-				#footer ul li {
-					display: block;
-					padding: .25em 0;
-				}
-
-		}
-
-		@media screen and (max-width: 736px) {
-
-			#footer .copyright {
-				padding: 2em 5em;
-			}
-
-		}
-
-		@media screen and (max-width: 480px) {
-
-			#footer {
-				padding: 2em 0 0.1em 0;
-			}
-
-				#footer ul li {
-					font-size: .9em;
-				}
-
-					#footer ul li .icon:before {
-						margin-left: -1em;
-					}
-
-				#footer .copyright {
-					padding: 2em 0;
-				}
-
-		}*/
-
-
-		/* Footer */
-		
-
-	#footer {
-		padding: 6em 0 4em 0;
-		background: #ded2ef;
-		text-align: center;
-		color: #c8e7f0;
-	}
-
-		#footer h2 {
-			color: #E283A0;
+			color: #fff;
 		}
 
 		#footer .icon {
@@ -3243,12 +3163,12 @@
 
 		#footer .copyright {
 			display: inline-block;
-			color: #E283A0;
+			color: #a7d9e7;
 			font-size: 0.75em;
 			margin: 0 0 2em 0;
 			padding: 0;
 			text-align: center;
-			border-top: 3px solid rgba(255, 255, 255, 0.25);
+			border-top: 1px solid rgba(255, 255, 255, 0.25);
 			padding: 2em 10em;
 		}
 
