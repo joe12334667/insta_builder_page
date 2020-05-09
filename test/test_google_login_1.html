@@ -4,15 +4,23 @@
         <meta name="google-signin-client_id" content="815491116462-0ooiteovcl08la9u5t4mik8sj9nsepct.apps.googleusercontent.com">
         <script src="https://apis.google.com/js/platform.js" async defer></script>
         <script src="../node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
+        <script src="https://cdnjs.com/libraries/bodymovin" type="text/javascript"></script>
         <link rel="stylesheet" href="../node_modules/sweetalert2/dist/sweetalert2.min.css">
     </head>
     <body>
+        <div style="width:1067px;height:600px" class="lottie" data-animation-path="animation/" data-anim-loop="true" data-name="ninja"><div id = "bm">
+            
+                
+            </div></div>
         <script>
-            Swal.fire(
-                    'The Internet?',
-                    'That thing is still around?',
-                    'question'
-                    )
+var animation = bodymovin.loadAnimation({
+  container: document.getElementById('lottie'), // Required
+  path: 'data.json', // Required
+  renderer: 'svg/canvas/html', // Required
+  loop: true, // Optional
+  autoplay: true, // Optional
+  name: "Hello World", // Name for future reference. Optional.
+})
         </script>
     </body>
 </html>

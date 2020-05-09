@@ -25,6 +25,11 @@ include '../php/FindOrder.php';
         <script src="../node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
         <link rel="stylesheet" href="../node_modules/sweetalert2/dist/sweetalert2.min.css">
         <!--sweetalert2 引用-->
+        <!--js-cookie 引用-->
+        <script src="../node_modules/js-cookie/src/js.cookie.js"></script>
+        <!--js-cookie 引用-->
+        
+        
         <style type="text/css" media="screen">
 
             .align-center input{
@@ -127,7 +132,12 @@ include '../php/FindOrder.php';
                         console.log('Family Name: ' + profile.getFamilyName());
                         console.log("Image URL: " + profile.getImageUrl());
                         console.log("Email: " + profile.getEmail());
-
+                        
+                        Cookies.set('google_email', profile.getName());
+                        Cookies.set('google_Name', profile.getEmail());
+                        Cookies.set('google_image_url', profile.getImageUrl());
+                        
+                        
                         // The ID token you need to pass to your backend:
                         var id_token = googleUser.getAuthResponse().id_token;
                         console.log("ID Token: " + id_token);
