@@ -16,9 +16,17 @@ include '../php/FindOrder.php';
         <link href="https://fonts.googleapis.com/css?family=El+Messiri|Noto+Sans+TC&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="assets/css/main.css" />
         <link href="../images/logo-rainbow.png"  rel="icon">
+        <meta name="google-signin-scope" content="profile email">
+        <meta name="google-signin-client_id" content="815491116462-0ooiteovcl08la9u5t4mik8sj9nsepct.apps.googleusercontent.com">
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
         <style type="text/css" media="screen">
 
             .align-center input{
+                margin: 0 auto;
+                margin-bottom: 15px;
+                width: 400px;
+            }
+            .g-signin2{
                 margin: 0 auto;
                 margin-bottom: 15px;
                 width: 400px;
@@ -55,8 +63,8 @@ include '../php/FindOrder.php';
             findUser($_POST["id"], $_POST["password"]);
         }
         ?>
-        
-        
+
+
         <!-- Header -->
         <header id="header">
 
@@ -82,11 +90,11 @@ include '../php/FindOrder.php';
                         </div>
 
                         <div>
-<!--                            <a href="../analyzed_post/analyzed_post.html" class="button special">登入</a>-->
+                            <!--                            <a href="../analyzed_post/analyzed_post.html" class="button special">登入</a>-->
                             <input type="submit" name="next" class="button special" value="登入">
                         </div>
                         <div>
-                            <a href="#" class="button">以Google帳號登入</a>
+                            <div class="g-signin2" data-onsuccess="onSignIn" data-theme="white"></div>
                         </div>
                         <div>
                             <a href="../sign up/sign-up.html" class="button alt">建立帳號</a>
@@ -103,6 +111,21 @@ include '../php/FindOrder.php';
                 <script src="assets/js/skel.min.js"></script>
                 <script src="assets/js/util.js"></script>
                 <script src="assets/js/main.js"></script>
+                <script>
+                    function onSignIn(googleUser) {
+                        // Useful data for your client-side scripts:
+                        var profile = googleUser.getBasicProfile();
+                        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+                        console.log('Full Name: ' + profile.getName());
+                        console.log('Given Name: ' + profile.getGivenName());
+                        console.log('Family Name: ' + profile.getFamilyName());
+                        console.log("Image URL: " + profile.getImageUrl());
+                        console.log("Email: " + profile.getEmail());
 
+                        // The ID token you need to pass to your backend:
+                        var id_token = googleUser.getAuthResponse().id_token;
+                        console.log("ID Token: " + id_token);
+                    }
+                </script>
                 </body>
                 </html>

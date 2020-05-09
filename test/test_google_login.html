@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+ <meta charset="utf-8" />
+        <meta name="google-signin-client_id" content="815491116462-0ooiteovcl08la9u5t4mik8sj9nsepct.apps.googleusercontent.com">
+    </head>
+    <body>
+        <input type="button" value="Google" onclick="GoogleLogin();">
+        <script async="" defer="" src="https://apis.google.com/js/api.js" onload="this.onload = function () {};HandleGoogleApiLibrary()" onreadystatechange="if (this.readyState === 'complete') this.onload()" gapi_processed="true"></script>
+    </body>
+</html>
+<script>
+    let Google_appId = "815491116462-foq4k6nnhcbcbu7o8q1vs3ppggg50p45.apps.googleusercontent.com";
+
+// Called when Google Javascript API Javascript is loaded
+    function HandleGoogleApiLibrary() {
+        // Load "client" & "auth2" libraries
+        gapi.load('client:auth2', {
+            callback: function () {
+                // Initialize client & auth libraries
+                gapi.client.init({
+                    clientId: Google_appId,
+                    scope: 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/plus.me'
+                }).then(
+                        function (success) {
+                            // Google Libraries are initialized successfully
+                            // You can now make API calls 
+                            console.log("Google Libraries are initialized successfully");
+                        },
+                        function (error) {
+                            // Error occurred
+                            console.log(error);// to find the reason 
+                        }
+                );
+            },
+            onerror: function () {
+                // Failed to load libraries
+                console.log("Failed to load libraries");
+            }
+        });
+    }
+
+
+
+    function GoogleLogin() {
+        // API call for Google login  
+        gapi.auth2.getAuthInstance().signIn().then(
+                function (success) {
+                    // Login API call is successful 
+                    console.log(success);
+                    let Google_ID = success["El"];
+                    //這邊可以寫抓到登入資訊後要做的事，比如將會員資料寫到資料庫之類的
+                    document.write(typeof(Google_ID));
+                },
+                function (error) { alert('2');
+                    // Error occurred
+                    // console.log(error) to find the reason
+                    console.log(error);
+                }
+        );
+
+    }
+    // API call to get user profile information
+    gapi.client.request({path: 'https://www.googleapis.com/plus/v1/people/me'}).then(
+            function (success) {
+                // API call is successful
+                    
+                var user_info = JSON.parse(success.body);
+
+                // user profile information
+                console.log(user_info);
+            },
+            function (error) { alert('2');
+                // Error occurred
+                // console.log(error) to find the reason
+            }
+    );
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
