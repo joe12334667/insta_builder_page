@@ -158,19 +158,20 @@ function FindOrder($id, $name) {
     $db = NULL;
 }
 
-function FindUser ($acc , $password){
+function FindUser ($account , $password){
     $db = DB();
-    $sql = "SELECT * FROM \"員工\" WHERE \"帳號\"='".$acc."' and \"密碼\"='".$password."'";
+    $sql = "select * from user where signup_email = \"".$account."\" and login_pas = \"".$password."\"";
+    
     $result = $db->query($sql);
     $row = $result->fetch(PDO::FETCH_ASSOC);
     if($row>1){
-        $_SESSION["acc"] = $acc;
+        $_SESSION["account"] = $account;
         $_SESSION["password"] = $password;
         
         
         header('Location: ../analyzed_post/analyzed_post.html');
     }else{
-        echo '<script>  swal({
+        echo '<script>  swal.fire({
             text: "查不到資料！  請檢查輸入資料是否正確！",
             icon: "error",
             button: false,
@@ -181,7 +182,7 @@ function FindUser ($acc , $password){
 }
 
 function logInSure(){
-    if($_SESSION["acc"] == ""){
+    if($_SESSION["account"] == ""){
         // echo '<script>  swal({
         //     text: "未登入或登入逾時！  兩秒後跳轉至登入畫面!",
         //     icon: "error",

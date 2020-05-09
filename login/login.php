@@ -16,9 +16,15 @@ include '../php/FindOrder.php';
         <link href="https://fonts.googleapis.com/css?family=El+Messiri|Noto+Sans+TC&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="assets/css/main.css" />
         <link href="../images/logo-rainbow.png"  rel="icon">
+        <!--google login 引用-->
         <meta name="google-signin-scope" content="profile email">
         <meta name="google-signin-client_id" content="815491116462-0ooiteovcl08la9u5t4mik8sj9nsepct.apps.googleusercontent.com">
         <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <!--google login 引用-->
+        <!--sweetalert2 引用-->
+        <script src="../node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
+        <link rel="stylesheet" href="../node_modules/sweetalert2/dist/sweetalert2.min.css">
+        <!--sweetalert2 引用-->
         <style type="text/css" media="screen">
 
             .align-center input{
@@ -47,7 +53,7 @@ include '../php/FindOrder.php';
         <?php
         if (isset($_SESSION["unLog"])) {
             if ($_SESSION["unLog"]) {
-                echo '<script>  swal({
+                echo '<script>  swal.fire({
                 text: "未登入或登入逾時！",
                 icon: "error",
                 button: false,
@@ -60,7 +66,7 @@ include '../php/FindOrder.php';
 
 
         if (isset($_POST["next"])) {
-            findUser($_POST["id"], $_POST["password"]);
+            findUser($_POST["account"], $_POST["password"]);
         }
         ?>
 
