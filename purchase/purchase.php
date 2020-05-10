@@ -87,7 +87,7 @@
 				</nav>
 				<a href="../index.html" class="logo">insta builder</a>
 				<nav class="right">
-					<a href="#" class="button alt">Hi!</a>
+					<input type="submit" name="logout" class="button alt" value="登出">
 				</nav>
 			</header>
 
