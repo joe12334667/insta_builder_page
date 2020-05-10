@@ -631,14 +631,14 @@
 					<li><a href="../index/index.html">Home</a></li>
 					<!--<li><a href="#"> Search</a></li>-->
 					<!--<li><a href="#banner"> Analyze</a></li>-->
-					<li><a href="../analyzed_post/analyzed_post.html"> 貼文分析</a></li>
-					<li><a href="../analyzed_hashtag/analyzed_hashtag.html"> 標籤分析</a></li>
-					<li><a href="../analyzed_time/analyzed_time.html"> 時間分析</a></li>
-					<li><a href="../analyzed_difference/analyzed_difference.html"> 差異分析</a></li>
-					<li><a href="../analyzed_follow/analyzed_follow.html"> 追蹤分析</a></li>
-					<li><a href="../analyzed_top9/analyzed_top9.html"> TOP 9 貼文</a></li>
-					<li><a href="../purchase/purchase.html"> 服務升級</a></li>
-					<li><a href="../auto_post/auto_post.html"> 自動發文</a></li>
+					<li><a href="../analyzed_post/analyzed_post.php"> 貼文分析</a></li>
+					<li><a href="../analyzed_hashtag/analyzed_hashtag.php"> 標籤分析</a></li>
+					<li><a href="../analyzed_time/analyzed_time.php"> 時間分析</a></li>
+					<li><a href="../analyzed_difference/analyzed_difference.php"> 差異分析</a></li>
+					<li><a href="../analyzed_follow/analyzed_follow.php"> 追蹤分析</a></li>
+					<li><a href="../analyzed_top9/analyzed_top9.php"> TOP 9 貼文</a></li>
+					<li><a href="../purchase/purchase.php"> 服務升級</a></li>
+					<li><a href="../auto_post/auto_post.php"> 自動發文</a></li>
 				</ul>
 				<ul class="actions vertical">
 					<li><a href="#" class="button fit">Log out</a></li>

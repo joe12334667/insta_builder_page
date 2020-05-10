@@ -57,13 +57,13 @@
 						</div>
 						
 						<div>
-							<a href="../login/login.html" class="button special">確認</a>
+							<a href="../login/login.php" class="button special">確認</a>
 						</div>
 						<div>
 							<a href="#" class="button">以Google帳號登入</a>
 						</div>
 						<div>
-						<a href="../login/login.html" class="button alt">已經有帳號 ? 登入</a>
+						<a href="../login/login.php" class="button alt">已經有帳號 ? 登入</a>
 						</div>
 					</header>
 

@@ -111,7 +111,7 @@ include '../php/FindOrder.php';
                             <div class="g-signin2" data-onsuccess="onSignIn" data-theme="white"></div>
                         </div>
                         <div>
-                            <a href="../sign up/sign-up.html" class="button alt">建立帳號</a>
+                            <a href="../sign up/sign-up.php" class="button alt">建立帳號</a>
                         </div>
                     </form>
 
