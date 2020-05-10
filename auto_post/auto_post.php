@@ -2,11 +2,11 @@
 <!--
 	Intensify by TEMPLATED
 	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/slicense)
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 -->
 <html>
 	<head>
-		<title>Analyzed_difference</title>
+		<title>auto_post</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link href="https://fonts.googleapis.com/css?family=El+Messiri|Noto+Sans+TC&display=swap" rel="stylesheet">
@@ -607,6 +607,45 @@
 						}
 
 					}
+					
+					#one .inner textarea{
+						margin-bottom: 20px;
+					}
+					#one .inner select {
+						margin-bottom: 20px;	
+					}
+					
+					.choose_hashtag{
+						width: auto;
+						float: left;
+					}
+					.hashtags{
+						height: auto;
+						margin-top:30px;
+						margin-bottom: 30px;
+					}
+					.post_chech{
+						width: 400px;
+						position: relative;
+						margin-left: auto;
+						margin-right: auto;
+					}
+					.post_chech .box img{
+						width: 100%;
+						height: 100%;
+						border-radius: 0;						
+					}
+					.post_chech .box p {
+						padding-left: 20px;		
+						padding-right: 20px;			
+					}
+					.post_chech .box {
+						margin: 20px;					
+					}
+					
+					.hashtag_p{
+						padding-bottom: 20px;
+					}
 
 		</style>
 	</head>
@@ -635,6 +674,7 @@
 					<li><a href="../analyzed_difference/analyzed_difference.html"> 差異分析</a></li>
 					<li><a href="../analyzed_follow/analyzed_follow.html"> 追蹤分析</a></li>
 					<li><a href="../analyzed_top9/analyzed_top9.html"> TOP 9 貼文</a></li>
+					<li><a href="#"> 自動發文</a></li>
 					<li><a href="../purchase/purchase.html"> 服務升級</a></li>
 					<li><a href="../auto_post/auto_post.html"> 自動發文</a></li>
 				</ul>
@@ -643,95 +683,281 @@
 				</ul>
 			</nav>
 
-		<!-- One -->
+
+			<!-- One -->
 			<section id="one" class="wrapper">			
 				<div class="inner">	
-				</span><h1>差異分析</h1>										
+				<h1>自動發文</h1>										
 					<div>							
 						<div class="box">		
 							<div class="content">
 								<header class="align-center">
-									<p>difference analyzed</p>
-									<h2>最新貼文與其平均之差異</h2>
+									<p>自動發文</p>
+									<h2>貼文內容</h2>
+								</header>
+								<div>			
+									<div class="12u$">
+										<textarea name="message" id="message" placeholder="在此輸入內文" rows="10"></textarea>
+									</div>			
+									<div class="12u$">
+										<ul class="actions">
+											<li><input type="submit" value="選擇圖片" /></li>								
+										</ul>
+									</div>
+								</div>								
+							</div>							
+						</div>							
+					</div>
+				</div>
+				<div class="inner">											
+					<div>							
+						<div class="box">		
+							<div class="content">
+								<header class="align-center">
+									<p>自動貼文</p>
+									<h2>貼文標籤</h2>
 								</header>
 								<div>
-									<canvas id="post_save" width="10" height="5"></canvas>
+									<div class="12u$">
+										<div class="select-wrapper">
+											<select name="category" id="category">
+												<option value="">- 貼文類別 -</option>
+												<option value="1">食</option>
+												<option value="1">衣</option>
+												<option value="1">住</option>
+												<option value="1">行</option>
+												<option value="1">育</option>
+												<option value="1">樂</option>
+											</select>
+										</div>
+									</div>
+									<div class="hashtags">
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="hashtag_1" name="hashtag1" >
+												<label for="hashtag_1">good2eat</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="hashtag_2" name="hashtag2" >
+												<label for="hashtag_2">yummy</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="hashtag_3" name="hashtag3" >
+												<label for="hashtag_3">hashtag3</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="hashtag_4" name="hashtag4" >
+												<label for="hashtag_4">taipeifood</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="hashtag_5" name="hashtag5" >
+												<label for="hashtag_5">hashtag2</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="hashtag_6" name="hashtag6" >
+												<label for="hashtag_6">haveaniceday</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="hashtag_7" name="hashtag7" >
+												<label for="hashtag_7">eat</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="hashtag_8" name="hashtag8" >
+												<label for="hashtag_8">hashtag2</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="hashtag_9" name="hashtag9" >
+												<label for="hashtag_9">hashtag3</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="hashtag_10" name="hashtag10" >
+												<label for="hashtag_10">hashta</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="hashtag_11" name="hashtag11" >
+												<label for="hashtag_11">good2eat</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="hashtag_12" name="hashtag12" >
+												<label for="hashtag_12">yummy</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="hashtag_13" name="hashtag13" >
+												<label for="hashtag_13">hashtag3</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="hashtag_14" name="hashtag14" >
+												<label for="hashtag_14">taipeifood</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="hashtag_15" name="hashtag15" >
+												<label for="hashtag_15">hashtag2</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="hashtag_16" name="hashtag16" >
+												<label for="hashtag_16">haveaniceday</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="hashtag_17" name="hashtag17" >
+												<label for="hashtag_17">eat</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="hashtag_18" name="hashtag18" >
+												<label for="hashtag_18">hashtag2</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="hashtag_19" name="hashtag19" >
+												<label for="hashtag_19">hashtag3</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="hashtag_20" name="hashtag20" >
+												<label for="hashtag_20">hashta</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="hashtag_21" name="hashtag21" >
+												<label for="hashtag_21">good2eat</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="hashtag_22" name="hashtag22" >
+												<label for="hashtag_22">yummy</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="hashtag_23" name="hashtag23" >
+												<label for="hashtag_23">hashtag3</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="hashtag_24" name="hashtag24" >
+												<label for="hashtag_24">taipeifood</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="hashtag_25" name="hashtag25" >
+												<label for="hashtag_25">hashtag2</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="hashtag_26" name="hashtag26" >
+												<label for="hashtag_26">haveaniceday</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="hashtag_27" name="hashtag27" >
+												<label for="hashtag_27">eat</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="hashtag_28" name="hashtag28" >
+												<label for="hashtag_28">hashtag2</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="hashtag_29" name="hashtag29" >
+												<label for="hashtag_29">hashtag3</label>
+											</div>
+										</div>
+										<div class="choose_hashtag">							
+											<div class="4u 12u$(small)">
+												<input type="radio" id="hashtag_30" name="hashtag30" >
+												<label for="hashtag_30">hashta</label>
+											</div>
+										</div>
+									</div>
+									<div class="hashtags">
+										<div class="12u$">
+											<textarea name="message" id="message" placeholder="在此輸入hashtag" rows="10"></textarea>
+										</div>	
+									</div>	
 								</div>
 							</div>							
 						</div>							
 					</div>
 				</div>
-			</section>
-
-			
-		<!-- One
-			<div align="center"><section id="one" class="wrapper style2" >
-
-				<div class="inner">
-					<div class="grid-style">
-					<div>
-						<div class="box">				
+				<div class="inner">															
+					<div>							
+						<div class="box">		
 							<div class="content">
 								<header class="align-center">
-									<p>post analyzed</p>
-									<h2>貼文按讚數分析</h2>
+									<p>自動發文</p>
+									<h2>確認貼文</h2>
 								</header>
-								<div class="chart">
-									<canvas id="season1" class="align_center" ></canvas>
-								</div>
-							</div>								
-						</div>
-					</div>
-					<div>						
-						<div class="box">	
-							<div class="content">
-								<header class="align-center">
-									<p>post analyzed</p>
-									<h2>貼文留言數分析</h2>
-								</header>
-								<div class="chart">
-									<canvas id="season2" class="align_center" ></canvas>
-								</div>
-							</div>								
-						</div>	
-					</div>			
-					<div>						
-						<div class="box">	
-							<div class="content">
-								<header class="align-center">
-									<p>post analyzed</p>
-									<h2>貼文珍藏數分析</h2>
-								</header>
-								<div class="chart">
-									<canvas id="season3" class="align_center" ></canvas>
-								</div>
-							</div>								
-						</div>	
-					</div>	
-					<div>						
-						<div class="box">	
-							<div class="content">
-								<header class="align-center">
-									<p>post analyzed</p>
-									<h2>貼文觸及率分析</h2>
-								</header>
-								<div class="chart">
-									<canvas id="season4" class="align_center" ></canvas>
-								</div>
-							</div>								
-						</div>	
-					</div>				
-						
-
-						
-						
+								<div>			
+									<div class="post_chech">						
+										<div class="box">	
+											<div class="box"><img src="../images/about01.jpg"></div>
+											<p>
+											   哈代說過，人在意志力和鬥爭性方面的長處或短處，往往是導致他們成功或失敗的重要原因之一。 這影響了我的價值觀。 這種事實對本人來說意義重大，相信對這個世界也是有一定意義的。 每個人都不得不面對這些問題。 在面對這種問題時，務必詳細考慮IG的各種可能。
+											</p>	
+											<p class="hashtag_p">
+												#hashtag1 #hashtag1 #hashtag1 #hashtag1 #hashtag1
+											</p>
+										</div>										
+											<ul class="actions">
+												<li><input type="submit" value="確認發文" /></li>								
+											</ul>
+									</div>
+								</div>								
+							</div>							
+						</div>							
 					</div>
 				</div>
+
 			</section>
 
-		 -->
+	
 
 		<!-- Footer -->
+			
 			<footer id="footer">
 				<div class="container">
 					<h2>聯絡我們</h2>
@@ -752,33 +978,6 @@
 			<script src="assets/js/jquery.scrolly.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<script src="../node_modules/chart.js/dist/Chart.js"></script>
-			<script>
-		var ctx = document.getElementById('post_save');
-			
-		var post_save = new Chart(ctx, {
-		    type: 'radar',
-		    data: {
-		    	labels:['March', 'April', 'May', 'June', 'July'],
-		    	datasets: [{
-		    		label:'testone',
-		    		backgroundColor:'rgba(255, 99, 132, 0.2)',
-		    		borderColor:'rgba(255, 99, 132, 1)',
-		    		data: [ 39, 21, 40, 34, 50],
-		    		fill: true,
-		    	}]
-		    	
-		    },
-		    options: {
-		    	
-		    	
-		    }
-		});
-			</script>
-			
-
-	
-					
+			<script src="assets/js/main.js"></script>		
 	</body>
 </html>

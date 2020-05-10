@@ -2,11 +2,11 @@
 <!--
 	Intensify by TEMPLATED
 	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/slicense)
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 -->
 <html>
 	<head>
-		<title>Analyzed_difference</title>
+		<title>Analyzed_top9</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link href="https://fonts.googleapis.com/css?family=El+Messiri|Noto+Sans+TC&display=swap" rel="stylesheet">
@@ -643,93 +643,100 @@
 				</ul>
 			</nav>
 
-		<!-- One -->
-			<section id="one" class="wrapper">			
-				<div class="inner">	
-				</span><h1>差異分析</h1>										
-					<div>							
-						<div class="box">		
-							<div class="content">
-								<header class="align-center">
-									<p>difference analyzed</p>
-									<h2>最新貼文與其平均之差異</h2>
-								</header>
-								<div>
-									<canvas id="post_save" width="10" height="5"></canvas>
-								</div>
-							</div>							
-						</div>							
-					</div>
-				</div>
-			</section>
-
-			
-		<!-- One
-			<div align="center"><section id="one" class="wrapper style2" >
-
+	<!-- Three -->
+			<section id="three" class="wrapper">
 				<div class="inner">
-					<div class="grid-style">
-					<div>
-						<div class="box">				
-							<div class="content">
-								<header class="align-center">
-									<p>post analyzed</p>
-									<h2>貼文按讚數分析</h2>
-								</header>
-								<div class="chart">
-									<canvas id="season1" class="align_center" ></canvas>
-								</div>
-							</div>								
+					<h1>Top 9 Post</h1>
+				</div>
+				<div class="inner flex flex-3">
+					<div class="flex-item box">
+						<div class="image fit">
+							<img src="../images/pic02.jpg" alt="" />
+						</div>
+						<div class="content">
+							<a href="generic.html"><h3>#hashtag</h3></a>							
+							<p>Placerat ornare. Pellentesque od sed euismod in, pharetra ltricies edarcu cas consequat.</p>
 						</div>
 					</div>
-					<div>						
-						<div class="box">	
-							<div class="content">
-								<header class="align-center">
-									<p>post analyzed</p>
-									<h2>貼文留言數分析</h2>
-								</header>
-								<div class="chart">
-									<canvas id="season2" class="align_center" ></canvas>
-								</div>
-							</div>								
-						</div>	
-					</div>			
-					<div>						
-						<div class="box">	
-							<div class="content">
-								<header class="align-center">
-									<p>post analyzed</p>
-									<h2>貼文珍藏數分析</h2>
-								</header>
-								<div class="chart">
-									<canvas id="season3" class="align_center" ></canvas>
-								</div>
-							</div>								
-						</div>	
-					</div>	
-					<div>						
-						<div class="box">	
-							<div class="content">
-								<header class="align-center">
-									<p>post analyzed</p>
-									<h2>貼文觸及率分析</h2>
-								</header>
-								<div class="chart">
-									<canvas id="season4" class="align_center" ></canvas>
-								</div>
-							</div>								
-						</div>	
-					</div>				
-						
-
-						
-						
+					<div class="flex-item box">
+						<div class="image fit">
+							<img src="../images/pic03.jpg" alt="" />
+						</div>
+						<div class="content">
+							<a href="generic.html"><h3>#gold</h3></a>							
+							<p>Morbi in sem quis dui placerat Pellentesque odio nisi, euismod pharetra lorem ipsum.</p>
+						</div>
+					</div>
+					<div class="flex-item box">
+						<div class="image fit">
+							<img src="../images/pic04.jpg" alt="" />
+						</div>
+						<div class="content">
+							<a href="generic.html"><h3>#love #happy</h3></a>
+							<p>Nam dui mi, tincidunt quis, accu an porttitor, facilisis luctus que metus vulputate sem magna.</p>
+						</div>
+					</div>
+				</div>
+				<div class="inner flex flex-3">
+					<div class="flex-item box">
+						<div class="image fit">
+							<img src="../images/pic02.jpg" alt="" />
+						</div>
+						<div class="content">
+							<a href="generic.html"><h3>#hashtag</h3></a>							
+							<p>Placerat ornare. Pellentesque od sed euismod in, pharetra ltricies edarcu cas consequat.</p>
+						</div>
+					</div>
+					<div class="flex-item box">
+						<div class="image fit">
+							<img src="../images/pic03.jpg" alt="" />
+						</div>
+						<div class="content">
+							<a href="generic.html"><h3>#gold</h3></a>							
+							<p>Morbi in sem quis dui placerat Pellentesque odio nisi, euismod pharetra lorem ipsum.</p>
+						</div>
+					</div>
+					<div class="flex-item box">
+						<div class="image fit">
+							<img src="../images/pic04.jpg" alt="" />
+						</div>
+						<div class="content">
+							<a href="generic.html"><h3>#love #happy</h3></a>
+							<p>Nam dui mi, tincidunt quis, accu an porttitor, facilisis luctus que metus vulputate sem magna.</p>
+						</div>
+					</div>
+				</div>
+				<div class="inner flex flex-3">
+					<div class="flex-item box">
+						<div class="image fit">
+							<img src="../images/pic02.jpg" alt="" />
+						</div>
+						<div class="content">
+							<a href="generic.html"><h3>#hashtag</h3></a>							
+							<p>Placerat ornare. Pellentesque od sed euismod in, pharetra ltricies edarcu cas consequat.</p>
+						</div>
+					</div>
+					<div class="flex-item box">
+						<div class="image fit">
+							<img src="../images/pic03.jpg" alt="" />
+						</div>
+						<div class="content">
+							<a href="generic.html"><h3>#gold#hashtag</h3></a>							
+							<p>Morbi in sem quis dui placerat Pellentesque odio nisi, euismod pharetra lorem ipsum.</p>
+						</div>
+					</div>
+					<div class="flex-item box">
+						<div class="image fit">
+							<img src="../images/pic04.jpg" alt="" />
+						</div>
+						<div class="content">
+							<a href="generic.html"><h3>#love #happy</h3></a>
+							<p>Nam dui mi, tincidunt quis, accu an porttitor, facilisis luctus que metus vulputate sem magna.</p>
+						</div>
 					</div>
 				</div>
 			</section>
 
-		 -->
 
 		<!-- Footer -->
 			<footer id="footer">
@@ -753,32 +760,280 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-			<script src="../node_modules/chart.js/dist/Chart.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
 			<script>
-		var ctx = document.getElementById('post_save');
-			
-		var post_save = new Chart(ctx, {
-		    type: 'radar',
-		    data: {
-		    	labels:['March', 'April', 'May', 'June', 'July'],
-		    	datasets: [{
-		    		label:'testone',
-		    		backgroundColor:'rgba(255, 99, 132, 0.2)',
-		    		borderColor:'rgba(255, 99, 132, 1)',
-		    		data: [ 39, 21, 40, 34, 50],
-		    		fill: true,
-		    	}]
-		    	
-		    },
-		    options: {
-		    	
-		    	
-		    }
-		});
-			</script>
-			
 
-	
+						var seasonData = {
+
+						labels: ['post1', 'post2', 'post3', 'post4'],//數據的橫軸座標
+
+						datasets: [{
+
+						fillColor: 'rgba(0,0,0,0)',
+
+						strokeColor: 'rgba(140,40,225,1)',//第一組數據的線顏色
+
+						pointColor: 'rgba(140,40,225,1)',//點的顏色
+
+						data: [11,37,10,3]//第一組數據的值
+
+						}, {
+
+						fillColor: 'rgba(0,0,0,0)',
+
+						strokeColor: 'rgba(255,100,180,1)',//同上
+
+						pointColor: 'rgba(255,100,180,1)',
+
+						data: [9,29,15,1]//第二組數據的值
+
+						}]
+
+						}
+
+					</script>
+					<script>
+
+					//用ID取畫布元素
+
+					var canvas = document.getElementById('season').getContext('2d');
+
+					//繪出圖形
+
+					var lineDemo = new Chart(canvas).Line(seasonData, {
+
+					responsive: true,//設置是否是響應式的
+
+					pointDotRadius: 10,
+
+					bezierCurve: false,
+
+					scaleShowVerticalLines: false,
+
+					scaleGridLineColor: 'gray'
+
+					});
+
+					</script>
+					<script>
+
+						var seasonData = {
+
+						labels: ['post1', 'post2', 'post3', 'post4'],//數據的橫軸座標
+
+						datasets: [{
+
+						fillColor: 'rgba(0,0,0,0)',
+
+						strokeColor: 'rgba(140,40,225,1)',//第一組數據的線顏色
+
+						pointColor: 'rgba(140,40,225,1)',//點的顏色
+
+						data: [11,37,10,3]//第一組數據的值
+
+						}, {
+
+						fillColor: 'rgba(0,0,0,0)',
+
+						strokeColor: 'rgba(255,100,180,1)',//同上
+
+						pointColor: 'rgba(255,100,180,1)',
+
+						data: [9,29,15,1]//第二組數據的值
+
+						}]
+
+						}
+
+					</script>
+					<script>
+
+					//用ID取畫布元素
+
+					var canvas = document.getElementById('season1').getContext('2d');
+
+					//繪出圖形
+
+					var lineDemo = new Chart(canvas).Line(seasonData, {
+
+					responsive: true,//設置是否是響應式的
+
+					pointDotRadius: 10,
+
+					bezierCurve: false,
+
+					scaleShowVerticalLines: false,
+
+					scaleGridLineColor: 'gray'
+
+					});
+
+					</script>
+					<script>
+
+						var seasonData = {
+
+						labels: ['post1', 'post2', 'post3', 'post4'],//數據的橫軸座標
+
+						datasets: [{
+
+						fillColor: 'rgba(0,0,0,0)',
+
+						strokeColor: 'rgba(140,40,225,1)',//第一組數據的線顏色
+
+						pointColor: 'rgba(140,40,225,1)',//點的顏色
+
+						data: [11,37,10,3]//第一組數據的值
+
+						}, {
+
+						fillColor: 'rgba(0,0,0,0)',
+
+						strokeColor: 'rgba(255,100,180,1)',//同上
+
+						pointColor: 'rgba(255,100,180,1)',
+
+						data: [9,29,15,1]//第二組數據的值
+
+						}]
+
+						}
+
+					</script>
+					<script>
+
+					//用ID取畫布元素
+
+					var canvas = document.getElementById('season2').getContext('2d');
+
+					//繪出圖形
+
+					var lineDemo = new Chart(canvas).Line(seasonData, {
+
+					responsive: true,//設置是否是響應式的
+
+					pointDotRadius: 10,
+
+					bezierCurve: false,
+
+					scaleShowVerticalLines: false,
+
+					scaleGridLineColor: 'gray'
+
+					});
+
+					</script>
+					<script>
+
+						var seasonData = {
+
+						labels: ['post1', 'post2', 'post3', 'post4'],//數據的橫軸座標
+
+						datasets: [{
+
+						fillColor: 'rgba(0,0,0,0)',
+
+						strokeColor: 'rgba(140,40,225,1)',//第一組數據的線顏色
+
+						pointColor: 'rgba(140,40,225,1)',//點的顏色
+
+						data: [11,37,10,3]//第一組數據的值
+
+						}, {
+
+						fillColor: 'rgba(0,0,0,0)',
+
+						strokeColor: 'rgba(255,100,180,1)',//同上
+
+						pointColor: 'rgba(255,100,180,1)',
+
+						data: [9,29,15,1]//第二組數據的值
+
+						}]
+
+						}
+
+					</script>
+					<script>
+
+					//用ID取畫布元素
+
+					var canvas = document.getElementById('season3').getContext('2d');
+
+					//繪出圖形
+
+					var lineDemo = new Chart(canvas).Line(seasonData, {
+
+					responsive: true,//設置是否是響應式的
+
+					pointDotRadius: 10,
+
+					bezierCurve: false,
+
+					scaleShowVerticalLines: false,
+
+					scaleGridLineColor: 'gray'
+
+					});
+
+					</script>
+					<script>
+
+						var seasonData = {
+
+						labels: ['post1', 'post2', 'post3', 'post4'],//數據的橫軸座標
+
+						datasets: [{
+
+						fillColor: 'rgba(0,0,0,0)',
+
+						strokeColor: 'rgba(140,40,225,1)',//第一組數據的線顏色
+
+						pointColor: 'rgba(140,40,225,1)',//點的顏色
+
+						data: [11,37,10,3]//第一組數據的值
+
+						}, {
+
+						fillColor: 'rgba(0,0,0,0)',
+
+						strokeColor: 'rgba(255,100,180,1)',//同上
+
+						pointColor: 'rgba(255,100,180,1)',
+
+						data: [9,29,15,1]//第二組數據的值
+
+						}]
+
+						}
+
+					</script>
+					<script>
+
+					//用ID取畫布元素
+
+					var canvas = document.getElementById('season4').getContext('2d');
+
+					//繪出圖形
+
+					var lineDemo = new Chart(canvas).Line(seasonData, {
+
+					responsive: true,//設置是否是響應式的
+
+					pointDotRadius: 10,
+
+					bezierCurve: false,
+
+					scaleShowVerticalLines: false,
+
+					scaleGridLineColor: 'gray'
+
+					});
+
+					</script>
+					
+					
+		
 					
 	</body>
 </html>

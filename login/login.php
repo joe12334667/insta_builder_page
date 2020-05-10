@@ -52,6 +52,9 @@ include '../php/FindOrder.php';
                 margin-left: 300px;
                 margin-bottom: 150px;
             }
+           
+           
+             
         </style>
     </head>
     <body class="subpage">
@@ -101,7 +104,7 @@ include '../php/FindOrder.php';
                         </div>
 
                         <div>
-                            <!--                            <a href="../analyzed_post/analyzed_post.html" class="button special">登入</a>-->
+                            <!--<a href="../analyzed_post/analyzed_post.html" class="button special">登入</a>-->
                             <input type="submit" name="next" class="button special" value="登入">
                         </div>
                         <div>

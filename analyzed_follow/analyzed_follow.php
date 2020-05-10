@@ -2,18 +2,20 @@
 <!--
 	Intensify by TEMPLATED
 	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/slicense)
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 -->
 <html>
 	<head>
-		<title>Analyzed_difference</title>
+		<title>Analyzed_follow</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link href="https://fonts.googleapis.com/css?family=El+Messiri|Noto+Sans+TC&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link href="../images/logo-rainbow.png"  rel="icon">
 		<style type="text/css" media="screen">
-			
+			.follower_table td{
+				text-align: center;
+			}
 			.chart_small{
 				height: 200px;
 				width: 300px;
@@ -643,93 +645,88 @@
 				</ul>
 			</nav>
 
+		
 		<!-- One -->
 			<section id="one" class="wrapper">			
 				<div class="inner">	
-				</span><h1>差異分析</h1>										
+				<h1>追蹤分析</h1>										
 					<div>							
 						<div class="box">		
 							<div class="content">
 								<header class="align-center">
-									<p>difference analyzed</p>
-									<h2>最新貼文與其平均之差異</h2>
+									<p>follower analyzed</p>
+									<h2>追蹤人數</h2>
 								</header>
-								<div>
-									<canvas id="post_save" width="10" height="5"></canvas>
+
+								<div>									
+								<canvas id="follower" width="10" height="5"></canvas>
 								</div>
 							</div>							
 						</div>							
 					</div>
 				</div>
+				<div class="inner">	
+					<div>							
+						<div class="box">		
+							<div class="content">
+								<header class="align-center">
+									<p>follower analyzed</p>									
+								</header>
+									<table class="follower_table">
+										<tbody>
+											<tr>
+												<td> 日期時間 </td>
+												<td> 粉絲增加 </td>
+												<td> 粉絲減少 </td>
+												<td> 當日是否有發布貼文 </td>
+											</tr>
+											<tr>
+												<td> 2020/05/01</td>
+												<td> +3</td>
+												<td> -1</td>
+												<td> NO</td>
+											</tr>
+											<tr>
+												<td> 2020/05/01</td>
+												<td> +2</td>
+												<td> -1</td>
+												<td> YES</td>
+											</tr>
+											<tr>
+												<td> 2020/05/01</td>
+												<td> +1</td>
+												<td> -1</td>
+												<td> NO</td>
+											</tr>
+											<tr>
+												<td> 2020/05/01</td>
+												<td> +3</td>
+												<td> -1</td>
+												<td> YES</td>
+											</tr>
+											<tr>
+												<td> 2020/05/01</td>
+												<td> +8</td>
+												<td> -0</td>
+												<td> YES</td>
+											</tr>
+											<tr>
+												<td> 2020/05/01</td>
+												<td> +0</td>
+												<td> -2</td>
+												<td> NO</td>
+											</tr>
+											
+										</tbody>
+									</table>
+							</div>							
+						</div>							
+					</div>
+				
 			</section>
 
-			
-		<!-- One
-			<div align="center"><section id="one" class="wrapper style2" >
-
-				<div class="inner">
-					<div class="grid-style">
-					<div>
-						<div class="box">				
-							<div class="content">
-								<header class="align-center">
-									<p>post analyzed</p>
-									<h2>貼文按讚數分析</h2>
-								</header>
-								<div class="chart">
-									<canvas id="season1" class="align_center" ></canvas>
-								</div>
-							</div>								
-						</div>
-					</div>
-					<div>						
-						<div class="box">	
-							<div class="content">
-								<header class="align-center">
-									<p>post analyzed</p>
-									<h2>貼文留言數分析</h2>
-								</header>
-								<div class="chart">
-									<canvas id="season2" class="align_center" ></canvas>
-								</div>
-							</div>								
-						</div>	
-					</div>			
-					<div>						
-						<div class="box">	
-							<div class="content">
-								<header class="align-center">
-									<p>post analyzed</p>
-									<h2>貼文珍藏數分析</h2>
-								</header>
-								<div class="chart">
-									<canvas id="season3" class="align_center" ></canvas>
-								</div>
-							</div>								
-						</div>	
-					</div>	
-					<div>						
-						<div class="box">	
-							<div class="content">
-								<header class="align-center">
-									<p>post analyzed</p>
-									<h2>貼文觸及率分析</h2>
-								</header>
-								<div class="chart">
-									<canvas id="season4" class="align_center" ></canvas>
-								</div>
-							</div>								
-						</div>	
-					</div>				
-						
-
-						
-						
-					</div>
-				</div>
-			</section>
-
-		 -->
+	
+		
 
 		<!-- Footer -->
 			<footer id="footer">
@@ -754,31 +751,46 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script src="../node_modules/chart.js/dist/Chart.js"></script>
+
 			<script>
-		var ctx = document.getElementById('post_save');
-			
-		var post_save = new Chart(ctx, {
-		    type: 'radar',
-		    data: {
-		    	labels:['March', 'April', 'May', 'June', 'July'],
-		    	datasets: [{
-		    		label:'testone',
-		    		backgroundColor:'rgba(255, 99, 132, 0.2)',
-		    		borderColor:'rgba(255, 99, 132, 1)',
-		    		data: [ 39, 21, 40, 34, 50],
-		    		fill: true,
-		    	}]
-		    	
-		    },
-		    options: {
-		    	
-		    	
-		    }
-		});
+				var ctx = document.getElementById('follower');
+					
+				var follower = new Chart(ctx, {
+				    type: 'line',
+				    data: {
+				    	labels:['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+				    	datasets: [{
+				    		label:'testone',
+				    		backgroundColor:'rgba(255, 99, 132, 0.2)',
+				    		borderColor:'rgba(255, 99, 132, 1)',
+				    		data: [10, 30, 39, 20, 25, 34, 10],
+				    		fill: false,
+				    		lineTension: 0
+				    	}]
+				    	
+				    },
+				    options: {
+				    	responsive: true,
+				    	title:{
+				    		display: true,
+				    	},
+				    	scales:{
+				    		yAxes: [{
+				    			
+			                    ticks: {
+			                        min: 0,
+			                        max: 100,
+			                        stepSize: 10
+			                    }
+				    		}]
+				    	}
+				    }
+				});
 			</script>
 			
-
-	
+					
+					
+		
 					
 	</body>
 </html>

@@ -2,18 +2,33 @@
 <!--
 	Intensify by TEMPLATED
 	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/slicense)
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 -->
 <html>
 	<head>
-		<title>Analyzed_difference</title>
+		<title>Analyzed_hashtag</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link href="https://fonts.googleapis.com/css?family=El+Messiri|Noto+Sans+TC&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link href="../images/logo-rainbow.png"  rel="icon">
 		<style type="text/css" media="screen">
-			
+			.inner tr{
+				color: #000000;
+			}
+			.td_hashtag{
+				text-align: center;
+			}
+			.ta_hashtag_1{
+				background-color: #F2ADCA;
+
+			}
+			.ta_hashtag_2{
+				background-color: #F5C0D6;
+			}
+			.ta_hashtag_3{
+				background-color: #F5D5E2;
+			}
 			.chart_small{
 				height: 200px;
 				width: 300px;
@@ -643,93 +658,322 @@
 				</ul>
 			</nav>
 
+		
 		<!-- One -->
 			<section id="one" class="wrapper">			
 				<div class="inner">	
-				</span><h1>差異分析</h1>										
+				<h1>標籤分析</h1>										
 					<div>							
 						<div class="box">		
 							<div class="content">
 								<header class="align-center">
-									<p>difference analyzed</p>
-									<h2>最新貼文與其平均之差異</h2>
+									<p>hashtag</p>
+									<h2>用戶最常使用標籤 (top 30)</h2>
 								</header>
-								<div>
-									<canvas id="post_save" width="10" height="5"></canvas>
+
+								<div class="inner flex flex-3">
+									<div class="flex-item box">
+										<table class="ta_hashtag_1" >
+											<tbody>
+												<tr>
+													<td class="td_hashtag">夏天吃冰</td>
+													<td>70次 </td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">ice</td>
+													<td> 65次</td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">食 </td>
+													<td>62次 </td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">food</td>
+													<td>60次 </td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">好吃</td>
+													<td>58次 </td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">台北美食 </td>
+													<td> 55次</td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">yummy </td>
+													<td>54次 </td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">enjoyfood</td>
+													<td> 51次</td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">漢堡 </td>
+													<td> 50次</td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">網美餐廳</td>
+													<td> 50次</td>
+												</tr>
+											</tbody>
+										</table>
+										
+									</div>
+									<div class="flex-item box">
+										<table class="ta_hashtag_2">
+											<tbody>
+												<tr>
+													<td class="td_hashtag">夏天吃冰</td>
+													<td>70次 </td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">ice</td>
+													<td> 65次</td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">食 </td>
+													<td>62次 </td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">food</td>
+													<td>60次 </td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">好吃</td>
+													<td>58次 </td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">台北美食 </td>
+													<td> 55次</td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">yummy </td>
+													<td>54次 </td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">enjoyfood</td>
+													<td> 51次</td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">漢堡 </td>
+													<td> 50次</td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">網美餐廳</td>
+													<td> 50次</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<div class="flex-item box">
+										<table class="ta_hashtag_3">
+											<tbody>
+												<tr>
+													<td class="td_hashtag">夏天吃冰</td>
+													<td>70次 </td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">ice</td>
+													<td> 65次</td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">食 </td>
+													<td>62次 </td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">food</td>
+													<td>60次 </td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">好吃</td>
+													<td>58次 </td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">台北美食 </td>
+													<td> 55次</td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">yummy </td>
+													<td>54次 </td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">enjoyfood</td>
+													<td> 51次</td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">漢堡 </td>
+													<td> 50次</td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">網美餐廳</td>
+													<td> 50次</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>									
+								</div>
+							</div>							
+						</div>							
+					</div>
+					<div>							
+						<div class="box">		
+							<div class="content">
+								<header class="align-center">
+									<p>hashtag</p>
+									<h2>分類-最常使用標籤 (top 30)</h2>
+								</header>
+
+								<div class="inner flex flex-3">
+									<div class="flex-item box">
+										<table class="ta_hashtag_1" >											
+												<tr>
+													<td class="td_hashtag">夏天吃冰</td>
+													<td>70次 </td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">ice</td>
+													<td> 65次</td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">食 </td>
+													<td>62次 </td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">food</td>
+													<td>60次 </td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">好吃</td>
+													<td>58次 </td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">台北美食 </td>
+													<td> 55次</td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">yummy </td>
+													<td>54次 </td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">enjoyfood</td>
+													<td> 51次</td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">漢堡 </td>
+													<td> 50次</td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">網美餐廳</td>
+													<td> 50次</td>
+												</tr>
+											</tbody>
+										</table>
+										
+									</div>
+									<div class="flex-item box">
+										<table class="ta_hashtag_2">
+											<tbody>
+												<tr>
+													<td class="td_hashtag">夏天吃冰</td>
+													<td>70次 </td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">ice</td>
+													<td> 65次</td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">食 </td>
+													<td>62次 </td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">food</td>
+													<td>60次 </td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">好吃</td>
+													<td>58次 </td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">台北美食 </td>
+													<td> 55次</td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">yummy </td>
+													<td>54次 </td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">enjoyfood</td>
+													<td> 51次</td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">漢堡 </td>
+													<td> 50次</td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">網美餐廳</td>
+													<td> 50次</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<div class="flex-item box">
+										<table class="ta_hashtag_3">
+											<tbody>
+												<tr>
+													<td class="td_hashtag">夏天吃冰</td>
+													<td>70次 </td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">ice</td>
+													<td> 65次</td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">食 </td>
+													<td>62次 </td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">food</td>
+													<td>60次 </td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">好吃</td>
+													<td>58次 </td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">台北美食 </td>
+													<td> 55次</td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">yummy </td>
+													<td>54次 </td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">enjoyfood</td>
+													<td> 51次</td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">漢堡 </td>
+													<td> 50次</td>
+												</tr>
+												<tr>
+													<td class="td_hashtag">網美餐廳</td>
+													<td> 50次</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+																	
 								</div>
 							</div>							
 						</div>							
 					</div>
 				</div>
 			</section>
-
 			
-		<!-- One
-			<div align="center"><section id="one" class="wrapper style2" >
-
-				<div class="inner">
-					<div class="grid-style">
-					<div>
-						<div class="box">				
-							<div class="content">
-								<header class="align-center">
-									<p>post analyzed</p>
-									<h2>貼文按讚數分析</h2>
-								</header>
-								<div class="chart">
-									<canvas id="season1" class="align_center" ></canvas>
-								</div>
-							</div>								
-						</div>
-					</div>
-					<div>						
-						<div class="box">	
-							<div class="content">
-								<header class="align-center">
-									<p>post analyzed</p>
-									<h2>貼文留言數分析</h2>
-								</header>
-								<div class="chart">
-									<canvas id="season2" class="align_center" ></canvas>
-								</div>
-							</div>								
-						</div>	
-					</div>			
-					<div>						
-						<div class="box">	
-							<div class="content">
-								<header class="align-center">
-									<p>post analyzed</p>
-									<h2>貼文珍藏數分析</h2>
-								</header>
-								<div class="chart">
-									<canvas id="season3" class="align_center" ></canvas>
-								</div>
-							</div>								
-						</div>	
-					</div>	
-					<div>						
-						<div class="box">	
-							<div class="content">
-								<header class="align-center">
-									<p>post analyzed</p>
-									<h2>貼文觸及率分析</h2>
-								</header>
-								<div class="chart">
-									<canvas id="season4" class="align_center" ></canvas>
-								</div>
-							</div>								
-						</div>	
-					</div>				
-						
-
-						
-						
-					</div>
-				</div>
-			</section>
-
-		 -->
+			
+			
+		
+		
 
 		<!-- Footer -->
 			<footer id="footer">
@@ -753,32 +997,10 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-			<script src="../node_modules/chart.js/dist/Chart.js"></script>
-			<script>
-		var ctx = document.getElementById('post_save');
 			
-		var post_save = new Chart(ctx, {
-		    type: 'radar',
-		    data: {
-		    	labels:['March', 'April', 'May', 'June', 'July'],
-		    	datasets: [{
-		    		label:'testone',
-		    		backgroundColor:'rgba(255, 99, 132, 0.2)',
-		    		borderColor:'rgba(255, 99, 132, 1)',
-		    		data: [ 39, 21, 40, 34, 50],
-		    		fill: true,
-		    	}]
-		    	
-		    },
-		    options: {
-		    	
-		    	
-		    }
-		});
-			</script>
-			
-
-	
+					
+					
+		
 					
 	</body>
 </html>
