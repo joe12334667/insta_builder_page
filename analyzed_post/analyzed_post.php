@@ -4,6 +4,14 @@
 	templated.co @templatedco
 	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 -->
+<?php
+session_start();
+include '../php/FindOrder.php';
+if ($_SESSION["account"] == "") {
+    header('Location: ../login/login.php');
+    $_SESSION["unLog"] = true;
+}
+?>
 <html>
 	<head>
 		<title>Analyzed_post</title>
