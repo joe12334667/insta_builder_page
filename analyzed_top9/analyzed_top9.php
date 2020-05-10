@@ -647,7 +647,7 @@ if ($_SESSION["account"] == "") {
 					<li><a href="../auto_post/auto_post.php"> 自動發文</a></li>
 				</ul>
 				<ul class="actions vertical">
-					<li><a href="#" class="button fit">Log out</a></li>
+					<a href="../php/logOut.php" name="logout" class="button alt">登出</a>
 				</ul>
 			</nav>
 
