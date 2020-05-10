@@ -111,7 +111,9 @@ include '../php/FindOrder.php';
                         </div>
                         <div>
                             <div class="g-signin2" data-onsuccess="onSignIn" data-theme="white"></div>
-                                                        <div class="fb-login-button" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="true" data-use-continue-as="true" data-width="" onclick="FBLogin();"></div>
+
+                            <!--<div class="fb-login-button" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="true" data-use-continue-as="false" data-width="" onclick="FBLogin();"></div>-->
+                            <input type="button" value="Facebook登入" onclick="FBLogin();" />
                         </div>
                         <div>
                             <a href="../sign up/sign-up.php" class="button alt">建立帳號</a>
@@ -130,28 +132,29 @@ include '../php/FindOrder.php';
                 <script src="assets/js/main.js"></script>
                 <script>
 
-                    //google sign in
-                    function onSignIn(googleUser) {
-                        // Useful data for your client-side scripts:
-                        var profile = googleUser.getBasicProfile();
-                        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-                        console.log('Full Name: ' + profile.getName());
-                        console.log('Given Name: ' + profile.getGivenName());
-                        console.log('Family Name: ' + profile.getFamilyName());
-                        console.log("Image URL: " + profile.getImageUrl());
-                        console.log("Email: " + profile.getEmail());
+                                //google sign in
+                                function onSignIn(googleUser) {
+                                    // Useful data for your client-side scripts:
+                                    var profile = googleUser.getBasicProfile();
+                                    console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+                                    console.log('Full Name: ' + profile.getName());
+                                    console.log('Given Name: ' + profile.getGivenName());
+                                    console.log('Family Name: ' + profile.getFamilyName());
+                                    console.log("Image URL: " + profile.getImageUrl());
+                                    console.log("Email: " + profile.getEmail());
+                                    
+                                    Cookies.set('google_id', profile.getId());
+                                    Cookies.set('google_name', profile.getName());
+                                    Cookies.set('google_email', profile.getEmail());
+                                    Cookies.set('google_image_url', profile.getImageUrl());
 
-                        Cookies.set('google_email', profile.getName());
-                        Cookies.set('google_Name', profile.getEmail());
-                        Cookies.set('google_image_url', profile.getImageUrl());
 
+                                    // The ID token you need to pass to your backend:
+                                    var id_token = googleUser.getAuthResponse().id_token;
+                                    console.log("ID Token: " + id_token);
+                                }
 
-                        // The ID token you need to pass to your backend:
-                        var id_token = googleUser.getAuthResponse().id_token;
-                        console.log("ID Token: " + id_token);
-                    }
-
-                    //----------------------------------------------------------
+                                //----------------------------------------------------------
 
                 </script>
                 <script type="text/javascript">
@@ -194,7 +197,9 @@ include '../php/FindOrder.php';
                                 let userID = res["authResponse"]["userID"];
                                 console.log("用戶已授權您的App，用戶須先revoke撤除App後才能再重新授權你的App");
                                 console.log(`已授權App登入FB 的 userID:${userID}`);
+                                alert("132")
                                 GetProfile();
+
                             } else if (res.status === 'not_authorized' || res.status === "unknown") {
                                 //App未授權或用戶登出FB網站才讓用戶執行登入動作
                                 FB.login(function (response) {
@@ -219,7 +224,7 @@ include '../php/FindOrder.php';
 
                     }
                     function GetProfile() {
-                        document.getElementById('content').innerHTML = "";//先清空顯示結果
+
 
                         //FB.api()使用說明：https://developers.facebook.com/docs/javascript/reference/FB.api
                         //取得用戶個資
@@ -228,8 +233,16 @@ include '../php/FindOrder.php';
                             if (user.error) {
                                 console.log(response);
                             } else {
+//
+//                                document.getElementById('content').innerHTML = JSON.stringify(user);
 
-                                document.getElementById('content').innerHTML = JSON.stringify(user);
+//                                let userData = JSON.parse(user);
+                                Cookies.set('fb_id', user["id"]);
+                                Cookies.set('fb_email', user["email"]);
+                                Cookies.set('fb_name', user["name"]);
+
+
+
                             }
                         });
 
