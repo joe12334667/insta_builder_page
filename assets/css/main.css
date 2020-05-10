@@ -3139,21 +3139,21 @@
 
 	#footer {
 		padding: 6em 0 4em 0;
-		background: #946CCC;
+		background: #CCCCFF;
 		text-align: center;
 		color: #c8e7f0;
 	}
 
 		#footer h2 {
-			color: #fff;
+			color: #FFF0F5;
 		}
 
 		#footer .icon {
-			color: #E283A0;
+			color: #FFF0F5;
 		}
 
 		#footer a {
-			color: #c8e7f0;
+			color: #FFF0F5;
 			text-decoration: none;
 		}
 
@@ -3163,7 +3163,7 @@
 
 		#footer .copyright {
 			display: inline-block;
-			color: #a7d9e7;
+			color: #FFF0F5;
 			font-size: 0.75em;
 			margin: 0 0 2em 0;
 			padding: 0;
