@@ -57,7 +57,7 @@
 						</div>
 						
 						<div>
-							<input type="submit" name="next" class="button special" value="確認">							
+							<input type="submit" name="nexttologin" class="button special" value="確認">							
 						</div>
 						<div>
 							<a href="#" class="button">以Google帳號登入</a>
