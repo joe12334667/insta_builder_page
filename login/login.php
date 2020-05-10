@@ -104,7 +104,6 @@ include '../php/FindOrder.php';
                         </div>
 
                         <div>
-                            <!--<a href="../analyzed_post/analyzed_post.html" class="button special">登入</a>-->
                             <input type="submit" name="next" class="button special" value="登入">
                         </div>
                         <div>

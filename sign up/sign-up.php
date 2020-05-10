@@ -57,7 +57,7 @@
 						</div>
 						
 						<div>
-							<a href="../login/login.php" class="button special">確認</a>
+							<input type="submit" name="next" class="button special" value="確認">							
 						</div>
 						<div>
 							<a href="#" class="button">以Google帳號登入</a>
