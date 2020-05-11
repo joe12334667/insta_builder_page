@@ -146,8 +146,7 @@ include '../php/FindOrder.php';
                                     Cookies.set('google_name', profile.getName());
                                     Cookies.set('google_email', profile.getEmail());
                                     Cookies.set('google_image_url', profile.getImageUrl());
-
-
+                                    document.location.href="../php/login_change.php";
                                     // The ID token you need to pass to your backend:
                                     var id_token = googleUser.getAuthResponse().id_token;
                                     console.log("ID Token: " + id_token);
@@ -239,7 +238,7 @@ include '../php/FindOrder.php';
                                 Cookies.set('fb_id', user["id"]);
                                 Cookies.set('fb_email', user["email"]);
                                 Cookies.set('fb_name', user["name"]);
-
+                                document.location.href="../php/login_change.php";
 
 
                             }

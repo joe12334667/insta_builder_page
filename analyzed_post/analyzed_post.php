@@ -627,6 +627,8 @@ if ($_SESSION["account"] == "") {
 				</nav>
 				<a href="../index.html" class="logo">insta builder</a>
 				<nav class="right">
+                                    <p><?php 
+                                    echo$_SESSION["account"] , $_SESSION["name"]; ?></p>
 					<a href="../php/logOut.php" name="logout" class="button alt">登出</a>
 				</nav>
 			</header>

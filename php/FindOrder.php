@@ -166,10 +166,11 @@ function FindUser ($account , $password){
     $row = $result->fetch(PDO::FETCH_ASSOC);
     if($row>1){
         $_SESSION["account"] = $account;
+        $_SESSION["name"] = $account;
         $_SESSION["password"] = $password;
         
         
-        header('Location: ../analyzed_post/analyzed_post.html');
+        header('Location: ../analyzed_post/analyzed_post.php');
     }else{
         echo '<script>  swal.fire({
             text: "查不到資料！  請檢查輸入資料是否正確！",
