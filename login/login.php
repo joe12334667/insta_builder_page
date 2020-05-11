@@ -7,6 +7,11 @@
 <?php
 session_start();
 include '../php/FindOrder.php';
+if (isset($_SESSION["account"])) {
+    if ($_SESSION["account"] != "") {
+        header("Location: ../analyzed_post/analyzed_post.php ");
+    }
+}
 ?>
 <html>
     <head>
@@ -141,12 +146,12 @@ include '../php/FindOrder.php';
                                     console.log('Family Name: ' + profile.getFamilyName());
                                     console.log("Image URL: " + profile.getImageUrl());
                                     console.log("Email: " + profile.getEmail());
-                                    
+
                                     Cookies.set('google_id', profile.getId());
                                     Cookies.set('google_name', profile.getName());
                                     Cookies.set('google_email', profile.getEmail());
                                     Cookies.set('google_image_url', profile.getImageUrl());
-                                    document.location.href="../php/login_change.php";
+                                    document.location.href = "../php/login_change.php";
                                     // The ID token you need to pass to your backend:
                                     var id_token = googleUser.getAuthResponse().id_token;
                                     console.log("ID Token: " + id_token);
@@ -238,7 +243,7 @@ include '../php/FindOrder.php';
                                 Cookies.set('fb_id', user["id"]);
                                 Cookies.set('fb_email', user["email"]);
                                 Cookies.set('fb_name', user["name"]);
-                                document.location.href="../php/login_change.php";
+                                document.location.href = "../php/login_change.php";
 
 
                             }

@@ -12,13 +12,13 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        echo $_COOKIE["google_id"];
-        echo $_COOKIE["google_email"];
-        echo $_COOKIE["google_name"];
-        echo $_COOKIE["google_image_url"];
-        echo $_COOKIE["fb_id"];
-        echo $_COOKIE["fb_email"];
-        echo $_COOKIE["fb_name"];
+        echo"google_id :" , $_COOKIE["google_id"];
+        echo "google_email :" ,  $_COOKIE["google_email"];
+        echo "google_name :" , $_COOKIE["google_name"];
+        echo  "google_image_url :" ,$_COOKIE["google_image_url"];
+        echo "fb_id :" ,  $_COOKIE["fb_id"];
+        echo "fb_email :" ,$_COOKIE["fb_email"];
+        echo "fb_name :" , $_COOKIE["fb_name"];
         
         setcookie("google_id", "", time() - 3600);
         setcookie("google_name", "", time() - 3600);
@@ -29,11 +29,6 @@ and open the template in the editor.
         setcookie("fb_name", "", time() - 3600);
 
         
-        setcookie("123", "123456");
-        echo $_COOKIE["123"];
-//        setcookie("123", "123456" , time() - 3600);
-        echo $_COOKIE["123"];
-//        print_r($_COOKIE);
         ?>
     </body>
 </html>
