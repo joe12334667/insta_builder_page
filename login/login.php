@@ -7,6 +7,7 @@
 <?php
 session_start();
 include '../php/FindOrder.php';
+//如果用戶已登入不會要求再登入一次，而是直接跳頁
 if (isset($_SESSION["account"])) {
     if ($_SESSION["account"] != "") {
         header("Location: ../analyzed_post/analyzed_post.php ");
@@ -64,6 +65,8 @@ if (isset($_SESSION["account"])) {
     </head>
     <body class="subpage">
         <?php
+        //未登入或登入逾時 跳出alert 
+        //由analyed...頁面傳出unlog來判斷
         if (isset($_SESSION["unLog"])) {
             if ($_SESSION["unLog"]) {
                 echo '<script>  swal.fire({
@@ -77,7 +80,7 @@ if (isset($_SESSION["account"])) {
         }
 
 
-
+//      登入確認
         if (isset($_POST["next"])) {
             findUser($_POST["account"], $_POST["password"]);
         }
@@ -147,6 +150,7 @@ if (isset($_SESSION["account"])) {
                                     console.log("Image URL: " + profile.getImageUrl());
                                     console.log("Email: " + profile.getEmail());
 
+                                    //設定COOKIE 讓下一頁PHP吃的到
                                     Cookies.set('google_id', profile.getId());
                                     Cookies.set('google_name', profile.getName());
                                     Cookies.set('google_email', profile.getEmail());
@@ -239,7 +243,7 @@ if (isset($_SESSION["account"])) {
 //
 //                                document.getElementById('content').innerHTML = JSON.stringify(user);
 
-//                                let userData = JSON.parse(user);
+                                //設定COOKIE 讓下一頁PHP吃的到
                                 Cookies.set('fb_id', user["id"]);
                                 Cookies.set('fb_email', user["email"]);
                                 Cookies.set('fb_name', user["name"]);
