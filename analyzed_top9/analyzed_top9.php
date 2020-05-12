@@ -625,7 +625,7 @@ if ($_SESSION["account"] == "") {
 				<nav class="left">
 					<a href="#menu"><span>Menu</span></a>
 				</nav>
-				<a href="../index.html" class="logo">insta builder</a>
+				<a href="../index.html" class="logo">InstaBuilder</a>
 				<nav class="right">
 					<input type="submit" name="logout" class="button alt" value="登出">
 				</nav>

@@ -615,6 +615,84 @@ if ($_SESSION["account"] == "") {
 						}
 
 					}
+					#footer {
+						padding: 6em 0 4em 0;
+						/*background: #c9c9ff;*/
+						background-image: linear-gradient(to right, #E283A0, #946ccc);
+						text-align: center;
+						color: #c8e7f0;
+					}
+
+						#footer h2 {
+							font-size: 25px;
+							font-weight: 300;
+							color: #ffffff;
+						}
+
+						#footer .icon {
+							color: #ffffff;
+						}
+
+						#footer a {
+							color: #c8e7f0;
+							text-decoration: none;
+						}
+
+						#footer ul li {
+							padding: 0 2em;
+						}
+
+						#footer .copyright {
+							display: inline-block;
+							color: #ffffff;
+							font-size: 0.75em;
+							margin: 0 0 2em 0;
+							padding: 0;
+							text-align: center;
+							border-top: 3px solid rgba(255, 255, 255, 0.25);
+							padding: 2em 10em;
+						}
+
+						@media screen and (max-width: 980px) {
+
+							#footer {
+								padding: 3em 0 1em 0;
+							}
+
+								#footer ul li {
+									display: block;
+									padding: .25em 0;
+								}
+
+						}
+
+						@media screen and (max-width: 736px) {
+
+							#footer .copyright {
+								padding: 2em 5em;
+							}
+
+						}
+
+						@media screen and (max-width: 480px) {
+
+							#footer {
+								padding: 2em 0 0.1em 0;
+							}
+
+								#footer ul li {
+									font-size: .9em;
+								}
+
+									#footer ul li .icon:before {
+										margin-left: -1em;
+									}
+
+								#footer .copyright {
+									padding: 2em 0;
+								}
+
+						}
 
 		</style>
 	</head>
@@ -625,7 +703,7 @@ if ($_SESSION["account"] == "") {
 				<nav class="left">
 					<a href="#menu"><span>Menu</span></a>
 				</nav>
-				<a href="../index.html" class="logo">insta builder</a>
+				<a href="../index.html" class="logo">InstaBuilder</a>
 				<nav class="right">
                                     <p><?php 
                                     echo$_SESSION["account"] , $_SESSION["name"]; ?>
@@ -665,8 +743,16 @@ if ($_SESSION["account"] == "") {
 									<p>post analyzed</p>
 									<h2>貼文分析一覽表</h2>
 								</header>
+								<!--
 								<div >									
 								<canvas id="post_all" width="10" height="5"></canvas>
+								</div>
+								<div >									
+								<canvas id="TEST2" width="10" height="5"></canvas>
+								</div>
+							-->
+								<div >									
+								<canvas id="TEST" width="10" height="5"></canvas>
 								</div>
 							</div>							
 						</div>							
@@ -684,10 +770,10 @@ if ($_SESSION["account"] == "") {
 						<div class="box">				
 							<div class="content">
 								<header class="align-center">
-									<p>post analyzed</p>
+									
 									<h2>貼文按讚數分析</h2>
 								</header>
-								<canvas id="post_like" width="10" height="5"></canvas>
+								<canvas id="post_like" width="10" height="9"></canvas>
 							</div>								
 						</div>
 					</div>
@@ -695,10 +781,10 @@ if ($_SESSION["account"] == "") {
 						<div class="box">	
 							<div class="content">
 								<header class="align-center">
-									<p>post analyzed</p>
+									
 									<h2>貼文留言數分析</h2>
 								</header>
-								<canvas id="post_comment" width="10" height="5"></canvas>
+								<canvas id="post_comment" width="10" height="9"></canvas>
 							</div>								
 						</div>	
 					</div>			
@@ -706,10 +792,10 @@ if ($_SESSION["account"] == "") {
 						<div class="box">	
 							<div class="content">
 								<header class="align-center">
-									<p>post analyzed</p>
+									
 									<h2>貼文珍藏數分析</h2>
 								</header>
-								<canvas id="post_save" width="10" height="5"></canvas>
+								<canvas id="post_save" width="10" height="9"></canvas>
 							</div>								
 						</div>	
 					</div>	
@@ -717,10 +803,10 @@ if ($_SESSION["account"] == "") {
 						<div class="box">	
 							<div class="content">
 								<header class="align-center">
-									<p>post analyzed</p>
+									
 									<h2>貼文觸及率分析</h2>
 								</header>
-								<canvas id="post_reach" width="10" height="5"></canvas>
+								<canvas id="post_reach" width="10" height="9"></canvas>
 							</div>								
 						</div>	
 					</div>				
@@ -819,34 +905,109 @@ if ($_SESSION["account"] == "") {
 			});
 		   
 			</script>
+			<!----------------------------------------TEST------------------------------------------->
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+			<script>
+			// y 軸的顯示
+            var yAxis= [];
+            // 資料集合，之後只要更新這個就好了。
+            var datas=[];
+            var ctx = document.getElementById('TEST').getContext('2d');
+            var lineChart = new Chart(ctx, {
+              //Type 改成 Bar
+              type: 'bar',
+              data: {
+                labels:yAxis,
+                datasets: [{
+                  label: '測試資料',
+                  data: datas,
+                  backgroundColor: "#E283A0"
+                }]
+              }
+            });
+
+            //時間格式
+            var timeFormat = 'HH:mm:ss';
+            
+            function appendData()
+            {
+                //超過10 個，就把最早進來的刪掉
+                if(yAxis.length>10){
+                    yAxis.shift();
+                    datas.shift();
+                }
+
+                //推入y 軸新的資料 
+                yAxis.push(new moment().format(timeFormat));
+                
+                //推入一筆亂數進資料 10~100
+                datas.push(Math.floor(Math.random() *100) + 10);
+                
+                //更新線圖
+                lineChart.update();
+            }
+
+            //每半秒做一次
+            setInterval(appendData,1000);
+			</script>
+
+			<!----------------------------------------TEST2------------------------------------------->
+			
+			<script>
+			var ctx = document.getElementById("TEST2").getContext("2d");
+
+			var data = {
+			    labels: ["貼文1", "貼文2", "貼文3"],
+			    datasets: [
+			        {
+			            label: "留言",
+			            backgroundColor: "#c3d6f2",
+			            data: [3,7,4],			            
+			        },
+			        {
+			            label: "珍藏",
+			            backgroundColor: "#789cce",
+			            data: [4,3,5]
+			        },
+			        {
+			            label: "分享",
+			            backgroundColor: "d1eaf5",
+			            data: [7,2,6]
+			        },			        
+			    ]
+			};
+
+			var myBarChart = new Chart(ctx, {
+			    type: 'bar',
+			    data: data,
+			    options: {
+			        barValueSpacing: 20,
+			        scales: {
+			            yAxes: [{
+			                ticks: {
+			                    min: 0,
+			                }
+			            }]
+			        }
+			    }
+
+			});
+			</script>
+
+			
 			<script>
 			var ctx = document.getElementById('post_like');
 			var post_like = new Chart(ctx, {
 			    type: 'bar',
 			    data: {
-			        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+			        labels: ['貼文1', '貼文2', '貼文3', '貼文4', '貼文5', '貼文6','貼文7', '貼文8', '貼文9', '貼文10'],
 			        
 			        datasets: [{
-			            label: '# of Votes',
-			            data: [12, 19, 3, 5, 2, 3],
-			            backgroundColor: [
-			                'rgba(255, 99, 132, 0.2)',
-			                'rgba(54, 162, 235, 0.2)',
-			                'rgba(255, 206, 86, 0.2)',
-			                'rgba(75, 192, 192, 0.2)',
-			                'rgba(153, 102, 255, 0.2)',
-			                'rgba(255, 159, 64, 0.2)'
-			        
-					
-			            ],
-			            borderColor: [
-			                'rgba(255, 99, 132, 1)',
-			                'rgba(54, 162, 235, 1)',
-			                'rgba(255, 206, 86, 1)',
-			                'rgba(75, 192, 192, 1)',
-			                'rgba(153, 102, 255, 1)',
-			                'rgba(255, 159, 64, 1)'
-			            ],
+			            label: '貼文按讚數',
+			            data: [120, 190, 130, 170, 200, 300, 1300, 170, 200, 300],
+			            backgroundColor: 'rgba(148,108,204,0.8)',
+			            borderColor: 'rgba(148,108,204,0.8)',			            
 			            borderWidth: 1
 			        }]
 			    },
@@ -854,10 +1015,12 @@ if ($_SESSION["account"] == "") {
 			        scales: {
 			            yAxes: [{
 			                ticks: {
-			                    beginAtZero: true
+			                    beginAtZero: true,
+			                   
 			                }
 			            }]
 			        }
+			        
 			    }
 			});
 			</script>
@@ -867,29 +1030,13 @@ if ($_SESSION["account"] == "") {
 			var post_comment = new Chart(ctx, {
 			    type: 'bar',
 			    data: {
-			        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+			        labels: ['貼文1', '貼文2', '貼文3', '貼文4', '貼文5', '貼文6','貼文7', '貼文8', '貼文9', '貼文10'],
 			        
 			        datasets: [{
-			            label: '# of Votes',
-			            data: [12, 19, 3, 5, 2, 3],
-			            backgroundColor: [
-			                'rgba(255, 99, 132, 0.2)',
-			                'rgba(54, 162, 235, 0.2)',
-			                'rgba(255, 206, 86, 0.2)',
-			                'rgba(75, 192, 192, 0.2)',
-			                'rgba(153, 102, 255, 0.2)',
-			                'rgba(255, 159, 64, 0.2)'
-			        
-					
-			            ],
-			            borderColor: [
-			                'rgba(255, 99, 132, 1)',
-			                'rgba(54, 162, 235, 1)',
-			                'rgba(255, 206, 86, 1)',
-			                'rgba(75, 192, 192, 1)',
-			                'rgba(153, 102, 255, 1)',
-			                'rgba(255, 159, 64, 1)'
-			            ],
+			            label: '貼文留言數',
+			            data: [12, 10, 10, 17, 20, 0, 13, 1, 20, 15],
+			            backgroundColor: 'rgba(148,108,204,0.8)',
+			            borderColor: 'rgba(148,108,204,0.8)',			            
 			            borderWidth: 1
 			        }]
 			    },
@@ -897,10 +1044,12 @@ if ($_SESSION["account"] == "") {
 			        scales: {
 			            yAxes: [{
 			                ticks: {
-			                    beginAtZero: true
+			                    beginAtZero: true,
+			                   
 			                }
 			            }]
 			        }
+			        
 			    }
 			});
 			</script>
@@ -909,29 +1058,13 @@ if ($_SESSION["account"] == "") {
 			var post_save = new Chart(ctx, {
 			    type: 'bar',
 			    data: {
-			        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+			        labels: ['貼文1', '貼文2', '貼文3', '貼文4', '貼文5', '貼文6','貼文7', '貼文8', '貼文9', '貼文10'],
 			        
 			        datasets: [{
-			            label: '# of Votes',
-			            data: [12, 19, 3, 5, 2, 3],
-			            backgroundColor: [
-			                'rgba(255, 99, 132, 0.2)',
-			                'rgba(54, 162, 235, 0.2)',
-			                'rgba(255, 206, 86, 0.2)',
-			                'rgba(75, 192, 192, 0.2)',
-			                'rgba(153, 102, 255, 0.2)',
-			                'rgba(255, 159, 64, 0.2)'
-			        
-					
-			            ],
-			            borderColor: [
-			                'rgba(255, 99, 132, 1)',
-			                'rgba(54, 162, 235, 1)',
-			                'rgba(255, 206, 86, 1)',
-			                'rgba(75, 192, 192, 1)',
-			                'rgba(153, 102, 255, 1)',
-			                'rgba(255, 159, 64, 1)'
-			            ],
+			            label: '貼文珍藏數',
+			            data: [50, 24, 30, 40, 200, 45, 33, 17, 300, 315],
+			            backgroundColor: 'rgba(148,108,204,0.8)',
+			            borderColor: 'rgba(148,108,204,0.8)',			            
 			            borderWidth: 1
 			        }]
 			    },
@@ -939,10 +1072,12 @@ if ($_SESSION["account"] == "") {
 			        scales: {
 			            yAxes: [{
 			                ticks: {
-			                    beginAtZero: true
+			                    beginAtZero: true,
+			                   
 			                }
 			            }]
 			        }
+			        
 			    }
 			});
 			</script>
@@ -951,29 +1086,13 @@ if ($_SESSION["account"] == "") {
 			var post_reach = new Chart(ctx, {
 			    type: 'bar',
 			    data: {
-			        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+			        labels: ['貼文1', '貼文2', '貼文3', '貼文4', '貼文5', '貼文6','貼文7', '貼文8', '貼文9', '貼文10'],
 			        
 			        datasets: [{
-			            label: '# of Votes',
-			            data: [12, 19, 3, 5, 2, 3],
-			            backgroundColor: [
-			                'rgba(255, 99, 132, 0.2)',
-			                'rgba(54, 162, 235, 0.2)',
-			                'rgba(255, 206, 86, 0.2)',
-			                'rgba(75, 192, 192, 0.2)',
-			                'rgba(153, 102, 255, 0.2)',
-			                'rgba(255, 159, 64, 0.2)'
-			        
-					
-			            ],
-			            borderColor: [
-			                'rgba(255, 99, 132, 1)',
-			                'rgba(54, 162, 235, 1)',
-			                'rgba(255, 206, 86, 1)',
-			                'rgba(75, 192, 192, 1)',
-			                'rgba(153, 102, 255, 1)',
-			                'rgba(255, 159, 64, 1)'
-			            ],
+			            label: '貼文觸及率',
+			            data: [1200, 1900, 1300, 1070, 2000, 1300, 1300, 1070, 2000, 2300],
+			            backgroundColor: 'rgba(148,108,204,0.8)',
+			            borderColor: 'rgba(148,108,204,0.8)',			            
 			            borderWidth: 1
 			        }]
 			    },
@@ -981,10 +1100,12 @@ if ($_SESSION["account"] == "") {
 			        scales: {
 			            yAxes: [{
 			                ticks: {
-			                    beginAtZero: true
+			                    beginAtZero: true,
+			                   
 			                }
 			            }]
 			        }
+			        
 			    }
 			});
 			</script>

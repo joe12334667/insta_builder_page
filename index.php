@@ -6,12 +6,20 @@
 -->
 <html>
 	<head>
-		<title>Intensify by TEMPLATED</title>
+		<title>INDEX</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link href="https://fonts.googleapis.com/css?family=El+Messiri|Noto+Sans+TC&display=swap" rel="stylesheet">
-		<link href="../images/logo-rainbow.png"  rel="icon">
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link href="images/logo-rainbow.png"  rel="icon">
+		<style>
+			.inner h3{
+				text-align: center;
+			}
+			.inner p{
+				text-align: center;
+			}
+		</style>
 	</head>
 	<body>
 
@@ -20,9 +28,9 @@
 				<nav class="left">
 					<a href="#menu"><span>Menu</span></a>
 				</nav>
-				<a href="index.html" class="logo">insta builder</a>
+				<a href="index.html" class="logo">InstaBuilder</a>
 				<nav class="right">
-					<a href="../login/login.php" class="button alt">Log in</a>
+					<a href="login/login.php" class="button alt">Log in</a>
 				</nav>
 			</header>
 
@@ -36,7 +44,7 @@
 					<li><a href="#footer">聯絡我們</a></li>
 				</ul>
 				<ul class="actions vertical">
-					<li><a href="../login/login.html" class="button fit">Login</a></li>
+					<li><a href="login/login.html" class="button fit">Login</a></li>
 				</ul>
 			</nav>
 
@@ -44,7 +52,8 @@
 			<section id="banner">
 				<div class="content">
 					<h1>Insta Builder</h1>
-					<p>To builde a perfact Instagram Account<br />成為Instagram上的明日之星</p>
+					<img src="images/logo-pp-01.png" width="200px">
+					<!--<p>To build a perfact Instagram Account<br />成為Instagram上的明日之星</p>-->
 					<ul class="actions">
 						<li><a href="#one" class="button scrolly">Get Started</a></li>
 					</ul>
@@ -57,24 +66,24 @@
 					<div class="flex-item left">
 						<div>
 							<h3>自動發文</h3>
-							<p>Morbi in sem quis dui plalorem ipsum<br /> euismod in, pharetra sed ultricies.</p>
+							<p>InstaBuilder為您提供自動發文服務<br /> 讓您輕而易舉得到曝光度與知名度</p>
 						</div>
 						<div>
 							<h3>熱門標籤</h3>
-							<p>Tristique yonve cursus jam nulla quam<br /> loreipsu gravida adipiscing lorem</p>
+							<p>想知道當前Instagram熱門Hashtag<br />全都在InstaBuilder</p>
 						</div>
 					</div>
 					<div class="flex-item image fit round">
-						<img src="../images/pic01.jpg" alt="" />
+						<img src="images/pic01.jpg" alt="" />
 					</div>
 					<div class="flex-item right">
 						<div>
 							<h3>洞察報告</h3>
-							<p>Sed adipiscing ornare risus. Morbi estes<br /> blandit sit et amet, sagittis magna.</p>
+							<p>Instagram企業帳號是否成長<br />InstaBuilder「報」給你知</p>
 						</div>
 						<div>
-							<h3>數據分析</h3>
-							<p>Pellentesque egestas sem. Suspendisse<br /> modo ullamcorper feugiat lorem.</p>
+							<h3>自動增粉</h3>
+							<p>無須擔心粉絲不夠多<br />InstaBuilder幫助您自動增粉</p>
 						</div>
 					</div>
 				</div>
@@ -83,14 +92,14 @@
 		<!-- Two -->
 			<section id="two" class="wrapper style1 special">
 				<div class="inner">
-					<h2>About Us</h2>
+					<h2>關於我們</h2>
 					<figure>
 					    <blockquote>
-					        "Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra<br /> magna etiam lorem ultricies in diam. Sed arcu cras consequat."
+					        "我們的團隊成員皆來自於國立臺北商業大學"
 					    </blockquote>
 					    <footer>
 					        <cite class="author">NTUB</cite>
-					        <cite class="company">CEO, Untitled</cite>
+					        <cite class="company">IMD</cite>
 					    </footer>
 					</figure>
 				</div>
@@ -105,28 +114,28 @@
 				<div class="inner flex flex-3">
 					<div class="flex-item box">
 						<div class="image fit">
-							<img src="../images/pic02.jpg" alt="" />
+							<img src="images/pic02.jpg" alt="" />
 						</div>
 						<div class="content">
-							<a href="../purchase/purchase.html"><h3>銀級</h3></a>							
+							<a href="purchase/purchase.html"><h3>銀級</h3></a>							
 							<p>Placerat ornare. Pellentesque od sed euismod in, pharetra ltricies edarcu cas consequat.</p>
 						</div>
 					</div>
 					<div class="flex-item box">
 						<div class="image fit">
-							<img src="../images/pic03.jpg" alt="" />
+							<img src="images/pic03.jpg" alt="" />
 						</div>
 						<div class="content">
-							<a href="../purchase/purchase.html"><h3>黃金級</h3></a>							
+							<a href="purchase/purchase.html"><h3>黃金級</h3></a>							
 							<p>Morbi in sem quis dui placerat Pellentesque odio nisi, euismod pharetra lorem ipsum.</p>
 						</div>
 					</div>
 					<div class="flex-item box">
 						<div class="image fit">
-							<img src="../images/pic04.jpg" alt="" />
+							<img src="images/pic04.jpg" alt="" />
 						</div>
 						<div class="content">
-							<a href="../purchase/purchase.html"><h3>鑽石級</h3></a>
+							<a href="purchase/purchase.html"><h3>鑽石級</h3></a>
 							<p>Nam dui mi, tincidunt quis, accu an porttitor, facilisis luctus que metus vulputate sem magna.</p>
 						</div>
 					</div>
@@ -135,16 +144,17 @@
 
 		<!-- Footer -->
 			<footer id="footer">
-				<div class="inner">
+				<div class="container">
 					<h2>聯絡我們</h2>
-					<ul class="actions">
-						<li><span class="icon fa-phone"></span> <a href="#">(000) 000-0000</a></li>
-						<li><span class="icon fa-envelope"></span> <a href="#">information@untitled.tld</a></li>
-						<li><span class="icon fa-map-marker"></span> 123 Somewhere Road, Nashville, TN 00000</li>
+					<ul class="icons">
+						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
 					</ul>
 				</div>
 				<div class="copyright">
-					&copy; Untitled. Design <a href="https://templated.co">TEMPLATED</a>. Images <a href="https://unsplash.com">Unsplash</a>.
+					&copy; NTUB 109501
 				</div>
 			</footer>
 

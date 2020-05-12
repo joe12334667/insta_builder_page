@@ -25,7 +25,7 @@ if (isset($_SESSION["account"])) {
         <!--google login 引用-->
         <meta name="google-signin-scope" content="profile email">
         <meta name="google-signin-client_id" content="815491116462-0ooiteovcl08la9u5t4mik8sj9nsepct.apps.googleusercontent.com">
-        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
         <!--google login 引用-->
         <!--sweetalert2 引用-->
         <script src="../node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
@@ -92,7 +92,7 @@ if (isset($_SESSION["account"])) {
         <!-- Header -->
         <header id="header">
 
-            <a href="../index.html" class="logo">insta builder</a>
+            <a href="../index.html" class="logo">InstaBuilder</a>
 
         </header>
 
@@ -117,9 +117,14 @@ if (isset($_SESSION["account"])) {
                             <input type="submit" name="next" class="button special" value="登入">
                         </div>
                         <div>
-                            <div class="g-signin2" data-onsuccess="onSignIn" data-theme="white"></div>
+                            <!--<div class="g-signin2" data-onsuccess="onSignIn"></div>-->
+                            <div class="g-signin2" data-width="400" data-height="56" data-longtitle="true" >
+                        </div>
+                            <!--<div class="g-signin2" data-width="400" data-height="56" data-longtitle="true" >-->
+
 
                             <!--<div class="fb-login-button" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="true" data-use-continue-as="false" data-width="" onclick="FBLogin();"></div>-->
+                        <div>
                             <input type="button" value="Facebook登入" onclick="FBLogin();" />
                         </div>
                         <div>
@@ -160,6 +165,8 @@ if (isset($_SESSION["account"])) {
                                     var id_token = googleUser.getAuthResponse().id_token;
                                     console.log("ID Token: " + id_token);
                                 }
+                                
+                                
 
                                 //----------------------------------------------------------
 
