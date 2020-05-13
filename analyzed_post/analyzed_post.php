@@ -1005,8 +1005,8 @@ if ($_SESSION["account"] == "") {
 			        datasets: [{
 			            label: '貼文按讚數',
 			            data: [120, 190, 130, 170, 200, 300, 1300, 170, 200, 300],
-			            backgroundColor: 'rgba(148,108,204,0.8)',
-			            borderColor: 'rgba(148,108,204,0.8)',			            
+			            backgroundColor: 'rgba(255,222,242,1)',
+			                        
 			            borderWidth: 1
 			        }]
 			    },
@@ -1034,8 +1034,8 @@ if ($_SESSION["account"] == "") {
 			        datasets: [{
 			            label: '貼文留言數',
 			            data: [12, 10, 10, 17, 20, 0, 13, 1, 20, 15],
-			            backgroundColor: 'rgba(148,108,204,0.8)',
-			            borderColor: 'rgba(148,108,204,0.8)',			            
+			            backgroundColor: 'rgba(242,226,255,0.8)',
+			            borderColor: 'rgba(242,226,255,1)',			            
 			            borderWidth: 1
 			        }]
 			    },
@@ -1062,8 +1062,8 @@ if ($_SESSION["account"] == "") {
 			        datasets: [{
 			            label: '貼文珍藏數',
 			            data: [50, 24, 30, 40, 200, 45, 33, 17, 300, 315],
-			            backgroundColor: 'rgba(148,108,204,0.8)',
-			            borderColor: 'rgba(148,108,204,0.8)',			            
+			            backgroundColor: 'rgba(226,238,255,0.8)',
+			            borderColor: 'rgba(226,238,255,1)',			            
 			            borderWidth: 1
 			        }]
 			    },
@@ -1090,8 +1090,8 @@ if ($_SESSION["account"] == "") {
 			        datasets: [{
 			            label: '貼文觸及率',
 			            data: [1200, 1900, 1300, 1070, 2000, 1300, 1300, 1070, 2000, 2300],
-			            backgroundColor: 'rgba(148,108,204,0.8)',
-			            borderColor: 'rgba(148,108,204,0.8)',			            
+			            backgroundColor: 'rgba(221,255,252,0.8)',
+			            borderColor: 'rgba(221,255,252,0.8)',			            
 			            borderWidth: 1
 			        }]
 			    },
