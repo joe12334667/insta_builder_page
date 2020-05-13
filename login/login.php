@@ -119,17 +119,17 @@ if (isset($_SESSION["account"])) {
                         <div>
                             <!--<div class="g-signin2" data-onsuccess="onSignIn"></div>-->
                             <div class="g-signin2" data-width="400" data-height="56"  data-onsuccess="onSignIn" data-longtitle="true" >
-                        </div>
+                            </div>
                             <!--<div class="g-signin2" data-width="400" data-height="56" data-longtitle="true" >-->
 
 
                             <!--<div class="fb-login-button" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="true" data-use-continue-as="false" data-width="" onclick="FBLogin();"></div>-->
-                        <div>
-                            <input type="button" value="Facebook登入" onclick="FBLogin();" />
-                        </div>
-                        <div>
-                            <a href="../sign up/sign-up.php" class="button alt">建立帳號</a>
-                        </div>
+                            <div>
+                                <input type="button" value="Facebook登入" onclick="FBLogin();" />
+                            </div>
+                            <div>
+                                <a href="../sign up/sign-up.php" class="button alt">建立帳號</a>
+                            </div>
                     </form>
 
                 </header>
@@ -165,8 +165,8 @@ if (isset($_SESSION["account"])) {
                                     var id_token = googleUser.getAuthResponse().id_token;
                                     console.log("ID Token: " + id_token);
                                 }
-                                
-                                
+
+
 
                                 //----------------------------------------------------------
 
@@ -242,7 +242,7 @@ if (isset($_SESSION["account"])) {
 
                         //FB.api()使用說明：https://developers.facebook.com/docs/javascript/reference/FB.api
                         //取得用戶個資
-                        FB.api("/me", "GET", {fields: 'last_name,first_name,name,email'}, function (user) {
+                        FB.api("/me", "GET", {fields: 'last_name,first_name,name,email,picture'}, function (user) {
                             //user物件的欄位：https://developers.facebook.com/docs/graph-api/reference/user
                             if (user.error) {
                                 console.log(response);
@@ -254,6 +254,8 @@ if (isset($_SESSION["account"])) {
                                 Cookies.set('fb_id', user["id"]);
                                 Cookies.set('fb_email', user["email"]);
                                 Cookies.set('fb_name', user["name"]);
+                                Cookies.set('fb_picture', user["picture"]["data"]["url"]);
+
                                 document.location.href = "../php/login_change.php";
 
 
