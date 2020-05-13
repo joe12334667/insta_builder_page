@@ -2405,7 +2405,7 @@
 		color: #ffffff;
 		cursor: pointer;
 		display: inline-block;
-		font-family: "Montserrat", sans-serif;
+		font-family: 'Noto Sans TC', sans-serif;
 		height: 3.5em;
 		line-height: 3.5em;
 		padding: 0 3.5em;
@@ -2687,7 +2687,7 @@
 
 		#header .logo {
 			color: #E283A0;
-			font-family: "Pacifico", cursive;
+			font-family: 'El Messiri', sans-serif;
 			font-size: 2.5em;
 			letter-spacing: 2px;
 			margin-top: -5px;
@@ -3139,17 +3139,20 @@
 
 	#footer {
 		padding: 6em 0 4em 0;
-		background: #946CCC;
+		/*background: #c9c9ff;*/
+		background-image: linear-gradient(to right, #E283A0, #946ccc);
 		text-align: center;
 		color: #c8e7f0;
 	}
 
 		#footer h2 {
-			color: #fff;
+			font-size: 25px;
+			font-weight: 300;
+			color: #ffffff;
 		}
 
 		#footer .icon {
-			color: #E283A0;
+			color: #ffffff;
 		}
 
 		#footer a {
@@ -3163,12 +3166,12 @@
 
 		#footer .copyright {
 			display: inline-block;
-			color: #a7d9e7;
+			color: #ffffff;
 			font-size: 0.75em;
 			margin: 0 0 2em 0;
 			padding: 0;
 			text-align: center;
-			border-top: 1px solid rgba(255, 255, 255, 0.25);
+			border-top: 3px solid rgba(255, 255, 255, 0.25);
 			padding: 2em 10em;
 		}
 
@@ -3212,3 +3215,83 @@
 				}
 
 		}
+
+
+		/* Footer */
+		
+/*
+	#footer {
+		padding: 6em 0 4em 0;
+		background: #ded2ef;
+		text-align: center;
+		color: #c8e7f0;
+	}
+
+		#footer h2 {
+			color: #E283A0;
+		}
+
+		#footer .icon {
+			color: #E283A0;
+		}
+
+		#footer a {
+			color: #c8e7f0;
+			text-decoration: none;
+		}
+
+		#footer ul li {
+			padding: 0 2em;
+		}
+
+		#footer .copyright {
+			display: inline-block;
+			color: #E283A0;
+			font-size: 0.75em;
+			margin: 0 0 2em 0;
+			padding: 0;
+			text-align: center;
+			border-top: 3px solid rgba(255, 255, 255, 0.25);
+			padding: 2em 10em;
+		}
+
+		@media screen and (max-width: 980px) {
+
+			#footer {
+				padding: 3em 0 1em 0;
+			}
+
+				#footer ul li {
+					display: block;
+					padding: .25em 0;
+				}
+
+		}
+
+		@media screen and (max-width: 736px) {
+
+			#footer .copyright {
+				padding: 2em 5em;
+			}
+
+		}
+
+		@media screen and (max-width: 480px) {
+
+			#footer {
+				padding: 2em 0 0.1em 0;
+			}
+
+				#footer ul li {
+					font-size: .9em;
+				}
+
+					#footer ul li .icon:before {
+						margin-left: -1em;
+					}
+
+				#footer .copyright {
+					padding: 2em 0;
+				}
+
+		}*/

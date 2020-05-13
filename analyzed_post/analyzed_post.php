@@ -705,10 +705,9 @@ if ($_SESSION["account"] == "") {
 				</nav>
 				<a href="../index.html" class="logo">InstaBuilder</a>
 				<nav class="right">
-                                    <p><?php 
-                                    echo$_SESSION["account"] , $_SESSION["name"]; ?>
-                                    </p>
-					<a href="../php/logOut.php" name="logout" class="button alt">登出</a>
+                      
+					<a href="../php/logOut.php" name="logout" class="button alt"><?php 
+                        echo $_SESSION["name"]; ?>-登出</a>
 				</nav>
 			</header>
 
@@ -743,14 +742,14 @@ if ($_SESSION["account"] == "") {
 									<p>post analyzed</p>
 									<h2>貼文分析一覽表</h2>
 								</header>
-								<!--
+								
 								<div >									
 								<canvas id="post_all" width="10" height="5"></canvas>
 								</div>
 								<div >									
 								<canvas id="TEST2" width="10" height="5"></canvas>
 								</div>
-							-->
+							
 								<div >									
 								<canvas id="TEST" width="10" height="5"></canvas>
 								</div>

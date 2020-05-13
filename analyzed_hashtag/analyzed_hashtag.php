@@ -642,7 +642,7 @@ if ($_SESSION["account"] == "") {
 				</nav>
 				<a href="../index.html" class="logo">InstaBuilder</a>
 				<nav class="right">
-					<a href="../php/logOut.php" name="logout" class="button alt">登出</a>
+					<a href="../php/logOut.php" name="logout" class="button alt"><?php echo $_SESSION["name"]; ?>-登出</a>
 				</nav>
 			</header>
 
