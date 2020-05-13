@@ -118,7 +118,7 @@ if (isset($_SESSION["account"])) {
                         </div>
                         <div>
                             <!--<div class="g-signin2" data-onsuccess="onSignIn"></div>-->
-                            <div class="g-signin2" data-width="400" data-height="56" data-longtitle="true" >
+                            <div class="g-signin2" data-width="400" data-height="56"  data-onsuccess="onSignIn" data-longtitle="true" >
                         </div>
                             <!--<div class="g-signin2" data-width="400" data-height="56" data-longtitle="true" >-->
 
