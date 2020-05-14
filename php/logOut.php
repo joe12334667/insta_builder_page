@@ -10,4 +10,4 @@ if (isset($_COOKIE['google_id'])) {
 if (isset($_COOKIE['fb_id'])) {
     setcookie('fb_id', null, -1, '/'); 
 }
-header('Location: ../index/index.html');
+header('Location: ../index.html');

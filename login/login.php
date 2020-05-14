@@ -59,7 +59,29 @@ if (isset($_SESSION["account"])) {
                 margin-bottom: 150px;
             }
 
-
+            .abcRioButton {
+                -webkit-border-radius: 4px;
+                border-radius: 4px;
+                
+                box-shadow: 0 2px 4px 0 rgba(0,0,0,0);
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+                -webkit-transition: background-color .218s,border-color .218s,box-shadow .218s;
+                transition: background-color .218s,border-color .218s,box-shadow .218s;
+                -webkit-user-select: none;
+                -webkit-appearance: none;
+                background-color: #fff;
+                background-image: none;
+                /* color: #262626; */
+                cursor: pointer;
+                outline: none;
+                overflow: hidden;
+                position: relative;
+                text-align: center;
+                vertical-align: middle;
+                white-space: nowrap;
+                width: auto;
+            }
 
         </style>
     </head>
@@ -117,16 +139,18 @@ if (isset($_SESSION["account"])) {
                             <input type="submit" name="next" class="button special" value="登入">
                         </div>
                         <div>
-                            <!--<div class="g-signin2" data-onsuccess="onSignIn"></div>-->
-                            <div class="g-signin2" data-width="400" data-height="56" data-onsuccess="onSignIn" data-longtitle="true" >
+                            <p>或</p>
                         </div>
-                            <!--<div class="g-signin2" data-width="400" data-height="56" data-longtitle="true" >-->
-
-
-                            <!--<div class="fb-login-button" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="true" data-use-continue-as="false" data-width="" onclick="FBLogin();"></div>-->
+                        <div>
+                            <!--<div class="g-signin2" data-onsuccess="onSignIn"></div>-->
                         <div>
                             <input type="button" value="Facebook登入" onclick="FBLogin();" />
                         </div>
+                        <div class="g-signin2" data-width="400" data-height="50"  data-onsuccess="onSignIn" data-longtitle="true" >
+
+                        </div>
+                            
+                        
                         <div>
                             <a href="../sign up/sign-up.php" class="button alt">建立帳號</a>
                         </div>
