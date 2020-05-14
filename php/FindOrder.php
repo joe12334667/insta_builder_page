@@ -167,7 +167,7 @@ function FindUser ($account , $password){
     if($row>1){
         $_SESSION["account"] = $account;
         $_SESSION["name"] = $account;
-        $_SESSION["password"] = $password;
+//        $_SESSION["password"] = $password;
         
         
         header('Location: ../analyzed_post/analyzed_post.php');
