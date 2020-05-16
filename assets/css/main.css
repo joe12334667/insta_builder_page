@@ -1687,7 +1687,7 @@
 
 	h1, h2, h3, h4, h5, h6 {
 		color: #727a82;
-		font-weight: 700;
+		font-weight: 300;
 		font-family: 'Noto Sans TC', sans-serif;
 		/*font-family: "Montserrat", sans-serif;*/
 		line-height: 1.5;
@@ -3140,6 +3140,7 @@
 	#footer {
 		padding: 6em 0 4em 0;
 		/*background: #c9c9ff;*/
+		
 		background-image: linear-gradient(to right, #E283A0, #946ccc);
 		text-align: center;
 		color: #c8e7f0;
