@@ -2632,7 +2632,7 @@
 			color: #946CCC;
 		}
 
-		.wrapper.style1 {
+		.wrapper.style1 {			
 			background: #E283A0;
 			color: #fcdcd6;
 		}
@@ -3023,6 +3023,7 @@
 		-ms-flex-pack: justify;
 		display: -moz-flex;
 		display: -webkit-flex;
+		
 		display: -ms-flex;
 		display: flex;
 		-moz-flex-wrap: wrap;
