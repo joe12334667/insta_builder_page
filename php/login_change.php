@@ -45,9 +45,9 @@ function SendtoDB($id , $name , $email , $url) {
     }
     }catch(Exception $e){   
         echo '<script> alert("資料庫輸入錯誤 ")</script>';
-        echo '<p>將於五秒轉至登入畫面</p>';
         echo $e;
 //        echo '<script>document.location.href=" ../index.html";</script>';
+        
         
     }
 }
