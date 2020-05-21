@@ -163,10 +163,10 @@ function FindUser ($account , $password){
     $sql = "select * from user where signup_email = \"".$account."\" and login_pas = \"".$password."\"";
     
     $result = $db->query($sql);
-    $row = $result->fetch(PDO::FETCH_ASSOC);
-    if($row>1){
+//    $row = $result->fetch(PDO::FETCH_OBJ);
+    if($row = $result->fetch(PDO::FETCH_OBJ)){
         $_SESSION["account"] = $account;
-        $_SESSION["name"] = $account;
+        $_SESSION["name"] = $row->user_name;
 //        $_SESSION["password"] = $password;
         
         

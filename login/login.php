@@ -24,7 +24,8 @@ if (isset($_SESSION["account"])) {
         <link href="../images/logo-rainbow.png"  rel="icon">
         <!--google login 引用-->
         <meta name="google-signin-scope" content="profile email">
-        <meta name="google-signin-client_id" content="815491116462-0ooiteovcl08la9u5t4mik8sj9nsepct.apps.googleusercontent.com">
+        <meta name="google-signin-client_id" content="48428020310-9hp17cjtr6crev5tvl6litg2qi8i0521.apps.googleusercontent.com">
+<!--        <meta name="google-signin-client_id" content="815491116462-0ooiteovcl08la9u5t4mik8sj9nsepct.apps.googleusercontent.com">-->
         <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
         <!--google login 引用-->
         <!--sweetalert2 引用-->

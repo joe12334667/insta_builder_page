@@ -1,9 +1,9 @@
 <?php
 function DB(){
-$hostname = 'ip';
-$username = '';
-$password = '';
-$db_name = '';
+$hostname = '140.131.114.143';
+$username = 'root';
+$password = 'superman12334667';
+$db_name = 'instabuilder';
 
 try {
     $db = new PDO("mysql:host=" . $hostname . ";dbname=" . $db_name, $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));

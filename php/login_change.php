@@ -32,12 +32,12 @@ function SendtoDB($id , $name , $email , $url) {
         $_SESSION["account"] = $id;
         $_SESSION["name"] = $name;
         //沒有資料
-        $sql = "insert into instabuilder.user (user_name, signup_date, signup_email) value ( \"".$name."\" , NOW() ,\"".$email."\") ;";
+        $sql = "insert into instabuilder.user (user_name, signup_datetime, signup_email) value ( \"".$name."\" , NOW() ,\"".$email."\") ;";
         $db->query($sql);
         $sql = "SELECT LAST_INSERT_ID() as id;";
         $user_id = $db->query($sql)->fetch(PDO::FETCH_OBJ)->id ;
         
-        $sql = "insert into instabuilder.thirdPartyLogin (id_thirdPartyLogin, fullname, email, image_url, user_id) "
+        $sql = "insert into instabuilder.thirdpartylogin (id_thirdPartyLogin, fullname, email, image_url, user_id) "
                 . "value (\"".$id."\" , \"".$name."\" , \"".$email."\" , \"".$url."\" , \"".$user_id."\"  );";
         
         $db->query($sql);
