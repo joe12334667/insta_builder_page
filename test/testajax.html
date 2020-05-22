@@ -1,0 +1,99 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>資料圖表</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="../node_modules/chart.js/dist/Chart.js"></script>
+    </head>
+    <body>
+
+        <div style="text-align: center">
+            <form id="form_data">
+                選擇表單：
+                <select id="data_menu" name="data_menu">
+                    <option value="like">like</option>
+                    <option value="comment">comment</option>
+                    <!--<option value="like_comment">like_comment</option>-->
+
+                </select>
+                <!--                時間範圍： <input id="Start_Date" type="date" name="Start_Date">
+                                ~ <input id="End_Date" type="date" name="End_Date">-->
+                <button type="button" id="search">查詢</button>
+            </form>
+        </div>
+        <div id="graph-container" style="position: relative; height:40vh; width:80vw">
+            <canvas id="visualize"></canvas>
+        </div>
+    </body>
+
+    <script>
+
+        //2019-09-25 16:48:55
+        //2019-09-25 16:58:37
+        //清除convas並重建
+        var resetCanvas = function () {
+            $('#visualize').remove(); // this is my <canvas> element
+            $('#graph-container').append('<canvas id="visualize"><canvas>');
+            $("#visualize").width(300).height(150);
+        };
+
+        $("#search").click(function () {
+
+            resetCanvas(); //清除舊圖
+
+            const Start_Date = $("#Start_Date").val(); //取得表單設定的起始時間
+            const End_Date = $("#End_Date").val(); //取得表單設定的結束時間
+            const data_menu = $("#data_menu").val(); //取得表單設定的資料表名稱
+
+            $.ajax({
+                type: "GET",
+                cache: false,
+                url: "testajax.php",
+                data: {
+                    Select_DB: "instabuilder",
+                    Post_Name: data_menu,
+                    Start_Time: Start_Date,
+                    End_Time: End_Date
+                },
+                dataType: "json",
+                success: function (response) {
+                    //主要Chart.js繪圖區
+                    const data = response; //取得data.php回傳的資料
+                    const all_x_labels = [], all_y_data = [], Background_color = [];
+
+                    //利用陣列建立x,y座標
+                    for (let i = 0; i < response.length; i++) {
+                        all_x_labels[i] = data[i].content;
+                        all_y_data[i] = data[i].count;
+                        Background_color[i] = "#FF0000";
+                    }
+
+                    const ctx = document.getElementById("visualize"),
+                            visualize = new Chart(ctx, {
+                                type: "line",
+                                data: {
+                                    labels: all_x_labels, // x軸的刻度
+                                    datasets: [{
+                                            label: data_menu, // 顯示該資料的標題
+                                            data: all_y_data, // y軸資料
+                                            fill: false, // 不顯示底下的灰色區塊
+                                            borderColor: "#0066FF", // 設定線的顏色
+                                            backgroundColor: Background_color, // 設定點的顏色
+                                            lineTension: 0  // 顯示折線圖，不使用曲線
+                                        }],
+
+                                },
+                                options: {
+                                    legend: {
+                                        onClick: (e) => e.stopPropagation()
+                                    }
+                                }
+                            });
+                }
+            });
+        });
+
+    </script>
+</html>
