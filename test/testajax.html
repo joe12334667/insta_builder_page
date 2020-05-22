@@ -81,8 +81,8 @@
                                             fill: false, // 不顯示底下的灰色區塊
                                             borderColor: "#8BA2FF", // 設定線的顏色
                                             backgroundColor: Background_color, // 設定點的顏色
-                                            pointBorderWidth:6,
-                                            pointBorderColor:"#FF82B4",
+                                            pointBorderWidth: 6,
+                                            pointBorderColor: "#FF82B4",
                                             lineTension: 0.2  // 顯示折線圖，不使用曲線
                                         }],
 
@@ -90,7 +90,27 @@
                                 options: {
                                     legend: {
                                         onClick: (e) => e.stopPropagation()
+                                    },
+                                    scales: {
+                                        yAxes: [{
+                                                ticks: {
+                                                    // beginAtZero: true,
+//                                                    min: 10,
+                                                    stepSize: 2
+                                                },
+
+                                            }],
+                                        xAxes: [{
+                                                ticks: {
+                                                    // beginAtZero: true,
+//                                                    min: 10,
+                                                    maxTicksLimit: 100,
+                                                },
+
+                                            }],
+                                        
                                     }
+
                                 }
                             });
                 }
