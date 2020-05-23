@@ -752,6 +752,9 @@ if ($_SESSION["account"] == "") {
                             <div >									
                                 <canvas id="TEST" width="10" height="5"></canvas>
                             </div>
+                            <div >                                  
+                                <canvas id="post_like" width="10" height="9"></canvas>
+                            </div>
                         </div>							
                     </div>							
                 </div>
@@ -771,7 +774,7 @@ if ($_SESSION["account"] == "") {
 
                                         <h2>貼文按讚數分析</h2>
                                     </header>
-                                    <canvas id="post_like" width="10" height="9"></canvas>
+                                   <!-- <canvas id="post_like" width="10" height="15"></canvas>-->
                                 </div>								
                             </div>
                         </div>
@@ -1032,7 +1035,7 @@ if ($_SESSION["account"] == "") {
                                 all_x_labels[i] = data[i].content + "\n" + data[i].announce_time;
                                 all_y_data[i] = data[i].count;
 
-                                Background_color[i] = "#FF82B4";
+                                Background_color[i] = "#c9c9ff";
                             }
 
                             const ctx = document.getElementById("post_like"),
@@ -1041,7 +1044,7 @@ if ($_SESSION["account"] == "") {
                                         data: {
                                             labels: all_x_labels, // x軸的刻度
                                             datasets: [{
-                                                    label: "like", // 顯示該資料的標題
+                                                    label: "like", // 顯示該資料的標題 
                                                     data: all_y_data, // y軸資料
                                                     fill: false, // 不顯示底下的灰色區塊
                                                     borderColor: "#8BA2FF", // 設定線的顏色
@@ -1060,16 +1063,20 @@ if ($_SESSION["account"] == "") {
                                                 yAxes: [{
                                                         ticks: {
                                                             // beginAtZero: true,
-//                                                    min: 10,
-//                                                            stepSize: 2
+//                                                          min: 10,
+//                                                          stepSize: 2
                                                         },
 
                                                     }],
                                                 xAxes: [{
                                                         ticks: {
+                                                            minRotation:90,
+
+
                                                             // beginAtZero: true,
 //                                                    min: 10,
 //                                                    maxTicksLimit: 10,
+
                                                         },
 
                                                     }],
