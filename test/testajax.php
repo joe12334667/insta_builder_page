@@ -25,12 +25,19 @@ $data = $db->select("user", [
     "userinstaaccount.account_id",
     "userpost.post_no",
     "post.content",
-    "count" => Medoo::raw('COUNT(<like.post_no>)')
+    "count" => Medoo::raw('COUNT(<like.post_no>)') ,
+             "post.announce_time"
         ], [
     "user.user_name" => "郭嘉茵",
     "GROUP" => "like.post_no",
-    "ORDER" => ["post.announce_time" => "ASC"]
+    "ORDER" => ["post.announce_time" => "DESC"],
+    "LIMIT" => "10"
         ]);
+
+
+
+
+
 
 echo json_encode($data, JSON_UNESCAPED_UNICODE);
 

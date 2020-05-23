@@ -61,18 +61,19 @@
                 success: function (response) {
                     //主要Chart.js繪圖區
                     const data = response; //取得data.php回傳的資料
-                    const all_x_labels = [], all_y_data = [], Background_color = [];
+                    const all_x_labels = [], all_y_data = [] , Background_color = [];
 
                     //利用陣列建立x,y座標
                     for (let i = 0; i < response.length; i++) {
-                        all_x_labels[i] = data[i].content;
+                        all_x_labels[i] = data[i].content +"\n"+ data[i].announce_time;
                         all_y_data[i] = data[i].count;
+                        
                         Background_color[i] = "#FF82B4";
                     }
 
                     const ctx = document.getElementById("visualize"),
                             visualize = new Chart(ctx, {
-                                type: "line",
+                                type: "bar",
                                 data: {
                                     labels: all_x_labels, // x軸的刻度
                                     datasets: [{
@@ -82,8 +83,8 @@
                                             borderColor: "#8BA2FF", // 設定線的顏色
                                             backgroundColor: Background_color, // 設定點的顏色
                                             pointBorderWidth: 6,
-                                            pointBorderColor: "#FF82B4",
-                                            lineTension: 0.2  // 顯示折線圖，不使用曲線
+//                                            pointBorderColor: "#FF82B4",
+//                                            lineTension: 0.1  // 顯示折線圖，不使用曲線
                                         }],
 
                                 },
@@ -104,7 +105,7 @@
                                                 ticks: {
                                                     // beginAtZero: true,
 //                                                    min: 10,
-                                                    maxTicksLimit: 100,
+//                                                    maxTicksLimit: 10,
                                                 },
 
                                             }],
