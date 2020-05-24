@@ -1032,7 +1032,11 @@ if ($_SESSION["account"] == "") {
 
                             //利用陣列建立x,y座標
                             for (let i = 0; i < response.length; i++) {
+                                if(data[i].content.length > 10 ){
+                                all_x_labels[i] = data[i].content.substr(0 , 10)+ "..."  + "\n" + data[i].announce_time;
+                            }else{
                                 all_x_labels[i] = data[i].content + "\n" + data[i].announce_time;
+                            }
                                 all_y_data[i] = data[i].count;
 
                                 Background_color[i] = "#c9c9ff";
