@@ -705,7 +705,6 @@ if ($_SESSION["account"] == "") {
             </nav>
             <a href="../index.html" class="logo">InstaBuilder</a>
             <nav class="right">
-
                 <a href="../php/logOut.php" name="logout" class="button alt"><?php echo $_SESSION["name"]; ?>-登出</a>
             </nav>
         </header>
@@ -754,6 +753,9 @@ if ($_SESSION["account"] == "") {
                             </div>
                             <div >                                  
                                 <canvas id="post_like" width="10" height="9"></canvas>
+                            </div>
+                            <div >                                  
+                                <canvas id="post_comment" width="10" height="9"></canvas>
                             </div>
                         </div>							
                     </div>							
@@ -811,10 +813,6 @@ if ($_SESSION["account"] == "") {
                                 </div>								
                             </div>	
                         </div>				
-
-
-
-
                     </div>
                 </div>
             </section>
@@ -846,111 +844,111 @@ if ($_SESSION["account"] == "") {
             <script src="../node_modules/chart.js/dist/Chart.js"></script>
 
             <script>
-                var ctx = document.getElementById('post_all');
-                var post_all = new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        datasets: [{
-                                label: 'Bar Dataset',
-                                data: [10, 20, 30, 40],
-                                backgroundColor: [
-                                    'rgba(255, 99, 132, 0.2)',
-                                    'rgba(54, 162, 235, 0.2)',
-                                    'rgba(255, 206, 86, 0.2)',
-                                    'rgba(75, 192, 192, 0.2)'
-                                ],
-                                borderColor: [
-                                    'rgba(255, 99, 132, 1)',
-                                    'rgba(54, 162, 235, 1)',
-                                    'rgba(255, 206, 86, 1)',
-                                    'rgba(75, 192, 192, 1)'
-                                ],
-                                order: 1
-                            }, {
-                                label: 'Line Dataset',
-                                data: [15, 25, 15, 30],
-                                type: 'line',
-                                backgroundColor: [
-                                    'rgba(75, 192, 192, 0.2)'
-                                ],
-                                borderColor: [
-                                    'rgba(75, 192, 192, 1)'
-                                ],
-                                pointBackgroundColor: [
-                                    'rgba(75, 192, 192, 1)',
-                                    'rgba(75, 192, 192, 1)',
-                                    'rgba(75, 192, 192, 1)',
-                                    'rgba(75, 192, 192, 1)'
-                                ],
-                                pointborderColor: [
-                                    'rgba(75, 192, 192, 1)',
-                                    'rgba(75, 192, 192, 1)',
-                                    'rgba(75, 192, 192, 1)',
-                                    'rgba(75, 192, 192, 1)'
-                                ],
-                                fill: false,
-                                lineTension: 0,
-                                order: 2
-                            }],
-                        labels: ['January', 'February', 'March', 'April']
-                    },
-                    options: {
-                        scales: {
-                            yAxes: [{
-                                    ticks: {
-                                        beginAtZero: true
+                            var ctx = document.getElementById('post_all');
+                            var post_all = new Chart(ctx, {
+                                type: 'bar',
+                                data: {
+                                    datasets: [{
+                                            label: 'Bar Dataset',
+                                            data: [10, 20, 30, 40],
+                                            backgroundColor: [
+                                                'rgba(255, 99, 132, 0.2)',
+                                                'rgba(54, 162, 235, 0.2)',
+                                                'rgba(255, 206, 86, 0.2)',
+                                                'rgba(75, 192, 192, 0.2)'
+                                            ],
+                                            borderColor: [
+                                                'rgba(255, 99, 132, 1)',
+                                                'rgba(54, 162, 235, 1)',
+                                                'rgba(255, 206, 86, 1)',
+                                                'rgba(75, 192, 192, 1)'
+                                            ],
+                                            order: 1
+                                        }, {
+                                            label: 'Line Dataset',
+                                            data: [15, 25, 15, 30],
+                                            type: 'line',
+                                            backgroundColor: [
+                                                'rgba(75, 192, 192, 0.2)'
+                                            ],
+                                            borderColor: [
+                                                'rgba(75, 192, 192, 1)'
+                                            ],
+                                            pointBackgroundColor: [
+                                                'rgba(75, 192, 192, 1)',
+                                                'rgba(75, 192, 192, 1)',
+                                                'rgba(75, 192, 192, 1)',
+                                                'rgba(75, 192, 192, 1)'
+                                            ],
+                                            pointborderColor: [
+                                                'rgba(75, 192, 192, 1)',
+                                                'rgba(75, 192, 192, 1)',
+                                                'rgba(75, 192, 192, 1)',
+                                                'rgba(75, 192, 192, 1)'
+                                            ],
+                                            fill: false,
+                                            lineTension: 0,
+                                            order: 2
+                                        }],
+                                    labels: ['January', 'February', 'March', 'April']
+                                },
+                                options: {
+                                    scales: {
+                                        yAxes: [{
+                                                ticks: {
+                                                    beginAtZero: true
+                                                }
+                                            }]
                                     }
-                                }]
-                        }
-                    }
-                });
+                                }
+                            });
 
             </script>
             <!----------------------------------------TEST------------------------------------------->
             <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
             <script>
-                // y 軸的顯示
-                var yAxis = [];
-                // 資料集合，之後只要更新這個就好了。
-                var datas = [];
-                var ctx = document.getElementById('TEST').getContext('2d');
-                var lineChart = new Chart(ctx, {
-                    //Type 改成 Bar
-                    type: 'bar',
-                    data: {
-                        labels: yAxis,
-                        datasets: [{
-                                label: '測試資料',
-                                data: datas,
-                                backgroundColor: "#E283A0"
-                            }]
-                    }
-                });
+                            // y 軸的顯示
+                            var yAxis = [];
+                            // 資料集合，之後只要更新這個就好了。
+                            var datas = [];
+                            var ctx = document.getElementById('TEST').getContext('2d');
+                            var lineChart = new Chart(ctx, {
+                                //Type 改成 Bar
+                                type: 'bar',
+                                data: {
+                                    labels: yAxis,
+                                    datasets: [{
+                                            label: '測試資料',
+                                            data: datas,
+                                            backgroundColor: "#E283A0"
+                                        }]
+                                }
+                            });
 
-                //時間格式
-                var timeFormat = 'HH:mm:ss';
+                            //時間格式
+                            var timeFormat = 'HH:mm:ss';
 
-                function appendData()
-                {
-                    //超過10 個，就把最早進來的刪掉
-                    if (yAxis.length > 10) {
-                        yAxis.shift();
-                        datas.shift();
-                    }
+                            function appendData()
+                            {
+                                //超過10 個，就把最早進來的刪掉
+                                if (yAxis.length > 10) {
+                                    yAxis.shift();
+                                    datas.shift();
+                                }
 
-                    //推入y 軸新的資料 
-                    yAxis.push(new moment().format(timeFormat));
+                                //推入y 軸新的資料 
+                                yAxis.push(new moment().format(timeFormat));
 
-                    //推入一筆亂數進資料 10~100
-                    datas.push(Math.floor(Math.random() * 100) + 10);
+                                //推入一筆亂數進資料 10~100
+                                datas.push(Math.floor(Math.random() * 100) + 10);
 
-                    //更新線圖
-                    lineChart.update();
-                }
+                                //更新線圖
+                                lineChart.update();
+                            }
 
-                //每半秒做一次
-                setInterval(appendData, 1000);
+                            //每半秒做一次
+                            setInterval(appendData, 1000);
             </script>
 
             <!----------------------------------------TEST2------------------------------------------->
@@ -998,31 +996,16 @@ if ($_SESSION["account"] == "") {
 
 
             <script>
-                var resetCanvas = function () {
-                    $('#post_like').remove(); // this is my <canvas> element
-                    $('#graph-container').append('<canvas id="post_like"><canvas>');
-                    $("#post_like").width(300).height(150);
-                };
+                ajaxChart("post_like", "like");
+                ajaxChart("post_comment", "comment");
 
-//                $("#search").click(ajaxChart);
-                ajaxChart();
-                function ajaxChart() {
-
-//                    resetCanvas(); //清除舊圖
-
-                    const Start_Date = $("#Start_Date").val(); //取得表單設定的起始時間
-                    const End_Date = $("#End_Date").val(); //取得表單設定的結束時間
-                    const data_menu = $("#data_menu").val(); //取得表單設定的資料表名稱
-
+                function ajaxChart(ChartName, ChartTableName) {
                     $.ajax({
                         type: "GET",
                         cache: false,
-                        url: "AjaxLike.php",
+                        url: "AjaxLike_Comment.php",
                         data: {
-                            Select_DB: "instabuilder",
-                            Post_Name: data_menu,
-                            Start_Time: Start_Date,
-                            End_Time: End_Date
+                            type: ChartTableName,
                         },
                         dataType: "json",
                         success: function (response) {
@@ -1032,63 +1015,62 @@ if ($_SESSION["account"] == "") {
 
                             //利用陣列建立x,y座標
                             for (let i = 0; i < response.length; i++) {
-                                if(data[i].content.length > 10 ){
-                                all_x_labels[i] = data[i].content.substr(0 , 10)+ "..."  + "\n" + data[i].announce_time;
-                            }else{
-                                all_x_labels[i] = data[i].content + "\n" + data[i].announce_time;
-                            }
+                                if (data[i].content.length > 10) {
+                                    all_x_labels[i] = data[i].content.substr(0, 10) + "..." + "\n" + data[i].announce_time;
+                                } else {
+                                    all_x_labels[i] = data[i].content + "\n" + data[i].announce_time;
+                                }
                                 all_y_data[i] = data[i].count;
 
                                 Background_color[i] = "#c9c9ff";
                             }
 
-                            const ctx = document.getElementById("post_like"),
-                                    visualize = new Chart(ctx, {
-                                        type: "bar",
-                                        data: {
-                                            labels: all_x_labels, // x軸的刻度
-                                            datasets: [{
-                                                    label: "like", // 顯示該資料的標題 
-                                                    data: all_y_data, // y軸資料
-                                                    fill: false, // 不顯示底下的灰色區塊
-                                                    borderColor: "#8BA2FF", // 設定線的顏色
-                                                    backgroundColor: Background_color, // 設定點的顏色
-                                                    pointBorderWidth: 6,
+                            const ctx = document.getElementById(ChartName);
+                            visualize = new Chart(ctx, {
+                                type: "bar",
+                                data: {
+                                    labels: all_x_labels, // x軸的刻度
+                                    datasets: [{
+                                            label: ChartTableName, // 顯示該資料的標題 
+                                            data: all_y_data, // y軸資料
+                                            fill: false, // 不顯示底下的灰色區塊
+                                            borderColor: "#8BA2FF", // 設定線的顏色
+                                            backgroundColor: Background_color, // 設定點的顏色
+                                            pointBorderWidth: 6,
 //                                            pointBorderColor: "#FF82B4",
 //                                            lineTension: 0.1  // 顯示折線圖，不使用曲線
-                                                }],
+                                        }],
 
-                                        },
-                                        options: {
-                                            legend: {
-                                                onClick: (e) => e.stopPropagation()
-                                            },
-                                            scales: {
-                                                yAxes: [{
-                                                        ticks: {
-                                                            // beginAtZero: true,
+                                },
+                                options: {
+                                    legend: {
+                                        onClick: (e) => e.stopPropagation()
+                                    },
+                                    scales: {
+                                        yAxes: [{
+                                                ticks: {
+                                                    // beginAtZero: true,
 //                                                          min: 10,
 //                                                          stepSize: 2
-                                                        },
+                                                },
 
-                                                    }],
-                                                xAxes: [{
-                                                        ticks: {
-                                                            minRotation:90,
+                                            }],
+                                        xAxes: [{
+                                                ticks: {
+                                                    minRotation: 90,
 
-
-                                                            // beginAtZero: true,
+                                                    // beginAtZero: true,
 //                                                    min: 10,
 //                                                    maxTicksLimit: 10,
 
-                                                        },
+                                                },
 
-                                                    }],
+                                            }],
 
-                                            }
+                                    }
 
-                                        }
-                                    });
+                                }
+                            });
                         }
                     });
                 }
@@ -1123,32 +1105,32 @@ if ($_SESSION["account"] == "") {
             </script>
 
             <script>
-                var ctx = document.getElementById('post_comment');
-                var post_comment = new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: ['貼文1', '貼文2', '貼文3', '貼文4', '貼文5', '貼文6', '貼文7', '貼文8', '貼文9', '貼文10'],
-
-                        datasets: [{
-                                label: '貼文留言數',
-                                data: [12, 10, 10, 17, 20, 0, 13, 1, 20, 15],
-                                backgroundColor: 'rgba(242,226,255,0.8)',
-                                borderColor: 'rgba(242,226,255,1)',
-                                borderWidth: 1
-                            }]
-                    },
-                    options: {
-                        scales: {
-                            yAxes: [{
-                                    ticks: {
-                                        beginAtZero: true,
-
-                                    }
-                                }]
-                        }
-
-                    }
-                });
+//                var ctx = document.getElementById('post_comment');
+//                var post_comment = new Chart(ctx, {
+//                    type: 'bar',
+//                    data: {
+//                        labels: ['貼文1', '貼文2', '貼文3', '貼文4', '貼文5', '貼文6', '貼文7', '貼文8', '貼文9', '貼文10'],
+//
+//                        datasets: [{
+//                                label: '貼文留言數',
+//                                data: [12, 10, 10, 17, 20, 0, 13, 1, 20, 15],
+//                                backgroundColor: 'rgba(242,226,255,0.8)',
+//                                borderColor: 'rgba(242,226,255,1)',
+//                                borderWidth: 1
+//                            }]
+//                    },
+//                    options: {
+//                        scales: {
+//                            yAxes: [{
+//                                    ticks: {
+//                                        beginAtZero: true,
+//
+//                                    }
+//                                }]
+//                        }
+//
+//                    }
+//                });
             </script>
             <script>
                 var ctx = document.getElementById('post_save');
