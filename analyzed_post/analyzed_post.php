@@ -1017,7 +1017,7 @@ if ($_SESSION["account"] == "") {
                     $.ajax({
                         type: "GET",
                         cache: false,
-                        url: "../test/testajax.php",
+                        url: "AjaxLike.php",
                         data: {
                             Select_DB: "instabuilder",
                             Post_Name: data_menu,
