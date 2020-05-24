@@ -712,9 +712,7 @@ if ($_SESSION["account"] == "") {
         <!-- Menu -->
         <nav id="menu">
             <ul class="links">
-                <li><a href="../index/index.html">Home</a></li>
-                <!--<li><a href="#"> Search</a></li>-->
-                <!--<li><a href="#banner"> Analyze</a></li>-->
+                
                 <li><a href="../analyzed_post/analyzed_post.php"> 貼文分析</a></li>
                 <li><a href="../analyzed_hashtag/analyzed_hashtag.php"> 標籤分析</a></li>
                 <li><a href="../analyzed_time/analyzed_time.php"> 時間分析</a></li>
@@ -787,7 +785,7 @@ if ($_SESSION["account"] == "") {
 
                                         <h2>貼文留言數分析</h2>
                                     </header>
-                                    <canvas id="post_comment" width="10" height="9"></canvas>
+                                    <!--<canvas id="post_comment" width="10" height="9"></canvas>-->
                                 </div>								
                             </div>	
                         </div>			
