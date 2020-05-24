@@ -25,11 +25,11 @@ function SendtoDB($id , $name , $email , $url) {
     $result = $db->query($sql);
     $row = $result->fetch(PDO::FETCH_ASSOC);
     if ($row >= 1) {
-        $_SESSION["account"] = $id;
+        $_SESSION["account"] = $email;
         $_SESSION["name"] = $name;
         header('Location: ../analyzed_post/analyzed_post.php');
     } else {
-        $_SESSION["account"] = $id;
+        $_SESSION["account"] = $email;
         $_SESSION["name"] = $name;
         //沒有資料
         $sql = "insert into instabuilder.user (user_name, signup_datetime, signup_email) value ( \"".$name."\" , NOW() ,\"".$email."\") ;";

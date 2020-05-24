@@ -9,8 +9,8 @@ session_start();
 include '../php/FindOrder.php';
 //如果用戶已登入不會要求再登入一次，而是直接跳頁
 if (isset($_SESSION["account"])) {
-    if ($_SESSION["account"] != "") {
-        header("Location: ../analyzed_post/analyzed_post.php ");
+    if ($_SESSION["account"] != null) {
+        header("Location: ../analyzed_post/analyzed_post.php");
     }
 }
 ?>
@@ -25,8 +25,8 @@ if (isset($_SESSION["account"])) {
         <!--google login 引用-->
         <meta name="google-signin-scope" content="profile email">
         <meta name="google-signin-client_id" content="48428020310-9hp17cjtr6crev5tvl6litg2qi8i0521.apps.googleusercontent.com">
-<!--        <meta name="google-signin-client_id" content="815491116462-0ooiteovcl08la9u5t4mik8sj9nsepct.apps.googleusercontent.com">-->
-        <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+        <!--<meta name="google-signin-client_id" content="815491116462-0ooiteovcl08la9u5t4mik8sj9nsepct.apps.googleusercontent.com">-->
+        <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
         <!--google login 引用-->
         <!--sweetalert2 引用-->
         <script src="../node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
@@ -63,7 +63,7 @@ if (isset($_SESSION["account"])) {
             .abcRioButton {
                 -webkit-border-radius: 4px;
                 border-radius: 4px;
-                
+
                 box-shadow: 0 2px 4px 0 rgba(0,0,0,0);
                 -webkit-box-sizing: border-box;
                 box-sizing: border-box;
@@ -144,17 +144,16 @@ if (isset($_SESSION["account"])) {
                         </div>
                         <div>
                             <!--<div class="g-signin2" data-onsuccess="onSignIn"></div>-->
-                        <div>
-                            <input type="button" value="Facebook登入" onclick="FBLogin();" />
-                        </div>
-                        <div class="g-signin2" data-width="400" data-height="50"  data-onsuccess="onSignIn" data-longtitle="true" >
+                            <div>
+                                <input type="button" value="Facebook登入" onclick="FBLogin();" />
+                            </div>
+                            <div class="g-signin2" data-width="400" data-height="50"  data-onsuccess="onSignIn" data-longtitle="true" >
 
-                        </div>
-                            
-                        
-                        <div>
-                            <a href="../sign up/sign-up.php" class="button alt">建立帳號</a>
-                        </div>
+                            </div>
+
+                            <div>
+                                <a href="../sign up/sign-up.php" class="button alt">建立帳號</a>
+                            </div>
                     </form>
 
                 </header>
@@ -169,31 +168,34 @@ if (isset($_SESSION["account"])) {
                 <script src="assets/js/main.js"></script>
                 <script>
 
-                                //google sign in
-                                function onSignIn(googleUser) {
-                                    // Useful data for your client-side scripts:
-                                    var profile = googleUser.getBasicProfile();
-                                    console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-                                    console.log('Full Name: ' + profile.getName());
-                                    console.log('Given Name: ' + profile.getGivenName());
-                                    console.log('Family Name: ' + profile.getFamilyName());
-                                    console.log("Image URL: " + profile.getImageUrl());
-                                    console.log("Email: " + profile.getEmail());
+                                    //google sign in
+                                    function onSignIn(googleUser) {
+                                        // Useful data for your client-side scripts:
+                                        var profile = googleUser.getBasicProfile();
+                                        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+                                        console.log('Full Name: ' + profile.getName());
+                                        console.log('Given Name: ' + profile.getGivenName());
+                                        console.log('Family Name: ' + profile.getFamilyName());
+                                        console.log("Image URL: " + profile.getImageUrl());
+                                        console.log("Email: " + profile.getEmail());
 
-                                    //設定COOKIE 讓下一頁PHP吃的到
-                                    Cookies.set('google_id', profile.getId());
-                                    Cookies.set('google_name', profile.getName());
-                                    Cookies.set('google_email', profile.getEmail());
-                                    Cookies.set('google_image_url', profile.getImageUrl());
-                                    document.location.href = "../php/login_change.php";
-                                    // The ID token you need to pass to your backend:
-                                    var id_token = googleUser.getAuthResponse().id_token;
-                                    console.log("ID Token: " + id_token);
-                                }
-                                
-                                
+                                        //設定COOKIE 讓下一頁PHP吃的到
+                                        Cookies.set('google_id', profile.getId());
+                                        Cookies.set('google_name', profile.getName());
+                                        Cookies.set('google_email', profile.getEmail());
+                                        Cookies.set('google_image_url', profile.getImageUrl());
+                                        document.location.href = "../php/login_change.php";
+                                        // The ID token you need to pass to your backend:
+                                        var id_token = googleUser.getAuthResponse().id_token;
+                                        console.log("ID Token: " + id_token);
+                                    }
+                                    window.onbeforeunload = function (e) {
 
-                                //----------------------------------------------------------
+                                        gapi.auth2.getAuthInstance().signOut();
+                                    };
+
+
+                                    //----------------------------------------------------------
 
                 </script>
                 <script type="text/javascript">
