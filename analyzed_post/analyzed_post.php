@@ -17,7 +17,12 @@ if ($_SESSION["account"] == "") {
         <title>Analyzed_post</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link href="https://fonts.googleapis.com/css?family=El+Messiri|Noto+Sans+TC&display=swap" rel="stylesheet">
+        <!--GOOGLE SIGNOUT-->
+        <meta name="google-signin-client_id" content="48428020310-9hp17cjtr6crev5tvl6litg2qi8i0521.apps.googleusercontent.com">
+        <meta name="google-signin-scope" content="profile email">
+        <!------------>        
+        <link href="https://fonts.googleapis.com/css?family=El+Messiri|Noto+Sans+TC&display=swap" rel="stylesheet">\
+
         <link rel="stylesheet" href="assets/css/main.css" />
         <link href="../images/logo-rainbow.png"  rel="icon">
         <style type="text/css" media="screen">
@@ -705,14 +710,14 @@ if ($_SESSION["account"] == "") {
             </nav>
             <a href="../index.html" class="logo">InstaBuilder</a>
             <nav class="right">
-                <a href="../php/logOut.php" name="logout" class="button alt"><?php echo $_SESSION["name"]; ?>-登出</a>
+                <a href="#" onclick="signOut();" name="logout" class="button alt"><?php echo $_SESSION["name"]; ?>-登出</a>
             </nav>
         </header>
 
         <!-- Menu -->
         <nav id="menu">
             <ul class="links">
-                
+
                 <li><a href="../analyzed_post/analyzed_post.php"> 貼文分析</a></li>
                 <li><a href="../analyzed_hashtag/analyzed_hashtag.php"> 標籤分析</a></li>
                 <li><a href="../analyzed_time/analyzed_time.php"> 時間分析</a></li>
@@ -838,115 +843,136 @@ if ($_SESSION["account"] == "") {
             <script src="assets/js/skel.min.js"></script>
             <script src="assets/js/util.js"></script>
             <script src="assets/js/main.js"></script>
-
+            <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
             <script src="../node_modules/chart.js/dist/Chart.js"></script>
+            <script>
+//                GOOGLE 登出按鈕
+//            onLoad();
+//            signOut();
+                    function signOut() {
+                        var auth2 = gapi.auth2.getAuthInstance();
+                        auth2.disconnect();
+                        auth2.signOut().then(function () {
+                            console.log('User signed out.');
+                        });
+                        document.location.href = "../php/logOut.php";
+
+                    }
+
+                    function onLoad() {
+                        gapi.load('auth2', function () {
+                            gapi.auth2.init();
+
+                        });
+                    }
+            </script>
 
             <script>
-                            var ctx = document.getElementById('post_all');
-                            var post_all = new Chart(ctx, {
-                                type: 'bar',
-                                data: {
-                                    datasets: [{
-                                            label: 'Bar Dataset',
-                                            data: [10, 20, 30, 40],
-                                            backgroundColor: [
-                                                'rgba(255, 99, 132, 0.2)',
-                                                'rgba(54, 162, 235, 0.2)',
-                                                'rgba(255, 206, 86, 0.2)',
-                                                'rgba(75, 192, 192, 0.2)'
-                                            ],
-                                            borderColor: [
-                                                'rgba(255, 99, 132, 1)',
-                                                'rgba(54, 162, 235, 1)',
-                                                'rgba(255, 206, 86, 1)',
-                                                'rgba(75, 192, 192, 1)'
-                                            ],
-                                            order: 1
-                                        }, {
-                                            label: 'Line Dataset',
-                                            data: [15, 25, 15, 30],
-                                            type: 'line',
-                                            backgroundColor: [
-                                                'rgba(75, 192, 192, 0.2)'
-                                            ],
-                                            borderColor: [
-                                                'rgba(75, 192, 192, 1)'
-                                            ],
-                                            pointBackgroundColor: [
-                                                'rgba(75, 192, 192, 1)',
-                                                'rgba(75, 192, 192, 1)',
-                                                'rgba(75, 192, 192, 1)',
-                                                'rgba(75, 192, 192, 1)'
-                                            ],
-                                            pointborderColor: [
-                                                'rgba(75, 192, 192, 1)',
-                                                'rgba(75, 192, 192, 1)',
-                                                'rgba(75, 192, 192, 1)',
-                                                'rgba(75, 192, 192, 1)'
-                                            ],
-                                            fill: false,
-                                            lineTension: 0,
-                                            order: 2
-                                        }],
-                                    labels: ['January', 'February', 'March', 'April']
-                                },
-                                options: {
-                                    scales: {
-                                        yAxes: [{
-                                                ticks: {
-                                                    beginAtZero: true
-                                                }
-                                            }]
+                var ctx = document.getElementById('post_all');
+                var post_all = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        datasets: [{
+                                label: 'Bar Dataset',
+                                data: [10, 20, 30, 40],
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(255, 206, 86, 0.2)',
+                                    'rgba(75, 192, 192, 0.2)'
+                                ],
+                                borderColor: [
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)'
+                                ],
+                                order: 1
+                            }, {
+                                label: 'Line Dataset',
+                                data: [15, 25, 15, 30],
+                                type: 'line',
+                                backgroundColor: [
+                                    'rgba(75, 192, 192, 0.2)'
+                                ],
+                                borderColor: [
+                                    'rgba(75, 192, 192, 1)'
+                                ],
+                                pointBackgroundColor: [
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(75, 192, 192, 1)'
+                                ],
+                                pointborderColor: [
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(75, 192, 192, 1)'
+                                ],
+                                fill: false,
+                                lineTension: 0,
+                                order: 2
+                            }],
+                        labels: ['January', 'February', 'March', 'April']
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true
                                     }
-                                }
-                            });
+                                }]
+                        }
+                    }
+                });
 
             </script>
             <!----------------------------------------TEST------------------------------------------->
             <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
             <script>
-                            // y 軸的顯示
-                            var yAxis = [];
-                            // 資料集合，之後只要更新這個就好了。
-                            var datas = [];
-                            var ctx = document.getElementById('TEST').getContext('2d');
-                            var lineChart = new Chart(ctx, {
-                                //Type 改成 Bar
-                                type: 'bar',
-                                data: {
-                                    labels: yAxis,
-                                    datasets: [{
-                                            label: '測試資料',
-                                            data: datas,
-                                            backgroundColor: "#E283A0"
-                                        }]
-                                }
-                            });
+                // y 軸的顯示
+                var yAxis = [];
+                // 資料集合，之後只要更新這個就好了。
+                var datas = [];
+                var ctx = document.getElementById('TEST').getContext('2d');
+                var lineChart = new Chart(ctx, {
+                    //Type 改成 Bar
+                    type: 'bar',
+                    data: {
+                        labels: yAxis,
+                        datasets: [{
+                                label: '測試資料',
+                                data: datas,
+                                backgroundColor: "#E283A0"
+                            }]
+                    }
+                });
 
-                            //時間格式
-                            var timeFormat = 'HH:mm:ss';
+                //時間格式
+                var timeFormat = 'HH:mm:ss';
 
-                            function appendData()
-                            {
-                                //超過10 個，就把最早進來的刪掉
-                                if (yAxis.length > 10) {
-                                    yAxis.shift();
-                                    datas.shift();
-                                }
+                function appendData()
+                {
+                    //超過10 個，就把最早進來的刪掉
+                    if (yAxis.length > 10) {
+                        yAxis.shift();
+                        datas.shift();
+                    }
 
-                                //推入y 軸新的資料 
-                                yAxis.push(new moment().format(timeFormat));
+                    //推入y 軸新的資料 
+                    yAxis.push(new moment().format(timeFormat));
 
-                                //推入一筆亂數進資料 10~100
-                                datas.push(Math.floor(Math.random() * 100) + 10);
+                    //推入一筆亂數進資料 10~100
+                    datas.push(Math.floor(Math.random() * 100) + 10);
 
-                                //更新線圖
-                                lineChart.update();
-                            }
+                    //更新線圖
+                    lineChart.update();
+                }
 
-                            //每半秒做一次
-                            setInterval(appendData, 1000);
+                //每半秒做一次
+                setInterval(appendData, 1000);
             </script>
 
             <!----------------------------------------TEST2------------------------------------------->
