@@ -127,7 +127,7 @@ if (isset($_SESSION["account"])) {
                     <form method="post" action="">
                         <h1>Login</h1>
                         <div class="login_input">
-                            <input type="text" name="account" id="account" value="" placeholder="帳號" />
+                            <input type="text" name="account" id="account" value="" placeholder="請輸入電子郵件" />
                         </div>
                         <div class="login_input">
                             <input type="password" name="password" id="password" value="" placeholder="密碼" />
