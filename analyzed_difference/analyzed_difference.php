@@ -627,8 +627,8 @@ if ($_SESSION["account"] == "") {
 				</nav>
 				<a href="../index.html" class="logo">InstaBuilder</a>
 				<nav class="right">
-				<a href="../php/logOut.php" name="logout" class="button alt"><?php echo $_SESSION["name"]; ?>-登出</a>
-				</nav>
+                <a href="#" onclick="signOut();" name="logout" class="button alt"><?php echo $_SESSION["name"]; ?>-登出</a>
+            </nav>
 			</header>
 
 		<!-- Menu -->
@@ -759,6 +759,27 @@ if ($_SESSION["account"] == "") {
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script src="../node_modules/chart.js/dist/Chart.js"></script>
+			<script>
+//                GOOGLE 登出按鈕
+//            onLoad();
+//            signOut();
+                    function signOut() {
+                        var auth2 = gapi.auth2.getAuthInstance();
+                        auth2.disconnect();
+                        auth2.signOut().then(function () {
+                            console.log('User signed out.');
+                        });
+                        document.location.href = "../php/logOut.php";
+
+                    }
+
+                    function onLoad() {
+                        gapi.load('auth2', function () {
+                            gapi.auth2.init();
+
+                        });
+                    }
+            </script>
 			<script>
 		var ctx = document.getElementById('post_save');
 			
