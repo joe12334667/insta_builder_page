@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>sign up</title>
+		<title>sign up ig account</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link href="https://fonts.googleapis.com/css?family=El+Messiri|Noto+Sans+TC&display=swap" rel="stylesheet">
@@ -45,25 +45,22 @@
 			<section id="login" class="wrapper">
 				<div class="inner">
 					<header class="align-center">
-						<h1>註冊帳號</h1>
+						<h1>綁定帳號</h1>	
+						<img src="../images/d1.png" width="400px" >					
 						<div class="sign_up_input">
-							<input type="text" name="account" id="account" value="" placeholder="請輸入電子郵件" />
+							<input type="text" name="ig_account" id="ig_account" value="" placeholder="請輸入想要分析之Instagram帳號" />
 						</div>
-						<div class="sign_up_input">
-							<input type="text" name="password" id="password" value="" placeholder="密碼" />
-						</div>
-						<div class="sign_up_input">
-							<input type="text" name="con-password" id="con-password" value="" placeholder="確認密碼" />
-						</div>
+						
+						
 						<div>
-							<input type="submit" name="nexttologin" class="button special" value="下一步">		
+							<input type="submit" name="nexttologin" class="button special" value="確認">							
 						</div>
-						<div>
+						<!--<div>
 							<a href="#" class="button">以Google帳號登入</a>
 						</div>
 						<div>
 						<a href="../login/login.php" class="button alt">已經有帳號 ? 登入</a>
-						</div>
+						</div>-->
 					</header>
 
 					
