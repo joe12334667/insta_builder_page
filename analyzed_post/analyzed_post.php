@@ -19,6 +19,7 @@ if ($_SESSION["account"] == "") {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <!--GOOGLE SIGNOUT-->
         <meta name="google-signin-client_id" content="48428020310-9hp17cjtr6crev5tvl6litg2qi8i0521.apps.googleusercontent.com">
+        <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
         <meta name="google-signin-scope" content="profile email">
         <!------------>        
         <link href="https://fonts.googleapis.com/css?family=El+Messiri|Noto+Sans+TC&display=swap" rel="stylesheet">\
@@ -844,6 +845,7 @@ if ($_SESSION["account"] == "") {
             <script src="assets/js/util.js"></script>
             <script src="assets/js/main.js"></script>
             <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+            
             <script src="../node_modules/chart.js/dist/Chart.js"></script>
             <script>
 //                GOOGLE 登出按鈕
