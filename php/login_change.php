@@ -32,7 +32,7 @@ function SendtoDB($id , $name , $email , $url) {
         $_SESSION["account"] = $email;
         $_SESSION["name"] = $name;
         //沒有資料
-        $sql = "insert into instabuilder.user (user_name, signup_datetime, signup_email) value ( \"".$name."\" , NOW() ,\"".$email."\") ;";
+        $sql = "insert into instabuilder.user (user_name, signup_datetime, signup_email , privilege) value ( \"".$name."\" , NOW() ,\"".$email."\" , 1) ;";
         $db->query($sql);
         $sql = "SELECT LAST_INSERT_ID() as id;";
         $user_id = $db->query($sql)->fetch(PDO::FETCH_OBJ)->id ;
