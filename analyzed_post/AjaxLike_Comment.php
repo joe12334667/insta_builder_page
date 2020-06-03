@@ -7,6 +7,7 @@ session_start();
 
 //取得GET資料
 $type = $_GET['type'];
+$limit = $_GET['limit'];
 //$type = "like";
 
 $db = DB();
@@ -19,7 +20,7 @@ $sql = "select user_id ,account_id ,post_no , content , count ,  announce_time f
         where user.signup_email = '".$_SESSION["account"]."' 
         group by post_no 
         order by post.announce_time desc
-        limit 10
+        limit ".$limit."
         ) as total 
         order by announce_time;";
 

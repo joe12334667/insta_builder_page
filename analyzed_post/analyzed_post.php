@@ -756,9 +756,14 @@ if ($_SESSION["account"] == "") {
                                 <canvas id="TEST" width="10" height="5"></canvas>
                             </div>
                             <div >                                  
+                                <input type="number" id ="like_limit"/>
+                                <button type="button" id="like_search">查詢</button>
+                            </div>    
+                            <div id="post_like_chart">
                                 <canvas id="post_like" width="10" height="9"></canvas>
                             </div>
-                            <div >                                  
+
+                            <div id = "post_comment_chart">                                   
                                 <canvas id="post_comment" width="10" height="9"></canvas>
                             </div>
                         </div>							
@@ -845,7 +850,7 @@ if ($_SESSION["account"] == "") {
             <script src="assets/js/util.js"></script>
             <script src="assets/js/main.js"></script>
             <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
-            
+
             <script src="../node_modules/chart.js/dist/Chart.js"></script>
             <script>
 //                GOOGLE 登出按鈕
@@ -1024,14 +1029,30 @@ if ($_SESSION["account"] == "") {
             <script>
                 ajaxChart("post_like", "like");
                 ajaxChart("post_comment", "comment");
+                $("#like_search").click(function () {
+                    var limit = document.getElementById("like_limit").value;
+//                    alert(limit);
+                    if(limit < 1){
+                        limit = 1;
+                    }
+                    ajaxChart("post_like", "like", limit);
+                    ajaxChart("post_comment", "comment" , limit);
 
-                function ajaxChart(ChartName, ChartTableName) {
+                });
+
+                function ajaxChart(ChartName, ChartTableName, limits = 10) {
+
+                    $('#' + ChartName).remove(); // this is my <canvas> element
+                    $('#'+ ChartName +'_chart').append('<canvas id="' + ChartName + '"><canvas>');
+                    $("#" + ChartName).width(10).height(9);
+
                     $.ajax({
                         type: "GET",
                         cache: false,
                         url: "AjaxLike_Comment.php",
                         data: {
                             type: ChartTableName,
+                            limit: limits,
                         },
                         dataType: "json",
                         success: function (response) {
