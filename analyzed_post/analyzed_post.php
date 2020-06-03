@@ -1034,6 +1034,8 @@ if ($_SESSION["account"] == "") {
 //                    alert(limit);
                     if(limit < 1){
                         limit = 1;
+                    }else if (limit >50 ){
+                        limit = 50;
                     }
                     ajaxChart("post_like", "like", limit);
                     ajaxChart("post_comment", "comment" , limit);
@@ -1057,12 +1059,15 @@ if ($_SESSION["account"] == "") {
                         dataType: "json",
                         success: function (response) {
                             //主要Chart.js繪圖區
-                            const data = response; //取得data.php回傳的資料
+                            const data = response; //取得.php回傳的資料
                             const all_x_labels = [], all_y_data = [], Background_color = [];
-
+                            
                             //利用陣列建立x,y座標
-                            for (let i = 0; i < response.length; i++) {
-                                if (data[i].content.length > 10) {
+                            for (let i = 0; i < data.length; i++) {
+                                if(data[i].content == null){
+                                    all_x_labels[i] = data[i].announce_time;
+                                }
+                                else if (data[i].content.length > 10) {
                                     all_x_labels[i] = data[i].content.substr(0, 10) + "..." + "\n" + data[i].announce_time;
                                 } else {
                                     all_x_labels[i] = data[i].content + "\n" + data[i].announce_time;
