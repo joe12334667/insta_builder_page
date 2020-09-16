@@ -10,7 +10,7 @@ include '../php/FindOrder.php';
 //如果用戶已登入不會要求再登入一次，而是直接跳頁
 if (isset($_SESSION["account"])) {
     if ($_SESSION["account"] != null) {
-        header("Location: ../analyzed_post/analyzed_post.php");
+        header("Location: ../dashboard/dashboard.php");
     }
 }
 ?>
