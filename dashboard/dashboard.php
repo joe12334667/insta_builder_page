@@ -825,6 +825,7 @@ if ($_SESSION["account"] == "") {
         <script src="assets/demo/datatables-demo.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+        <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
         <script>
 //GOOGLE 登出按鈕
 //onLoad();
