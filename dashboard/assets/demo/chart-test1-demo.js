@@ -33,7 +33,7 @@ Chart.defaults.global.defaultFontColor = '#292b2c';
                     yAxis.shift();
                     datas.shift();
                 }
-ww
+
                 //推入y 軸新的資料 
                 yAxis.push(new moment().format(timeFormat));
 

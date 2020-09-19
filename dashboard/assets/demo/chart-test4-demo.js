@@ -22,7 +22,7 @@ function ajaxChart(ChartName, ChartTableName, limits = 10) {
     $.ajax({
         type: "GET",
         cache: false,
-        url: "AjaxLike_Comment.php",
+        url: "../../dashboard/Ajaxlike_comment.php",
         data: {
             type: ChartTableName,
             limit: limits,
@@ -98,30 +98,3 @@ function ajaxChart(ChartName, ChartTableName, limits = 10) {
     });
 }
 
-
-//			var ctx = document.getElementById('post_like');
-//			var post_like = new Chart(ctx, {
-//			    type: 'bar',
-//			    data: {
-//			        labels: ['貼文1', '貼文2', '貼文3', '貼文4', '貼文5', '貼文6','貼文7', '貼文8', '貼文9', '貼文10'],
-//			        
-//			        datasets: [{
-//			            label: '貼文按讚數',
-//			            data: [120, 190, 130, 170, 200, 300, 1300, 170, 200, 300],
-//			            backgroundColor: 'rgba(255,222,242,1)',
-//			                        
-//			            borderWidth: 1
-//			        }]
-//			    },
-//			    options: {
-//			        scales: {
-//			            yAxes: [{
-//			                ticks: {
-//			                    beginAtZero: true,
-//			                   
-//			                }
-//			            }]
-//			        }
-//			        
-//			    }
-//			});

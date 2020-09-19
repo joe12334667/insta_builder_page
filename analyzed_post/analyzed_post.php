@@ -850,7 +850,6 @@ if ($_SESSION["account"] == "") {
             <script src="assets/js/util.js"></script>
             <script src="assets/js/main.js"></script>
             <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
-
             <script src="../node_modules/chart.js/dist/Chart.js"></script>
             <script>
 //                GOOGLE 登出按鈕
@@ -1031,7 +1030,7 @@ if ($_SESSION["account"] == "") {
                 ajaxChart("post_comment", "comment");
                 $("#like_search").click(function () {
                     var limit = document.getElementById("like_limit").value;
-//                    alert(limit);
+                    //alert(limit);
                     if(limit < 1){
                         limit = 1;
                     }else if (limit >50 ){
@@ -1076,7 +1075,6 @@ if ($_SESSION["account"] == "") {
 
                                 Background_color[i] = "#c9c9ff";
                             }
-
                             const ctx = document.getElementById(ChartName);
                             visualize = new Chart(ctx, {
                                 type: "bar",
@@ -1089,9 +1087,9 @@ if ($_SESSION["account"] == "") {
                                             borderColor: "#8BA2FF", // 設定線的顏色
                                             backgroundColor: Background_color, // 設定點的顏色
                                             pointBorderWidth: 6,
-//                                            pointBorderColor: "#FF82B4",
-//                                            lineTension: 0.1  // 顯示折線圖，不使用曲線
-                                        }],
+                                            //pointBorderColor: "#FF82B4",
+                                            //lineTension: 0.1  // 顯示折線圖，不使用曲線
+                                    }],
 
                                 },
                                 options: {
@@ -1100,90 +1098,28 @@ if ($_SESSION["account"] == "") {
                                     },
                                     scales: {
                                         yAxes: [{
-                                                ticks: {
-                                                    // beginAtZero: true,
-//                                                          min: 10,
-//                                                          stepSize: 2
-                                                },
-
-                                            }],
+                                            ticks: {
+                                                // beginAtZero: true,
+                                                //min: 10,
+                                                //stepSize: 2
+                                            },
+                                        }],
                                         xAxes: [{
-                                                ticks: {
-                                                    minRotation: 90,
-
-                                                    // beginAtZero: true,
-//                                                    min: 10,
-//                                                    maxTicksLimit: 10,
-
-                                                },
-
-                                            }],
-
+                                            ticks: {
+                                                minRotation: 90,
+                                                // beginAtZero: true,
+                                                //min: 10,
+                                                //maxTicksLimit: 10,
+                                            },
+                                        }],
                                     }
-
                                 }
                             });
                         }
                     });
                 }
-
-
-//			var ctx = document.getElementById('post_like');
-//			var post_like = new Chart(ctx, {
-//			    type: 'bar',
-//			    data: {
-//			        labels: ['貼文1', '貼文2', '貼文3', '貼文4', '貼文5', '貼文6','貼文7', '貼文8', '貼文9', '貼文10'],
-//			        
-//			        datasets: [{
-//			            label: '貼文按讚數',
-//			            data: [120, 190, 130, 170, 200, 300, 1300, 170, 200, 300],
-//			            backgroundColor: 'rgba(255,222,242,1)',
-//			                        
-//			            borderWidth: 1
-//			        }]
-//			    },
-//			    options: {
-//			        scales: {
-//			            yAxes: [{
-//			                ticks: {
-//			                    beginAtZero: true,
-//			                   
-//			                }
-//			            }]
-//			        }
-//			        
-//			    }
-//			});
             </script>
 
-            <script>
-//                var ctx = document.getElementById('post_comment');
-//                var post_comment = new Chart(ctx, {
-//                    type: 'bar',
-//                    data: {
-//                        labels: ['貼文1', '貼文2', '貼文3', '貼文4', '貼文5', '貼文6', '貼文7', '貼文8', '貼文9', '貼文10'],
-//
-//                        datasets: [{
-//                                label: '貼文留言數',
-//                                data: [12, 10, 10, 17, 20, 0, 13, 1, 20, 15],
-//                                backgroundColor: 'rgba(242,226,255,0.8)',
-//                                borderColor: 'rgba(242,226,255,1)',
-//                                borderWidth: 1
-//                            }]
-//                    },
-//                    options: {
-//                        scales: {
-//                            yAxes: [{
-//                                    ticks: {
-//                                        beginAtZero: true,
-//
-//                                    }
-//                                }]
-//                        }
-//
-//                    }
-//                });
-            </script>
             <script>
                 var ctx = document.getElementById('post_save');
                 var post_save = new Chart(ctx, {
