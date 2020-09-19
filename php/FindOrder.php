@@ -170,7 +170,7 @@ function FindUser ($account , $password){
 //        $_SESSION["password"] = $password;
         
         
-        header('Location: ../analyzed_post/analyzed_post.php');
+        header("Location: ../dashboard/dashboard.php");
     }else{
         echo '<script>  swal.fire({
             text: "查不到資料！  請檢查輸入資料是否正確！",

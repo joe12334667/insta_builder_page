@@ -14,6 +14,27 @@ if (isset($_SESSION["account"])) {
     }
 }
 ?>
+<?php
+//未登入或登入逾時 跳出alert 
+//由analyed...頁面傳出unlog來判斷
+if (isset($_SESSION["unLog"])) {
+    if ($_SESSION["unLog"]) {
+        echo '<script>  swal.fire({
+                text: "未登入或登入逾時！",
+                icon: "error",
+                button: false,
+                timer: 2000,
+                }); </script>';
+        session_unset();
+    }
+}
+
+
+//      登入確認
+if (isset($_POST["next"])) {
+    findUser($_POST["account"], $_POST["password"]);
+}
+?>
 <html>
     <head>
         <title>login</title>
@@ -87,27 +108,7 @@ if (isset($_SESSION["account"])) {
         </style>
     </head>
     <body class="subpage">
-        <?php
-        //未登入或登入逾時 跳出alert 
-        //由analyed...頁面傳出unlog來判斷
-        if (isset($_SESSION["unLog"])) {
-            if ($_SESSION["unLog"]) {
-                echo '<script>  swal.fire({
-                text: "未登入或登入逾時！",
-                icon: "error",
-                button: false,
-                timer: 2000,
-                }); </script>';
-                session_unset();
-            }
-        }
 
-
-//      登入確認
-        if (isset($_POST["next"])) {
-            findUser($_POST["account"], $_POST["password"]);
-        }
-        ?>
         <div id="fb-root"></div>
         <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v7.0&appId=828605147630397"></script>
 
