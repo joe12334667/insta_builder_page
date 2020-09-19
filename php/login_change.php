@@ -27,7 +27,7 @@ function SendtoDB($id , $name , $email , $url) {
     if ($row >= 1) {
         $_SESSION["account"] = $email;
         $_SESSION["name"] = $name;
-        header('Location: ../analyzed_post/analyzed_post.php');
+        header('Location: ../dashboard/dashboard.php');
     } else {
         $_SESSION["account"] = $email;
         $_SESSION["name"] = $name;
@@ -41,7 +41,7 @@ function SendtoDB($id , $name , $email , $url) {
                 . "value (\"".$id."\" , \"".$name."\" , \"".$email."\" , \"".$url."\" , \"".$user_id."\"  );";
         
         $db->query($sql);
-        header('Location: ../analyzed_post/analyzed_post.php');
+        header('Location: ../dashboard/dashboard.php');
     }
     }catch(Exception $e){   
         echo '<script> alert("資料庫輸入錯誤 ")</script>';
