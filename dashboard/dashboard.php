@@ -269,7 +269,7 @@ if ($_SESSION["account"] == "") {
                                     <div class="card-body"><canvas id="myBarChart" width="100" height="40"></canvas></div>
                                 </div>
                             </div>
-                            <div class="col-xl-6">
+                            <!-- <div class="col-xl-6">
                                 <div class="card mb-4">
                                     <div class="card-header">
                                         <i class="fas fa-chart-area mr-1"></i>
@@ -281,8 +281,8 @@ if ($_SESSION["account"] == "") {
                                     <canvas id="post_comment" width="100" height="40"></canvas>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-xl-6">
+                            </div> -->
+                            <!-- <div class="col-xl-6">
                                 <div class="card mb-4">
                                     <div class="card-header">
                                         <i class="fas fa-chart-area mr-1"></i>
@@ -290,9 +290,22 @@ if ($_SESSION["account"] == "") {
                                     </div>
                                     <div class="card-body"><canvas id="myAreaChart" width="100%" height="40%"></canvas></div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
-                        
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-chart-area mr-1"></i>post_comment chart test4
+                                <div class="input-group">
+                                    <input class="form-control"  id ="like_limit" type="number" placeholder="查詢筆數" aria-label="Search" aria-describedby="basic-addon2" />
+                                    <div class="input-group-append">
+                                    <button class="btn btn-primary" id="like_search" type="button"></button>
+                                    </div>
+                                </div>
+                            </div>
+                                <div class="card-body" id = "post_comment_chart">
+                                    <canvas id="post_comment" width="100" height="40"></canvas>
+                                </div>
+                        </div>
                         <!---------綜合圖表---------------------------------------------------------------------->
                         <div class="card mb-4">
                             <div class="card-header">
