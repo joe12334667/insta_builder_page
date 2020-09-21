@@ -277,7 +277,7 @@ if ($_SESSION["account"] == "") {
                                     </div>
                                     <input type="number" id ="like_limit"/>
                                     <button type="button" id="like_search">查詢</button>
-                                    <div class="card-body">
+                                    <div class="card-body" id = "post_comment_chart">
                                     <canvas id="post_comment" width="100" height="40"></canvas>
                                     </div>
                                 </div>
@@ -831,7 +831,7 @@ if ($_SESSION["account"] == "") {
         <script src="assets/demo/datatables-demo.js"></script>
         <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
         <script src="../node_modules/chart.js/dist/Chart.js"></script>
-        <script src="assets/js/jquery.min.js"></script>
+        <script src="js/jquery.min.js"></script>
         
         <script>
 //GOOGLE 登出按鈕
@@ -857,11 +857,13 @@ if ($_SESSION["account"] == "") {
         
 <!------Test chart-------------------------------------------------------------------------------------------------------------------------->
 <script>
+
                 ajaxChart("post_like", "like");
                 ajaxChart("post_comment", "comment");
+               
                 $("#like_search").click(function () {
                     var limit = document.getElementById("like_limit").value;
-                    //alert(limit);
+//                    alert(limit);
                     if(limit < 1){
                         limit = 1;
                     }else if (limit >50 ){
@@ -876,7 +878,7 @@ if ($_SESSION["account"] == "") {
 
                     $('#' + ChartName).remove(); // this is my <canvas> element
                     $('#'+ ChartName +'_chart').append('<canvas id="' + ChartName + '"><canvas>');
-                    $("#" + ChartName).width(10).height(9);
+                    $("#" + ChartName).width(100).height(40);
 
                     $.ajax({
                         type: "GET",
