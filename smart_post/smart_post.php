@@ -52,7 +52,7 @@ if ($_SESSION["account"] == "") {
                         <a class="dropdown-item" href="#">Settings</a>
                         <a class="dropdown-item" href="#">Activity Log</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#" onclick="signOut();" name="logout">Logout</a><?php echo $_SESSION["name"]; ?>-登出</a>
+                        <a class="dropdown-item" href="#" onclick="signOut();" name="logout"> Logout</a><?php echo $_SESSION["name"]; ?>-登出</a>
                     </div>
                 </li>
             </ul>
@@ -161,7 +161,7 @@ if ($_SESSION["account"] == "") {
                                 <div class="table-responsive">                                
                                     <div class="12u$">
                                         <div class="select-wrapper">
-                                            <select name="category" id="category">
+                                            <select name="category" id="category" onchange = "ajaxSelect()" >
                                                 <option value="">- 選擇貼文類別 -</option>
                                                 <option value="78">健康養生</option>
                                                 <option value="79">動漫</option>
@@ -198,8 +198,11 @@ if ($_SESSION["account"] == "") {
                                         </div>
                                     </div>
                                     <div class="12u$">
-                                        <div class="hashtags" id="hashtags"  >
+                                        <div class="12u$">系統前十名HASHTAG:</div>
+                                        <div  class="12u$" id="hashtag_holder">
+
                                         </div>
+                                        
                                     </div>    
                                     <div class="12u$">
                                         <div class="table-responsive">                                
@@ -274,8 +277,7 @@ if ($_SESSION["account"] == "") {
 
         <!------Test chart-------------------------------------------------------------------------------------------------------------------------->
         <script>
-            $("#category").onchange = ajaxSelect();
-            
+         
             function ajaxSelect() {
                 var cate_nos = document.getElementById("category").value;
                 $.ajax({
@@ -287,8 +289,10 @@ if ($_SESSION["account"] == "") {
                     },
                     dataType: "json",
                     success: function (response) {
+                        $('#hashtags').remove();    
+                        $('#hashtag_holder').append('<div id="hashtags"> </div>');
                         response.forEach(function (item, index, array) {
-                            $('#hashtags').append('<input type="checkbox" id="'+ item["hash_no"] +'" name="'+item["hash_name"]+'"> <label for="horns">'+item["hash_name"]+'</label>');
+                            $('#hashtags').append('<input type="checkbox" id="'+ item["hash_no"] +'" name=""> <label for="horns">'+item["hash_name"]+'</label>');
                         });
                     }
                 });

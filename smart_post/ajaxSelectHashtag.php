@@ -6,8 +6,8 @@ session_start();
 
 
 //取得GET資料
-//$cate_no = $_GET['cate_no'];
-$cate_no = 78;
+$cate_no = $_GET['cate_no'];
+//$cate_no = 78;
 $db = DB();
 $sql = "SELECT * FROM instabuilder.hashtags where cate_no = ".$cate_no."  order by times desc limit 10;";
 $data = $db->query($sql);
