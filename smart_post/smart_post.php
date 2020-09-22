@@ -144,10 +144,11 @@ if ($_SESSION["account"] == "") {
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">                                
-                                    <textarea name="message" id="message" placeholder="在此輸入內文" rows="10"></textarea>
+                                    <textarea name="user_content" id="user_content" placeholder="在此輸入內文" rows="10"></textarea>
                                 </div>
                                 <div class="12u$">                                    
-                                    <input type="submit" value="選擇圖片" />
+
+                                    <button type="button" id="content_search">查詢</button>
                                 </div>
                             </div>
                         </div>
@@ -162,7 +163,7 @@ if ($_SESSION["account"] == "") {
                                     <div class="12u$">
                                         <div class="select-wrapper">
                                             <select name="category" id="category" onchange = "ajaxSelect()" >
-                                                <option value="">- 選擇貼文類別 -</option>
+                                                <option value="0">- 選擇貼文類別 -</option>
                                                 <option value="78">健康養生</option>
                                                 <option value="79">動漫</option>
                                                 <option value="80">國際</option>
@@ -198,11 +199,17 @@ if ($_SESSION["account"] == "") {
                                         </div>
                                     </div>
                                     <div class="12u$">
+                                        <!--------------------------功能------------------------------->
                                         <div class="12u$">系統前十名HASHTAG:</div>
-                                        <div  class="12u$" id="system_hashtag">
+                                        <div  class="12u$" id="system_hashtag_group">
 
                                         </div>
-                                        
+                                        <!--------------------------------------------------------->
+                                        <div class="12u$">jieba分析前十名HASHTAG:</div>
+                                        <div  class="12u$" id="jieba_hashtag_group">
+
+                                        </div>
+                                        <!--------------------------------------------------------->
                                     </div>    
                                     <div class="12u$">
                                         <div class="table-responsive">                                
@@ -252,63 +259,88 @@ if ($_SESSION["account"] == "") {
         <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
         <script src="../node_modules/chart.js/dist/Chart.js"></script>
         <script src="js/jquery.min.js"></script>
-
         <script>
 //GOOGLE 登出按鈕
 //onLoad();
 //signOut();
-                            function signOut() {
-                                var auth2 = gapi.auth2.getAuthInstance();
-                                auth2.disconnect();
-                                auth2.signOut().then(function () {
-                                    console.log('User signed out.');
-                                });
-                                document.location.href = "../php/logOut.php";
+                                                function signOut() {
+                                                    var auth2 = gapi.auth2.getAuthInstance();
+                                                    auth2.disconnect();
+                                                    auth2.signOut().then(function () {
+                                                        console.log('User signed out.');
+                                                    });
+                                                    document.location.href = "../php/logOut.php";
 
-                            }
+                                                }
 
-                            function onLoad() {
-                                gapi.load('auth2', function () {
-                                    gapi.auth2.init();
+                                                function onLoad() {
+                                                    gapi.load('auth2', function () {
+                                                        gapi.auth2.init();
 
-                                });
-                            }
+                                                    });
+                                                }
         </script>
 
         <!------Test chart-------------------------------------------------------------------------------------------------------------------------->
         <script>
-         
+
             function ajaxSelect() {
-                var cate_nos = document.getElementById("category").value;
+                var cate_no = document.getElementById("category").value;
                 $.ajax({
                     type: "GET",
                     cache: false,
                     url: "ajaxSelectHashtag.php",
                     data: {
-                        cate_no: cate_nos,
+                        cate_no: cate_no,
                     },
                     dataType: "json",
                     success: function (response) {
-                        $('#hashtags').remove();    
-                        $('#system_hashtag').append('<div id="hashtags"> </div>');
+                        $('#system_hashtags').remove();
+                        $('#system_hashtag_group').append('<div id="system_hashtags"> </div>');
                         response.forEach(function (item, index, array) {
-                            $('#hashtags').append('<input type="checkbox" id="'+ item["hash_no"] +'" name=""> <label for="horns">'+item["hash_name"]+'</label>');
+                            $('#system_hashtags').append('<input type="checkbox" id="' + item["hash_no"] + '" name=""> <label for="horns">' + item["hash_name"] + '</label>');
                         });
                     }
                 });
             }
 
-            $("#like_search").click(function () {
-                var limit = document.getElementById("like_limit").value;
-                //                    alert(limit);
-                if (limit < 1) {
-                    limit = 1;
-                } else if (limit > 50) {
-                    limit = 50;
+            $("#content_search").click(function () {
+                var user_content = document.getElementById("user_content").value;
+                var cate_no = document.getElementById("category").value;
+                if (cate_no == 0) {
+                    alert("請至下方選擇種類!", "error");
                 }
-                ajaxChart("post_like", "like", limit);
-                ajaxChart("post_comment", "comment", limit);
+                alert("系統計算需要時間，請等待片刻")
+                $.ajax({
+                    type: "GET",
+                    cache: false,
+                    url: "../php/Ajax_Baidu_Jieba.php",
+                    data: {
+                        user_content: user_content,
+                        user_cate: cate_no,
+                    },
+                    dataType: "json",
+                    beforeSend: function () {
+                        // 禁用按鈕防止重復提交
+                        $("#content_search").attr({disabled: "disabled"});
+                    },
+                    success: function (response) {
+                        $('#jieba_hashtags').remove();
+                        $('#jieba_hashtags_inDB').remove();
+                        $('#jieba_hashtag_group').append('<div id="jieba_hashtags_inDB">在資料庫有資料的推薦HASHTAG:</div>');
+                        $('#jieba_hashtag_group').append('<div id="jieba_hashtags">在資料庫無資料的推薦HASHTAG:</div>');
 
+                        response.forEach(function (item, index, array) {
+                            if (item["is_in_DB"] && item["is_same"]) {
+                                $('#jieba_hashtags_inDB').append('<input type="checkbox" id="' + index + '" name=""  checked="checked"> <label for="horns">' + item["hashtag"] + '</label>');
+                            } else {
+                                $('#jieba_hashtags').append('<input type="checkbox" id="' + index + '" name=""> <label for="horns">' + item["hashtag"] + '</label>');
+                            }
+                        });
+                    }, complete: function () {
+                        $("#content_search").removeAttr("disabled");
+                    }
+                });
             });
 
             function ajaxChart(ChartName, ChartTableName, limits = 10) {
