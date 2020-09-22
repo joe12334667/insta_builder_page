@@ -199,7 +199,7 @@ if ($_SESSION["account"] == "") {
                                     </div>
                                     <div class="12u$">
                                         <div class="12u$">系統前十名HASHTAG:</div>
-                                        <div  class="12u$" id="hashtag_holder">
+                                        <div  class="12u$" id="system_hashtag">
 
                                         </div>
                                         
@@ -290,7 +290,7 @@ if ($_SESSION["account"] == "") {
                     dataType: "json",
                     success: function (response) {
                         $('#hashtags').remove();    
-                        $('#hashtag_holder').append('<div id="hashtags"> </div>');
+                        $('#system_hashtag').append('<div id="hashtags"> </div>');
                         response.forEach(function (item, index, array) {
                             $('#hashtags').append('<input type="checkbox" id="'+ item["hash_no"] +'" name=""> <label for="horns">'+item["hash_name"]+'</label>');
                         });
