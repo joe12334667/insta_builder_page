@@ -1,4 +1,4 @@
-<?php //
+<?php
 
 require '../php/DataBase.php';
 
@@ -6,28 +6,11 @@ session_start();
 
 
 //取得GET資料
-$type = $_GET['type'];
-$limit = $_GET['limit'];
-//$type = "like";
-
+//$cate_no = $_GET['cate_no'];
+$cate_no = 78;
 $db = DB();
-$sql = "select user_id ,account_id ,post_no , content , count ,  announce_time from(
-        select user.user_id ,  userinstaaccount.account_id  , userpost.post_no  , post.content , count(". $type .".post_no) as count , post.announce_time FROM instabuilder.user 
-        left join instabuilder.userinstaaccount on user.user_id = userinstaaccount.user_id
-        left join instabuilder.userpost on userinstaaccount.account_id = userpost.account_id
-        left join instabuilder.post on userpost.post_no = post.post_no
-        left join instabuilder.". $type ." on post.post_no = ". $type .".post_no
-        where user.signup_email = '".$_SESSION["account"]."' 
-        group by post_no 
-        order by post.announce_time desc
-        limit ".$limit."
-        ) as total 
-        order by announce_time;";
-
+$sql = "SELECT * FROM instabuilder.hashtags where cate_no = ".$cate_no."  order by times desc limit 10;";
 $data = $db->query($sql);
-
-
-
 echo json_encode($data->fetchAll(PDO::FETCH_ASSOC), JSON_UNESCAPED_UNICODE);
 
 ////檢查連結

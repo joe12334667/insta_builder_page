@@ -1,8 +1,8 @@
 <!----------
-    test1=pink chart >10
-    test2=blue chart >10
-    test3=BBB  chart 3=>1
-    test4=comm chart ajax    
+test1=pink chart >10
+test2=blue chart >10
+test3=BBB  chart 3=>1
+test4=comm chart ajax    
 ------------>
 
 <!DOCTYPE html>
@@ -57,7 +57,7 @@ if ($_SESSION["account"] == "") {
                 </li>
             </ul>
         </nav>
-        
+
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
@@ -98,7 +98,7 @@ if ($_SESSION["account"] == "") {
                                     <a class="nav-link" href="layout-sidenav-light.html">標籤分析</a>
                                 </nav>
                             </div>
-                            
+
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts-autopost" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 智能貼文
@@ -110,7 +110,7 @@ if ($_SESSION["account"] == "") {
                                 </nav>
                             </div>
                             <!----------------------------------------------------------------------------------------------------------->
-                            
+
                             <div class="sb-sidenav-menu-heading">Addons</div>
                             <a class="nav-link" href="charts.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
@@ -129,7 +129,7 @@ if ($_SESSION["account"] == "") {
                 </nav>
             </div>
             <div id="layoutSidenav_content">
-            
+
                 <main>
                     <div class="container-fluid">
                         <h1 class="mt-4">smart_post</h1>
@@ -148,10 +148,10 @@ if ($_SESSION["account"] == "") {
                                 </div>
                                 <div class="12u$">                                    
                                     <input type="submit" value="選擇圖片" />
-								</div>
+                                </div>
                             </div>
                         </div>
-                        
+
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-chart-area mr-1"></i>
@@ -160,44 +160,45 @@ if ($_SESSION["account"] == "") {
                             <div class="card-body">
                                 <div class="table-responsive">                                
                                     <div class="12u$">
-										<div class="select-wrapper">
-											<select name="category" id="category">
-												<option value="">- 選擇貼文類別 -</option>
-												<option value="1">食</option>
-												<option value="1">衣</option>
-												<option value="1">住</option>
-												<option value="1">行</option>
-												<option value="1">育</option>
-												<option value="1">樂</option>
-											</select>
-										</div>
+                                        <div class="select-wrapper">
+                                            <select name="category" id="category">
+                                                <option value="">- 選擇貼文類別 -</option>
+                                                <option value="78">健康養生</option>
+                                                <option value="79">動漫</option>
+                                                <option value="80">國際</option>
+                                                <option value="81">娛樂</option>
+                                                <option value="82">家居</option>
+                                                <option value="83">寵物</option>
+
+                                                <option value="84">情感</option>
+                                                <option value="85">搞笑</option>
+                                                <option value="86">教育</option>
+                                                <option value="87">旅遊</option>
+
+                                                <option value="88">文化</option>
+                                                <option value="89">歷史</option>
+                                                <option value="90">汽車</option>
+                                                <option value="91">星座運勢</option>
+
+                                                <option value="92">社會</option>
+                                                <option value="93">科技</option>
+                                                <option value="94">育兒</option>
+                                                <option value="95">財經</option>
+
+                                                <option value="96">時事</option>
+                                                <option value="97">時尚</option>
+                                                <option value="98">遊戲</option>
+                                                <option value="99">綜合</option>
+
+                                                <option value="100">美食</option>
+                                                <option value="101">音樂</option>
+                                                <option value="102">體育</option>
+                                                <option value="103">軍事</option>
+                                            </select>
+                                        </div>
                                     </div>
                                     <div class="12u$">
-                                        <div class="hashtags">
-                                            <div class="choose_hashtag">							
-                                                <!-- <div class="4u 12u$(small)"> -->
-                                                    <input type="radio" id="hashtag_1" name="hashtag1" >
-                                                    <label for="hashtag_1">good2eat</label>
-                                                <!-- </div> -->
-                                            </div>
-                                            <div class="choose_hashtag">							
-                                                <!-- <div class="4u 12u$(small)"> -->
-                                                    <input type="radio" id="hashtag_2" name="hashtag2" >
-                                                    <label for="hashtag_2">yummy</label>
-                                                <!-- </div> -->
-                                            </div>
-                                            <div class="choose_hashtag">							
-                                                <!-- <div class="4u 12u$(small)"> -->
-                                                    <input type="radio" id="hashtag_3" name="hashtag3" >
-                                                    <label for="hashtag_3">hashtag3</label>
-                                                <!-- </div> -->
-                                            </div>
-                                            <div class="choose_hashtag">							
-                                                <!-- <div class="4u 12u$(small)"> -->
-                                                    <input type="radio" id="hashtag_4" name="hashtag4" >
-                                                    <label for="hashtag_4">taipeifood</label>
-                                                <!-- </div> -->
-                                            </div>
+                                        <div class="hashtags" id="hashtags"  >
                                         </div>
                                     </div>    
                                     <div class="12u$">
@@ -248,126 +249,85 @@ if ($_SESSION["account"] == "") {
         <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
         <script src="../node_modules/chart.js/dist/Chart.js"></script>
         <script src="js/jquery.min.js"></script>
-        
+
         <script>
 //GOOGLE 登出按鈕
 //onLoad();
 //signOut();
-            function signOut() {
-                var auth2 = gapi.auth2.getAuthInstance();
-                auth2.disconnect();
-                auth2.signOut().then(function () {
-                    console.log('User signed out.');
-                });
-                document.location.href = "../php/logOut.php";
+                            function signOut() {
+                                var auth2 = gapi.auth2.getAuthInstance();
+                                auth2.disconnect();
+                                auth2.signOut().then(function () {
+                                    console.log('User signed out.');
+                                });
+                                document.location.href = "../php/logOut.php";
 
+                            }
+
+                            function onLoad() {
+                                gapi.load('auth2', function () {
+                                    gapi.auth2.init();
+
+                                });
+                            }
+        </script>
+
+        <!------Test chart-------------------------------------------------------------------------------------------------------------------------->
+        <script>
+            $("#category").onchange = ajaxSelect();
+            
+            function ajaxSelect() {
+                var cate_nos = document.getElementById("category").value;
+                $.ajax({
+                    type: "GET",
+                    cache: false,
+                    url: "ajaxSelectHashtag.php",
+                    data: {
+                        cate_no: cate_nos,
+                    },
+                    dataType: "json",
+                    success: function (response) {
+                        response.forEach(function (item, index, array) {
+                            $('#hashtags').append('<input type="checkbox" id="'+ item["hash_no"] +'" name="'+item["hash_name"]+'"> <label for="horns">'+item["hash_name"]+'</label>');
+                        });
+                    }
+                });
             }
 
-            function onLoad() {
-                gapi.load('auth2', function () {
-                    gapi.auth2.init();
+            $("#like_search").click(function () {
+                var limit = document.getElementById("like_limit").value;
+                //                    alert(limit);
+                if (limit < 1) {
+                    limit = 1;
+                } else if (limit > 50) {
+                    limit = 50;
+                }
+                ajaxChart("post_like", "like", limit);
+                ajaxChart("post_comment", "comment", limit);
 
+            });
+
+            function ajaxChart(ChartName, ChartTableName, limits = 10) {
+
+                $('#' + ChartName).remove(); // this is my <canvas> element
+                $('#' + ChartName + '_chart').append('<canvas id="' + ChartName + '"><canvas>');
+                $("#" + ChartName).width(100).height(40);
+
+                $.ajax({
+                    type: "GET",
+                    cache: false,
+                    url: "AjaxLike_Comment.php",
+                    data: {
+                        type: ChartTableName,
+                        limit: limits,
+                    },
+                    dataType: "json",
+                    success: function (response) {
+
+                    }
                 });
             }
         </script>
-        
-<!------Test chart-------------------------------------------------------------------------------------------------------------------------->
-<script>
-
-                ajaxChart("post_like", "like");
-                ajaxChart("post_comment", "comment");
-               
-                $("#like_search").click(function () {
-                    var limit = document.getElementById("like_limit").value;
-//                    alert(limit);
-                    if(limit < 1){
-                        limit = 1;
-                    }else if (limit >50 ){
-                        limit = 50;
-                    }
-                    ajaxChart("post_like", "like", limit);
-                    ajaxChart("post_comment", "comment" , limit);
-
-                });
-
-                function ajaxChart(ChartName, ChartTableName, limits = 10) {
-
-                    $('#' + ChartName).remove(); // this is my <canvas> element
-                    $('#'+ ChartName +'_chart').append('<canvas id="' + ChartName + '"><canvas>');
-                    $("#" + ChartName).width(100).height(40);
-
-                    $.ajax({
-                        type: "GET",
-                        cache: false,
-                        url: "AjaxLike_Comment.php",
-                        data: {
-                            type: ChartTableName,
-                            limit: limits,
-                        },
-                        dataType: "json",
-                        success: function (response) {
-                            //主要Chart.js繪圖區
-                            const data = response; //取得.php回傳的資料
-                            const all_x_labels = [], all_y_data = [], Background_color = [];
-                            
-                            //利用陣列建立x,y座標
-                            for (let i = 0; i < data.length; i++) {
-                                if(data[i].content == null){
-                                    all_x_labels[i] = data[i].announce_time;
-                                }
-                                else if (data[i].content.length > 10) {
-                                    all_x_labels[i] = data[i].content.substr(0, 10) + "..." + "\n" + data[i].announce_time;
-                                } else {
-                                    all_x_labels[i] = data[i].content + "\n" + data[i].announce_time;
-                                }
-                                all_y_data[i] = data[i].count;
-
-                                Background_color[i] = "#c9c9ff";
-                            }
-                            const ctx = document.getElementById(ChartName);
-                            visualize = new Chart(ctx, {
-                                type: "bar",
-                                data: {
-                                    labels: all_x_labels, // x軸的刻度
-                                    datasets: [{
-                                            label: ChartTableName, // 顯示該資料的標題 
-                                            data: all_y_data, // y軸資料
-                                            fill: false, // 不顯示底下的灰色區塊
-                                            borderColor: "#8BA2FF", // 設定線的顏色
-                                            backgroundColor: Background_color, // 設定點的顏色
-                                            pointBorderWidth: 6,
-                                            //pointBorderColor: "#FF82B4",
-                                            //lineTension: 0.1  // 顯示折線圖，不使用曲線
-                                    }],
-
-                                },
-                                options: {
-                                    legend: {
-                                        onClick: (e) => e.stopPropagation()
-                                    },
-                                    scales: {
-                                        yAxes: [{
-                                            ticks: {
-                                                // beginAtZero: true,
-                                                //min: 10,
-                                                //stepSize: 2
-                                            },
-                                        }],
-                                        xAxes: [{
-                                            ticks: {
-                                                minRotation: 90,
-                                                // beginAtZero: true,
-                                                //min: 10,
-                                                //maxTicksLimit: 10,
-                                            },
-                                        }],
-                                    }
-                                }
-                            });
-                        }
-                    });
-                }
-            </script>
-<!--------------------------------------------------------------------------------------------------------------------------------------->
+        <!--------------------------------------------------------------------------------------------------------------------------------------->
     </body>
 </html>

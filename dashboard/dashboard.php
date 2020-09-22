@@ -871,7 +871,7 @@ if ($_SESSION["account"] == "") {
 <!------Test chart-------------------------------------------------------------------------------------------------------------------------->
 <script>
 
-                ajaxChart("post_like", "like");
+//                ajaxChart("post_like", "like");
                 ajaxChart("post_comment", "comment");
                
                 $("#like_search").click(function () {
