@@ -317,7 +317,7 @@ if ($_SESSION["account"] == "") {
             function ajaxSelect() {
                 var cate_no = document.getElementById("category").value;
                 $.ajax({
-                    type: "POST",
+                    type: "GET",
                     cache: false,
                     url: "ajaxSelectHashtag.php",
                     data: {
