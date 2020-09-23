@@ -53,7 +53,7 @@ if ($_SESSION["account"] == "") {
             .text_style{
                 /* margin-top:20px;
                 margin-left:50px; */
-                margin:20px 0 20px 50px;
+                margin:20px 0 20px 0;
                 background:rgba(0, 120, 210, .125);
                 border-radius:0.23rem;
             }
