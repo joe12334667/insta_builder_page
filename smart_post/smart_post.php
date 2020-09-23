@@ -173,7 +173,7 @@ if ($_SESSION["account"] == "") {
                             <div class="card-body">
                                 <div class="table-responsive">    
                                     <div class="form-group blue-border-focus">                                
-                                        <textarea class="form-control" id="exampleFormControlTextarea5" rows="7"></textarea>
+                                        <textarea class="form-control" id="user_content" rows="7"></textarea>
                                     </div>                              
                                     <button class="content_search_button" type="button" id="content_search">查詢</button> 
                                 </div>
@@ -317,7 +317,7 @@ if ($_SESSION["account"] == "") {
             function ajaxSelect() {
                 var cate_no = document.getElementById("category").value;
                 $.ajax({
-                    type: "GET",
+                    type: "POST",
                     cache: false,
                     url: "ajaxSelectHashtag.php",
                     data: {
@@ -342,7 +342,7 @@ if ($_SESSION["account"] == "") {
                 }
                 alert("系統計算需要時間，請等待片刻")
                 $.ajax({
-                    type: "GET",
+                    type: "POST",
                     cache: false,
                     url: "../php/Ajax_Baidu_Jieba.php",
                     data: {

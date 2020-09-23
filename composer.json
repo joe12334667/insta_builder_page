@@ -1,7 +1,5 @@
 {
     "require": {
-        "monolog/monolog": "^2.0",
-        "catfan/medoo": "^1.7",
         "fukuball/jieba-php": "dev-master"
     }
 }
