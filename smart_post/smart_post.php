@@ -30,6 +30,34 @@ if ($_SESSION["account"] == "") {
         <link href="css/styles.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+        <style>            
+            .blue-border-focus .form-control:focus {
+                border: 1px solid #007ad1;
+                box-shadow: 0 0 0 0.2rem rgba(0, 120, 210, .25);
+            }
+            .content_search_button,
+            .submit_hashtag
+            {
+                height:35px;
+                border: 1px solid #ffffff;
+                color:#007ad1;
+                border-radius:0.25rem;
+                float:right;
+            }
+            #category{
+                height:35px;
+                border: 1px solid rgba(0, 0, 0, 0.5);
+                color:#000000;
+                border-radius:0.25rem;
+            }
+            .text_style{
+                /* margin-top:20px;
+                margin-left:50px; */
+                margin:20px 0 20px 50px;
+                background:rgba(0, 120, 210, .125);
+                border-radius:0.23rem;
+            }
+        </style>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -143,12 +171,11 @@ if ($_SESSION["account"] == "") {
                                 貼文內容
                             </div>
                             <div class="card-body">
-                                <div class="table-responsive">                                
-                                    <textarea name="user_content" id="user_content" placeholder="在此輸入內文" rows="10"></textarea>
-                                </div>
-                                <div class="12u$">                                    
-
-                                    <button type="button" id="content_search">查詢</button>
+                                <div class="table-responsive">    
+                                    <div class="form-group blue-border-focus">                                
+                                        <textarea class="form-control" id="exampleFormControlTextarea5" rows="7"></textarea>
+                                    </div>                              
+                                    <button class="content_search_button" type="button" id="content_search">查詢</button> 
                                 </div>
                             </div>
                         </div>
@@ -163,7 +190,7 @@ if ($_SESSION["account"] == "") {
                                     <div class="12u$">
                                         <div class="select-wrapper">
                                             <select name="category" id="category" onchange = "ajaxSelect()" >
-                                                <option value="0">- 選擇貼文類別 -</option>
+                                                <option value="0">&nbsp;- 選擇貼文類別 -&nbsp;</option>
                                                 <option value="78">健康養生</option>
                                                 <option value="79">動漫</option>
                                                 <option value="80">國際</option>
@@ -200,24 +227,27 @@ if ($_SESSION["account"] == "") {
                                     </div>
                                     <div class="12u$">
                                         <!--------------------------功能------------------------------->
-                                        <div class="12u$">系統前十名HASHTAG:</div>
+                                        <div class="12u$ text_style" >&nbsp;&nbsp;系統前十名HASHTAG:</div>
                                         <div  class="12u$" id="system_hashtag_group">
 
                                         </div>
                                         <!--------------------------------------------------------->
-                                        <div class="12u$">jieba分析前十名HASHTAG:</div>
+                                        <div class="12u$ text_style" >&nbsp;&nbsp;jieba分析前十名HASHTAG:</div>
                                         <div  class="12u$" id="jieba_hashtag_group">
 
                                         </div>
                                         <!--------------------------------------------------------->
                                     </div>    
                                     <div class="12u$">
-                                        <div class="table-responsive">                                
+                                        <div class="form-group blue-border-focus">                                
+                                            <textarea name="message" class="form-control" id="exampleFormControlTextarea5" rows="5" placeholder="自訂hashtag"></textarea>
+                                        </div>                                        
+                                        <!-- <div class="table-responsive">                                
                                             <textarea name="message" id="message" placeholder="自訂hashtag" rows="3"></textarea>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <div class="12u$">
-                                        <input type="submit" value="確定" />
+                                        <input class="submit_hashtag" type="submit" value="確定" />
                                     </div>
                                 </div>
                             </div>
