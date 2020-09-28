@@ -845,7 +845,8 @@ if ($_SESSION["account"] == "") {
         <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
         <script src="../node_modules/chart.js/dist/Chart.js"></script>
         <script src="js/jquery.min.js"></script>
-        
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <meta name="google-signin-client_id" content="48428020310-9hp17cjtr6crev5tvl6litg2qi8i0521.apps.googleusercontent.com">
         <script>
 //GOOGLE 登出按鈕
 //onLoad();
