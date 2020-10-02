@@ -106,7 +106,7 @@ if ($_SESSION["account"] == "") {
                             </a>
                             <div class="collapse" id="collapseLayouts-autopost" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-static.html">自動貼文&標註標籤</a>                                    
+                                    <a class="nav-link" href="../smart_post/smart_post.php">自動貼文&標註標籤</a>                                    
                                 </nav>
                             </div>
                             <!----------------------------------------------------------------------------------------------------------->
@@ -294,7 +294,7 @@ if ($_SESSION["account"] == "") {
                         </div>
                         <div class="card mb-4">
                             <div class="card-header">
-                                <i class="fas fa-chart-area mr-1"></i>post_comment chart test4
+                                <i class="fas fa-chart-area mr-1"></i>貼文留言數分析
                                 <div class="input-group">
                                     <input class="form-control"  id ="like_limit" type="number" placeholder="查詢筆數" aria-label="Search" aria-describedby="basic-addon2" />
                                     <div class="input-group-append">
@@ -310,7 +310,7 @@ if ($_SESSION["account"] == "") {
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-chart-area mr-1"></i>
-                                chart example
+                                貼文綜合分析
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">

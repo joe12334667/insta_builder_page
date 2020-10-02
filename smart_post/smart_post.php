@@ -134,12 +134,12 @@ if ($_SESSION["account"] == "") {
                             </a>
                             <div class="collapse" id="collapseLayouts-autopost" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-static.html">自動貼文&標註標籤</a>                                    
+                                    <a class="nav-link" href="../smart_post/smart_post.php">自動貼文&標註標籤</a>                                    
                                 </nav>
                             </div>
                             <!----------------------------------------------------------------------------------------------------------->
 
-                            <div class="sb-sidenav-menu-heading">Addons</div>
+                            <!-- <div class="sb-sidenav-menu-heading">Addons</div> -->
                             <a class="nav-link" href="charts.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Charts
@@ -160,9 +160,9 @@ if ($_SESSION["account"] == "") {
 
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">smart_post</h1>
+                        <h1 class="mt-4">智能貼文</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">發文及自動化hashtag</li>
+                            <li class="breadcrumb-item active">將您的貼文加上Hashtag,增加曝光度吧!</li>
                         </ol>
                         <!-- ------------------------------------------------------------------------------------------- -->
                         <div class="card mb-4">
