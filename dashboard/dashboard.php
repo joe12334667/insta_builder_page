@@ -31,33 +31,6 @@ if ($_SESSION["account"] == "") {
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
         <style>
-            /* header p {
-            color: #bbb;
-            position: relative;
-            margin: 0 0 1.5em 0;
-            }
-
-            header h1 + p {
-                font-size: 1.25em;
-                margin-top: -1em;
-            }
-
-            header h2 + p {
-                font-size: 1.25em;
-                margin-top: -1em;
-            }
-
-            header h3 + p {
-                font-size: 1.1em;
-                margin-top: -0.8em;
-            }
-
-            header h4 + p,
-            header h5 + p,
-            header h6 + p {
-                font-size: 0.9em;
-                margin-top: -0.6em;
-            } */
             
         </style>
     </head>
@@ -192,9 +165,9 @@ if ($_SESSION["account"] == "") {
             
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">Dashboard</h1>
+                        <h1 class="mt-4">Instagram 分析</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Dashboard</li>
+                            <li class="breadcrumb-item active">為您的Instagram帳戶提供精美分析</li>
                         </ol>
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
@@ -267,16 +240,16 @@ if ($_SESSION["account"] == "") {
                                 <div class="card mb-4">
                                     <div class="card-header">
                                         <i class="fas fa-chart-area mr-1"></i>
-                                        test chart
+                                        發文時機分析
                                     </div>                                    
-                                    <div class="card-body"><canvas id="TEST" width="100%" height="40"></canvas></div>
+                                    <div class="card-body"><canvas id="myPieChart" width="100%" height="40"></canvas></div>
                                 </div>
                             </div>
                             <div class="col-xl-6">
                                 <div class="card mb-4">
                                     <div class="card-header">
                                         <i class="fas fa-chart-area mr-1"></i>
-                                        test2 chart
+                                        貼文按讚數
                                     </div>                                    
                                     <div class="card-body"><canvas id="TEST2" width="100%" height="40"></canvas></div>
                                 </div>
@@ -861,6 +834,7 @@ if ($_SESSION["account"] == "") {
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
         <script src="assets/demo/chart-area-demo.js"></script>
         <script src="assets/demo/chart-bar-demo.js"></script>
+        <script src="assets/demo/chart-pie-demo.js"></script>
         <!------------ajax & demo-chart--------------------------------->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
@@ -950,7 +924,7 @@ if ($_SESSION["account"] == "") {
                                 }
                                 all_y_data[i] = data[i].count;
 
-                                Background_color[i] = "#c9c9ff";
+                                Background_color[i] = "#007bff";
                             }
                             const ctx = document.getElementById(ChartName);
                             visualize = new Chart(ctx, {
@@ -961,7 +935,7 @@ if ($_SESSION["account"] == "") {
                                             label: ChartTableName, // 顯示該資料的標題 
                                             data: all_y_data, // y軸資料
                                             fill: false, // 不顯示底下的灰色區塊
-                                            borderColor: "#8BA2FF", // 設定線的顏色
+                                            borderColor: "#007bff", // 設定線的顏色
                                             backgroundColor: Background_color, // 設定點的顏色
                                             pointBorderWidth: 6,
                                             //pointBorderColor: "#FF82B4",

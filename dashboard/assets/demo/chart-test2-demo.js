@@ -12,16 +12,16 @@ Chart.defaults.global.defaultFontColor = '#292b2c';
         data: {
             labels: yAxis,
             datasets: [{
-                    label: '測試資料2',
+                    label: 'likes',
                     data: datas,
-                    backgroundColor: "#6fd6ff"
+                    backgroundColor: "#6610f2"
                 }]
         }
     });
 
     //時間格式
-    var timeFormat = 'HH:mm:ss';
-
+     var timeFormat = 'HH:mm:ss';
+   
     function appendData2()
     {
         //超過10 個，就把最早進來的刪掉

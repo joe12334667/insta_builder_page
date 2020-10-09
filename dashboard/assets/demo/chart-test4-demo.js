@@ -45,7 +45,7 @@ function ajaxChart(ChartName, ChartTableName, limits = 10) {
                 }
                 all_y_data[i] = data[i].count;
 
-                Background_color[i] = "#c9c9ff";
+                Background_color[i] = "#6f42c1";
             }
 
             const ctx = document.getElementById(ChartName);
@@ -57,7 +57,7 @@ function ajaxChart(ChartName, ChartTableName, limits = 10) {
                         label: ChartTableName, // 顯示該資料的標題 
                         data: all_y_data, // y軸資料
                         fill: false, // 不顯示底下的灰色區塊
-                        borderColor: "#8BA2FF", // 設定線的顏色
+                        borderColor: "#5a28b5", // 設定線的顏色
                         backgroundColor: Background_color, // 設定點的顏色
                         pointBorderWidth: 6,
                         //                                            pointBorderColor: "#FF82B4",

@@ -5,17 +5,17 @@ var ctx = document.getElementById("TEST3").getContext("2d");
                     datasets: [
                         {
                             label: "留言",
-                            backgroundColor: "#c3d6f2",
+                            backgroundColor: "#007bff",
                             data: [3, 7, 4,8,3,7,2,5],
                         },
                         {
                             label: "珍藏",
-                            backgroundColor: "#789cce",
+                            backgroundColor: "#6610f2",
                             data: [4, 3, 5,5,3,8,3,5]
                         },
                         {
                             label: "分享",
-                            backgroundColor: "d1eaf5",
+                            backgroundColor: "6f42c1",
                             data: [7, 2, 6,4,3,7,1,7]
                         },
                     ]
