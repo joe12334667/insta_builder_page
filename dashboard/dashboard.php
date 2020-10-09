@@ -30,6 +30,36 @@ if ($_SESSION["account"] == "") {
         <link href="css/styles.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+        <style>
+            /* header p {
+            color: #bbb;
+            position: relative;
+            margin: 0 0 1.5em 0;
+            }
+
+            header h1 + p {
+                font-size: 1.25em;
+                margin-top: -1em;
+            }
+
+            header h2 + p {
+                font-size: 1.25em;
+                margin-top: -1em;
+            }
+
+            header h3 + p {
+                font-size: 1.1em;
+                margin-top: -0.8em;
+            }
+
+            header h4 + p,
+            header h5 + p,
+            header h6 + p {
+                font-size: 0.9em;
+                margin-top: -0.6em;
+            } */
+            
+        </style>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -168,7 +198,7 @@ if ($_SESSION["account"] == "") {
                         </ol>
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
-                                <div class="card bg-primary text-white mb-4">
+                                <div class="card bg-blue text-white mb-4">
                                     <div class="card-body">貼文數量
                                         <h3>99</h3>
                                     </div>
@@ -179,7 +209,7 @@ if ($_SESSION["account"] == "") {
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
-                                <div class="card bg-warning text-white mb-4">
+                                <div class="card bg-indigo text-white mb-4">
                                     <div class="card-body">追蹤人數
                                         <h3>145</h3>
                                     </div>
@@ -190,7 +220,7 @@ if ($_SESSION["account"] == "") {
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
-                                <div class="card bg-success text-white mb-4">
+                                <div class="card bg-purple text-white mb-4">
                                     <div class="card-body">粉絲人數
                                         <h3>1,024</h3>
                                     </div>
@@ -201,7 +231,7 @@ if ($_SESSION["account"] == "") {
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
-                                <div class="card bg-danger text-white mb-4">
+                                <div class="card bg-pink text-white mb-4">
                                     <div class="card-body">總按讚數
                                         <h3>234,600</h3>
                                     </div>
