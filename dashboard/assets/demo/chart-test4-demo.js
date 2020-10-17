@@ -1,4 +1,3 @@
-ajaxChart("post_like", "like");
 ajaxChart("post_comment", "comment");
 $("#like_search").click(function () {
     var limit = document.getElementById("like_limit").value;
@@ -22,7 +21,7 @@ function ajaxChart(ChartName, ChartTableName, limits = 10) {
     $.ajax({
         type: "GET",
         cache: false,
-        url: "../../dashboard/Ajaxlike_comment.php",
+        url: "../../../dashboard/Ajaxlike_comment.php",
         data: {
             type: ChartTableName,
             limit: limits,
