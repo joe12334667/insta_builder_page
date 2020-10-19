@@ -13,6 +13,10 @@ if ($_SESSION["account"] == "") {
     header('Location: ../login/login.php');
     $_SESSION["unLog"] = true;
 }
+if($_SESSION["privilege"] != 2){
+    header('Location: ../dashboard/dashboard.php');
+    $_SESSION["freeUser"] = true;
+}
 ?>
 <html lang="en">
     <head>

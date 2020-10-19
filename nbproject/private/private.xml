@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/insta_builder_page/smart_post/smart_post.php</file>
-            <file>file:/C:/xampp/htdocs/insta_builder_page/dashboard/AjaxLike_Comment.php</file>
+            <file>file:/C:/xampp/htdocs/insta_builder_page/instaLognIn/LoginSuss.php</file>
+            <file>file:/C:/xampp/htdocs/insta_builder_page/instaLognIn/LoginSuss_2.php</file>
             <file>file:/C:/xampp/htdocs/insta_builder_page/dashboard/dashboard.php</file>
-            <file>file:/C:/xampp/htdocs/insta_builder_page/smart_post/ajaxSelectHashtag.php</file>
+            <file>file:/C:/xampp/htdocs/insta_builder_page/instaLognIn/loginTest.php</file>
+            <file>file:/C:/xampp/htdocs/insta_builder_page/dashboard/AjaxLike_Comment.php</file>
         </group>
     </open-files>
 </project-private>

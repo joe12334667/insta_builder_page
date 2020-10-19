@@ -52,7 +52,9 @@ if (isset($_POST["next"])) {
         <!--sweetalert2 引用-->
         <script src="../node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
         <link rel="stylesheet" href="../node_modules/sweetalert2/dist/sweetalert2.min.css">
-        <!--sweetalert2 引用-->
+
+        <!--sweetalert2 引用-->  
+        <script src="../node_modules/sweetalert2/dist/sweetalert2.all.js" type="text/javascript"></script>
         <!--js-cookie 引用-->
         <script src="../node_modules/js-cookie/src/js.cookie.js"></script>
         <!--js-cookie 引用-->

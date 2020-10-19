@@ -1,8 +1,8 @@
 <!----------
-    test1=pink chart >10
-    test2=blue chart >10
-    test3=BBB  chart 3=>1
-    test4=comm chart ajax    
+test1=pink chart >10
+test2=blue chart >10
+test3=BBB  chart 3=>1
+test4=comm chart ajax    
 ------------>
 
 <!DOCTYPE html>
@@ -30,10 +30,24 @@ if ($_SESSION["account"] == "") {
         <link href="css/styles.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        <script src="../node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
+        <link rel="stylesheet" href="../node_modules/sweetalert2/dist/sweetalert2.min.css">
         <style>
-            
+
         </style>
+
     </head>
+<?php
+if (isset($_SESSION["freeUser"])) {
+    if ($_SESSION["freeUser"]) {
+        echo '<script>  
+                alert("請聯繫內部人員做升級動作");
+            </script>';
+        unset($_SESSION["freeUser"]);
+    }
+}
+?>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <a class="navbar-brand" href="home.html">Instabuilder</a>
@@ -60,7 +74,7 @@ if ($_SESSION["account"] == "") {
                 </li>
             </ul>
         </nav>
-        
+
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
@@ -101,7 +115,7 @@ if ($_SESSION["account"] == "") {
                                     <a class="nav-link" href="layout-sidenav-light.html">標籤分析</a>
                                 </nav>
                             </div>
-                            
+
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts-autopost" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 智能貼文
@@ -162,7 +176,7 @@ if ($_SESSION["account"] == "") {
                 </nav>
             </div>
             <div id="layoutSidenav_content">
-            
+
                 <main>
                     <div class="container-fluid">
                         <h1 class="mt-4">Instagram 分析</h1>
@@ -301,13 +315,13 @@ if ($_SESSION["account"] == "") {
                                 <div class="input-group">
                                     <input class="form-control"  id ="like_limit" type="number" placeholder="查詢筆數" aria-label="Search" aria-describedby="basic-addon2" />
                                     <div class="input-group-append">
-                                    <button class="btn btn-primary" id="like_search" type="button"></button>
+                                        <button class="btn btn-primary" id="like_search" type="button"></button>
                                     </div>
                                 </div>
                             </div>
-                                <div class="card-body" id = "post_like_chart">
-                                    <canvas id="post_like" width="100" height="40"></canvas>
-                                </div>
+                            <div class="card-body" id = "post_like_chart">
+                                <canvas id="post_like" width="100" height="40"></canvas>
+                            </div>
                         </div>
                         <div class="card mb-4">
                             <div class="card-header">
@@ -315,13 +329,13 @@ if ($_SESSION["account"] == "") {
                                 <div class="input-group">
                                     <input class="form-control"  id ="like_limit" type="number" placeholder="查詢筆數" aria-label="Search" aria-describedby="basic-addon2" />
                                     <div class="input-group-append">
-                                    <button class="btn btn-primary" id="like_search" type="button"></button>
+                                        <button class="btn btn-primary" id="like_search" type="button"></button>
                                     </div>
                                 </div>
                             </div>
-                                <div class="card-body" id = "post_comment_chart">
-                                    <canvas id="post_comment" width="100" height="40"></canvas>
-                                </div>
+                            <div class="card-body" id = "post_comment_chart">
+                                <canvas id="post_comment" width="100" height="40"></canvas>
+                            </div>
                         </div>
                         <!---------綜合圖表---------------------------------------------------------------------->
                         <div class="card mb-4">
@@ -864,112 +878,206 @@ if ($_SESSION["account"] == "") {
         <script src="../node_modules/chart.js/dist/Chart.js"></script>
         <script src="js/jquery.min.js"></script>
         <script src="https://apis.google.com/js/platform.js" async defer></script>
-        <meta name="google-signin-client_id" content="48428020310-9hp17cjtr6crev5tvl6litg2qi8i0521.apps.googleusercontent.com">
+        <meta name="google-signin-client_id" content="48428020310-9hp17cjtr6crev5tvl6litg2qi8i0521.apps.googleusercontent.com">      
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
         <script>
 //GOOGLE 登出按鈕
 //onLoad();
 //signOut();
-            function signOut() {
-                var auth2 = gapi.auth2.getAuthInstance();
-                auth2.disconnect();
-                auth2.signOut().then(function () {
-                    console.log('User signed out.');
-                });
-                document.location.href = "../php/logOut.php";
+                            function signOut() {
+                                var auth2 = gapi.auth2.getAuthInstance();
+                                auth2.disconnect();
+                                auth2.signOut().then(function () {
+                                    console.log('User signed out.');
+                                });
+                                document.location.href = "../php/logOut.php";
 
-            }
+                            }
 
-            function onLoad() {
-                gapi.load('auth2', function () {
-                    gapi.auth2.init();
+                            function onLoad() {
+                                gapi.load('auth2', function () {
+                                    gapi.auth2.init();
 
+                                });
+                            }
+        </script>
+
+        <!------Test chart-------------------------------------------------------------------------------------------------------------------------->
+        <script>
+
+            //                ajaxChart("post_like", "like");
+            ajaxChart("post_comment", "comment");
+
+            $("#like_search").click(function () {
+                var limit = document.getElementById("like_limit").value;
+                //                    alert(limit);
+                if (limit < 1) {
+                    limit = 1;
+                } else if (limit > 50) {
+                    limit = 50;
+                }
+                // ajaxChart("post_like", "like", limit);
+                ajaxChart("post_comment", "comment", limit);
+
+            });
+
+            function ajaxChart(ChartName, ChartTableName, limits = 10) {
+
+                $('#' + ChartName).remove(); // this is my <canvas> element
+                $('#' + ChartName + '_chart').append('<canvas id="' + ChartName + '"><canvas>');
+                $("#" + ChartName).width(100).height(40);
+
+                $.ajax({
+                    type: "GET",
+                    cache: false,
+                    url: "AjaxLike_Comment.php",
+                    data: {
+                        type: ChartTableName,
+                        limit: limits,
+                    },
+                    dataType: "json",
+                    success: function (response) {
+                        //主要Chart.js繪圖區
+                        const data = response; //取得.php回傳的資料
+                        const all_x_labels = [], all_y_data = [], Background_color = [];
+
+                        //利用陣列建立x,y座標
+                        for (let i = 0; i < data.length; i++) {
+                            if (data[i].content == null) {
+                                all_x_labels[i] = data[i].announce_time;
+                            } else if (data[i].content.length > 10) {
+                                all_x_labels[i] = data[i].content.substr(0, 10) + "..." + "\n" + data[i].announce_time;
+                            } else {
+                                all_x_labels[i] = data[i].content + "\n" + data[i].announce_time;
+                            }
+                            all_y_data[i] = data[i].count;
+
+                            Background_color[i] = "#007bff";
+                        }
+                        const ctx = document.getElementById(ChartName);
+                        visualize = new Chart(ctx, {
+                            type: "bar",
+                            data: {
+                                labels: all_x_labels, // x軸的刻度
+                                datasets: [{
+                                        label: ChartTableName, // 顯示該資料的標題 
+                                        data: all_y_data, // y軸資料
+                                        fill: false, // 不顯示底下的灰色區塊
+                                        borderColor: "#007bff", // 設定線的顏色
+                                        backgroundColor: Background_color, // 設定點的顏色
+                                        pointBorderWidth: 6,
+                                        //pointBorderColor: "#FF82B4",
+                                        //lineTension: 0.1  // 顯示折線圖，不使用曲線
+                                    }],
+
+                            },
+                            options: {
+                                legend: {
+                                    onClick: (e) => e.stopPropagation()
+                                },
+                                scales: {
+                                    yAxes: [{
+                                            ticks: {
+                                                // beginAtZero: true,
+                                                //min: 10,
+                                                //stepSize: 2
+                                            },
+                                        }],
+                                    xAxes: [{
+                                            ticks: {
+                                                minRotation: 90,
+                                                // beginAtZero: true,
+                                                //min: 10,
+                                                //maxTicksLimit: 10,
+                                            },
+                                        }],
+                                }
+                            }
+                        });
+                    }
                 });
             }
         </script>
-        
-<!------Test chart-------------------------------------------------------------------------------------------------------------------------->
-<script>
+        <!--------------------------------------------------------------------------------------------------------------------------------------->
+        <!-------------------------------------------------post_like_chart------------------------------------------------------------------------>
+        <script>
+            ajaxChart("post_like", "like");
 
-//                ajaxChart("post_like", "like");
-                ajaxChart("post_comment", "comment");
-               
-                $("#like_search").click(function () {
-                    var limit = document.getElementById("like_limit").value;
-//                    alert(limit);
-                    if(limit < 1){
-                        limit = 1;
-                    }else if (limit >50 ){
-                        limit = 50;
-                    }
-                    // ajaxChart("post_like", "like", limit);
-                    ajaxChart("post_comment", "comment" , limit);
+            $("#like_search").click(function () {
+                var limit = document.getElementById("like_limit").value;
+                //                    alert(limit);
+                if (limit < 1) {
+                    limit = 1;
+                } else if (limit > 50) {
+                    limit = 50;
+                }
+                ajaxChart("post_like", "like", limit);
 
-                });
+            });
 
-                function ajaxChart(ChartName, ChartTableName, limits = 10) {
+            function ajaxChart(ChartName, ChartTableName, limits = 10) {
 
-                    $('#' + ChartName).remove(); // this is my <canvas> element
-                    $('#'+ ChartName +'_chart').append('<canvas id="' + ChartName + '"><canvas>');
-                    $("#" + ChartName).width(100).height(40);
+                $('#' + ChartName).remove(); // this is my <canvas> element
+                $('#' + ChartName + '_chart').append('<canvas id="' + ChartName + '"><canvas>');
+                $("#" + ChartName).width(100).height(40);
 
-                    $.ajax({
-                        type: "GET",
-                        cache: false,
-                        url: "AjaxLike_Comment.php",
-                        data: {
-                            type: ChartTableName,
-                            limit: limits,
-                        },
-                        dataType: "json",
-                        success: function (response) {
-                            //主要Chart.js繪圖區
-                            const data = response; //取得.php回傳的資料
-                            const all_x_labels = [], all_y_data = [], Background_color = [];
-                            
-                            //利用陣列建立x,y座標
-                            for (let i = 0; i < data.length; i++) {
-                                if(data[i].content == null){
-                                    all_x_labels[i] = data[i].announce_time;
-                                }
-                                else if (data[i].content.length > 10) {
-                                    all_x_labels[i] = data[i].content.substr(0, 10) + "..." + "\n" + data[i].announce_time;
-                                } else {
-                                    all_x_labels[i] = data[i].content + "\n" + data[i].announce_time;
-                                }
-                                all_y_data[i] = data[i].count;
+                $.ajax({
+                    type: "GET",
+                    cache: false,
+                    url: "AjaxLike.php",
+                    data: {
+                        type: ChartTableName,
+                        limit: limits,
+                    },
+                    dataType: "json",
+                    success: function (response) {
+                        //主要Chart.js繪圖區
+                        const data = response; //取得.php回傳的資料
+                        const all_x_labels = [], all_y_data = [], Background_color = [];
 
-                                Background_color[i] = "#007bff";
+                        //利用陣列建立x,y座標
+                        for (let i = 0; i < data.length; i++) {
+                            if (data[i].content == null) {
+                                all_x_labels[i] = data[i].announce_time;
+                            } else if (data[i].content.length > 10) {
+                                all_x_labels[i] = data[i].content.substr(0, 10) + "..." + "\n" + data[i].announce_time;
+                            } else {
+                                all_x_labels[i] = data[i].content + "\n" + data[i].announce_time;
                             }
-                            const ctx = document.getElementById(ChartName);
-                            visualize = new Chart(ctx, {
-                                type: "bar",
-                                data: {
-                                    labels: all_x_labels, // x軸的刻度
-                                    datasets: [{
-                                            label: ChartTableName, // 顯示該資料的標題 
-                                            data: all_y_data, // y軸資料
-                                            fill: false, // 不顯示底下的灰色區塊
-                                            borderColor: "#007bff", // 設定線的顏色
-                                            backgroundColor: Background_color, // 設定點的顏色
-                                            pointBorderWidth: 6,
-                                            //pointBorderColor: "#FF82B4",
-                                            //lineTension: 0.1  // 顯示折線圖，不使用曲線
+                            all_y_data[i] = data[i].count;
+
+                            Background_color[i] = "#007bff";
+                        }
+                        const ctx = document.getElementById(ChartName);
+                        visualize = new Chart(ctx, {
+                            type: "bar",
+                            data: {
+                                labels: all_x_labels, // x軸的刻度
+                                datasets: [{
+                                        label: ChartTableName, // 顯示該資料的標題 
+                                        data: all_y_data, // y軸資料
+                                        fill: false, // 不顯示底下的灰色區塊
+                                        borderColor: "#007bff", // 設定線的顏色
+                                        backgroundColor: Background_color, // 設定點的顏色
+                                        pointBorderWidth: 6,
+                                        //pointBorderColor: "#FF82B4",
+                                        //lineTension: 0.1  // 顯示折線圖，不使用曲線
                                     }],
 
+                            },
+                            options: {
+                                legend: {
+                                    onClick: (e) => e.stopPropagation()
                                 },
-                                options: {
-                                    legend: {
-                                        onClick: (e) => e.stopPropagation()
-                                    },
-                                    scales: {
-                                        yAxes: [{
+                                scales: {
+                                    yAxes: [{
                                             ticks: {
                                                 // beginAtZero: true,
                                                 //min: 10,
                                                 //stepSize: 2
                                             },
                                         }],
-                                        xAxes: [{
+                                    xAxes: [{
                                             ticks: {
                                                 minRotation: 90,
                                                 // beginAtZero: true,
@@ -977,108 +1085,13 @@ if ($_SESSION["account"] == "") {
                                                 //maxTicksLimit: 10,
                                             },
                                         }],
-                                    }
                                 }
-                            });
-                        }
-                    });
-                }
-            </script>
-<!--------------------------------------------------------------------------------------------------------------------------------------->
-<!-------------------------------------------------post_like_chart------------------------------------------------------------------------>
-<script>
-                ajaxChart("post_like", "like");
-               
-                $("#like_search").click(function () {
-                    var limit = document.getElementById("like_limit").value;
-//                    alert(limit);
-                    if(limit < 1){
-                        limit = 1;
-                    }else if (limit >50 ){
-                        limit = 50;
-                    }
-                    ajaxChart("post_like", "like", limit);
-
-                });
-
-                function ajaxChart(ChartName, ChartTableName, limits = 10) {
-
-                    $('#' + ChartName).remove(); // this is my <canvas> element
-                    $('#'+ ChartName +'_chart').append('<canvas id="' + ChartName + '"><canvas>');
-                    $("#" + ChartName).width(100).height(40);
-
-                    $.ajax({
-                        type: "GET",
-                        cache: false,
-                        url: "AjaxLike.php",
-                        data: {
-                            type: ChartTableName,
-                            limit: limits,
-                        },
-                        dataType: "json",
-                        success: function (response) {
-                            //主要Chart.js繪圖區
-                            const data = response; //取得.php回傳的資料
-                            const all_x_labels = [], all_y_data = [], Background_color = [];
-                            
-                            //利用陣列建立x,y座標
-                            for (let i = 0; i < data.length; i++) {
-                                if(data[i].content == null){
-                                    all_x_labels[i] = data[i].announce_time;
-                                }
-                                else if (data[i].content.length > 10) {
-                                    all_x_labels[i] = data[i].content.substr(0, 10) + "..." + "\n" + data[i].announce_time;
-                                } else {
-                                    all_x_labels[i] = data[i].content + "\n" + data[i].announce_time;
-                                }
-                                all_y_data[i] = data[i].count;
-
-                                Background_color[i] = "#007bff";
                             }
-                            const ctx = document.getElementById(ChartName);
-                            visualize = new Chart(ctx, {
-                                type: "bar",
-                                data: {
-                                    labels: all_x_labels, // x軸的刻度
-                                    datasets: [{
-                                            label: ChartTableName, // 顯示該資料的標題 
-                                            data: all_y_data, // y軸資料
-                                            fill: false, // 不顯示底下的灰色區塊
-                                            borderColor: "#007bff", // 設定線的顏色
-                                            backgroundColor: Background_color, // 設定點的顏色
-                                            pointBorderWidth: 6,
-                                            //pointBorderColor: "#FF82B4",
-                                            //lineTension: 0.1  // 顯示折線圖，不使用曲線
-                                    }],
-
-                                },
-                                options: {
-                                    legend: {
-                                        onClick: (e) => e.stopPropagation()
-                                    },
-                                    scales: {
-                                        yAxes: [{
-                                            ticks: {
-                                                // beginAtZero: true,
-                                                //min: 10,
-                                                //stepSize: 2
-                                            },
-                                        }],
-                                        xAxes: [{
-                                            ticks: {
-                                                minRotation: 90,
-                                                // beginAtZero: true,
-                                                //min: 10,
-                                                //maxTicksLimit: 10,
-                                            },
-                                        }],
-                                    }
-                                }
-                            });
-                        }
-                    });
-                }
-            </script>
-<!--------------------------------------------------------------------------------------------------------------------------------------->   
-   </body>
+                        });
+                    }
+                });
+            }
+        </script>
+        <!--------------------------------------------------------------------------------------------------------------------------------------->   
+    </body>
 </html>

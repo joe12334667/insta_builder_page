@@ -165,8 +165,10 @@ function FindUser ($account , $password){
     $result = $db->query($sql);
 //    $row = $result->fetch(PDO::FETCH_OBJ);
     if($row = $result->fetch(PDO::FETCH_OBJ)){
+        
         $_SESSION["account"] = $account;
         $_SESSION["name"] = $row->user_name;
+        $_SESSION["privilege"] =  $row->privilege;
 //        $_SESSION["password"] = $password;
         
         
