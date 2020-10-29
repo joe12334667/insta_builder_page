@@ -1,20 +1,65 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <script type="text/javascript" src="wordcloud/jquery.wordcloud.js"></script>
+
 
         <title>textwc</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
-		<link rel="stylesheet" href="assets/css/main.css" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+
+        <script src="assets/js/jquery.min.js" type="text/javascript"></script>
+        <script type="text/javascript" src="wordcloud/jquery.wordcloud.js"></script>
+        <link rel="stylesheet" href="assets/css/main.css" />
         <link href="images/logo-rainbow.png"  rel="icon">
-        
+        <script type="text/javascript" src="node_modules/wordcloud/src/wordcloud2.js"S></script>
     </head>
 </html>
 
 
 <body> 
-    <canvas id="cloudcanvas" width="600" height="400"></canvas>
+    <div id="canvas-container" style="float: left">
+        <canvas id="canvas" width="800px" height="600px"></canvas>
+    </div>
 </body>
-<script src="wordcloud/db.js"></script>
+
+<script>
+    var wordFreqData = new Array();
+    $.ajax({
+        type: "GET",
+        cache: false,
+        url: "php/Ajax_wordcloud.php",
+        data: {},
+        dataType: "json",
+        success: function (response) {
+            response.forEach(function (item, index, array) {
+                var option = [item["hash_name"],parseInt(item["times"])];
+                wordFreqData.push(option);
+            });
+            var canvas = document.getElementById('canvas');
+            var options = eval({
+
+                "list": wordFreqData, //或者[['各位观众',45],['词云', 21],['来啦!!!',13]],只要格式满足这样都可以
+//                "gridSize": 10, // size of the grid in pixels
+                "weightFactor": 0.1, // number to multiply for size of each word in the list
+                "maxFontSize": 100, //最大字号
+                "minFontSize": 50, 
+                "fontWeight": 'bold', // 'normal', 'bold' or a callback
+                "fontFamily": 'Times, serif', // font to use
+                "color": 'random-light', // 'random-dark' or 'random-light'
+                "backgroundColor": '#333', // the color of canvas
+                "rotateRatio": 1. // probability for the word to rotate. 1 means always rotate
+                
+            });
+            //生成
+            WordCloud(canvas, options);
+        }
+    });
+
+    var wordFreqData2 = [['各位观众', 45], ['词云', 21], ['来啦!!!', 13]];
+
+//    alert(wordFreqData);
+    console.log(wordFreqData2);
+    console.log(wordFreqData);
+
+</script>

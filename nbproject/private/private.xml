@@ -3,11 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/insta_builder_page/instaLognIn/LoginSuss.php</file>
-            <file>file:/C:/xampp/htdocs/insta_builder_page/instaLognIn/LoginSuss_2.php</file>
-            <file>file:/C:/xampp/htdocs/insta_builder_page/dashboard/dashboard.php</file>
-            <file>file:/C:/xampp/htdocs/insta_builder_page/instaLognIn/loginTest.php</file>
-            <file>file:/C:/xampp/htdocs/insta_builder_page/dashboard/AjaxLike_Comment.php</file>
+            <file>file:/C:/xampp/htdocs/insta_builder_page/insta_builder_page/smart_post/ajaxSelectHashtag.php</file>
+            <file>file:/C:/xampp/htdocs/insta_builder_page/insta_builder_page/php/DataBase.php</file>
+            <file>file:/C:/xampp/htdocs/insta_builder_page/insta_builder_page/wordcloud/db.js</file>
+            <file>file:/C:/xampp/htdocs/insta_builder_page/insta_builder_page/php/roomData.php</file>
+            <file>file:/C:/xampp/htdocs/insta_builder_page/insta_builder_page/php/FindOrder.php</file>
+            <file>file:/C:/xampp/htdocs/insta_builder_page/insta_builder_page/testwc.html</file>
+            <file>file:/C:/xampp/htdocs/insta_builder_page/insta_builder_page/smart_post/smart_post.php</file>
+            <file>file:/C:/xampp/htdocs/insta_builder_page/insta_builder_page/php/logOut.php</file>
+            <file>file:/C:/xampp/htdocs/insta_builder_page/insta_builder_page/php/login_change.php</file>
+            <file>file:/C:/xampp/htdocs/insta_builder_page/insta_builder_page/php/Ajax_Baidu_Jieba.php</file>
         </group>
     </open-files>
 </project-private>
