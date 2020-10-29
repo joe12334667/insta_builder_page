@@ -40,7 +40,8 @@ if (isset($_POST["next"])) {
         <title>login</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link href="https://fonts.googleapis.com/css?family=El+Messiri|Noto+Sans+TC&display=swap" rel="stylesheet">
+        <!-- <link href="https://fonts.googleapis.com/css?family=El+Messiri|Noto+Sans+TC&display=swap" rel="stylesheet"> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="assets/css/main.css" />
         <link href="../images/logo-rainbow.png"  rel="icon">
         <!--google login 引用-->

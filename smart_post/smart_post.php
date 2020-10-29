@@ -32,6 +32,7 @@ if($_SESSION["privilege"] != 2){
         <meta name="author" content="" />
         <title>Dashboard</title>
         <link href="css/styles.css" rel="stylesheet" />
+        <link href="../images/logo-rainbow.png"  rel="icon">
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
         <style>            
@@ -142,16 +143,7 @@ if($_SESSION["privilege"] != 2){
                                 </nav>
                             </div>
                             <!----------------------------------------------------------------------------------------------------------->
-
-                            <!-- <div class="sb-sidenav-menu-heading">Addons</div> -->
-                            <a class="nav-link" href="charts.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Charts
-                            </a>
-                            <a class="nav-link" href="tables.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Tables
-                            </a>
+                           
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">

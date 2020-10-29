@@ -9,10 +9,18 @@
 		<title>INDEXhtml</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link href="https://fonts.googleapis.com/css?family=El+Messiri|Noto+Sans+TC&display=swap" rel="stylesheet">
+		<!-- <link href="https://fonts.googleapis.com/css?family=El+Messiri|Noto+Sans+TC&display=swap" rel="stylesheet"> -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link href="images/logo-rainbow.png"  rel="icon">
 		<style>
+			#myVideo {
+				position: relative;
+				right: 0;
+				bottom: 0;
+				min-width: 100%;
+				min-height: 100%;
+				}
 			.inner h3{
 				text-align: center;
 				color: #000000;				
@@ -25,22 +33,22 @@
 			}
 			#banner {
 				padding: 14em 0 12em 0;
-				background-image: url(images/b7.png);
+				/* background-image: url(images/b7.png);  */
 				background-size: cover;
 				background-position: center top;
 				background-repeat: no-repeat;
 				text-align: center;
-			}
+			 }
 			#banner .content h1{
 				color: white;
 			}
 			#two  {
 				background-image: linear-gradient(to right, #E283A0, #946ccc);
-				/*background-color: #ffffff;
-				background-image: url('images/aboutus-1-01.png');
+				/* background-color: #ffffff; */
+				/* background-image: url('images/aboutus-1-01.png'); */
 				background-size: contain;
 				background-position: center top;
-				background-repeat: no-repeat;*/
+				background-repeat: no-repeat;
 			}
 			#two img{
 					vertical-align: middle;
@@ -75,20 +83,23 @@
 					<li><a href="login/login.php" class="button fit">Log in</a></li>
 				</ul>
 			</nav>
-
+			<video autoplay loop muted id="myVideo" >
+				<source src="video/insta.mp4" type="video/mp4">
+			</video>
 		<!-- Banner -->
-			<section id="banner">
+			<!-- <section id="banner">
 				<div class="content">
 					<h1>InstaBuilder</h1>
-					<img src="images/logo-white.png" width="200px">
-					<!--<p>To build a perfact Instagram Account<br />成為Instagram上的明日之星</p>-->
+					<img src="images/logo-white.png" width="200px"> -->
+					<!-- <p>To build a perfact Instagram Account<br />成為Instagram上的明日之星</p>
+					
 					<ul class="actions">
 						<li><a href="#one" class="button scrolly">Get Started</a></li>
 					</ul>
 				</div>
-			</section>
+			</section> --> 
 
-		<!-- One -->
+		<!--  One -->
 			<section id="one" class="wrapper">
 
 				<div class="inner flex flex-3">
