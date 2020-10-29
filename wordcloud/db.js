@@ -4,9 +4,9 @@ $("#cloudcanvas").wordCloud({
 		dbUser: 'root',
 		dbPass: 'superman12334667',
 		dbName: 'instabuilder',
-        selectFields: 'SELECT cate_name FROM hashtagscate',
+        selectFields: 'cate_name',
         // <comma separated list of fields to select>
-        tableName: 'instabuilder.hashtagscate'
+        tableName: 'hashtagcates'
         // <database table to select from>
 	}
 });
