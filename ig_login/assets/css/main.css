@@ -2672,7 +2672,7 @@
 		-webkit-align-items: center;
 		-ms-align-items: center;
 		align-items: center;
-		background: #fff;
+		background-image: linear-gradient(to right, #e83e8c, #3902a0);
 		cursor: default;
 		height: 6em;
 		left: 0;
@@ -2686,7 +2686,7 @@
 	}
 
 		#header .logo {
-			color: #E283A0;
+			color: #ffffff;
 			font-family: 'El Messiri', sans-serif;
 			font-size: 2.5em;
 			letter-spacing: 2px;

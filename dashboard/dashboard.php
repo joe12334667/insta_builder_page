@@ -51,7 +51,7 @@ if (isset($_SESSION["freeUser"])) {
 ?>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" href="home.html">Instabuilder</a>
+            <a class="navbar-brand" href="../index.html">Instabuilder</a>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
@@ -67,10 +67,10 @@ if (isset($_SESSION["freeUser"])) {
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="#">Settings</a>
-                        <a class="dropdown-item" href="#">Activity Log</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#" onclick="signOut();" name="logout">Logout</a><?php echo $_SESSION["name"]; ?>-登出</a>
+                        <!-- <a class="dropdown-item" href="#">Settings</a>
+                        <a class="dropdown-item" href="#">Activity Log</a> -->
+                        <!-- <div class="dropdown-divider"></div> -->
+                        <a>&nbsp &nbsp&nbsp&nbsp<?php echo $_SESSION["name"]; ?> - 登出</a><a class="dropdown-item" href="#" onclick="signOut();" name="logout" >Logout</a>
                     </div>
                 </li>
             </ul>
@@ -169,11 +169,7 @@ if (isset($_SESSION["freeUser"])) {
                                 Tables
                             </a> -->
                         </div>
-                    </div>
-                    <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
-                        Start Bootstrap
-                    </div>
+                    </div>                    
                 </nav>
             </div>
             <div id="layoutSidenav_content">
@@ -380,27 +376,27 @@ if (isset($_SESSION["freeUser"])) {
                                                 <!--
                                                 <th>日期</th>
                                                 <th>新追蹤者</th>
-                                                <th>互動最高中蹤者</th>
+                                                <th>互動最高追蹤者</th>
                                                 <th>是否有發布貼文</th>
                                                 -->  
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                        <?php
-                    while ($row = $result->fetch(PDO::FETCH_OBJ)) {
-                    //PDO::FETCH_OBJ 指定取出資料的型態
-                    echo '<tr>';
-                        echo '<td>' . $row->account_id . "</td>"
-                        . "<td>" . $row->fans_amount. "</td>";
-                        //. "<td>" . $row->account_name. "</td>"
-                        //. "<td>" . $row->post_no. "</td>"
-                        //. "<td>" . $row->貼文留言數量 . "</td>";
+                                                <?php
+                                                while ($row = $result->fetch(PDO::FETCH_OBJ)) {
+                                                //PDO::FETCH_OBJ 指定取出資料的型態
+                                                echo '<tr>';
+                                                    echo '<td>' . $row->account_id . "</td>"
+                                                    . "<td>" . $row->fans_amount. "</td>";
+                                                    //. "<td>" . $row->account_name. "</td>"
+                                                    //. "<td>" . $row->post_no. "</td>"
+                                                    //. "<td>" . $row->貼文留言數量 . "</td>";
 
-                            echo '</tr>';
-                        }
-                        ?>
-                        </tr>
+                                                        echo '</tr>';
+                                                    }
+                                                ?>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
