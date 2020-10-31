@@ -1619,7 +1619,7 @@
 		font-family: "Open Sans", Arial, Helvetica, sans-serif;
 		font-family: 'Noto Sans TC', sans-serif;
 		font-size: 13pt;
-		font-weight: 300;
+		font-weight: 700;
 		line-height: 1.65;
 	}
 
@@ -1664,7 +1664,7 @@
 		}
 
 	a {
-		color: #946CCC;
+		color: #3902a0;
 		text-decoration: underline;
 	}
 
@@ -1746,7 +1746,7 @@
 	}
 
 		cite.author {
-			font-weight: 400;
+			font-weight: 700;
 		}
 
 		cite.company {
@@ -1888,8 +1888,8 @@
 		input[type="tel"]:focus,
 		select:focus,
 		textarea:focus {
-			border-color: #946CCC;
-			box-shadow: 0 0 0 1px #946CCC;
+			border-color: #3902a0;
+			box-shadow: 0 0 0 1px #3902a0;
 		}
 
 	.select-wrapper {
@@ -1958,7 +1958,7 @@
 			cursor: pointer;
 			display: inline-block;
 			font-size: 1em;
-			font-weight: 300;
+			font-weight: 700;
 			padding-left: 2.4em;
 			padding-right: 0.75em;
 			position: relative;
@@ -1992,16 +1992,16 @@
 
 		input[type="checkbox"]:checked + label:before,
 		input[type="radio"]:checked + label:before {
-			background: #E283A0;
-			border-color: #E283A0;
+			background: #e83e8c;
+			border-color: #e83e8c;
 			color: #ffffff;
 			content: '\f00c';
 		}
 
 		input[type="checkbox"]:focus + label:before,
 		input[type="radio"]:focus + label:before {
-			border-color: #946CCC;
-			box-shadow: 0 0 0 1px #946CCC;
+			border-color: #3902a0;
+			box-shadow: 0 0 0 1px #3902a0;
 		}
 
 	input[type="checkbox"] + label:before {
@@ -2399,7 +2399,7 @@
 		-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-		background-color: #E283A0;
+		background-color: #e83e8c;
 		border-radius: 4px;
 		border: 0;
 		color: #ffffff;
@@ -2512,7 +2512,7 @@
 		input[type="button"].special,
 		button.special,
 		.button.special {
-			background-color: #946CCC;
+			background-color: #3902a0;
 			color: #ffffff !important;
 		}
 
@@ -2629,11 +2629,11 @@
 	}
 
 		.wrapper h1, .wrapper h2, .wrapper h3, .wrapper h4, .wrapper h5 {
-			color: #946CCC;
+			color: #3902a0;
 		}
 
 		.wrapper.style1 {
-			background: #E283A0;
+			background: #e83e8c;
 			color: #fcdcd6;
 		}
 
@@ -2693,6 +2693,7 @@
 			margin-top: -5px;
 			text-decoration: none;
 			display: inline-block;
+			font-weight: 400;
 		}
 
 		#header nav {
@@ -2797,7 +2798,7 @@
 		-ms-transition: -ms-transform 0.5s ease, visibility 0.5s;
 		transition: transform 0.5s ease, visibility 0.5s;
 		-webkit-overflow-scrolling: touch;
-		background: #946CCC;
+		background: #3902a0;
 		color: #ffffff;
 		height: 100%;
 		max-width: 80%;
@@ -2940,7 +2941,7 @@
 
 		#banner h1 {
 			font-size: 3em;
-			color: #946CCC;
+			color: #3902a0;
 			line-height: 1em;
 			margin: 0 0 0.5em 0;
 			padding: 0;
@@ -3147,7 +3148,7 @@
 
 		#footer h2 {
 			font-size: 25px;
-			font-weight: 300;
+			font-weight: 700;
 			color: #ffffff;
 		}
 
@@ -3228,11 +3229,11 @@
 	}
 
 		#footer h2 {
-			color: #E283A0;
+			color: #e83e8c;
 		}
 
 		#footer .icon {
-			color: #E283A0;
+			color: #e83e8c;
 		}
 
 		#footer a {
@@ -3246,7 +3247,7 @@
 
 		#footer .copyright {
 			display: inline-block;
-			color: #E283A0;
+			color: #e83e8c;
 			font-size: 0.75em;
 			margin: 0 0 2em 0;
 			padding: 0;
