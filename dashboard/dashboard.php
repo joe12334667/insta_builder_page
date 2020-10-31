@@ -249,7 +249,7 @@ if (isset($_SESSION["freeUser"])) {
                         <div class="row">
                             <div class="col-xl-6">
                                 <div class="card mb-4">
-                                    <div class="card-header">
+                                    <div class="card-header" style = "font-size:1.1rem; font-weight:bold;">
                                         <i class="fas fa-chart-area mr-1"></i>
                                         發文時機分析
                                     </div>                                    
@@ -258,7 +258,7 @@ if (isset($_SESSION["freeUser"])) {
                             </div>
                             <div class="col-xl-6">
                                 <div class="card mb-4">
-                                    <div class="card-header">
+                                    <div class="card-header" style = "font-size:1.1rem; font-weight:bold;">
                                         <i class="fas fa-chart-area mr-1"></i>
                                         貼文按讚數
                                     </div>                                    
@@ -267,7 +267,7 @@ if (isset($_SESSION["freeUser"])) {
                             </div>
                             <div class="col-xl-6">
                                 <div class="card mb-4">
-                                    <div class="card-header">
+                                    <div class="card-header" style = "font-size:1.1rem; font-weight:bold;">
                                         <i class="fas fa-chart-area mr-1"></i>
                                         貼文讚數分析(未使用instabuilder&使用instabuilder)
                                     </div>
@@ -276,7 +276,7 @@ if (isset($_SESSION["freeUser"])) {
                             </div>
                             <div class="col-xl-6">
                                 <div class="card mb-4">
-                                    <div class="card-header">
+                                    <div class="card-header" style = "font-size:1.1rem; font-weight:bold;">
                                         <i class="fas fa-chart-bar mr-1"></i>
                                         Post likes
                                     </div>
@@ -307,12 +307,12 @@ if (isset($_SESSION["freeUser"])) {
                             </div> -->
                         </div>
                         <div class="card mb-4">
-                            <div class="card-header">
+                            <div class="card-header" style = "font-size:1.3rem; font-weight:bold;">
                                 <i class="fas fa-chart-area mr-1"></i>貼文案讚數分析
-                                <div class="input-group">
-                                    <input class="form-control"  id ="like_limit" type="number" placeholder="查詢筆數" aria-label="Search" aria-describedby="basic-addon2" />
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary" id="like_search" type="button"></button>
+                                <div class="input-group" style="margin-top:-32px;margin-left:65vw;width:140px">
+                                    <input class="form-control"  id ="like_limit" type="number" placeholder="筆數" aria-label="Search" aria-describedby="basic-addon2"  />
+                                    <div class="input-group-append" >
+                                        <button class="btn btn-primary" id="like_search_like" type="button">查詢</button>
                                     </div>
                                 </div>
                             </div>
@@ -321,12 +321,12 @@ if (isset($_SESSION["freeUser"])) {
                             </div>
                         </div>
                         <div class="card mb-4">
-                            <div class="card-header">
-                                <i class="fas fa-chart-area mr-1"></i>貼文留言數分析
-                                <div class="input-group">
-                                    <input class="form-control"  id ="like_limit" type="number" placeholder="查詢筆數" aria-label="Search" aria-describedby="basic-addon2" />
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary" id="like_search" type="button"></button>
+                            <div class="card-header" style = "font-size:1.3rem; font-weight:bold;">
+                                <i class="fas fa-chart-area mr-1" ></i>貼文留言數分析
+                                <div class="input-group" style="margin-top:-32px;margin-left:65vw;width:140px">
+                                    <input class="form-control"  id ="post_limit" type="number" placeholder="筆數" aria-label="Search" aria-describedby="basic-addon2" />
+                                    <div class="input-group-append" >
+                                        <button class="btn btn-primary" id="like_search_post" type="button">查詢</button>
                                     </div>
                                 </div>
                             </div>
@@ -466,12 +466,10 @@ if (isset($_SESSION["freeUser"])) {
 
         <!------Test chart-------------------------------------------------------------------------------------------------------------------------->
         <script>
-
-            //                ajaxChart("post_like", "like");
             ajaxChart("post_comment", "comment");
 
-            $("#like_search").click(function () {
-                var limit = document.getElementById("like_limit").value;
+            $("#like_search_post").click(function () {
+                var limit = document.getElementById("post_limit").value;
                 //                    alert(limit);
                 if (limit < 1) {
                     limit = 1;
@@ -565,7 +563,7 @@ if (isset($_SESSION["freeUser"])) {
         <script>
             ajaxChart("post_like", "like");
 
-            $("#like_search").click(function () {
+            $("#like_search_like").click(function () {
                 var limit = document.getElementById("like_limit").value;
                 //                    alert(limit);
                 if (limit < 1) {
