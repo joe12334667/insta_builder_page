@@ -184,7 +184,27 @@ if (isset($_SESSION["freeUser"])) {
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-blue text-white mb-4">
                                     <div class="card-body">貼文數量
-                                        <h3>99</h3>
+                                        <h3>
+                                        <?php 
+                                        $db = DB();
+                                        $id = $_SESSION['account'];
+                                        $sql="SELECT count(post_no) as allpost
+                                        FROM instabuilder.userpost as a
+                                        left join userinstaaccount as b on a.account_id = b.account_id 
+                                        left join user as c on b.user_id = c.user_id 
+                                        where c.signup_email = '".$_SESSION["account"]."' 
+                                        group by a.account_id 
+                                        ";
+                                        $result = $db->query($sql);
+                                        while ($row = $result->fetch(PDO::FETCH_OBJ)) {
+                                            //PDO::FETCH_OBJ 指定取出資料的型態
+                                            echo '<tr>';
+                                                echo '<td>' . $row->allpost . "</td>";
+                                                //. "<td>" . $row->貼文留言數量 . "</td>";
+                                                echo '</tr>';
+                                        }
+                                        ?>
+                                        </h3>
                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="#">View Details</a>
@@ -195,7 +215,28 @@ if (isset($_SESSION["freeUser"])) {
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-indigo text-white mb-4">
                                     <div class="card-body">追蹤人數
-                                        <h3>145</h3>
+                                        <h3>
+                                        <?php 
+                                        $db = DB();
+                                        $id = $_SESSION['account'];
+                                        $sql="SELECT following_amount FROM instabuilder.instaaccountfollower as a
+                                        left join userinstaaccount as b on a.account_id = b.account_id 
+                                        left join user as c on b.user_id = c.user_id 
+                                        where c.signup_email = '".$_SESSION["account"]."'
+                                        order by a.record_time desc
+                                        limit 1
+                                        ";
+                                        $result = $db->query($sql);
+                                        while ($row = $result->fetch(PDO::FETCH_OBJ)) {
+                                            //PDO::FETCH_OBJ 指定取出資料的型態
+                                            echo '<tr>';
+                                                echo '<td>' . $row->following_amount . "</td>";
+                                                //. "<td>" . $row->貼文留言數量 . "</td>";
+
+                                                    echo '</tr>';
+                                                }
+                                        ?>
+                                        </h3>
                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="#">View Details</a>
@@ -206,7 +247,28 @@ if (isset($_SESSION["freeUser"])) {
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-purple text-white mb-4">
                                     <div class="card-body">粉絲人數
-                                        <h3>1,024</h3>
+                                    <h3>
+                                    <?php 
+                                        $db = DB();
+                                        $id = $_SESSION['account'];
+                                        $sql="SELECT fans_amount FROM instabuilder.instaaccountfollower as a
+                                        left join userinstaaccount as b on a.account_id = b.account_id 
+                                        left join user as c on b.user_id = c.user_id 
+                                        where c.signup_email = '".$_SESSION["account"]."'
+                                        order by a.record_time desc
+                                        limit 1
+                                        ";
+                                        $result = $db->query($sql);
+                                        while ($row = $result->fetch(PDO::FETCH_OBJ)) {
+                                            //PDO::FETCH_OBJ 指定取出資料的型態
+                                            echo '<tr>';
+                                                echo '<td>' . $row->fans_amount . "</td>";
+                                                //. "<td>" . $row->貼文留言數量 . "</td>";
+
+                                                    echo '</tr>';
+                                                }
+                                        ?>
+                                        </h3>
                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="#">View Details</a>
@@ -217,7 +279,28 @@ if (isset($_SESSION["freeUser"])) {
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-pink text-white mb-4">
                                     <div class="card-body">總按讚數
-                                        <h3>234,600</h3>
+                                        <h3>
+                                        <?php
+                                        $db = DB();
+                                        $id = $_SESSION['account'];
+                                        $sql="SELECT count(a.post_no) as alllike
+                                        FROM instabuilder.like as a
+                                        left join userpost as b on a.post_no = b.post_no 
+                                        left join userinstaaccount as c on b.account_id = c.account_id 
+                                        left join user as d on c.user_id = d.user_id 
+                                        where d.signup_email = '".$_SESSION["account"]."'
+                                        ";
+                                        $result = $db->query($sql);
+                                        while ($row = $result->fetch(PDO::FETCH_OBJ)) {
+                                            //PDO::FETCH_OBJ 指定取出資料的型態
+                                            echo '<tr>';
+                                                echo '<td>' . $row->alllike . "</td>";
+                                                //. "<td>" . $row->貼文留言數量 . "</td>";
+
+                                                    echo '</tr>';
+                                                }
+                                        ?>
+                                        </h3>
                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="#">View Details</a>
@@ -349,9 +432,14 @@ if (isset($_SESSION["freeUser"])) {
                         <!---------以上為綜合圖表---------------------------------------------------------------------->
                         <?php
                         $db = DB();
-                        $sql = "SELECT DISTINCT  account_id,fans_amount 
-                                from instabuilder.instaaccountfollower
-                                where account_id = '2'
+                        $id = $_SESSION['account'];
+                        $sql = "SELECT DISTINCT a.account_id,a.fans_amount,d.name,d.follow_date
+                                from instabuilder.instaaccountfollower as a
+                                left join userinstaaccount as b on a.account_id = b.account_id 
+                                left join user as c on b.user_id = c.user_id 
+                                left join followers as d on b.account_id = d.account_id
+                                where c.signup_email = '".$_SESSION["account"]."' 
+                                order by follow_date desc
                                 ";
                         $result = $db->query($sql);
                         //"SELECT b.account_id ,c.account_name,a.post_no,count(comment_account)貼文留言數量
@@ -373,9 +461,10 @@ if (isset($_SESSION["freeUser"])) {
                                             <tr>
                                                 <th>使用者編號</th>
                                                 <th>追蹤者</th>
-                                                <!--
-                                                <th>日期</th>
+                                                
                                                 <th>新追蹤者</th>
+                                                <th>日期</th>
+                                                <!--
                                                 <th>互動最高追蹤者</th>
                                                 <th>是否有發布貼文</th>
                                                 -->  
@@ -384,13 +473,14 @@ if (isset($_SESSION["freeUser"])) {
                                         <tbody>
                                             <tr>
                                                 <?php
+                                                //echo $_SESSION["signup_email"]; 
                                                 while ($row = $result->fetch(PDO::FETCH_OBJ)) {
                                                 //PDO::FETCH_OBJ 指定取出資料的型態
                                                 echo '<tr>';
                                                     echo '<td>' . $row->account_id . "</td>"
-                                                    . "<td>" . $row->fans_amount. "</td>";
-                                                    //. "<td>" . $row->account_name. "</td>"
-                                                    //. "<td>" . $row->post_no. "</td>"
+                                                    . "<td>" . $row->fans_amount. "</td>"
+                                                    . "<td>" . $row->name. "</td>"
+                                                    . "<td>" . $row->follow_date. "</td>";
                                                     //. "<td>" . $row->貼文留言數量 . "</td>";
 
                                                         echo '</tr>';
