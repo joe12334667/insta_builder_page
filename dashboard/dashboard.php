@@ -312,7 +312,7 @@ if (isset($_SESSION["freeUser"])) {
                                 <div class="input-group" style="margin-top:-32px;margin-left:65vw;width:140px">
                                     <input class="form-control"  id ="like_limit" type="number" placeholder="筆數" aria-label="Search" aria-describedby="basic-addon2"  />
                                     <div class="input-group-append" >
-                                        <button class="btn btn-primary" id="like_search_like" type="button">查詢</button>
+                                        <button class="btn btn-primary" id="like_search" type="button">查詢</button>
                                     </div>
                                 </div>
                             </div>
@@ -324,9 +324,9 @@ if (isset($_SESSION["freeUser"])) {
                             <div class="card-header" style = "font-size:1.3rem; font-weight:bold;">
                                 <i class="fas fa-chart-area mr-1" ></i>貼文留言數分析
                                 <div class="input-group" style="margin-top:-32px;margin-left:65vw;width:140px">
-                                    <input class="form-control"  id ="post_limit" type="number" placeholder="筆數" aria-label="Search" aria-describedby="basic-addon2" />
+                                    <input class="form-control"  id ="like_limit" type="number" placeholder="筆數" aria-label="Search" aria-describedby="basic-addon2" />
                                     <div class="input-group-append" >
-                                        <button class="btn btn-primary" id="like_search_post" type="button">查詢</button>
+                                        <button class="btn btn-primary" id="like_search" type="button">查詢</button>
                                     </div>
                                 </div>
                             </div>
@@ -466,10 +466,12 @@ if (isset($_SESSION["freeUser"])) {
 
         <!------Test chart-------------------------------------------------------------------------------------------------------------------------->
         <script>
+
+            //                ajaxChart("post_like", "like");
             ajaxChart("post_comment", "comment");
 
-            $("#like_search_post").click(function () {
-                var limit = document.getElementById("post_limit").value;
+            $("#like_search").click(function () {
+                var limit = document.getElementById("like_limit").value;
                 //                    alert(limit);
                 if (limit < 1) {
                     limit = 1;
@@ -526,6 +528,7 @@ if (isset($_SESSION["freeUser"])) {
                                         borderColor: "#007bff", // 設定線的顏色
                                         backgroundColor: Background_color, // 設定點的顏色
                                         pointBorderWidth: 6,
+
                                         //pointBorderColor: "#FF82B4",
                                         //lineTension: 0.1  // 顯示折線圖，不使用曲線
                                     }],
@@ -563,7 +566,7 @@ if (isset($_SESSION["freeUser"])) {
         <script>
             ajaxChart("post_like", "like");
 
-            $("#like_search_like").click(function () {
+            $("#like_search").click(function () {
                 var limit = document.getElementById("like_limit").value;
                 //                    alert(limit);
                 if (limit < 1) {

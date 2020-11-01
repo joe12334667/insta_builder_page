@@ -19,7 +19,7 @@
 
 <body> 
     <div id="canvas-container" style="float: left">
-        <canvas id="canvas" width="800px" height="600px"></canvas>
+        <canvas id="canvas" width="1500px" height="800px"></canvas>
     </div>
 </body>
 
@@ -40,16 +40,20 @@
             var options = eval({
 
                 "list": wordFreqData, //或者[['各位观众',45],['词云', 21],['来啦!!!',13]],只要格式满足这样都可以
-//                "gridSize": 10, // size of the grid in pixels
+                "gridSize": 30, // size of the grid in pixels
                 "weightFactor": 0.1, // number to multiply for size of each word in the list
-                "maxFontSize": 100, //最大字号
-                "minFontSize": 50, 
+                "maxFontSize": 50, //最大字号
+                "minFontSize": 10, 
                 "fontWeight": 'bold', // 'normal', 'bold' or a callback
-                "fontFamily": 'Times, serif', // font to use
-                "color": 'random-light', // 'random-dark' or 'random-light'
-                "backgroundColor": '#333', // the color of canvas
-                "rotateRatio": 1. // probability for the word to rotate. 1 means always rotate
-                
+                "fontFamily": 'El Messiri, sans-serif', // font to use
+                "color": 'purple', // 'random-dark' or 'random-light'
+                // "backgroundColor": 'black', // the color of canvas
+               
+                "rotateRatio": 0, // probability for the word to rotate. 1 means always rotate
+                // "shape": 'circle'
+                // "drawMask": "../images/maskblack.jpg",
+                // "maskColor":"../images/mask.png"
+                // "shape":'circle' 
             });
             //生成
             WordCloud(canvas, options);
