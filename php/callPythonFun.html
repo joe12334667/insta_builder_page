@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<!--
+        Intensify by TEMPLATED
+        templated.co @templatedco
+        Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+    <head>
+        <title>INDEXhtml</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!-- <link href="https://fonts.googleapis.com/css?family=El+Messiri|Noto+Sans+TC&display=swap" rel="stylesheet"> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="../assets/css/main.css" />
+        <link href="../images/logo-rainbow.png"  rel="icon">
+
+    </head>
+    <body>
+
+        <!-- Header -->
+        <header id="header">
+            <nav class="left">
+                <a href="#menu"><span>Menu</span></a>
+            </nav>
+            <a href="index.html" class="logo">InstaBuilder</a>
+            <nav class="right">
+                <a href="login/login.php" class="button alt">Log in</a>
+            </nav>
+        </header>
+
+        <!-- Menu -->
+        <nav id="menu">
+            <ul class="links">
+                <li><a href="index.html" class="button scrolly">首頁</a></li>
+                <li><a href="#one" class="button scrolly">服務目的</a></li>
+                <li><a href="#two" class="button scrolly">有關我們</a></li>
+                <li><a href="#three" class="button scrolly">產品介紹</a></li>
+                <li><a href="#footer" class="button scrolly">聯絡我們</a></li>
+            </ul>
+            <ul class="actions vertical">
+                <li><a href="login/login.php" class="button fit">Log in</a></li>
+            </ul>
+        </nav>
+        <br>
+        <br>
+        <br>
+        <div class="inner flex flex-3">
+
+            <p> 
+                下載用戶貼文，請輸入資料庫裡有的名，自動跑最近20篇
+                ex:13_23_33_
+            </p>
+            <textarea class="form-control" id="user_name" rows="1"></textarea>
+            <button class="downpost_button" type="button" id="downpost_button">查詢</button> 
+
+
+        </div>
+        <div class="inner flex flex-3">
+
+            <p> 
+                下載用戶info，直接按按鈕就可
+            </p>
+
+            <button class="downUserINFO_button" type="button" id="downUserINFO_button">查詢</button> 
+        </div>
+        <br>
+        <br>
+        <br>
+        <!-- Footer -->
+        <footer id="footer">
+            <div class="container">
+                <h2>聯絡我們</h2>
+                <ul class="icons">
+                    <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                    <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                    <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                    <li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+                </ul>
+            </div>
+            <div class="copyright">
+                &copy; NTUB 109501
+            </div>
+        </footer>
+
+        <!-- Scripts -->
+        <script src="../assets/js/jquery.min.js"></script>
+        <script src="../assets/js/jquery.scrolly.min.js"></script>
+        <script src="../assets/js/skel.min.js"></script>
+        <script src="../assets/js/util.js"></script>
+        <script src="../assets/js/main.js"></script>
+        <script>
+
+            $("#downpost_button").click(function () {
+                var user_name = document.getElementById("user_name").value;
+                alert("系統計算需要時間，請等待片刻，按鈕回復即正常為更新");
+                $.ajax({
+                    type: "POST",
+                    cache: false,
+                    url: "ajax_python_downloadPostFromUser.php",
+                    data: {
+                        user_name: user_name,
+                    },
+                    dataType: "json",
+                    beforeSend: function () {
+                        // 禁用按鈕防止重復提交
+                        $("#downpost_button").attr({disabled: "disabled"});
+                    },
+                    success: function (response) {
+                        alert("完成");
+                    }, complete: function () {
+                        $("#downpost_button").removeAttr("disabled");
+                    }
+                });
+            });
+
+            $("#downUserINFO_button").click(function () {
+
+                alert("系統計算需要時間，請等待片刻，按鈕回復即正常為更新");
+                $.ajax({
+                    type: "POST",
+                    cache: false,
+                    url: "Ajax_python_downloadUserINFO.php",
+                    data: {},
+                    dataType: "json",
+                    beforeSend: function () {
+                        // 禁用按鈕防止重復提交
+                        $("#downUserINFO_button").attr({disabled: "disabled"});
+                    },
+                    success: function (response) {
+                        alert("完成");
+                    }, complete: function () {
+                        $("#downUserINFO_button").removeAttr("disabled");
+                    }
+                });
+            });
+
+
+        </script>
+    </body>
+</html>
