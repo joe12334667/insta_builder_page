@@ -58,11 +58,24 @@
         <div class="inner flex flex-3">
 
             <p> 
+                下載用戶粉絲人數，請利用上方輸入資料庫裡有的名
+                ex:13_23_33_
+            </p>
+            <button class="downpost_button" type="button" id="downUserFollower_button">查詢</button> 
+
+
+        </div>
+        <div class="inner flex flex-3">
+
+            <p> 
                 下載用戶info，直接按按鈕就可
             </p>
 
             <button class="downUserINFO_button" type="button" id="downUserINFO_button">查詢</button> 
         </div>
+
+
+
         <br>
         <br>
         <br>
@@ -109,6 +122,29 @@
                         alert("完成");
                     }, complete: function () {
                         $("#downpost_button").removeAttr("disabled");
+                    }
+                });
+            });
+
+            $("#downUserFollower_button").click(function () {
+                var user_name = document.getElementById("user_name").value;
+                alert("系統計算需要時間，請等待片刻，按鈕回復即正常為更新");
+                $.ajax({
+                    type: "POST",
+                    cache: false,
+                    url: "../php/Ajax_python_downloadUserFollowers.php",
+                    data: {
+                        user_name: user_name,
+                    },
+                    dataType: "json",
+                    beforeSend: function () {
+                        // 禁用按鈕防止重復提交
+                        $("#downUserFollower_button").attr({disabled: "disabled"});
+                    },
+                    success: function (response) {
+                        alert("完成");
+                    }, complete: function () {
+                        $("#downUserFollower_button").removeAttr("disabled");
                     }
                 });
             });

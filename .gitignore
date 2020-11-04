@@ -295,3 +295,4 @@ vendor/psr/log/Psr/Log/Test/DummyTest.php
 vendor/psr/log/Psr/Log/Test/LoggerInterfaceTest.php
 vendor/psr/log/Psr/Log/Test/TestLogger.php
 vendor/psr/log/README.md
+nbproject/private/private.xml
