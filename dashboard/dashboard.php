@@ -489,7 +489,81 @@ if (isset($_SESSION["freeUser"])) {
                                     <div class="card-body" style="text-align:center;">按讚成長率
                                     <hr size="8px" text-align="center" width="100%">
                                         <h3>
-                                        58%
+                                        <?php
+                                            $db = DB();
+                                            $id = $_SESSION['account'];
+                                            $sql = "SELECT before_all.user_id, before_like_avg, after_like_avg , round(after_like_avg/before_like_avg,2) as '按讚成長率' from
+                                            (
+                                             select temp_post_before.user_id, like_num/post_num as before_like_avg from 
+                                             (
+                                              select user.user_id, count(*) as post_num FROM instabuilder.user 
+                                              left join instabuilder.userinstaaccount on user.user_id = userinstaaccount.user_id
+                                              left join instabuilder.userpost on userinstaaccount.account_id = userpost.account_id
+                                              left join instabuilder.post on userpost.post_no = post.post_no
+                                              
+                                              where post.announce_time <= user.signup_datetime and instabuilder.user.signup_email = '".$_SESSION["account"]."' 
+                                              group by user_id
+                                             ) as temp_post_before
+                                             
+                                             left join
+                                             
+                                             (
+                                              select user.user_id, count(*) as like_num FROM instabuilder.user 
+                                              left join instabuilder.userinstaaccount on user.user_id = userinstaaccount.user_id
+                                              left join instabuilder.userpost on userinstaaccount.account_id = userpost.account_id
+                                              left join instabuilder.post on userpost.post_no = post.post_no
+                                              left join instabuilder.like on like.post_no = post.post_no
+                                              
+                                              where post.announce_time <= user.signup_datetime
+                                              group by user_id
+                                             ) as temp_like_before
+                                             
+                                             on temp_post_before.user_id = temp_like_before.user_id
+                                            ) as before_all
+                                            
+                                            left join
+                                            
+                                            
+                                            (
+                                             select temp_post_after.user_id, like_num/post_num as after_like_avg from 
+                                             (
+                                              select user.user_id, count(*) as post_num FROM instabuilder.user 
+                                              left join instabuilder.userinstaaccount on user.user_id = userinstaaccount.user_id
+                                              left join instabuilder.userpost on userinstaaccount.account_id = userpost.account_id
+                                              left join instabuilder.post on userpost.post_no = post.post_no
+                                              
+                                              where post.announce_time >= user.signup_datetime
+                                              group by user_id
+                                             ) as temp_post_after
+                                             
+                                             left join
+                                             
+                                             (
+                                              select user.user_id, count(*) as like_num FROM instabuilder.user 
+                                              left join instabuilder.userinstaaccount on user.user_id = userinstaaccount.user_id
+                                              left join instabuilder.userpost on userinstaaccount.account_id = userpost.account_id
+                                              left join instabuilder.post on userpost.post_no = post.post_no
+                                              left join instabuilder.like on like.post_no = post.post_no
+                                              
+                                              where post.announce_time >= user.signup_datetime
+                                              group by user_id
+                                             ) as temp_like_after
+                                             
+                                             on temp_post_after.user_id = temp_like_after.user_id
+                                            ) as after_all
+                                            on before_all.user_id = after_all.user_id
+                                                    ";
+                                            $result = $db->query($sql);
+                                            while ($row = $result->fetch(PDO::FETCH_OBJ)) {
+                                                //PDO::FETCH_OBJ 指定取出資料的型態
+                                                echo '<tr>';
+                                                    echo '<td>' . $row->按讚成長率 . "</td>";
+                                                    //. "<td>" . $row->貼文留言數量 . "</td>";
+    
+                                                        echo '</tr>';
+                                                    }
+                                                ?>
+                                                %
                                         </h3>
                                     </div>                                    
                                 </div>
