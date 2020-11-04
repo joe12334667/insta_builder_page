@@ -191,8 +191,8 @@ if (isset($_SESSION["freeUser"])) {
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-blue text-white mb-4">
-                                    <div class="card-body" style="font-weight:bold;">貼文數量
-                                        <h3 style="font-size:3rem;">
+                                    <div class="card-body" >貼文數量
+                                        <h3 style="font-size:2rem;">
                                         <?php 
                                         $db = DB();
                                         $id = $_SESSION['account'];
@@ -223,7 +223,7 @@ if (isset($_SESSION["freeUser"])) {
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-indigo text-white mb-4">
                                     <div class="card-body">追蹤人數
-                                        <h3 style="font-size:3rem;">
+                                        <h3 style="font-size:2rem;">
                                         <?php 
                                         $db = DB();
                                         $id = $_SESSION['account'];
@@ -255,7 +255,7 @@ if (isset($_SESSION["freeUser"])) {
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-purple text-white mb-4">
                                     <div class="card-body">粉絲人數
-                                    <h3 style="font-size:3rem;">
+                                    <h3 style="font-size:2rem;">
                                     <?php 
                                         $db = DB();
                                         $id = $_SESSION['account'];
@@ -287,7 +287,7 @@ if (isset($_SESSION["freeUser"])) {
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-pink text-white mb-4">
                                     <div class="card-body">總按讚數
-                                        <h3 style="font-size:3rem;">
+                                        <h3 style="font-size:2rem;">
                                         <?php
                                         $db = DB();
                                         $id = $_SESSION['account'];
@@ -317,6 +317,7 @@ if (isset($_SESSION["freeUser"])) {
                                 </div>
                             </div>
                         </div>
+                        <!-- =--------------------------------demo----------------------------------- -->
                         <!-- <div class="row">
                             <div class="col-xl-6">
                                 <div class="card mb-4">
@@ -397,11 +398,11 @@ if (isset($_SESSION["freeUser"])) {
                                 </div>
                             </div> -->
                         </div>
-                        
+                        <!------------------------------------------貼文按讚數分析---------------------------------------------->
                         <div class="card mb-4">
                             <div class="card-header" style = "font-size:1.3rem; font-weight:bold;">
-                                <i class="fas fa-chart-area mr-1"></i>貼文案讚數分析
-                                <div class="input-group" style="margin-top:-32px;margin-left:65vw;width:140px">
+                                <i class="fas fa-chart-area mr-1"></i>貼文按讚數分析
+                                <div class="input-group" style="margin-top:-32px;margin-left:55vw;width:140px">
                                     <input class="form-control"  id ="like_limit" type="number" placeholder="筆數" aria-label="Search" aria-describedby="basic-addon2"  />
                                     <div class="input-group-append" >
                                         <button class="btn btn-primary" id="like_search" type="button">查詢</button>
@@ -416,7 +417,7 @@ if (isset($_SESSION["freeUser"])) {
                         <div class="card mb-4">
                             <div class="card-header" style = "font-size:1.3rem; font-weight:bold;">
                                 <i class="fas fa-chart-area mr-1" ></i>貼文留言數分析
-                                <div class="input-group" style="margin-top:-32px;margin-left:65vw;width:140px">
+                                <div class="input-group" style="margin-top:-32px;margin-left:55vw;width:140px">
                                     <input class="form-control"  id ="like_limit" type="number" placeholder="筆數" aria-label="Search" aria-describedby="basic-addon2" />
                                     <div class="input-group-append" >
                                         <button class="btn btn-primary" id="like_search" type="button">查詢</button>
@@ -427,12 +428,37 @@ if (isset($_SESSION["freeUser"])) {
                                 <canvas id="post_comment" width="100" height="40"></canvas>
                             </div>
                         </div>
-						<!---------------------------------------------------------------------------------------->
+                        <!------------------------------------------貼文綜合分析---------------------------------------------->
+                        <!-- <div class="card mb-4">
+                            <div class="card-header" style = "font-size:1.3rem; font-weight:bold;">
+                                <i class="fas fa-chart-area mr-1" ></i>貼文留言數分析
+                                <div class="input-group" style="margin-top:-32px;margin-left:65vw;width:140px">
+                                    <input class="form-control"  id ="like_limit" type="number" placeholder="筆數" aria-label="Search" aria-describedby="basic-addon2" />
+                                    <div class="input-group-append" >
+                                        <button class="btn btn-primary" id="like_search" type="button">查詢</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body" id = "post_comment_chart">
+                                <canvas id="post_comment" width="100" height="40"></canvas>
+                            </div>
+                        </div> -->
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-chart-area mr-1"></i>
+                                貼文綜合分析
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <canvas id="TEST3" width="100" height="40"></canvas>
+                                </div>
+                            </div>
+                        </div>
 						<!------------------------------------------粉絲人數追蹤---------------------------------------------->
                         <div class="card mb-4">
                             <div class="card-header" style = "font-size:1.3rem; font-weight:bold;">
                                 <i class="fas fa-chart-area mr-1" ></i>粉絲人數追蹤
-                                <div class="input-group" style="margin-top:-32px;margin-left:65vw;width:140px">
+                                <div class="input-group" style="margin-top:-32px;margin-left:55vw;width:140px">
                                     <input class="form-control"  id ="follower_limit" type="number" placeholder="筆數" aria-label="Search" aria-describedby="basic-addon2" />
                                     <div class="input-group-append" >
                                         <button class="btn btn-primary" id="follower_search" type="button">查詢</button>
@@ -445,7 +471,7 @@ if (isset($_SESSION["freeUser"])) {
                         </div>
 						<!---------------------------------------------------------------------------------------->
                         <!---------綜合圖表---------------------------------------------------------------------->
-                        <div class="card mb-4">
+                        <!-- <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-chart-area mr-1"></i>
                                 貼文綜合分析
@@ -455,9 +481,53 @@ if (isset($_SESSION["freeUser"])) {
                                     <canvas id="TEST3" width="100" height="40"></canvas>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- ----------------------------------------------------------------------------------------- -->
-                        
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-4" >
+                                <div class="card bg-blue text-white mb-4" style="border-radius: 55rem;">
+                                    <div class="card-body" style="text-align:center;">按讚成長率
+                                    <hr size="8px" text-align="center" width="100%">
+                                        <h3>
+                                        58%
+                                        </h3>
+                                    </div>                                    
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-4">
+                                <div class="card bg-indigo text-white mb-4" style="border-radius: 55rem;">
+                                    <div class="card-body" style="text-align:center;">留言成長率
+                                    <hr size="8px" text-align="center" width="100%">
+                                        <h3>
+                                        25%
+                                        </h3>
+                                    </div>                                    
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-4">
+                                <div class="card bg-purple text-white mb-4" style="border-radius: 55rem;">
+                                    <div class="card-body" style="text-align:center;">粉絲成長率
+                                    <hr size="8px" text-align="center" width="100%">
+                                        <h3>
+                                        90%
+                                        </h3>
+                                    </div>                                    
+                                </div>
+                            </div>
+                            <!-- <div class="col-xl-3 col-md-6">
+                                <div class="card bg-pink text-white mb-4">
+                                    <div class="card-body">總按讚數
+                                        <h3 style="font-size:3rem;">
+                                        
+                                        </h3>
+                                    </div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
                         <!---------以上為綜合圖表---------------------------------------------------------------------->
                         <?php
                         $db = DB();
@@ -598,7 +668,7 @@ if (isset($_SESSION["freeUser"])) {
                             }
         </script>
 
-        <!------Test chart-------------------------------------------------------------------------------------------------------------------------->
+        <!------留言圖表------------------------------------------------------------------------------------------------------------------->
         <script>
 
             //                ajaxChart("post_like", "like");
@@ -695,8 +765,7 @@ if (isset($_SESSION["freeUser"])) {
                 });
             }
         </script>
-        <!--------------------------------------------------------------------------------------------------------------------------------------->
-        <!-------------------------------------------------post_like_chart------------------------------------------------------------------------>
+         <!---------------------------按讚數圖表----------------------------------------------------------------------->
         <script>
             ajaxChart("post_like", "like");
 
@@ -789,7 +858,7 @@ if (isset($_SESSION["freeUser"])) {
                 });
             }
         </script>
-        <!--------------------------------------------------------------------------------------------------------------------------------------->   
+        <!----------粉絲圖表---------------------------------------------------------------------------------------------------------->   
 		<script>
             ajax_follower_Chart("user_follower");
 
@@ -837,17 +906,26 @@ if (isset($_SESSION["freeUser"])) {
                         }
                         const ctx = document.getElementById(ChartName);
                         visualize = new Chart(ctx, {
-                            type: "bar",
+                            type: "line",
                             data: {
                                 labels: all_x_labels, // x軸的刻度
                                 datasets: [{
                                         label: "fans_amount per day", // 顯示該資料的標題 
                                         data: all_y_data, // y軸資料
-                                        fill: false, // 不顯示底下的灰色區塊
-                                        borderColor: "#007bff", // 設定線的顏色
+                                        fill: true, // 不顯示底下的灰色區塊
+                                        borderColor: "#c8ec83", // 設定線的顏色
                                         backgroundColor: Background_color, // 設定點的顏色
-                                        pointBorderWidth: 6,
-                                        //pointBorderColor: "#FF82B4",
+                                        // pointBorderWidth: 6,
+                                        // pointBorderColor: "#6610f2",
+                                        backgroundColor: "rgba(232, 62, 140,0.2)",
+                                        borderColor: "#e83e8c",
+                                        pointRadius: 5,
+                                        pointBackgroundColor: "#e83e8c",
+                                        pointBorderColor: "rgba(255,255,255,0.8)",
+                                        pointHoverRadius: 5,
+                                        pointHoverBackgroundColor: "#e83e8c",
+                                        pointHitRadius: 50,
+                                        pointBorderWidth: 2,  
                                         //lineTension: 0.1  // 顯示折線圖，不使用曲線
                                     }],
 
@@ -860,8 +938,10 @@ if (isset($_SESSION["freeUser"])) {
                                     yAxes: [{
                                             ticks: {
                                                 // beginAtZero: true,
-                                                //min: 10,
-                                                //stepSize: 2
+                                                // min: 0,                                                
+                                                maxTicksLimit:5,
+                                                stepSize:1
+                                                // stepSize: 2
                                             },
                                         }],
                                     xAxes: [{
