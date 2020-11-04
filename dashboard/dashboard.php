@@ -32,8 +32,16 @@ if ($_SESSION["account"] == "") {
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        <!-- <script src="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"></script>
+        <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script> -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">  
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="../node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
         <link rel="stylesheet" href="../node_modules/sweetalert2/dist/sweetalert2.min.css">
+
+        <link src="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css" rel="stylesheet">
+
         <style>
 
         </style>
@@ -447,11 +455,13 @@ if (isset($_SESSION["freeUser"])) {
                                 </div>
                             </div>
                         </div>
+                        <!-- ----------------------------------------------------------------------------------------- -->
+                        
                         <!---------以上為綜合圖表---------------------------------------------------------------------->
                         <?php
                         $db = DB();
                         $id = $_SESSION['account'];
-                        $sql = "SELECT DISTINCT a.account_id,a.fans_amount,d.name,d.follow_date
+                        $sql = "SELECT DISTINCT a.account_id,d.name,d.follow_date
                                 from instabuilder.instaaccountfollower as a
                                 left join userinstaaccount as b on a.account_id = b.account_id 
                                 left join user as c on b.user_id = c.user_id 
@@ -474,14 +484,14 @@ if (isset($_SESSION["freeUser"])) {
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <table class="table table-bordered" id="tabketest" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
                                                 <th>使用者編號</th>
-                                                <th>追蹤者</th>
+                                                <!--<th>追蹤者</th>-->  
                                                 
                                                 <th>新追蹤者</th>
-                                                <th>日期</th>
+                                                <th>追蹤的日期</th>
                                                 <!--
                                                 <th>互動最高追蹤者</th>
                                                 <th>是否有發布貼文</th>
@@ -496,7 +506,7 @@ if (isset($_SESSION["freeUser"])) {
                                                 //PDO::FETCH_OBJ 指定取出資料的型態
                                                 echo '<tr>';
                                                     echo '<td>' . $row->account_id . "</td>"
-                                                    . "<td>" . $row->fans_amount. "</td>"
+                                                    //. "<td>" . $row->fans_amount. "</td>"
                                                     . "<td>" . $row->name. "</td>"
                                                     . "<td>" . $row->follow_date. "</td>";
                                                     //. "<td>" . $row->貼文留言數量 . "</td>";
@@ -509,7 +519,7 @@ if (isset($_SESSION["freeUser"])) {
                                     </table>
                                 </div>
                             </div>
-                        </div>
+                        </div>    
                     </div>
                 </main>
                 <footer class="py-4 bg-light mt-auto">
@@ -526,6 +536,20 @@ if (isset($_SESSION["freeUser"])) {
                 </footer>
             </div>
         </div>
+        <!-- -------------------------tabletest------------------------ -->
+        <script
+        src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+        crossorigin="anonymous"></script>
+        
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
+
+        <script>
+            $(document).ready( function () {
+                $('#tabketest').DataTable();
+            } );
+        </script>
+        <!-- -------------------------------------------------------- -->
         <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
@@ -539,6 +563,7 @@ if (isset($_SESSION["freeUser"])) {
         <script src="assets/demo/chart-test1-demo.js"></script>
         <script src="assets/demo/chart-test2-demo.js"></script>
         <script src="assets/demo/chart-test3-demo.js"></script>
+        <script src="Table.js"></script>
         <!-- <script src="assets/demo/chart-test4-demo.js"></script> -->
         <!--------------------------------------------------->
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
