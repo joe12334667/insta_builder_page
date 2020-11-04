@@ -3999,7 +3999,7 @@ input[type=button].btn-block {
   padding-top: 0.3125rem;
   padding-bottom: 0.3125rem;
   margin-right: 1rem;
-  font-size: 1.25rem;
+  font-size: 1.75rem;
   line-height: inherit;
   white-space: nowrap;
 }
@@ -6164,7 +6164,7 @@ button.bg-light:focus {
 }
 
 .bg-dark {
-  background-color: #343a40 !important;
+  background-image: linear-gradient(to right, #e83e8c, #3902a0) !important;
 }
 
 a.bg-dark:hover, a.bg-dark:focus,
@@ -10058,7 +10058,7 @@ body {
   justify-content: space-between;
   min-width: 0;
   flex-grow: 1;
-  min-height: calc(100vh - 56px);
+  min-height: calc(100vh - 88px);
   margin-left: -225px;
 }
 
@@ -10107,14 +10107,14 @@ body {
   z-index: 1038;
 }
 .sb-nav-fixed #layoutSidenav #layoutSidenav_nav .sb-sidenav {
-  padding-top: 56px;
+  padding-top: 88px;
 }
 .sb-nav-fixed #layoutSidenav #layoutSidenav_nav .sb-sidenav .sb-sidenav-menu {
   overflow-y: auto;
 }
 .sb-nav-fixed #layoutSidenav #layoutSidenav_content {
   padding-left: 225px;
-  top: 56px;
+  top: 88px;
 }
 
 #layoutError {
@@ -10141,7 +10141,7 @@ body {
 
 .sb-topnav {
   padding-left: 0;
-  height: 56px;
+  height: 88px;
   z-index: 1039;
 }
 .sb-topnav .navbar-brand {

@@ -320,7 +320,7 @@ if($_SESSION["privilege"] != 2){
                         $('#system_hashtags').remove();
                         $('#system_hashtag_group').append('<div id="system_hashtags"> </div>');
                         response.forEach(function (item, index, array) {
-                            $('#system_hashtags').append('<input type="checkbox" id="' + item["hash_no"] + '" name=""> <label for="horns">' + item["hash_name"] + '</label>');
+                            $('#system_hashtags').append('<input type="checkbox" id="' + item["hash_no"] + '" name=""> <label for="horns">'+'&nbsp;' + item["hash_name"] + '</label>'+'&nbsp;&nbsp;');
                         });
                     }
                 });
@@ -349,14 +349,14 @@ if($_SESSION["privilege"] != 2){
                     success: function (response) {
                         $('#jieba_hashtags').remove();
                         $('#jieba_hashtags_inDB').remove();
-                        $('#jieba_hashtag_group').append('<div id="jieba_hashtags_inDB">在資料庫有資料的推薦HASHTAG:</div>');
-                        $('#jieba_hashtag_group').append('<div id="jieba_hashtags">在資料庫無資料的推薦HASHTAG:</div>');
+                        $('#jieba_hashtag_group').append('<div id="jieba_hashtags_inDB">在資料庫有資料的推薦HASHTAG&nbsp;:&nbsp;&nbsp;</div>');
+                        $('#jieba_hashtag_group').append('<div id="jieba_hashtags">在資料庫無資料的推薦HASHTAG&nbsp;:&nbsp;&nbsp;</div>');
 
                         response.forEach(function (item, index, array) {
                             if (item["is_in_DB"] && item["is_same"]) {
-                                $('#jieba_hashtags_inDB').append('<input type="checkbox" id="' + index + '" name=""  checked="checked"> <label for="horns">' + item["hashtag"] + '</label>');
+                                $('#jieba_hashtags_inDB').append('<input type="checkbox" id="' + index + '" name=""  checked="checked"> <label for="horns">'+'&nbsp;' + item["hashtag"] + '</label>'+'&nbsp;&nbsp;');
                             } else {
-                                $('#jieba_hashtags').append('<input type="checkbox" id="' + index + '" name=""> <label for="horns">' + item["hashtag"] + '</label>');
+                                $('#jieba_hashtags').append('<input type="checkbox" id="' + index + '" name=""> <label for="horns">'+'&nbsp;' + item["hashtag"] + '</label>'+'&nbsp;&nbsp;');
                             }
                         });
                     }, complete: function () {
