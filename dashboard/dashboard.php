@@ -191,8 +191,8 @@ if (isset($_SESSION["freeUser"])) {
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-blue text-white mb-4">
-                                    <div class="card-body">貼文數量
-                                        <h3>
+                                    <div class="card-body" style="font-weight:bold;">貼文數量
+                                        <h3 style="font-size:3rem;">
                                         <?php 
                                         $db = DB();
                                         $id = $_SESSION['account'];
@@ -215,7 +215,7 @@ if (isset($_SESSION["freeUser"])) {
                                         </h3>
                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <a class="small text-white stretched-link" href="#">貼文相關資訊</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -223,7 +223,7 @@ if (isset($_SESSION["freeUser"])) {
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-indigo text-white mb-4">
                                     <div class="card-body">追蹤人數
-                                        <h3>
+                                        <h3 style="font-size:3rem;">
                                         <?php 
                                         $db = DB();
                                         $id = $_SESSION['account'];
@@ -255,7 +255,7 @@ if (isset($_SESSION["freeUser"])) {
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-purple text-white mb-4">
                                     <div class="card-body">粉絲人數
-                                    <h3>
+                                    <h3 style="font-size:3rem;">
                                     <?php 
                                         $db = DB();
                                         $id = $_SESSION['account'];
@@ -287,7 +287,7 @@ if (isset($_SESSION["freeUser"])) {
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-pink text-white mb-4">
                                     <div class="card-body">總按讚數
-                                        <h3>
+                                        <h3 style="font-size:3rem;">
                                         <?php
                                         $db = DB();
                                         $id = $_SESSION['account'];
@@ -337,7 +337,7 @@ if (isset($_SESSION["freeUser"])) {
                                 </div>
                             </div>
                         </div> -->
-                        <div class="row">
+                        <div class="row">                        
                             <div class="col-xl-6">
                                 <div class="card mb-4">
                                     <div class="card-header" style = "font-size:1.1rem; font-weight:bold;">
@@ -397,6 +397,7 @@ if (isset($_SESSION["freeUser"])) {
                                 </div>
                             </div> -->
                         </div>
+                        
                         <div class="card mb-4">
                             <div class="card-header" style = "font-size:1.3rem; font-weight:bold;">
                                 <i class="fas fa-chart-area mr-1"></i>貼文案讚數分析
