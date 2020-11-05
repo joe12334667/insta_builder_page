@@ -444,17 +444,17 @@ if ($_SESSION["account"] == "") {
                             </div>
                         </div>
 
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <i class="fas fa-chart-area mr-1"></i>
-                                貼文綜合分析
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <canvas id="TEST3" width="100" height="40"></canvas>
-                                </div>
-                            </div>
-                        </div>
+                        <!--                        <div class="card mb-4">
+                                                    <div class="card-header">
+                                                        <i class="fas fa-chart-area mr-1"></i>
+                                                        貼文綜合分析
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="table-responsive">
+                                                            <canvas id="TEST3" width="100" height="40"></canvas>
+                                                        </div>
+                                                    </div>
+                                                </div>-->
                         <!------------------------------------------粉絲人數追蹤---------------------------------------------->
                         <div class="card mb-4">
                             <div class="card-header" style = "font-size:1.3rem; font-weight:bold;">
@@ -1094,6 +1094,106 @@ if ($_SESSION["account"] == "") {
                                                 maxTicksLimit: 5,
                                                 stepSize: 1
                                                         // stepSize: 2
+                                            },
+                                        }],
+                                    xAxes: [{
+                                            ticks: {
+                                                minRotation: 90,
+                                                // beginAtZero: true,
+                                                //min: 10,
+                                                //maxTicksLimit: 10,
+                                            },
+                                        }],
+                                }
+                            }
+                        });
+                    }
+                });
+            }
+        </script>
+        <script>
+
+            //                ajaxChart("post_like", "like");
+            ajaxSumChart("post_sum");
+
+            $("#sum_search").click(function () {
+                var limit = document.getElementById("sum_limit").value;
+                //                    alert(limit);
+                if (limit < 1) {
+                    limit = 1;
+                } else if (limit > 50) {
+                    limit = 50;
+                }
+                // ajaxChart("post_like", "like", limit);
+                ajaxSumChart("post_sum", limit);
+
+            });
+
+            function ajaxSumChart(ChartName, limit = 10) {
+
+                $('#' + ChartName).remove(); // this is my <canvas> element
+                $('#' + ChartName + '_chart').append('<canvas id="' + ChartName + '"><canvas>');
+                $("#" + ChartName).width(100).height(40);
+
+                $.ajax({
+                    type: "GET",
+                    cache: false,
+                    url: "Ajax_sum.php",
+                    data: {
+                        limit: limit,
+                    },
+                    dataType: "json",
+                    success: function (response) {
+                        //主要Chart.js繪圖區
+                        const data = response; //取得.php回傳的資料
+                        const all_x_labels = [],  all_y_data_comment = [], all_y_data_like = [], Background_color = [];
+
+                        //利用陣列建立x,y座標
+                        for (let i = 0; i < data.length; i++) {
+                            if (data[i].content == null) {
+                                all_x_labels[i] = data[i].announce_time;
+                            } else if (data[i].content.length > 10) {
+                                all_x_labels[i] = data[i].content.substr(0, 10) + "..." + "\n" + data[i].announce_time;
+                            } else {
+                                all_x_labels[i] = data[i].content + "\n" + data[i].announce_time;
+                            }
+                            all_y_data_comment[i] = data[i].comment_count;
+                            all_y_data_like[i] = data[i].like_count;
+                            Background_color[i] = "#007bff";
+                        }
+                        const all_y_data = [
+                            {
+                                label: "案讚數",
+                                backgroundColor: "#007bff",
+                                data: all_y_data_like
+                            },
+                            {
+                                label: "留言數",
+                                backgroundColor: "#6610f2",
+                                data: all_y_data_comment
+                            }
+                        ];
+
+
+
+                        const ctx = document.getElementById(ChartName);
+                        visualize = new Chart(ctx, {
+                            type: "bar",
+                            data: {
+                                labels: all_x_labels, // x軸的刻度
+                                datasets: all_y_data,
+
+                            },
+                            options: {
+                                legend: {
+                                    onClick: (e) => e.stopPropagation()
+                                },
+                                scales: {
+                                    yAxes: [{
+                                            ticks: {
+                                                // beginAtZero: true,
+                                                //min: 10,
+                                                //stepSize: 2
                                             },
                                         }],
                                     xAxes: [{
