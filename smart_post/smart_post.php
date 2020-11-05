@@ -13,7 +13,7 @@ if ($_SESSION["account"] == "") {
     header('Location: ../login/login.php');
     $_SESSION["unLog"] = true;
 }
-if($_SESSION["privilege"] != 2){
+if ($_SESSION["privilege"] != 2) {
     header('Location: ../dashboard/dashboard.php');
     $_SESSION["freeUser"] = true;
 }
@@ -143,7 +143,7 @@ if($_SESSION["privilege"] != 2){
                                 </nav>
                             </div>
                             <!----------------------------------------------------------------------------------------------------------->
-                           
+
                         </div>
                     </div>
                 </nav>
@@ -232,15 +232,30 @@ if($_SESSION["privilege"] != 2){
                                     </div>    
                                     <div class="12u$">
                                         <div class="form-group blue-border-focus">                                
-                                            <textarea name="message" class="form-control" id="exampleFormControlTextarea5" rows="5" placeholder="自訂hashtag"></textarea>
+                                            <textarea name="message" class="form-control" id="user_hashtags" rows="5" placeholder="自訂hashtag"></textarea>
                                         </div>                                        
                                         <!-- <div class="table-responsive">                                
                                             <textarea name="message" id="message" placeholder="自訂hashtag" rows="3"></textarea>
                                         </div> -->
                                     </div>
                                     <div class="12u$">
-                                        <input class="submit_hashtag" type="submit" value="確定" />
+                                        <input class="submit_hashtag" type="submit" id="copy_post" value="輸出" />
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-chart-area mr-1"></i>
+                                系統輸出
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">    
+                                    <div class="form-group blue-border-focus">                                
+                                        <textarea class="form-control" id="system_user_content" rows="10"></textarea>
+                                    </div>                              
+                                    <button class="content_search_button" type="button" id="copy_system_user_content">複製</button> 
                                 </div>
                             </div>
                         </div>
@@ -319,8 +334,13 @@ if($_SESSION["privilege"] != 2){
                     success: function (response) {
                         $('#system_hashtags').remove();
                         $('#system_hashtag_group').append('<div id="system_hashtags"> </div>');
+                        var a = 0;
                         response.forEach(function (item, index, array) {
-                            $('#system_hashtags').append('<input type="checkbox" id="' + item["hash_no"] + '" name=""> <label for="horns">'+'&nbsp;' + item["hash_name"] + '</label>'+'&nbsp;&nbsp;');
+                            if (a > 10) {
+                                return false;
+                            }
+                            $('#system_hashtags').append('<input type="checkbox" id="system_hashtags_' + a + '_checkbox" value="' + item["hash_name"] + '"> <label for="system_hashtags_' + a + '_label">' + '&nbsp;' + item["hash_name"] + '</label>' + '&nbsp;&nbsp;');
+                            a++;
                         });
                     }
                 });
@@ -331,60 +351,96 @@ if($_SESSION["privilege"] != 2){
                 var cate_no = document.getElementById("category").value;
                 if (cate_no == 0) {
                     alert("請至下方選擇種類!", "error");
+                } else {
+                    alert("系統計算需要時間，請等待片刻")
+                    $.ajax({
+                        type: "POST",
+                        cache: false,
+                        url: "../php/Ajax_Baidu_Jieba.php",
+                        data: {
+                            user_content: user_content,
+                            user_cate: cate_no,
+                        },
+                        dataType: "json",
+                        beforeSend: function () {
+                            // 禁用按鈕防止重復提交
+                            $("#content_search").attr({disabled: "disabled"});
+                        },
+                        success: function (response) {
+                            $('#jieba_hashtags').remove();
+                            $('#jieba_hashtags_inDB').remove();
+                            $('#jieba_hashtag_group').append('<div id="jieba_hashtags_inDB">在資料庫有資料的推薦HASHTAG&nbsp;:&nbsp;&nbsp;</div>');
+                            $('#jieba_hashtag_group').append('<div id="jieba_hashtags">在資料庫無資料的推薦HASHTAG&nbsp;:&nbsp;&nbsp;</div>');
+                            var i = 0;
+                            var x = 0;
+                            response.forEach(function (item, index, array) {
+                                if (item["is_in_DB"] && item["is_same"]) {
+                                    if (i > 10) {
+                                        return false;
+                                    }
+                                    $('#jieba_hashtags_inDB').append('<input type="checkbox" id="jieba_hashtags_inDB_' + i + '" value="' + item["hashtag"] + '"  checked="checked"> <label for="horns">' + '&nbsp;' + item["hashtag"] + '</label>' + '&nbsp;&nbsp;');
+                                    i++;
+                                } else {
+                                    if (x > 10) {
+                                        return false;
+                                    }
+                                    $('#jieba_hashtags').append('<input type="checkbox" id="jieba_hashtags_' + x + '" value="' + item["hashtag"] + '"> <label for="horns">' + '&nbsp;' + item["hashtag"] + '</label>' + '&nbsp;&nbsp;');
+                                    x++;
+                                }
+                            });
+                        }, complete: function () {
+                            $("#content_search").removeAttr("disabled");
+                        }
+                    });
                 }
-                alert("系統計算需要時間，請等待片刻")
-                $.ajax({
-                    type: "POST",
-                    cache: false,
-                    url: "../php/Ajax_Baidu_Jieba.php",
-                    data: {
-                        user_content: user_content,
-                        user_cate: cate_no,
-                    },
-                    dataType: "json",
-                    beforeSend: function () {
-                        // 禁用按鈕防止重復提交
-                        $("#content_search").attr({disabled: "disabled"});
-                    },
-                    success: function (response) {
-                        $('#jieba_hashtags').remove();
-                        $('#jieba_hashtags_inDB').remove();
-                        $('#jieba_hashtag_group').append('<div id="jieba_hashtags_inDB">在資料庫有資料的推薦HASHTAG&nbsp;:&nbsp;&nbsp;</div>');
-                        $('#jieba_hashtag_group').append('<div id="jieba_hashtags">在資料庫無資料的推薦HASHTAG&nbsp;:&nbsp;&nbsp;</div>');
-
-                        response.forEach(function (item, index, array) {
-                            if (item["is_in_DB"] && item["is_same"]) {
-                                $('#jieba_hashtags_inDB').append('<input type="checkbox" id="' + index + '" name=""  checked="checked"> <label for="horns">'+'&nbsp;' + item["hashtag"] + '</label>'+'&nbsp;&nbsp;');
-                            } else {
-                                $('#jieba_hashtags').append('<input type="checkbox" id="' + index + '" name=""> <label for="horns">'+'&nbsp;' + item["hashtag"] + '</label>'+'&nbsp;&nbsp;');
-                            }
-                        });
-                    }, complete: function () {
-                        $("#content_search").removeAttr("disabled");
-                    }
-                });
             });
 
-            function ajaxChart(ChartName, ChartTableName, limits = 10) {
-
-                $('#' + ChartName).remove(); // this is my <canvas> element
-                $('#' + ChartName + '_chart').append('<canvas id="' + ChartName + '"><canvas>');
-                $("#" + ChartName).width(100).height(40);
-
-                $.ajax({
-                    type: "GET",
-                    cache: false,
-                    url: "AjaxLike_Comment.php",
-                    data: {
-                        type: ChartTableName,
-                        limit: limits,
-                    },
-                    dataType: "json",
-                    success: function (response) {
-
+            $("#copy_post").click(function () {
+                console.log("copy_post");
+                var post = "";
+                var user_content = document.getElementById("user_content").value;
+                post += user_content + '\n';
+                var user_content = document.getElementById("user_hashtags").value;
+                post += user_content + " ";
+                //system_hashtags_
+                for (var a = 0; a < 10; a++) {
+                    if (document.getElementById('system_hashtags_' + a + "_checkbox")) {
+                        if (document.getElementById('system_hashtags_' + a + "_checkbox").checked) {
+                            post += "#" + document.getElementById("system_hashtags_" + a + "_checkbox").value + " ";
+                        }
                     }
-                });
-            }
+                }
+                //jieba_hashtags_inDB_
+                for (var a = 0; a < 10; a++) {
+                    if (document.getElementById('jieba_hashtags_inDB_' + a)) {
+                        if (document.getElementById('jieba_hashtags_inDB_' + a).checked) {
+                            post += "#" + document.getElementById('jieba_hashtags_inDB_' + a).value + " ";
+                        }
+                    }
+                }
+                //jieba_hashtags_
+                for (var a = 0; a < 10; a++) {
+                    if (document.getElementById('jieba_hashtags_' + a)) {
+                        if (document.getElementById('jieba_hashtags_' + a).checked) {
+                            post += "#" + document.getElementById('jieba_hashtags_' + a).value + " ";
+                        }
+                    }
+                }
+
+
+
+                var clip_area = document.createElement('textarea');
+                clip_area.textContent = post;
+                document.body.appendChild(clip_area);
+                clip_area.select();
+                document.execCommand('copy');
+                clip_area.remove();
+                document.getElementById("system_user_content").innerHTML = post;
+                alert("已複製至剪貼簿");
+            });
+
+
+
         </script>
         <!--------------------------------------------------------------------------------------------------------------------------------------->
     </body>
