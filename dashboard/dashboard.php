@@ -47,16 +47,16 @@ if ($_SESSION["account"] == "") {
         </style>
 
     </head>
-<?php
-if (isset($_SESSION["freeUser"])) {
-    if ($_SESSION["freeUser"]) {
-        echo '<script>  
+    <?php
+    if (isset($_SESSION["freeUser"])) {
+        if ($_SESSION["freeUser"]) {
+            echo '<script>  
                 alert("請聯繫內部人員做升級動作");
             </script>';
-        unset($_SESSION["freeUser"]);
+            unset($_SESSION["freeUser"]);
+        }
     }
-}
-?>
+    ?>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <a class="navbar-brand" href="../index.html">Instabuilder</a>
@@ -193,25 +193,25 @@ if (isset($_SESSION["freeUser"])) {
                                 <div class="card bg-blue text-white mb-4">
                                     <div class="card-body" >貼文數量
                                         <h3 style="font-size:2rem;">
-                                        <?php 
-                                        $db = DB();
-                                        $id = $_SESSION['account'];
-                                        $sql="SELECT count(post_no) as allpost
+                                            <?php
+                                            $db = DB();
+                                            $id = $_SESSION['account'];
+                                            $sql = "SELECT count(post_no) as allpost
                                         FROM instabuilder.userpost as a
                                         left join userinstaaccount as b on a.account_id = b.account_id 
                                         left join user as c on b.user_id = c.user_id 
-                                        where c.signup_email = '".$_SESSION["account"]."' 
+                                        where c.signup_email = '" . $_SESSION["account"] . "' 
                                         group by a.account_id 
                                         ";
-                                        $result = $db->query($sql);
-                                        while ($row = $result->fetch(PDO::FETCH_OBJ)) {
-                                            //PDO::FETCH_OBJ 指定取出資料的型態
-                                            echo '<tr>';
+                                            $result = $db->query($sql);
+                                            while ($row = $result->fetch(PDO::FETCH_OBJ)) {
+                                                //PDO::FETCH_OBJ 指定取出資料的型態
+                                                echo '<tr>';
                                                 echo '<td>' . $row->allpost . "</td>";
                                                 //. "<td>" . $row->貼文留言數量 . "</td>";
                                                 echo '</tr>';
-                                        }
-                                        ?>
+                                            }
+                                            ?>
                                         </h3>
                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
@@ -224,26 +224,26 @@ if (isset($_SESSION["freeUser"])) {
                                 <div class="card bg-indigo text-white mb-4">
                                     <div class="card-body">追蹤人數
                                         <h3 style="font-size:2rem;">
-                                        <?php 
-                                        $db = DB();
-                                        $id = $_SESSION['account'];
-                                        $sql="SELECT following_amount FROM instabuilder.instaaccountfollower as a
+                                            <?php
+                                            $db = DB();
+                                            $id = $_SESSION['account'];
+                                            $sql = "SELECT following_amount FROM instabuilder.instaaccountfollower as a
                                         left join userinstaaccount as b on a.account_id = b.account_id 
                                         left join user as c on b.user_id = c.user_id 
-                                        where c.signup_email = '".$_SESSION["account"]."'
+                                        where c.signup_email = '" . $_SESSION["account"] . "'
                                         order by a.record_time desc
                                         limit 1
                                         ";
-                                        $result = $db->query($sql);
-                                        while ($row = $result->fetch(PDO::FETCH_OBJ)) {
-                                            //PDO::FETCH_OBJ 指定取出資料的型態
-                                            echo '<tr>';
+                                            $result = $db->query($sql);
+                                            while ($row = $result->fetch(PDO::FETCH_OBJ)) {
+                                                //PDO::FETCH_OBJ 指定取出資料的型態
+                                                echo '<tr>';
                                                 echo '<td>' . $row->following_amount . "</td>";
                                                 //. "<td>" . $row->貼文留言數量 . "</td>";
 
-                                                    echo '</tr>';
-                                                }
-                                        ?>
+                                                echo '</tr>';
+                                            }
+                                            ?>
                                         </h3>
                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
@@ -255,27 +255,27 @@ if (isset($_SESSION["freeUser"])) {
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-purple text-white mb-4">
                                     <div class="card-body">粉絲人數
-                                    <h3 style="font-size:2rem;">
-                                    <?php 
-                                        $db = DB();
-                                        $id = $_SESSION['account'];
-                                        $sql="SELECT fans_amount FROM instabuilder.instaaccountfollower as a
+                                        <h3 style="font-size:2rem;">
+                                            <?php
+                                            $db = DB();
+                                            $id = $_SESSION['account'];
+                                            $sql = "SELECT fans_amount FROM instabuilder.instaaccountfollower as a
                                         left join userinstaaccount as b on a.account_id = b.account_id 
                                         left join user as c on b.user_id = c.user_id 
-                                        where c.signup_email = '".$_SESSION["account"]."'
+                                        where c.signup_email = '" . $_SESSION["account"] . "'
                                         order by a.record_time desc
                                         limit 1
                                         ";
-                                        $result = $db->query($sql);
-                                        while ($row = $result->fetch(PDO::FETCH_OBJ)) {
-                                            //PDO::FETCH_OBJ 指定取出資料的型態
-                                            echo '<tr>';
+                                            $result = $db->query($sql);
+                                            while ($row = $result->fetch(PDO::FETCH_OBJ)) {
+                                                //PDO::FETCH_OBJ 指定取出資料的型態
+                                                echo '<tr>';
                                                 echo '<td>' . $row->fans_amount . "</td>";
                                                 //. "<td>" . $row->貼文留言數量 . "</td>";
 
-                                                    echo '</tr>';
-                                                }
-                                        ?>
+                                                echo '</tr>';
+                                            }
+                                            ?>
                                         </h3>
                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
@@ -288,26 +288,26 @@ if (isset($_SESSION["freeUser"])) {
                                 <div class="card bg-pink text-white mb-4">
                                     <div class="card-body">總按讚數
                                         <h3 style="font-size:2rem;">
-                                        <?php
-                                        $db = DB();
-                                        $id = $_SESSION['account'];
-                                        $sql="SELECT count(a.post_no) as alllike
+                                            <?php
+                                            $db = DB();
+                                            $id = $_SESSION['account'];
+                                            $sql = "SELECT count(a.post_no) as alllike
                                         FROM instabuilder.like as a
                                         left join userpost as b on a.post_no = b.post_no 
                                         left join userinstaaccount as c on b.account_id = c.account_id 
                                         left join user as d on c.user_id = d.user_id 
-                                        where d.signup_email = '".$_SESSION["account"]."'
+                                        where d.signup_email = '" . $_SESSION["account"] . "'
                                         ";
-                                        $result = $db->query($sql);
-                                        while ($row = $result->fetch(PDO::FETCH_OBJ)) {
-                                            //PDO::FETCH_OBJ 指定取出資料的型態
-                                            echo '<tr>';
+                                            $result = $db->query($sql);
+                                            while ($row = $result->fetch(PDO::FETCH_OBJ)) {
+                                                //PDO::FETCH_OBJ 指定取出資料的型態
+                                                echo '<tr>';
                                                 echo '<td>' . $row->alllike . "</td>";
                                                 //. "<td>" . $row->貼文留言數量 . "</td>";
 
-                                                    echo '</tr>';
-                                                }
-                                        ?>
+                                                echo '</tr>';
+                                            }
+                                            ?>
                                         </h3>
                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
@@ -413,14 +413,14 @@ if (isset($_SESSION["freeUser"])) {
                                 <canvas id="post_like" width="100" height="40"></canvas>
                             </div>
                         </div>
-						<!------------------------------------------貼文留言數分析---------------------------------------------->
+                        <!------------------------------------------貼文留言數分析---------------------------------------------->
                         <div class="card mb-4">
                             <div class="card-header" style = "font-size:1.3rem; font-weight:bold;">
                                 <i class="fas fa-chart-area mr-1" ></i>貼文留言數分析
                                 <div class="input-group" style="margin-top:-32px;margin-left:55vw;width:140px">
-                                    <input class="form-control"  id ="like_limit" type="number" placeholder="筆數" aria-label="Search" aria-describedby="basic-addon2" />
+                                    <input class="form-control"  id ="comment_limit" type="number" placeholder="筆數" aria-label="Search" aria-describedby="basic-addon2" />
                                     <div class="input-group-append" >
-                                        <button class="btn btn-primary" id="like_search" type="button">查詢</button>
+                                        <button class="btn btn-primary" id="comment_search" type="button">查詢</button>
                                     </div>
                                 </div>
                             </div>
@@ -429,20 +429,21 @@ if (isset($_SESSION["freeUser"])) {
                             </div>
                         </div>
                         <!------------------------------------------貼文綜合分析---------------------------------------------->
-                        <!-- <div class="card mb-4">
+                        <div class="card mb-4">
                             <div class="card-header" style = "font-size:1.3rem; font-weight:bold;">
-                                <i class="fas fa-chart-area mr-1" ></i>貼文留言數分析
-                                <div class="input-group" style="margin-top:-32px;margin-left:65vw;width:140px">
-                                    <input class="form-control"  id ="like_limit" type="number" placeholder="筆數" aria-label="Search" aria-describedby="basic-addon2" />
+                                <i class="fas fa-chart-area mr-1"></i>貼文綜合分析
+                                <div class="input-group" style="margin-top:-32px;margin-left:55vw;width:140px">
+                                    <input class="form-control"  id ="sum_limit" type="number" placeholder="筆數" aria-label="Search" aria-describedby="basic-addon2"  />
                                     <div class="input-group-append" >
-                                        <button class="btn btn-primary" id="like_search" type="button">查詢</button>
+                                        <button class="btn btn-primary" id="sum_search" type="button">查詢</button>
                                     </div>
                                 </div>
                             </div>
-                            <div class="card-body" id = "post_comment_chart">
-                                <canvas id="post_comment" width="100" height="40"></canvas>
+                            <div class="card-body" id = "post_sum_chart">
+                                <canvas id="post_sum" width="100" height="40"></canvas>
                             </div>
-                        </div> -->
+                        </div>
+
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-chart-area mr-1"></i>
@@ -454,7 +455,7 @@ if (isset($_SESSION["freeUser"])) {
                                 </div>
                             </div>
                         </div>
-						<!------------------------------------------粉絲人數追蹤---------------------------------------------->
+                        <!------------------------------------------粉絲人數追蹤---------------------------------------------->
                         <div class="card mb-4">
                             <div class="card-header" style = "font-size:1.3rem; font-weight:bold;">
                                 <i class="fas fa-chart-area mr-1" ></i>粉絲人數追蹤
@@ -469,7 +470,7 @@ if (isset($_SESSION["freeUser"])) {
                                 <canvas id="user_follower" width="100" height="40"></canvas>
                             </div>
                         </div>
-						<!---------------------------------------------------------------------------------------->
+                        <!---------------------------------------------------------------------------------------->
                         <!---------綜合圖表---------------------------------------------------------------------->
                         <!-- <div class="card mb-4">
                             <div class="card-header">
@@ -487,9 +488,9 @@ if (isset($_SESSION["freeUser"])) {
                             <div class="col-xs-6 col-sm-4" >
                                 <div class="card bg-blue text-white mb-4" style="border-radius: 55rem;">
                                     <div class="card-body" style="text-align:center;">按讚成長率
-                                    <hr size="8px" text-align="center" width="100%">
+                                        <hr size="8px" text-align="center" width="100%">
                                         <h3>
-                                        <?php
+                                            <?php
                                             $db = DB();
                                             $id = $_SESSION['account'];
                                             $sql = "SELECT before_all.user_id, before_like_avg, after_like_avg , round(after_like_avg/before_like_avg,2) as '按讚成長率' from
@@ -501,7 +502,7 @@ if (isset($_SESSION["freeUser"])) {
                                               left join instabuilder.userpost on userinstaaccount.account_id = userpost.account_id
                                               left join instabuilder.post on userpost.post_no = post.post_no
                                               
-                                              where post.announce_time <= user.signup_datetime and instabuilder.user.signup_email = '".$_SESSION["account"]."' 
+                                              where post.announce_time <= user.signup_datetime and instabuilder.user.signup_email = '" . $_SESSION["account"] . "' 
                                               group by user_id
                                              ) as temp_post_before
                                              
@@ -557,13 +558,13 @@ if (isset($_SESSION["freeUser"])) {
                                             while ($row = $result->fetch(PDO::FETCH_OBJ)) {
                                                 //PDO::FETCH_OBJ 指定取出資料的型態
                                                 echo '<tr>';
-                                                    echo '<td>' . $row->按讚成長率 . "</td>";
-                                                    //. "<td>" . $row->貼文留言數量 . "</td>";
-    
-                                                        echo '</tr>';
-                                                    }
-                                                ?>
-                                                %
+                                                echo '<td>' . $row->按讚成長率 . "</td>";
+                                                //. "<td>" . $row->貼文留言數量 . "</td>";
+
+                                                echo '</tr>';
+                                            }
+                                            ?>
+                                            %
                                         </h3>
                                     </div>                                    
                                 </div>
@@ -571,9 +572,9 @@ if (isset($_SESSION["freeUser"])) {
                             <div class="col-xs-6 col-sm-4">
                                 <div class="card bg-indigo text-white mb-4" style="border-radius: 55rem;">
                                     <div class="card-body" style="text-align:center;">留言成長率
-                                    <hr size="8px" text-align="center" width="100%">
+                                        <hr size="8px" text-align="center" width="100%">
                                         <h3>
-                                        <?php
+                                            <?php
                                             $db = DB();
                                             $id = $_SESSION['account'];
                                             $sql = "SELECT before_all.user_id, before_comment_avg, after_comment_avg , round(after_comment_avg/before_comment_avg,2) as '留言成長率' from
@@ -585,7 +586,7 @@ if (isset($_SESSION["freeUser"])) {
                                               left join instabuilder.userpost on userinstaaccount.account_id = userpost.account_id
                                               left join instabuilder.post on userpost.post_no = post.post_no
                                               
-                                              where post.announce_time <= user.signup_datetime and instabuilder.user.signup_email = '".$_SESSION["account"]."' 
+                                              where post.announce_time <= user.signup_datetime and instabuilder.user.signup_email = '" . $_SESSION["account"] . "' 
                                               group by user_id
                                              ) as temp_post_before
                                              
@@ -641,13 +642,13 @@ if (isset($_SESSION["freeUser"])) {
                                             while ($row = $result->fetch(PDO::FETCH_OBJ)) {
                                                 //PDO::FETCH_OBJ 指定取出資料的型態
                                                 echo '<tr>';
-                                                    echo '<td>' . $row->留言成長率 . "</td>";
-                                                    //. "<td>" . $row->貼文留言數量 . "</td>";
-    
-                                                        echo '</tr>';
-                                                    }
-                                                ?>
-                                                %
+                                                echo '<td>' . $row->留言成長率 . "</td>";
+                                                //. "<td>" . $row->貼文留言數量 . "</td>";
+
+                                                echo '</tr>';
+                                            }
+                                            ?>
+                                            %
                                         </h3>
                                     </div>                                    
                                 </div>
@@ -655,9 +656,9 @@ if (isset($_SESSION["freeUser"])) {
                             <div class="col-xs-6 col-sm-4">
                                 <div class="card bg-purple text-white mb-4" style="border-radius: 55rem;">
                                     <div class="card-body" style="text-align:center;">粉絲成長率
-                                    <hr size="8px" text-align="center" width="100%">
+                                        <hr size="8px" text-align="center" width="100%">
                                         <h3>
-                                        90%
+                                            90%
                                         </h3>
                                     </div>                                    
                                 </div>
@@ -685,7 +686,7 @@ if (isset($_SESSION["freeUser"])) {
                                 left join userinstaaccount as b on a.account_id = b.account_id 
                                 left join user as c on b.user_id = c.user_id 
                                 left join followers as d on b.account_id = d.account_id
-                                where c.signup_email = '".$_SESSION["account"]."' 
+                                where c.signup_email = '" . $_SESSION["account"] . "' 
                                 order by follow_date desc
                                 ";
                         $result = $db->query($sql);
@@ -695,7 +696,7 @@ if (isset($_SESSION["freeUser"])) {
                         //join instaaccount as c on c.account_id = b.account_id
                         //group by post_no
                         //order by account_id,post_no"
-                            ?>
+                        ?>
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table mr-1"></i>
@@ -708,7 +709,7 @@ if (isset($_SESSION["freeUser"])) {
                                             <tr>
                                                 <!--<th>使用者編號</th>--> 
                                                 <!--<th>追蹤者</th>-->  
-                                                
+
                                                 <th>新追蹤者</th>
                                                 <th>追蹤的日期</th>
                                                 <!--
@@ -722,17 +723,17 @@ if (isset($_SESSION["freeUser"])) {
                                                 <?php
                                                 //echo $_SESSION["signup_email"]; 
                                                 while ($row = $result->fetch(PDO::FETCH_OBJ)) {
-                                                //PDO::FETCH_OBJ 指定取出資料的型態
-                                                echo '<tr>';
-                                                echo '<td>'
+                                                    //PDO::FETCH_OBJ 指定取出資料的型態
+                                                    echo '<tr>';
+                                                    echo '<td>'
                                                     //echo '<td>' . $row->account_id . "</td>"
                                                     //. "<td>" . $row->fans_amount. "</td>"
-                                                    . $row->name. "</td>"
-                                                    . "<td>" . $row->follow_date. "</td>";
+                                                    . $row->name . "</td>"
+                                                    . "<td>" . $row->follow_date . "</td>";
                                                     //. "<td>" . $row->貼文留言數量 . "</td>";
 
-                                                        echo '</tr>';
-                                                    }
+                                                    echo '</tr>';
+                                                }
                                                 ?>
                                             </tr>
                                         </tbody>
@@ -758,16 +759,16 @@ if (isset($_SESSION["freeUser"])) {
         </div>
         <!-- -------------------------tabletest------------------------ -->
         <script
-        src="https://code.jquery.com/jquery-3.5.1.min.js"
-        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+            src="https://code.jquery.com/jquery-3.5.1.min.js"
+            integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
         crossorigin="anonymous"></script>
-        
+
         <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
 
         <script>
-            $(document).ready( function () {
-                $('#tabketest').DataTable();
-            } );
+                            $(document).ready(function () {
+                                $('#tabketest').DataTable();
+                            });
         </script>
         <!-- -------------------------------------------------------- -->
         <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
@@ -823,8 +824,8 @@ if (isset($_SESSION["freeUser"])) {
             //                ajaxChart("post_like", "like");
             ajaxChart("post_comment", "comment");
 
-            $("#like_search").click(function () {
-                var limit = document.getElementById("like_limit").value;
+            $("#comment_search").click(function () {
+                var limit = document.getElementById("comment_limit").value;
                 //                    alert(limit);
                 if (limit < 1) {
                     limit = 1;
@@ -914,7 +915,7 @@ if (isset($_SESSION["freeUser"])) {
                 });
             }
         </script>
-         <!---------------------------按讚數圖表----------------------------------------------------------------------->
+        <!---------------------------按讚數圖表----------------------------------------------------------------------->
         <script>
             ajaxChart("post_like", "like");
 
@@ -930,85 +931,85 @@ if (isset($_SESSION["freeUser"])) {
 
             });
 
-            function ajaxChart(ChartName, ChartTableName, limits = 10) {
-
-                $('#' + ChartName).remove(); // this is my <canvas> element
-                $('#' + ChartName + '_chart').append('<canvas id="' + ChartName + '"><canvas>');
-                $("#" + ChartName).width(100).height(40);
-
-                $.ajax({
-                    type: "GET",
-                    cache: false,
-                    url: "AjaxLike.php",
-                    data: {
-                        type: ChartTableName,
-                        limit: limits,
-                    },
-                    dataType: "json",
-                    success: function (response) {
-                        //主要Chart.js繪圖區
-                        const data = response; //取得.php回傳的資料
-                        const all_x_labels = [], all_y_data = [], Background_color = [];
-
-                        //利用陣列建立x,y座標
-                        for (let i = 0; i < data.length; i++) {
-                            if (data[i].content == null) {
-                                all_x_labels[i] = data[i].announce_time;
-                            } else if (data[i].content.length > 10) {
-                                all_x_labels[i] = data[i].content.substr(0, 10) + "..." + "\n" + data[i].announce_time;
-                            } else {
-                                all_x_labels[i] = data[i].content + "\n" + data[i].announce_time;
-                            }
-                            all_y_data[i] = data[i].count;
-
-                            Background_color[i] = "#007bff";
-                        }
-                        const ctx = document.getElementById(ChartName);
-                        visualize = new Chart(ctx, {
-                            type: "bar",
-                            data: {
-                                labels: all_x_labels, // x軸的刻度
-                                datasets: [{
-                                        label: ChartTableName, // 顯示該資料的標題 
-                                        data: all_y_data, // y軸資料
-                                        fill: false, // 不顯示底下的灰色區塊
-                                        borderColor: "#007bff", // 設定線的顏色
-                                        backgroundColor: Background_color, // 設定點的顏色
-                                        pointBorderWidth: 6,
-                                        //pointBorderColor: "#FF82B4",
-                                        //lineTension: 0.1  // 顯示折線圖，不使用曲線
-                                    }],
-
-                            },
-                            options: {
-                                legend: {
-                                    onClick: (e) => e.stopPropagation()
-                                },
-                                scales: {
-                                    yAxes: [{
-                                            ticks: {
-                                                // beginAtZero: true,
-                                                //min: 10,
-                                                //stepSize: 2
-                                            },
-                                        }],
-                                    xAxes: [{
-                                            ticks: {
-                                                minRotation: 90,
-                                                // beginAtZero: true,
-                                                //min: 10,
-                                                //maxTicksLimit: 10,
-                                            },
-                                        }],
-                                }
-                            }
-                        });
-                    }
-                });
-            }
+//            function ajaxChart(ChartName, ChartTableName, limits = 10) {
+//
+//                $('#' + ChartName).remove(); // this is my <canvas> element
+//                $('#' + ChartName + '_chart').append('<canvas id="' + ChartName + '"><canvas>');
+//                $("#" + ChartName).width(100).height(40);
+//
+//                $.ajax({
+//                    type: "GET",
+//                    cache: false,
+//                    url: "AjaxLike.php",
+//                    data: {
+//                        type: ChartTableName,
+//                        limit: limits,
+//                    },
+//                    dataType: "json",
+//                    success: function (response) {
+//                        //主要Chart.js繪圖區
+//                        const data = response; //取得.php回傳的資料
+//                        const all_x_labels = [], all_y_data = [], Background_color = [];
+//
+//                        //利用陣列建立x,y座標
+//                        for (let i = 0; i < data.length; i++) {
+//                            if (data[i].content == null) {
+//                                all_x_labels[i] = data[i].announce_time;
+//                            } else if (data[i].content.length > 10) {
+//                                all_x_labels[i] = data[i].content.substr(0, 10) + "..." + "\n" + data[i].announce_time;
+//                            } else {
+//                                all_x_labels[i] = data[i].content + "\n" + data[i].announce_time;
+//                            }
+//                            all_y_data[i] = data[i].count;
+//
+//                            Background_color[i] = "#007bff";
+//                        }
+//                        const ctx = document.getElementById(ChartName);
+//                        visualize = new Chart(ctx, {
+//                            type: "bar",
+//                            data: {
+//                                labels: all_x_labels, // x軸的刻度
+//                                datasets: [{
+//                                        label: ChartTableName, // 顯示該資料的標題 
+//                                        data: all_y_data, // y軸資料
+//                                        fill: false, // 不顯示底下的灰色區塊
+//                                        borderColor: "#007bff", // 設定線的顏色
+//                                        backgroundColor: Background_color, // 設定點的顏色
+//                                        pointBorderWidth: 6,
+//                                        //pointBorderColor: "#FF82B4",
+//                                        //lineTension: 0.1  // 顯示折線圖，不使用曲線
+//                                    }],
+//
+//                            },
+//                            options: {
+//                                legend: {
+//                                    onClick: (e) => e.stopPropagation()
+//                                },
+//                                scales: {
+//                                    yAxes: [{
+//                                            ticks: {
+//                                                // beginAtZero: true,
+//                                                //min: 10,
+//                                                //stepSize: 2
+//                                            },
+//                                        }],
+//                                    xAxes: [{
+//                                            ticks: {
+//                                                minRotation: 90,
+//                                                // beginAtZero: true,
+//                                                //min: 10,
+//                                                //maxTicksLimit: 10,
+//                                            },
+//                                        }],
+//                                }
+//                            }
+//                        });
+//                    }
+//                });
+//            }
         </script>
         <!----------粉絲圖表---------------------------------------------------------------------------------------------------------->   
-		<script>
+        <script>
             ajax_follower_Chart("user_follower");
 
             $("#follower_search").click(function () {
@@ -1019,7 +1020,7 @@ if (isset($_SESSION["freeUser"])) {
                 } else if (limit > 50) {
                     limit = 50;
                 }
-                ajax_follower_Chart("user_follower",  limit);
+                ajax_follower_Chart("user_follower", limit);
 
             });
 
@@ -1041,7 +1042,7 @@ if (isset($_SESSION["freeUser"])) {
                         //主要Chart.js繪圖區
                         const data = response; //取得.php回傳的資料
                         const all_x_labels = [], all_y_data = [], Background_color = [];
-						
+
                         //利用陣列建立x,y座標
                         for (let i = 0; i < data.length; i++) {
                             if (data[i].fans_amount == null) {
@@ -1076,7 +1077,7 @@ if (isset($_SESSION["freeUser"])) {
                                         pointHoverRadius: 5,
                                         pointHoverBackgroundColor: "#e83e8c",
                                         pointHitRadius: 50,
-                                        pointBorderWidth: 2,  
+                                        pointBorderWidth: 2,
                                         //lineTension: 0.1  // 顯示折線圖，不使用曲線
                                     }],
 
@@ -1090,9 +1091,9 @@ if (isset($_SESSION["freeUser"])) {
                                             ticks: {
                                                 // beginAtZero: true,
                                                 // min: 0,                                                
-                                                maxTicksLimit:5,
-                                                stepSize:1
-                                                // stepSize: 2
+                                                maxTicksLimit: 5,
+                                                stepSize: 1
+                                                        // stepSize: 2
                                             },
                                         }],
                                     xAxes: [{
@@ -1110,6 +1111,6 @@ if (isset($_SESSION["freeUser"])) {
                 });
             }
         </script>
-		
+
     </body>
 </html>
