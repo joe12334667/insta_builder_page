@@ -1012,18 +1012,18 @@ if (isset($_SESSION["freeUser"])) {
             ajax_follower_Chart("user_follower");
 
             $("#follower_search").click(function () {
-                var limit = document.getElementById("like_limit").value;
+                var limit = document.getElementById("follower_limit").value;
                 //                    alert(limit);
                 if (limit < 1) {
                     limit = 1;
                 } else if (limit > 50) {
                     limit = 50;
                 }
-                ajaxChart("user_follower", "like", limit);
+                ajax_follower_Chart("user_follower",  limit);
 
             });
 
-            function ajax_follower_Chart(ChartName, limits = 10) {
+            function ajax_follower_Chart(ChartName, limit = 10) {
 
                 $('#' + ChartName).remove(); // this is my <canvas> element
                 $('#' + ChartName + '_chart').append('<canvas id="' + ChartName + '"><canvas>');
@@ -1033,7 +1033,9 @@ if (isset($_SESSION["freeUser"])) {
                     type: "GET",
                     cache: false,
                     url: "Ajax_fans.php",
-                    data: {},
+                    data: {
+                        limit: limit,
+                    },
                     dataType: "json",
                     success: function (response) {
                         //主要Chart.js繪圖區

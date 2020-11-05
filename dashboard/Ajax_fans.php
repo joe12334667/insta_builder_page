@@ -3,18 +3,23 @@
 require '../php/DataBase.php';
 
 session_start();
-
+$limit = $_GET['limit'];
 
 //取得GET資料
 
 $db = DB();
-$sql = "select instaaccountfollower.account_id, instaaccountfollower.fans_amount, instaaccountfollower.following_amount
-		, instaaccountfollower.post_amount, instaaccountfollower.record_time
-		from instabuilder.user 
-		left join userinstaaccount on  userinstaaccount.user_id = user.user_id
-		left join instaaccount  on instaaccount.account_id = userinstaaccount.account_id
-		left join instaaccountfollower on instaaccountfollower.account_id = instaaccount.account_id
-		where user.signup_email ='".$_SESSION["account"]."';";
+
+
+$sql = "SELECT account_id, max(fans_amount) as fans_amount, max(following_amount) as following_amount, max(post_amount) as post_amount, CONVERT(record_time , DATE)  as record_time FROM instabuilder.instaaccountfollower
+        where account_id = 
+        (SELECT userinstaaccount.account_id FROM instabuilder.user
+        left join userinstaaccount on user.user_id = userinstaaccount.user_id
+         where signup_email = '". $_SESSION["account"] ."'
+         )
+        group by CONVERT(record_time , DATE) , account_id 
+        order by CONVERT(record_time , DATE) asc limit ".$limit.";";
+
+
 
 $data = $db->query($sql);
 
