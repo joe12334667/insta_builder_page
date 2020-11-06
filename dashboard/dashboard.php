@@ -39,11 +39,38 @@ if ($_SESSION["account"] == "") {
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="../node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
         <link rel="stylesheet" href="../node_modules/sweetalert2/dist/sweetalert2.min.css">
-
+        <script type="text/javascript" src="node_modules/wordcloud/src/wordcloud2.js"></script>
+        <script type="text/javascript" src="wordcloud/jquery.wordcloud.js"></script>
         <link src="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css" rel="stylesheet">
 
-        <style>
-
+        <style>            
+            .blue-border-focus .form-control:focus {
+                border: 1px solid #007ad1;
+                box-shadow: 0 0 0 0.2rem rgba(0, 120, 210, .25);
+            }
+            .content_search_button,
+            .submit_hashtag
+            {
+                height:35px;
+                border: 1px solid #ffffff;
+                color:#007ad1;
+                border-radius:0.25rem;
+                float:right;
+            }
+            #category{
+                height:35px;
+                border: 1px solid rgba(0, 0, 0, 0.5);
+                color:#000000;
+                border-radius:0.25rem;
+            }
+            .text_style{
+                /* margin-top:20px;
+                margin-left:50px; */
+                margin:20px 0 20px 0;
+                background:rgba(0, 120, 210, .125);
+                border-radius:0.23rem;
+            }
+        
         </style>
 
     </head>
@@ -339,7 +366,7 @@ if ($_SESSION["account"] == "") {
                             </div>
                         </div> -->
                         <div class="row">                        
-                            <div class="col-xl-6">
+                            <!-- <div class="col-xl-6">
                                 <div class="card mb-4">
                                     <div class="card-header" style = "font-size:1.1rem; font-weight:bold;">
                                         <i class="fas fa-chart-area mr-1"></i>
@@ -374,7 +401,7 @@ if ($_SESSION["account"] == "") {
                                     </div>
                                     <div class="card-body"><canvas id="myBarChart" width="100" height="40"></canvas></div>
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- <div class="col-xl-6">
                                 <div class="card mb-4">
                                     <div class="card-header">
@@ -485,7 +512,7 @@ if ($_SESSION["account"] == "") {
                         </div> -->
                         <!-- ----------------------------------------------------------------------------------------- -->
                         <div class="row">
-                            <div class="col-xs-6 col-sm-4" >
+                            <div class="col-xs-6 col-sm-6" >
                                 <div class="card bg-blue text-white mb-4" style="border-radius: 55rem;">
                                     <div class="card-body" style="text-align:center;">按讚成長率
                                         <hr size="8px" text-align="center" width="100%">
@@ -569,7 +596,7 @@ if ($_SESSION["account"] == "") {
                                     </div>                                    
                                 </div>
                             </div>
-                            <div class="col-xs-6 col-sm-4">
+                            <div class="col-xs-6 col-sm-6">
                                 <div class="card bg-indigo text-white mb-4" style="border-radius: 55rem;">
                                     <div class="card-body" style="text-align:center;">留言成長率
                                         <hr size="8px" text-align="center" width="100%">
@@ -653,7 +680,7 @@ if ($_SESSION["account"] == "") {
                                     </div>                                    
                                 </div>
                             </div>
-                            <div class="col-xs-6 col-sm-4">
+                            <!-- <div class="col-xs-6 col-sm-4">
                                 <div class="card bg-purple text-white mb-4" style="border-radius: 55rem;">
                                     <div class="card-body" style="text-align:center;">粉絲成長率
                                         <hr size="8px" text-align="center" width="100%">
@@ -662,7 +689,7 @@ if ($_SESSION["account"] == "") {
                                         </h3>
                                     </div>                                    
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- <div class="col-xl-3 col-md-6">
                                 <div class="card bg-pink text-white mb-4">
                                     <div class="card-body">總按讚數
@@ -677,7 +704,62 @@ if ($_SESSION["account"] == "") {
                                 </div>
                             </div> -->
                         </div>
-                        <!---------以上為綜合圖表---------------------------------------------------------------------->
+                        <!---------文字雲---------------------------------------------------------------------->
+
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-chart-area mr-1"></i>
+                                Hashtag文字雲
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">                                
+                                    <div class="12u$">
+                                        <div class="select-wrapper">
+                                            <select name="category" id="category" onchange = "ajaxSelect()" >
+                                                <option value="0">&nbsp;- 選擇貼文類別 -&nbsp;</option>
+                                                <option value="78">健康養生</option>
+                                                <option value="79">動漫</option>
+                                                <option value="80">國際</option>
+                                                <option value="81">娛樂</option>
+                                                <option value="82">家居</option>
+                                                <option value="83">寵物</option>
+
+                                                <option value="84">情感</option>
+                                                <option value="85">搞笑</option>
+                                                <option value="86">教育</option>
+                                                <option value="87">旅遊</option>
+
+                                                <option value="88">文化</option>
+                                                <option value="89">歷史</option>
+                                                <option value="90">汽車</option>
+                                                <option value="91">星座運勢</option>
+
+                                                <option value="92">社會</option>
+                                                <option value="93">科技</option>
+                                                <option value="94">育兒</option>
+                                                <option value="95">財經</option>
+
+                                                <option value="96">時事</option>
+                                                <option value="97">時尚</option>
+                                                <option value="98">遊戲</option>
+                                                <option value="99">綜合</option>
+
+                                                <option value="100">美食</option>
+                                                <option value="101">音樂</option>
+                                                <option value="102">體育</option>
+                                                <option value="103">軍事</option>
+                                            </select>
+                                        </div>
+                                    </div>                                    
+                                    <div class="card-body" id = "word-cloud">
+                                        <div id="canvas-container" style="float: left">
+                                            <canvas id="word_cloud_26" width="1000px" height="400px" ></canvas>
+                                        </div>
+                                     </div>   
+                                </div>
+                            </div>
+                        </div>
+                        <!------------------------------------------------------------------------------------->
                         <?php
                         $db = DB();
                         $id = $_SESSION['account'];
@@ -700,7 +782,7 @@ if ($_SESSION["account"] == "") {
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table mr-1"></i>
-                                DataTable Example
+                                TOP 10 新追蹤者
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -746,7 +828,8 @@ if ($_SESSION["account"] == "") {
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">NTUB InstaBuilder 2020</div>
+                            <div class="text-muted"> InstaBuilder 2020</div>
+                            <!-- <div class="text-muted">NTUB InstaBuilder 2020</div> -->
                             <!-- <div>
                                 <a href="#">Privacy Policy</a>
                                 &middot;
@@ -1210,6 +1293,51 @@ if ($_SESSION["account"] == "") {
                     }
                 });
             }
+        </script>
+         <!---------文字雲---------------------------------------------------------------------->
+        <script>
+            var wordFreqData = new Array();
+            $.ajax({
+                type: "GET",
+                cache: false,
+                url: "../../php/Ajax_wordcloud.php",
+                data: {},
+                dataType: "json",
+                success: function (response) {
+                    response.forEach(function (item, index, array) {
+                        var option = [item["hash_name"],parseInt(item["times"])];
+                        wordFreqData.push(option);
+                    });
+                    var canvas = document.getElementById('word_cloud_26');
+                    var options = eval({
+
+                        "list": wordFreqData, //或者[['各位观众',45],['词云', 21],['来啦!!!',13]],只要格式满足这样都可以
+                        "gridSize": 30, // size of the grid in pixels
+                        "weightFactor": 0.1, // number to multiply for size of each word in the list
+                        "maxFontSize": 50, //最大字号
+                        "minFontSize": 10, 
+                        "fontWeight": 'bold', // 'normal', 'bold' or a callback
+                        "fontFamily": 'El Messiri, sans-serif', // font to use
+                        "color": 'purple', // 'random-dark' or 'random-light'
+                        // "backgroundColor": 'black', // the color of canvas
+                    
+                        "rotateRatio": 0, // probability for the word to rotate. 1 means always rotate
+                        // "shape": 'circle'
+                        // "drawMask": "../images/maskblack.jpg",
+                        // "maskColor":"../images/mask.png"
+                        // "shape":'circle' 
+                    });
+                    //生成
+                    WordCloud(canvas, options);
+                }
+            });
+
+            var wordFreqData2 = [['各位观众', 45], ['词云', 21], ['来啦!!!', 13]];
+
+        //    alert(wordFreqData);
+            console.log(wordFreqData2);
+            console.log(wordFreqData);
+
         </script>
 
     </body>
