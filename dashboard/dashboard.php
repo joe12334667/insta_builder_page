@@ -422,21 +422,12 @@ if ($_SESSION["account"] == "") {
                         <section id="one" class="wrapper">
 
                         <div class="card mb-4">
-<<<<<<< Updated upstream
                             <div class="card-header" style = "font-size:1.3rem; font-weight:bold;">
                                 <i class="fas fa-chart-area mr-1"></i>貼文按讚數分析
                                 <div class="input-group" style="margin-top:-32px;margin-left:55vw;width:140px">
                                     <input class="form-control"  id ="like_limit" type="number" placeholder="筆數" aria-label="Search" aria-describedby="basic-addon2"  />
                                     <div class="input-group-append" >
                                         <button class="btn btn-primary" id="like_search" type="button">查詢</button>
-=======
-                            <div class="card-header">
-                                <i class="fas fa-chart-area mr-1"></i>貼文案讚數分析
-                                <div class="input-group">
-                                    <input class="form-control"  id ="like_limit_like" type="number" placeholder="查詢筆數" aria-label="Search" aria-describedby="basic-addon2" />
-                                    <div class="input-group-append">
-                                    <button class="btn btn-primary" id="like_search_like" type="button"></button>
->>>>>>> Stashed changes
                                     </div>
                                 </div>
                             </div>
@@ -1056,28 +1047,8 @@ if ($_SESSION["account"] == "") {
                                             },
                                         }],
                                 }
-<<<<<<< Updated upstream
                             }
                         });
-=======
-                            });
-                        }
-                    });
-                }
-            </script>
-<!--------------------------------------------------------------------------------------------------------------------------------------->
-<!-------------------------------------------------post_like_chart------------------------------------------------------------------------>
-<script>
-                ajaxChart("post_like", "like");
-               
-                $("#like_search_like").click(function () {
-                    var limit = document.getElementById("like_limit_like").value;
-//                    alert(limit);
-                    if(limit < 1){
-                        limit = 1;
-                    }else if (limit >50 ){
-                        limit = 50;
->>>>>>> Stashed changes
                     }
                 });
             }
