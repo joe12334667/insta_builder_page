@@ -240,10 +240,10 @@ if ($_SESSION["account"] == "") {
                                             ?>
                                         </h3>
                                     </div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
+<!--                                    <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="#">貼文相關資訊</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
+                                    </div>-->
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
@@ -270,10 +270,10 @@ if ($_SESSION["account"] == "") {
                                             ?>
                                         </h3>
                                     </div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
+<!--                                    <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="#">View Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
+                                    </div>-->
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
@@ -300,10 +300,10 @@ if ($_SESSION["account"] == "") {
                                             ?>
                                         </h3>
                                     </div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
+<!--                                    <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="#">View Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
+                                    </div>-->
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
@@ -330,10 +330,10 @@ if ($_SESSION["account"] == "") {
                                             ?>
                                         </h3>
                                     </div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
+<!--                                    <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="#">View Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
+                                    </div>-->
                                 </div>
                             </div>
                         </div>
@@ -765,7 +765,6 @@ if ($_SESSION["account"] == "") {
                                     <div class="input-group-append" >
                                         <button class="btn btn-primary" id="follower_search" type="button">查詢</button>
                                     </div>
-                                </div>
                             </div>
                             <div class="card-body" id = "user_follower_chart">
                                 <canvas id="user_follower" width="100" height="40"></canvas>
@@ -1256,7 +1255,7 @@ if ($_SESSION["account"] == "") {
                         }
                         const all_y_data = [
                             {
-                                label: "案讚數",
+                                label: "按讚數",
                                 backgroundColor: "rgba(0, 123, 255,0.6)",
                                 data: all_y_data_like
                             },
