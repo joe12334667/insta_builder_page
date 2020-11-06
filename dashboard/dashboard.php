@@ -1344,7 +1344,7 @@ if ($_SESSION["account"] == "") {
                         var options = eval({
 
                             "list": wordFreqData, //或者[['各位观众',45],['词云', 21],['来啦!!!',13]],只要格式满足这样都可以
-                            "gridSize": 1, // size of the grid in pixels
+                            "gridSize": 10, // size of the grid in pixels
                             "weightFactor": 100 / weight, // number to multiply for size of each word in the list
                             "maxFontSize": 50, //最大字号
                             "minFontSize": 10,

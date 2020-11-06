@@ -124,14 +124,10 @@ if ($_SESSION["privilege"] != 2) {
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayouts-analysis" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="../dashboard/dashboard.php#one">貼文分析</a>
-                                    <a class="nav-link" href="../dashboard/dashboard.php#two">留言分析</a>
-                                    <a class="nav-link" href="../dashboard/dashboard.php#three">綜合分析</a>
-                                    <a class="nav-link" href="../dashboard/dashboard.php#four">成長率</a>
-                                    <a class="nav-link" href="../dashboard/dashboard.php#five">粉絲與追蹤者分析</a>
-                                    <a class="nav-link" href="../dashboard/dashboard.php#six">TOP 10 新追蹤者</a>
-                                    <a class="nav-link" href="../dashboard/dashboard.php#seven">Hashtag文字雲</a>
+                            <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="../dashboard/dashboard.php">貼文分析</a>
+                                    <a class="nav-link" href="../dashboard/dashboard.php">粉絲分析</a>
+                                    <a class="nav-link" href="../dashboard/dashboard.php">標籤分析</a>
                                 </nav>
                             </div>
 
