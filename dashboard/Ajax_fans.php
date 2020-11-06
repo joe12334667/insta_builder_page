@@ -14,7 +14,7 @@ $sql = "SELECT account_id, max(fans_amount) as fans_amount, max(following_amount
         where account_id = 
         (SELECT userinstaaccount.account_id FROM instabuilder.user
         left join userinstaaccount on user.user_id = userinstaaccount.user_id
-         where signup_email = '". $_SESSION["account"] ."'
+         where signup_email = '". $_SESSION["account"] ."' limit 1
          )
         group by CONVERT(record_time , DATE) , account_id 
         order by CONVERT(record_time , DATE) asc limit ".$limit.";";
