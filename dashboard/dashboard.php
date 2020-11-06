@@ -116,15 +116,15 @@ if ($_SESSION["account"] == "") {
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <div class="sb-sidenav-menu-heading">主頁</div>
-                            <!--<a class="nav-link" href="index.html">
+                            <!--<div class="sb-sidenav-menu-heading">主頁</div>
+                            <a class="nav-link" href="index.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
-                            </a>-->
+                            </a>
                             <a class="nav-link" href="home.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 關於我們&產品購買
-                            </a>
+                            </a>-->
                             <div class="sb-sidenav-menu-heading">Instabuilder 功能</div>
                             <!--<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
@@ -153,7 +153,7 @@ if ($_SESSION["account"] == "") {
 
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts-autopost" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                智能貼文
+                                智慧貼文
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayouts-autopost" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
@@ -419,6 +419,8 @@ if ($_SESSION["account"] == "") {
                             </div> -->
                         </div>
                         <!------------------------------------------貼文按讚數分析---------------------------------------------->
+                        <section id="one" class="wrapper">
+
                         <div class="card mb-4">
                             <div class="card-header" style = "font-size:1.3rem; font-weight:bold;">
                                 <i class="fas fa-chart-area mr-1"></i>貼文按讚數分析
@@ -433,7 +435,9 @@ if ($_SESSION["account"] == "") {
                                 <canvas id="post_like" width="100" height="40"></canvas>
                             </div>
                         </div>
+                        </section>
                         <!------------------------------------------貼文留言數分析---------------------------------------------->
+                        <section id="two" class="wrapper">
                         <div class="card mb-4">
                             <div class="card-header" style = "font-size:1.3rem; font-weight:bold;">
                                 <i class="fas fa-chart-area mr-1" ></i>貼文留言數分析
@@ -448,7 +452,9 @@ if ($_SESSION["account"] == "") {
                                 <canvas id="post_comment" width="100" height="40"></canvas>
                             </div>
                         </div>
+                        </section>
                         <!------------------------------------------貼文綜合分析---------------------------------------------->
+                        <section id="three" class="wrapper">
                         <div class="card mb-4">
                             <div class="card-header" style = "font-size:1.3rem; font-weight:bold;">
                                 <i class="fas fa-chart-area mr-1"></i>貼文綜合分析
@@ -463,7 +469,7 @@ if ($_SESSION["account"] == "") {
                                 <canvas id="post_sum" width="100" height="40"></canvas>
                             </div>
                         </div>
-
+                        </section>                            
                         <!--                        <div class="card mb-4">
                                                     <div class="card-header">
                                                         <i class="fas fa-chart-area mr-1"></i>
@@ -475,6 +481,7 @@ if ($_SESSION["account"] == "") {
                                                         </div>
                                                     </div>
                                                 </div>-->
+<<<<<<< HEAD
                         <!-- ----------------------------------------粉絲人數追蹤-------------------------------------------- -->
                         <!-- <div id="two"class="card mb-4">
                             <div class="card-header" style = "font-size:1.3rem; font-weight:bold;">
@@ -505,6 +512,11 @@ if ($_SESSION["account"] == "") {
                         </div> -->
                         <!-- ----------------------------------------------------------------------------------------- -->
                         <div class="row">
+=======
+                     <!------------------------------------------成長率---------------------------------------------->            
+                     <section id="four" class="wrapper">                           
+                     <div class="row">
+>>>>>>> 15b8d9dced353bfeb1bc0a987e67155480b51c3f
                             <div class="col-xs-6 col-sm-6" >
                                 <div class="card bg-blue text-white mb-4" style="border-radius: 55rem;">
                                     <div class="card-body" style="text-align:center;">按讚成長率
@@ -669,6 +681,7 @@ if ($_SESSION["account"] == "") {
                                     </div>                                    
                                 </div>
                             </div>
+                            </section>
                             <!-- <div class="col-xs-6 col-sm-4">
                                 <div class="card bg-purple text-white mb-4" style="border-radius: 55rem;">
                                     <div class="card-body" style="text-align:center;">粉絲成長率
@@ -693,8 +706,122 @@ if ($_SESSION["account"] == "") {
                                 </div>
                             </div> -->
                         </div>
-                        <!---------文字雲---------------------------------------------------------------------->
+                        <!------------------------------------------粉絲人數追蹤---------------------------------------------->
+                        <section id="five" class="wrapper">
+                        <div class="card mb-4">
+                            <div class="card-header" style = "font-size:1.3rem; font-weight:bold;">
+                                <i class="fas fa-chart-area mr-1" ></i>粉絲人數追蹤
+                                <div class="input-group" style="margin-top:-32px;margin-left:55vw;width:140px">
+                                    <input class="form-control"  id ="follower_limit" type="number" placeholder="筆數" aria-label="Search" aria-describedby="basic-addon2" />
+                                    <div class="input-group-append" >
+                                        <button class="btn btn-primary" id="follower_search" type="button">查詢</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body" id = "user_follower_chart">
+                                <canvas id="user_follower" width="100" height="40"></canvas>
+                            </div>
+                        </div>
+<<<<<<< HEAD
+                        <!------------------------------------------------------------------------------------->
+                        <!------------------------------------------粉絲人數追蹤---------------------------------------------->
+                        <div id="two"class="card mb-4">
+                            <div class="card-header" style = "font-size:1.3rem; font-weight:bold;">
+                                <i class="fas fa-chart-area mr-1" ></i>粉絲人數追蹤
+                                <div class="input-group" style="margin-top:-32px;margin-left:55vw;width:140px">
+                                    <input class="form-control"  id ="follower_limit" type="number" placeholder="筆數" aria-label="Search" aria-describedby="basic-addon2" />
+                                    <div class="input-group-append" >
+                                        <button class="btn btn-primary" id="follower_search" type="button">查詢</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body" id = "user_follower_chart">
+                                <canvas id="user_follower" width="100" height="40"></canvas>
+                            </div>
+                        </div>
+=======
+                        <!---------------------------------------------------------------------------------------->
+                        <!--------------------------------新追蹤者表格-------------------------------------------->
+>>>>>>> 15b8d9dced353bfeb1bc0a987e67155480b51c3f
+                        <?php
+                        $sql = "SELECT DISTINCT d.name,d.follow_date
+                                from instabuilder.instaaccountfollower as a
+                                left join userinstaaccount as b on a.account_id = b.account_id 
+                                left join user as c on b.user_id = c.user_id 
+                                left join followers as d on b.account_id = d.account_id
+                                where c.signup_email = '" . $_SESSION["account"] . "' 
+                                order by follow_date desc limit 10
+                                ";
+                        $result = $db->query($sql);
+                        //"SELECT b.account_id ,c.account_name,a.post_no,count(comment_account)貼文留言數量
+                        //FROM instabuilder.comment as a 
+                        //join userpost as b on a.post_no = b.post_no
+                        //join instaaccount as c on c.account_id = b.account_id
+                        //group by post_no
+                        //order by account_id,post_no"
+                        ?>
+                        <section id="six" class="wrapper">
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table mr-1"></i>
+                                TOP 10 新追蹤者
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="tabketest" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <!--<th>使用者編號</th>--> 
+                                                <!--<th>追蹤者</th>-->  
 
+                                                <th>新追蹤者</th>
+                                                <th>追蹤的日期</th>
+                                                <!--
+                                                <th>互動最高追蹤者</th>
+                                                <th>是否有發布貼文</th>
+                                                -->  
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <?php
+                                                //echo $_SESSION["signup_email"]; 
+                                                while ($row = $result->fetch(PDO::FETCH_OBJ)) {
+                                                    //PDO::FETCH_OBJ 指定取出資料的型態
+                                                    echo '<tr>';
+                                                    echo '<td>'
+                                                    //echo '<td>' . $row->account_id . "</td>"
+                                                    //. "<td>" . $row->fans_amount. "</td>"
+                                                    . $row->name . "</td>"
+                                                    . "<td>" . $row->follow_date . "</td>";
+                                                    //. "<td>" . $row->貼文留言數量 . "</td>";
+
+                                                    echo '</tr>';
+                                                }
+                                                ?>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>    
+                        </section>
+                        <!---------綜合圖表---------------------------------------------------------------------->
+                        <!-- <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-chart-area mr-1"></i>
+                                貼文綜合分析
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <canvas id="TEST3" width="100" height="40"></canvas>
+                                </div>
+                            </div>
+                        </div> -->
+                        <!-- ----------------------------------------------------------------------------------------- -->
+                        
+                        <!---------文字雲---------------------------------------------------------------------->
+                        <section id="seven" class="wrapper">                            
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-chart-area mr-1"></i>
@@ -749,83 +876,7 @@ if ($_SESSION["account"] == "") {
                                 </div>
                             </div>
                         </div>
-                        <!------------------------------------------------------------------------------------->
-                        <!------------------------------------------粉絲人數追蹤---------------------------------------------->
-                        <div id="two"class="card mb-4">
-                            <div class="card-header" style = "font-size:1.3rem; font-weight:bold;">
-                                <i class="fas fa-chart-area mr-1" ></i>粉絲人數追蹤
-                                <div class="input-group" style="margin-top:-32px;margin-left:55vw;width:140px">
-                                    <input class="form-control"  id ="follower_limit" type="number" placeholder="筆數" aria-label="Search" aria-describedby="basic-addon2" />
-                                    <div class="input-group-append" >
-                                        <button class="btn btn-primary" id="follower_search" type="button">查詢</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body" id = "user_follower_chart">
-                                <canvas id="user_follower" width="100" height="40"></canvas>
-                            </div>
-                        </div>
-                        <?php
-                        $sql = "SELECT DISTINCT d.name,d.follow_date
-                                from instabuilder.instaaccountfollower as a
-                                left join userinstaaccount as b on a.account_id = b.account_id 
-                                left join user as c on b.user_id = c.user_id 
-                                left join followers as d on b.account_id = d.account_id
-                                where c.signup_email = '" . $_SESSION["account"] . "' 
-                                order by follow_date desc limit 10
-                                ";
-                        $result = $db->query($sql);
-                        //"SELECT b.account_id ,c.account_name,a.post_no,count(comment_account)貼文留言數量
-                        //FROM instabuilder.comment as a 
-                        //join userpost as b on a.post_no = b.post_no
-                        //join instaaccount as c on c.account_id = b.account_id
-                        //group by post_no
-                        //order by account_id,post_no"
-                        ?>
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <i class="fas fa-table mr-1"></i>
-                                TOP 10 新追蹤者
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" id="tabketest" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr>
-                                                <!--<th>使用者編號</th>--> 
-                                                <!--<th>追蹤者</th>-->  
-
-                                                <th>新追蹤者</th>
-                                                <th>追蹤的日期</th>
-                                                <!--
-                                                <th>互動最高追蹤者</th>
-                                                <th>是否有發布貼文</th>
-                                                -->  
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <?php
-                                                //echo $_SESSION["signup_email"]; 
-                                                while ($row = $result->fetch(PDO::FETCH_OBJ)) {
-                                                    //PDO::FETCH_OBJ 指定取出資料的型態
-                                                    echo '<tr>';
-                                                    echo '<td>'
-                                                    //echo '<td>' . $row->account_id . "</td>"
-                                                    //. "<td>" . $row->fans_amount. "</td>"
-                                                    . $row->name . "</td>"
-                                                    . "<td>" . $row->follow_date . "</td>";
-                                                    //. "<td>" . $row->貼文留言數量 . "</td>";
-
-                                                    echo '</tr>';
-                                                }
-                                                ?>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>    
+                        </section>    
                     </div>
                 </main>
                 <footer class="py-4 bg-light mt-auto">
