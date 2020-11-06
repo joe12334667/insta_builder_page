@@ -96,15 +96,15 @@ if ($_SESSION["privilege"] != 2) {
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <div class="sb-sidenav-menu-heading">主頁</div>
-                            <!--<a class="nav-link" href="index.html">
+                            <!--<div class="sb-sidenav-menu-heading">主頁</div>
+                                <a class="nav-link" href="index.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
-                            </a>-->
+                            </a>
                             <a class="nav-link" href="home.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 關於我們&產品購買
-                            </a>
+                            </a>-->
                             <div class="sb-sidenav-menu-heading">Instabuilder 功能</div>
                             <!--<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
@@ -125,16 +125,19 @@ if ($_SESSION["privilege"] != 2) {
                             </a>
                             <div class="collapse" id="collapseLayouts-analysis" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-static.html">貼文分析</a>
-                                    <a class="nav-link" href="index.html">粉絲與追蹤者分析</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">綜合分析</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">標籤分析</a>
+                                    <a class="nav-link" href="../dashboard/dashboard.php#one">貼文分析</a>
+                                    <a class="nav-link" href="../dashboard/dashboard.php#two">留言分析</a>
+                                    <a class="nav-link" href="../dashboard/dashboard.php#three">綜合分析</a>
+                                    <a class="nav-link" href="../dashboard/dashboard.php#four">成長率</a>
+                                    <a class="nav-link" href="../dashboard/dashboard.php#five">粉絲與追蹤者分析</a>
+                                    <a class="nav-link" href="../dashboard/dashboard.php#six">TOP 10 新追蹤者</a>
+                                    <a class="nav-link" href="../dashboard/dashboard.php#seven">Hashtag文字雲</a>
                                 </nav>
                             </div>
 
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts-autopost" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                智能貼文
+                                智慧貼文
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayouts-autopost" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
@@ -152,7 +155,7 @@ if ($_SESSION["privilege"] != 2) {
 
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">智能貼文</h1>
+                        <h1 class="mt-4">智慧貼文</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">將您的貼文加上Hashtag,增加曝光度吧!</li>
                         </ol>
