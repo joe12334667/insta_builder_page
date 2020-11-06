@@ -39,9 +39,9 @@ if ($_SESSION["account"] == "") {
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="../node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
         <link rel="stylesheet" href="../node_modules/sweetalert2/dist/sweetalert2.min.css">
-        <script type="text/javascript" src="node_modules/wordcloud/src/wordcloud2.js"></script>
-        <script type="text/javascript" src="wordcloud/jquery.wordcloud.js"></script>
         <link src="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css" rel="stylesheet">
+        <script type="text/javascript" src="../wordcloud/jquery.wordcloud.js"></script>
+        <script type="text/javascript" src="../node_modules/wordcloud/src/wordcloud2.js"></script>
 
         <style>            
             .blue-border-focus .form-control:focus {
@@ -70,7 +70,7 @@ if ($_SESSION["account"] == "") {
                 background:rgba(0, 120, 210, .125);
                 border-radius:0.23rem;
             }
-        
+
         </style>
 
     </head>
@@ -252,8 +252,6 @@ if ($_SESSION["account"] == "") {
                                     <div class="card-body">追蹤人數
                                         <h3 style="font-size:2rem;">
                                             <?php
-                                            $db = DB();
-                                            $id = $_SESSION['account'];
                                             $sql = "SELECT following_amount FROM instabuilder.instaaccountfollower as a
                                         left join userinstaaccount as b on a.account_id = b.account_id 
                                         left join user as c on b.user_id = c.user_id 
@@ -284,8 +282,6 @@ if ($_SESSION["account"] == "") {
                                     <div class="card-body">粉絲人數
                                         <h3 style="font-size:2rem;">
                                             <?php
-                                            $db = DB();
-                                            $id = $_SESSION['account'];
                                             $sql = "SELECT fans_amount FROM instabuilder.instaaccountfollower as a
                                         left join userinstaaccount as b on a.account_id = b.account_id 
                                         left join user as c on b.user_id = c.user_id 
@@ -316,8 +312,6 @@ if ($_SESSION["account"] == "") {
                                     <div class="card-body">總按讚數
                                         <h3 style="font-size:2rem;">
                                             <?php
-                                            $db = DB();
-                                            $id = $_SESSION['account'];
                                             $sql = "SELECT count(a.post_no) as alllike
                                         FROM instabuilder.like as a
                                         left join userpost as b on a.post_no = b.post_no 
@@ -518,8 +512,6 @@ if ($_SESSION["account"] == "") {
                                         <hr size="8px" text-align="center" width="100%">
                                         <h3>
                                             <?php
-                                            $db = DB();
-                                            $id = $_SESSION['account'];
                                             $sql = "SELECT before_all.user_id, before_like_avg, after_like_avg , round(after_like_avg/before_like_avg,2) as '按讚成長率' from
                                             (
                                              select temp_post_before.user_id, like_num/post_num as before_like_avg from 
@@ -602,8 +594,6 @@ if ($_SESSION["account"] == "") {
                                         <hr size="8px" text-align="center" width="100%">
                                         <h3>
                                             <?php
-                                            $db = DB();
-                                            $id = $_SESSION['account'];
                                             $sql = "SELECT before_all.user_id, before_comment_avg, after_comment_avg , round(after_comment_avg/before_comment_avg,2) as '留言成長率' from
                                             (
                                              select temp_post_before.user_id, comment_num/post_num as before_comment_avg from 
@@ -715,8 +705,8 @@ if ($_SESSION["account"] == "") {
                                 <div class="table-responsive">                                
                                     <div class="12u$">
                                         <div class="select-wrapper">
-                                            <select name="category" id="category" onchange = "ajaxSelect()" >
-                                                <option value="0">&nbsp;- 選擇貼文類別 -&nbsp;</option>
+                                            <select name="category" id="category" onchange = "ajax_word_cloud()" >
+                                                <option value="0">&nbsp;- 全部hashtag類別 -&nbsp;</option>
                                                 <option value="78">健康養生</option>
                                                 <option value="79">動漫</option>
                                                 <option value="80">國際</option>
@@ -752,24 +742,23 @@ if ($_SESSION["account"] == "") {
                                         </div>
                                     </div>                                    
                                     <div class="card-body" id = "word-cloud">
-                                        <div id="canvas-container" style="float: left">
-                                            <canvas id="word_cloud_26" width="1000px" height="400px" ></canvas>
+                                        <div id="word_cloud_chart" style="float: left">
+                                            <canvas id="word_cloud" width="1000px" height="400px" ></canvas>
                                         </div>
-                                     </div>   
+
+                                    </div>   
                                 </div>
                             </div>
                         </div>
                         <!------------------------------------------------------------------------------------->
                         <?php
-                        $db = DB();
-                        $id = $_SESSION['account'];
                         $sql = "SELECT DISTINCT d.name,d.follow_date
                                 from instabuilder.instaaccountfollower as a
                                 left join userinstaaccount as b on a.account_id = b.account_id 
                                 left join user as c on b.user_id = c.user_id 
                                 left join followers as d on b.account_id = d.account_id
                                 where c.signup_email = '" . $_SESSION["account"] . "' 
-                                order by follow_date desc
+                                order by follow_date desc limit 10
                                 ";
                         $result = $db->query($sql);
                         //"SELECT b.account_id ,c.account_name,a.post_no,count(comment_account)貼文留言數量
@@ -849,9 +838,9 @@ if ($_SESSION["account"] == "") {
         <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
 
         <script>
-                            $(document).ready(function () {
-                                $('#tabketest').DataTable();
-                            });
+                                                $(document).ready(function () {
+                                                    $('#tabketest').DataTable();
+                                                });
         </script>
         <!-- -------------------------------------------------------- -->
         <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
@@ -879,26 +868,27 @@ if ($_SESSION["account"] == "") {
         <script src="https://apis.google.com/js/platform.js" async defer></script>
         <meta name="google-signin-client_id" content="48428020310-9hp17cjtr6crev5tvl6litg2qi8i0521.apps.googleusercontent.com">      
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        <script type="text/javascript" src="../node_modules/wordcloud/src/wordcloud2.js"></script>
         <script>
 //GOOGLE 登出按鈕
 //onLoad();
 //signOut();
-                            function signOut() {
-                                var auth2 = gapi.auth2.getAuthInstance();
-                                auth2.disconnect();
-                                auth2.signOut().then(function () {
-                                    console.log('User signed out.');
-                                });
-                                document.location.href = "../php/logOut.php";
+                                                function signOut() {
+                                                    var auth2 = gapi.auth2.getAuthInstance();
+                                                    auth2.disconnect();
+                                                    auth2.signOut().then(function () {
+                                                        console.log('User signed out.');
+                                                    });
+                                                    document.location.href = "../php/logOut.php";
 
-                            }
+                                                }
 
-                            function onLoad() {
-                                gapi.load('auth2', function () {
-                                    gapi.auth2.init();
+                                                function onLoad() {
+                                                    gapi.load('auth2', function () {
+                                                        gapi.auth2.init();
 
-                                });
-                            }
+                                                    });
+                                                }
         </script>
 
         <!------留言圖表------------------------------------------------------------------------------------------------------------------->
@@ -1229,7 +1219,7 @@ if ($_SESSION["account"] == "") {
                     success: function (response) {
                         //主要Chart.js繪圖區
                         const data = response; //取得.php回傳的資料
-                        const all_x_labels = [],  all_y_data_comment = [], all_y_data_like = [], Background_color = [];
+                        const all_x_labels = [], all_y_data_comment = [], all_y_data_like = [], Background_color = [];
 
                         //利用陣列建立x,y座標
                         for (let i = 0; i < data.length; i++) {
@@ -1294,50 +1284,77 @@ if ($_SESSION["account"] == "") {
                 });
             }
         </script>
-         <!---------文字雲---------------------------------------------------------------------->
+        <!---------文字雲---------------------------------------------------------------------->
         <script>
-            var wordFreqData = new Array();
-            $.ajax({
-                type: "GET",
-                cache: false,
-                url: "../../php/Ajax_wordcloud.php",
-                data: {},
-                dataType: "json",
-                success: function (response) {
-                    response.forEach(function (item, index, array) {
-                        var option = [item["hash_name"],parseInt(item["times"])];
-                        wordFreqData.push(option);
-                    });
-                    var canvas = document.getElementById('word_cloud_26');
-                    var options = eval({
+            ajax_word_cloud()
+            function ajax_word_cloud() {
+                cate_no = document.getElementById("category").value;
 
-                        "list": wordFreqData, //或者[['各位观众',45],['词云', 21],['来啦!!!',13]],只要格式满足这样都可以
-                        "gridSize": 30, // size of the grid in pixels
-                        "weightFactor": 0.1, // number to multiply for size of each word in the list
-                        "maxFontSize": 50, //最大字号
-                        "minFontSize": 10, 
-                        "fontWeight": 'bold', // 'normal', 'bold' or a callback
-                        "fontFamily": 'El Messiri, sans-serif', // font to use
-                        "color": 'purple', // 'random-dark' or 'random-light'
-                        // "backgroundColor": 'black', // the color of canvas
-                    
-                        "rotateRatio": 0, // probability for the word to rotate. 1 means always rotate
-                        // "shape": 'circle'
-                        // "drawMask": "../images/maskblack.jpg",
-                        // "maskColor":"../images/mask.png"
-                        // "shape":'circle' 
-                    });
-                    //生成
-                    WordCloud(canvas, options);
-                }
-            });
+                ChartName = "word_could"
+                $('#' + ChartName).remove(); // this is my <canvas> element
+                $('#' + ChartName + '_chart').append('<canvas id="' + ChartName + '"><canvas>');
+                $("#" + ChartName).width(100).height(40);
+                var wordFreqData = new Array();
+                var x = 0;
+                var weight = 0;
+                $.ajax({
+                    type: "GET",
+                    cache: false,
+                    url: "../php/Ajax_wordcloud.php",
+                    data: {
+                        cate_no: cate_no
+                    },
+                    dataType: "json",
+                    success: function (response) {
 
-            var wordFreqData2 = [['各位观众', 45], ['词云', 21], ['来啦!!!', 13]];
+                        response.forEach(function (item, index, array) {
+                            if ( x == 0){
+                                weight = parseInt(item["times"]);
+                                console.log(parseInt(item["times"]));
+                                console.log(100/weight);
+                                
+                            }
+                            x++;
+                            var option = ["#" + item["hash_name"], parseInt(item["times"])];
+                            wordFreqData.push(option);
+                        });
 
-        //    alert(wordFreqData);
-            console.log(wordFreqData2);
-            console.log(wordFreqData);
 
+                        var canvas = document.getElementById('word_cloud');
+                        var options = eval({
+
+                            "list": wordFreqData, //或者[['各位观众',45],['词云', 21],['来啦!!!',13]],只要格式满足这样都可以
+                            "gridSize": 1, // size of the grid in pixels
+                            "weightFactor": 100 / weight, // number to multiply for size of each word in the list
+                            "maxFontSize": 50, //最大字号
+                            "minFontSize": 10,
+                            "fontWeight": 'bold', // 'normal', 'bold' or a callback
+                            "fontFamily": 'El Messiri, sans-serif', // font to use
+                            "color": 'purple', // 'random-dark' or 'random-light'
+                            // "backgroundColor": 'black', // the color of canvas
+                            clearCanvas: true,
+                            shrinkToFit: true,
+                            drawOutOfBound: false,
+                            wait: 3,
+                            shuffle: true,
+                            "rotateRatio": 0, // probability for the word to rotate. 1 means always rotate
+                            // "shape": 'circle'
+                            // "drawMask": "../images/maskblack.jpg",
+                            // "maskColor":"../images/mask.png"
+                            // "shape":'circle' 
+                        });
+                        //生成
+                        WordCloud(canvas, options);
+                    }
+                });
+
+//            var wordFreqData2 = [['各位观众', 45], ['词云', 21], ['来啦!!!', 13]];
+
+                //    alert(wordFreqData);
+//                console.log(weight);
+                console.log(wordFreqData);
+
+            }
         </script>
 
     </body>
