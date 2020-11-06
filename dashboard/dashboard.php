@@ -962,8 +962,8 @@ if ($_SESSION["account"] == "") {
                                         label: ChartTableName, // 顯示該資料的標題 
                                         data: all_y_data, // y軸資料
                                         fill: false, // 不顯示底下的灰色區塊
-                                        borderColor: "#007bff", // 設定線的顏色
-                                        backgroundColor: Background_color, // 設定點的顏色
+                                        // borderColor: "#007bff", // 設定線的顏色
+                                        backgroundColor: "rgba(232, 62, 140,0.5)", // 設定點的顏色
                                         pointBorderWidth: 6,
 
                                         //pointBorderColor: "#FF82B4",
@@ -1247,12 +1247,12 @@ if ($_SESSION["account"] == "") {
                         const all_y_data = [
                             {
                                 label: "案讚數",
-                                backgroundColor: "#007bff",
+                                backgroundColor: "rgba(0, 123, 255,0.6)",
                                 data: all_y_data_like
                             },
                             {
                                 label: "留言數",
-                                backgroundColor: "#6610f2",
+                                backgroundColor: "rgba(57,2,160,0.6)",
                                 data: all_y_data_comment
                             }
                         ];
