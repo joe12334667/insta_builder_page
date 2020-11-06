@@ -145,10 +145,9 @@ if ($_SESSION["account"] == "") {
                             </a>
                             <div class="collapse" id="collapseLayouts-analysis" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-static.html">貼文分析</a>
-                                    <a class="nav-link" href="index.html">粉絲與追蹤者分析</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">綜合分析</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">標籤分析</a>
+                                    <a class="nav-link" href="#one">貼文分析</a>
+                                    <a class="nav-link" href="#two">粉絲分析</a>
+                                    <a class="nav-link" href="#three">標籤分析</a>
                                 </nav>
                             </div>
 
@@ -210,7 +209,7 @@ if ($_SESSION["account"] == "") {
             <div id="layoutSidenav_content">
 
                 <main>
-                    <div class="container-fluid">
+                    <div id="one" class="container-fluid">
                         <h1 class="mt-4">Instagram 分析</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">為您的Instagram帳戶提供精美分析</li>
@@ -476,8 +475,8 @@ if ($_SESSION["account"] == "") {
                                                         </div>
                                                     </div>
                                                 </div>-->
-                        <!------------------------------------------粉絲人數追蹤---------------------------------------------->
-                        <div class="card mb-4">
+                        <!-- ----------------------------------------粉絲人數追蹤-------------------------------------------- -->
+                        <!-- <div id="two"class="card mb-4">
                             <div class="card-header" style = "font-size:1.3rem; font-weight:bold;">
                                 <i class="fas fa-chart-area mr-1" ></i>粉絲人數追蹤
                                 <div class="input-group" style="margin-top:-32px;margin-left:55vw;width:140px">
@@ -490,7 +489,7 @@ if ($_SESSION["account"] == "") {
                             <div class="card-body" id = "user_follower_chart">
                                 <canvas id="user_follower" width="100" height="40"></canvas>
                             </div>
-                        </div>
+                        </div> -->
                         <!---------------------------------------------------------------------------------------->
                         <!---------綜合圖表---------------------------------------------------------------------->
                         <!-- <div class="card mb-4">
@@ -751,6 +750,21 @@ if ($_SESSION["account"] == "") {
                             </div>
                         </div>
                         <!------------------------------------------------------------------------------------->
+                        <!------------------------------------------粉絲人數追蹤---------------------------------------------->
+                        <div id="two"class="card mb-4">
+                            <div class="card-header" style = "font-size:1.3rem; font-weight:bold;">
+                                <i class="fas fa-chart-area mr-1" ></i>粉絲人數追蹤
+                                <div class="input-group" style="margin-top:-32px;margin-left:55vw;width:140px">
+                                    <input class="form-control"  id ="follower_limit" type="number" placeholder="筆數" aria-label="Search" aria-describedby="basic-addon2" />
+                                    <div class="input-group-append" >
+                                        <button class="btn btn-primary" id="follower_search" type="button">查詢</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body" id = "user_follower_chart">
+                                <canvas id="user_follower" width="100" height="40"></canvas>
+                            </div>
+                        </div>
                         <?php
                         $sql = "SELECT DISTINCT d.name,d.follow_date
                                 from instabuilder.instaaccountfollower as a
