@@ -116,15 +116,15 @@ if ($_SESSION["account"] == "") {
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <div class="sb-sidenav-menu-heading">主頁</div>
+                            <div class="sb-sidenav-menu-heading" style="color:#ffffff;font-size:1rem;"><?php echo $_SESSION["name"]; ?>&nbsp歡迎使用</div>
                             <!--<a class="nav-link" href="index.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>-->
-                            <a class="nav-link" href="home.html">
+                            <!-- <a class="nav-link" href="home.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 關於我們&產品購買
-                            </a>
+                            </a> -->
                             <div class="sb-sidenav-menu-heading">Instabuilder 功能</div>
                             <!--<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
@@ -146,14 +146,14 @@ if ($_SESSION["account"] == "") {
                             <div class="collapse" id="collapseLayouts-analysis" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="#one">貼文分析</a>
-                                    <a class="nav-link" href="#two">粉絲分析</a>
-                                    <a class="nav-link" href="#three">標籤分析</a>
+                                    <a class="nav-link" href="#three">粉絲分析</a>
+                                    <a class="nav-link" href="#wc">標籤分析</a>
                                 </nav>
                             </div>
 
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts-autopost" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                智能貼文
+                                智慧貼文
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayouts-autopost" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
@@ -462,8 +462,11 @@ if ($_SESSION["account"] == "") {
                             <div class="card-body" id = "post_sum_chart">
                                 <canvas id="post_sum" width="100" height="40"></canvas>
                             </div>
+                            
                         </div>
-
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active">貼心小提醒:可將貼文按讚數與留言數較高的貼文作為下次發文的參考範本喔!</li>
+                        </ol>                    
                         <!--                        <div class="card mb-4">
                                                     <div class="card-header">
                                                         <i class="fas fa-chart-area mr-1"></i>
@@ -694,8 +697,8 @@ if ($_SESSION["account"] == "") {
                             </div> -->
                         </div>
                         <!---------文字雲---------------------------------------------------------------------->
-
-                        <div class="card mb-4">
+                    
+                        <div id="wc"class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-chart-area mr-1"></i>
                                 Hashtag文字雲
@@ -740,18 +743,21 @@ if ($_SESSION["account"] == "") {
                                             </select>
                                         </div>
                                     </div>                                    
-                                    <div class="card-body" id = "word-cloud">
-                                        <div id="word_cloud_chart" style="float: left">
-                                            <canvas id="word_cloud" width="1000px" height="400px" ></canvas>
+                                    <div class="card-body" id = "word-cloud" >
+                                        <div id="word_cloud_chart" align="center">
+                                            <canvas id="word_cloud" width="1000px" height="400px"  ></canvas>
                                         </div>
 
                                     </div>   
                                 </div>
                             </div>
                         </div>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active">貼心小提醒:多多使用熱門Hashtags提升貼文的曝光度吧!</li>
+                        </ol> 
                         <!------------------------------------------------------------------------------------->
                         <!------------------------------------------粉絲人數追蹤---------------------------------------------->
-                        <div id="two"class="card mb-4">
+                        <div id="three"class="card mb-4">
                             <div class="card-header" style = "font-size:1.3rem; font-weight:bold;">
                                 <i class="fas fa-chart-area mr-1" ></i>粉絲人數追蹤
                                 <div class="input-group" style="margin-top:-32px;margin-left:55vw;width:140px">
