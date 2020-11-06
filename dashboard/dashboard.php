@@ -769,7 +769,7 @@ if ($_SESSION["account"] == "") {
                                 left join user as c on b.user_id = c.user_id 
                                 left join followers as d on b.account_id = d.account_id
                                 where c.signup_email = '" . $_SESSION["account"] . "' 
-                                order by follow_date desc
+                                order by follow_date desc limit 10
                                 ";
                         $result = $db->query($sql);
                         //"SELECT b.account_id ,c.account_name,a.post_no,count(comment_account)貼文留言數量
