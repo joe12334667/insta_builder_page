@@ -467,17 +467,47 @@ if ($_SESSION["account"] == "") {
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">貼心小提醒:可將貼文按讚數與留言數較高的貼文作為下次發文的參考範本喔!</li>
                         </ol>                    
-                        <!--                        <div class="card mb-4">
-                                                    <div class="card-header">
-                                                        <i class="fas fa-chart-area mr-1"></i>
-                                                        貼文綜合分析
-                                                    </div>
-                                                    <div class="card-body">
-                                                        <div class="table-responsive">
-                                                            <canvas id="TEST3" width="100" height="40"></canvas>
-                                                        </div>
-                                                    </div>
-                                                </div>-->
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table mr-1"></i>
+                                留言正負向分析
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="tabketest" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>                                                
+                                                <th>貼文日期</th>
+                                                <th>貼文留言</th>
+                                                <th>留言正負向</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <!-- <?php
+                                                //echo $_SESSION["signup_email"]; 
+                                                while ($row = $result->fetch(PDO::FETCH_OBJ)) {
+                                                    //PDO::FETCH_OBJ 指定取出資料的型態
+                                                    echo '<tr>';
+                                                    echo '<td>'
+                                                    //echo '<td>' . $row->account_id . "</td>"
+                                                    //. "<td>" . $row->fans_amount. "</td>"
+                                                    . $row->name . "</td>"
+                                                    . "<td>" . $row->follow_date . "</td>";
+                                                    //. "<td>" . $row->貼文留言數量 . "</td>";
+
+                                                    echo '</tr>';
+                                                }
+                                                ?> -->
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div> 
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active">貼心小提醒:留言正負向比例為負代表留言篇為負向喔!</li>
+                        </ol> 
                         <!-- ----------------------------------------粉絲人數追蹤-------------------------------------------- -->
                         <!-- <div id="two"class="card mb-4">
                             <div class="card-header" style = "font-size:1.3rem; font-weight:bold;">
@@ -493,20 +523,6 @@ if ($_SESSION["account"] == "") {
                                 <canvas id="user_follower" width="100" height="40"></canvas>
                             </div>
                         </div> -->
-                        <!---------------------------------------------------------------------------------------->
-                        <!---------綜合圖表---------------------------------------------------------------------->
-                        <!-- <div class="card mb-4">
-                            <div class="card-header">
-                                <i class="fas fa-chart-area mr-1"></i>
-                                貼文綜合分析
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <canvas id="TEST3" width="100" height="40"></canvas>
-                                </div>
-                            </div>
-                        </div> -->
-                        <!-- ----------------------------------------------------------------------------------------- -->
                         <div class="row">
                             <div class="col-xs-6 col-sm-6" >
                                 <div class="card bg-blue text-white mb-4" style="border-radius: 55rem;">
