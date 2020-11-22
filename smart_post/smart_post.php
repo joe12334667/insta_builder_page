@@ -1,10 +1,3 @@
-<!----------
-test1=pink chart >10
-test2=blue chart >10
-test3=BBB  chart 3=>1
-test4=comm chart ajax    
------------->
-
 <!DOCTYPE html>
 <?php
 session_start();
@@ -69,13 +62,7 @@ if ($_SESSION["privilege"] != 2) {
             <a class="navbar-brand" href="../index.html">Instabuilder</a>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
-            <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-                <!-- <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
-                    <div class="input-group-append">
-                        <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
-                    </div>
-                </div> -->
+            <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">               
             </form>
             <!-- Navbar-->
             <ul class="navbar-nav ml-auto ml-md-0">
@@ -95,29 +82,8 @@ if ($_SESSION["privilege"] != 2) {
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
-                        <div class="nav">
-                            <!--<div class="sb-sidenav-menu-heading">主頁</div>
-                                <a class="nav-link" href="index.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Dashboard
-                            </a>
-                            <a class="nav-link" href="home.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                關於我們&產品購買
-                            </a>-->
+                        <div class="nav">                            
                             <div class="sb-sidenav-menu-heading">Instabuilder 功能</div>
-                            <!--<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Layouts
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-static.html">Static Navigation</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
-                                </nav>
-                            </div>-->
-                            <!----------------------------------------------------------------------------------------------------------->
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts-analysis" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Instagram 分析
@@ -142,13 +108,11 @@ if ($_SESSION["privilege"] != 2) {
                                 </nav>
                             </div>
                             <!----------------------------------------------------------------------------------------------------------->
-
                         </div>
                     </div>
                 </nav>
             </div>
             <div id="layoutSidenav_content">
-
                 <main>
                     <div class="container-fluid">
                         <h1 class="mt-4">智慧貼文</h1>
@@ -232,10 +196,7 @@ if ($_SESSION["privilege"] != 2) {
                                     <div class="12u$">
                                         <div class="form-group blue-border-focus">                                
                                             <textarea name="message" class="form-control" id="user_hashtags" rows="5" placeholder="自訂hashtag"></textarea>
-                                        </div>                                        
-                                        <!-- <div class="table-responsive">                                
-                                            <textarea name="message" id="message" placeholder="自訂hashtag" rows="3"></textarea>
-                                        </div> -->
+                                        </div>        
                                     </div>
                                     <div class="12u$">
                                         <input class="submit_hashtag" type="submit" id="copy_post" value="輸出" />
@@ -264,12 +225,7 @@ if ($_SESSION["privilege"] != 2) {
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">NTUB InstaBuilder 2020</div>
-                            <!-- <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div> -->
+                            <div class="text-muted">NTUB InstaBuilder 2020</div>                           
                         </div>
                     </div>
                 </footer>
@@ -287,7 +243,6 @@ if ($_SESSION["privilege"] != 2) {
         <script src="assets/demo/chart-test1-demo.js"></script>
         <script src="assets/demo/chart-test2-demo.js"></script>
         <script src="assets/demo/chart-test3-demo.js"></script>
-        <!-- <script src="assets/demo/chart-test4-demo.js"></script> -->
         <!--------------------------------------------------->
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
@@ -299,27 +254,25 @@ if ($_SESSION["privilege"] != 2) {
 //GOOGLE 登出按鈕
 //onLoad();
 //signOut();
-                                                function signOut() {
-                                                    var auth2 = gapi.auth2.getAuthInstance();
-                                                    auth2.disconnect();
-                                                    auth2.signOut().then(function () {
-                                                        console.log('User signed out.');
-                                                    });
-                                                    document.location.href = "../php/logOut.php";
+            function signOut() {
+                var auth2 = gapi.auth2.getAuthInstance();
+                auth2.disconnect();
+                auth2.signOut().then(function () {
+                    console.log('User signed out.');
+                });
+                document.location.href = "../php/logOut.php";
 
-                                                }
+            }
 
-                                                function onLoad() {
-                                                    gapi.load('auth2', function () {
-                                                        gapi.auth2.init();
+            function onLoad() {
+                gapi.load('auth2', function () {
+                    gapi.auth2.init();
 
-                                                    });
-                                                }
+                });
+            }
         </script>
-
         <!------Test chart-------------------------------------------------------------------------------------------------------------------------->
         <script>
-
             function ajaxSelect() {
                 var cate_no = document.getElementById("category").value;
                 $.ajax({
@@ -344,7 +297,6 @@ if ($_SESSION["privilege"] != 2) {
                     }
                 });
             }
-
             $("#content_search").click(function () {
                 var user_content = document.getElementById("user_content").value;
                 var cate_no = document.getElementById("category").value;
@@ -393,7 +345,6 @@ if ($_SESSION["privilege"] != 2) {
                     });
                 }
             });
-
             $("#copy_post").click(function () {
                 console.log("copy_post");
                 var post = "";
@@ -425,9 +376,6 @@ if ($_SESSION["privilege"] != 2) {
                         }
                     }
                 }
-
-
-
                 var clip_area = document.createElement('textarea');
                 clip_area.textContent = post;
                 document.body.appendChild(clip_area);
@@ -437,9 +385,6 @@ if ($_SESSION["privilege"] != 2) {
                 document.getElementById("system_user_content").innerHTML = post;
                 alert("已複製至剪貼簿");
             });
-
-
-
         </script>
         <!--------------------------------------------------------------------------------------------------------------------------------------->
     </body>
