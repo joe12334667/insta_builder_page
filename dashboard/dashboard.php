@@ -837,7 +837,7 @@ if ($_SESSION["account"] == "") {
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">
                             <div class="text-muted"> InstaBuilder 2020</div>
-                            <!-- <div class="text-muted">NTUB InstaBuilder 2020</div> -->
+                            <div class="text-muted">NTUB InstaBuilder 2020</div>
                             <!-- <div>
                                 <a href="#">Privacy Policy</a>
                                 &middot;
