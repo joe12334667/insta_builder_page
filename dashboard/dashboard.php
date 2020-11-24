@@ -288,7 +288,7 @@ if ($_SESSION["account"] == "") {
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">貼心小提醒:可將貼文按讚數與留言數較高的貼文作為下次發文的參考範本喔!</li>
                         </ol>                    
-                        <div class="card mb-4">
+<!--                        <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table mr-1"></i>
                                 留言正負向分析
@@ -337,11 +337,11 @@ if ($_SESSION["account"] == "") {
                                         </tbody>
                                     </table>
                                 </div>
-                            </div>
-                        </div> 
+                            </div>-->
+<!--                        </div> 
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">貼心小提醒:留言正負向比例為負代表留言篇為負向喔!</li>
-                        </ol> 
+                        </ol> -->
                         <div class="row">
                             <div class="col-xs-6 col-sm-6" >
                                 <div class="card bg-blue text-white mb-4" style="border-radius: 55rem;">
