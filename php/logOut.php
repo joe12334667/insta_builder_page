@@ -3,6 +3,7 @@ session_start();
 //刪除SESSION
 $_SESSION["account"] = null;
 $_SESSION["name"] = null;
+$_SESSION["privilege"] = null;
 //刪除COOKIE
 if (isset($_COOKIE['google_id'])) {
     setcookie('google_id', null, -1, '/');
