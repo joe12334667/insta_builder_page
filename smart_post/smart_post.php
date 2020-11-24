@@ -215,7 +215,7 @@ if ($_SESSION["privilege"] != 2) {
                                     <div class="form-group blue-border-focus">                                
                                         <textarea class="form-control" id="system_user_content" rows="10"></textarea>
                                     </div>                              
-                                    <button class="content_search_button" type="button" id="copy_system_user_content">複製</button> 
+                                    
                                 </div>
                             </div>
                         </div>
