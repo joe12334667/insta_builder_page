@@ -269,6 +269,119 @@ if ($_SESSION["account"] == "") {
                                 <canvas id="post_comment" width="100" height="40"></canvas>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-xs-3 col-sm-3" >
+                                <div class="card bg-blue text-white mb-4" style="border-radius: 55rem;">
+                                    <div class="card-body" style="text-align:center;">總留言數
+                                        <hr size="8px" text-align="center" width="100%">
+                                        <h3>
+                                            <?php
+                                            $db = DB();
+                                            $id = $_SESSION['account'];
+                                            $sql = "SELECT count(pn_score) as allcomment from instabuilder.comment where post_no in(
+                                                select post_no from instabuilder.userpost where account_id=(
+                                                 select account_id from instabuilder.userinstaaccount where user_id=(
+                                                  select user_id from instabuilder.user where user.signup_email = '" . $_SESSION["account"] . "'))) 
+                                            ";
+                                            $result = $db->query($sql);
+                                            while ($row = $result->fetch(PDO::FETCH_OBJ)) {
+                                                //PDO::FETCH_OBJ 指定取出資料的型態
+                                                echo '<tr>';
+                                                echo '<td>' . $row->allcomment . "</td>";
+                                                //. "<td>" . $row->貼文留言數量 . "</td>";
+                                                echo '</tr>';
+                                            }
+                                            ?>
+                                            則
+                                        </h3>
+                                    </div>                                    
+                                </div>
+                            </div>
+                            <div class="col-xs-3 col-sm-3" >
+                                <div class="card bg-indigo text-white mb-4" style="border-radius: 55rem;">
+                                    <div class="card-body" style="text-align:center;">正向留言數
+                                        <hr size="8px" text-align="center" width="100%">
+                                        <h3>
+                                            <?php
+                                            $db = DB();
+                                            $id = $_SESSION['account'];
+                                            $sql = "SELECT count(pn_score) as positive from instabuilder.comment where post_no in(
+                                                select post_no from instabuilder.userpost where account_id=(
+                                                 select account_id from instabuilder.userinstaaccount where user_id=(
+                                                  select user_id from instabuilder.user where user.signup_email = '" . $_SESSION["account"] . "'))) and pn_score>0
+                                            ";
+                                            $result = $db->query($sql);
+                                            while ($row = $result->fetch(PDO::FETCH_OBJ)) {
+                                                //PDO::FETCH_OBJ 指定取出資料的型態
+                                                echo '<tr>';
+                                                echo '<td>' . $row->positive . "</td>";
+                                                //. "<td>" . $row->貼文留言數量 . "</td>";
+                                                echo '</tr>';
+                                            }
+                                            ?>
+                                            則
+                                        </h3>
+                                    </div>                                    
+                                </div>
+                            </div>
+                            <div class="col-xs-3 col-sm-3" >
+                                <div class="card bg-purple text-white mb-4" style="border-radius: 55rem;">
+                                    <div class="card-body" style="text-align:center;">負向留言數
+                                        <hr size="8px" text-align="center" width="100%">
+                                        <h3>
+                                            <?php
+                                            $db = DB();
+                                            $id = $_SESSION['account'];
+                                            $sql = "SELECT count(pn_score) as negative from instabuilder.comment where post_no in(
+                                                select post_no from instabuilder.userpost where account_id=(
+                                                 select account_id from instabuilder.userinstaaccount where user_id=(
+                                                  select user_id from instabuilder.user where user.signup_email = '" . $_SESSION["account"] . "'))) and pn_score<0
+                                            ";
+                                            $result = $db->query($sql);
+                                            while ($row = $result->fetch(PDO::FETCH_OBJ)) {
+                                                //PDO::FETCH_OBJ 指定取出資料的型態
+                                                echo '<tr>';
+                                                echo '<td>' . $row->negative . "</td>";
+                                                //. "<td>" . $row->貼文留言數量 . "</td>";
+                                                echo '</tr>';
+                                            }
+                                            ?>
+                                            則
+                                        </h3>
+                                    </div>                                    
+                                </div>
+                            </div>
+                            <div class="col-xs-3 col-sm-3" >
+                                <div class="card bg-pink text-white mb-4" style="border-radius: 55rem;">
+                                    <div class="card-body" style="text-align:center;">中向留言數
+                                        <hr size="8px" text-align="center" width="100%">
+                                        <h3>
+                                            <?php
+                                            $db = DB();
+                                            $id = $_SESSION['account'];
+                                            $sql = "SELECT count(pn_score) as medium from instabuilder.comment where post_no in(
+                                                select post_no from instabuilder.userpost where account_id=(
+                                                 select account_id from instabuilder.userinstaaccount where user_id=(
+                                                  select user_id from instabuilder.user where user.signup_email = '" . $_SESSION["account"] . "'))) and pn_score=0
+                                            ";
+                                            $result = $db->query($sql);
+                                            while ($row = $result->fetch(PDO::FETCH_OBJ)) {
+                                                //PDO::FETCH_OBJ 指定取出資料的型態
+                                                echo '<tr>';
+                                                echo '<td>' . $row->medium . "</td>";
+                                                //. "<td>" . $row->貼文留言數量 . "</td>";
+                                                echo '</tr>';
+                                            }
+                                            ?>
+                                            則
+                                        </h3>
+                                    </div>                                    
+                                </div>
+                            </div>  
+                            </div>            
+                            <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active">貼心小提醒:正負向分析讓您對粉絲的留言情勢更加了解!</li>
+                            </ol> 
                         <!------------------------------------------貼文綜合分析---------------------------------------------->
                         <div class="card mb-4">
                             <div class="card-header" style = "font-size:1.3rem; font-weight:bold;">
@@ -287,8 +400,8 @@ if ($_SESSION["account"] == "") {
                         </div>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">貼心小提醒:可將貼文按讚數與留言數較高的貼文作為下次發文的參考範本喔!</li>
-                        </ol>                    
-<!--                        <div class="card mb-4">
+                        </ol> 
+                        <!--<div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table mr-1"></i>
                                 留言正負向分析
@@ -298,50 +411,56 @@ if ($_SESSION["account"] == "") {
                                     <table class="table table-bordered" id="tabketest" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>                                                
-                                                <th>貼文內容</th>
-                                                <th>留言帳號</th>
-                                                <th>貼文留言</th>
-                                                <th>留言正負向</th>
-                                                <th>留言比例</th>
+                                                <th>總留言數</th>
+                                                <th>正向留言</th>
+                                                <th>負向留言</th>
+                                                <th>中性留言</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>              
                                                 <?php
-                                                $db = DB();
+                                                /*$db = DB();
                                                 $id = $_SESSION['account'];
-                                                $sql = "SELECT  a.content as post_content,b.comment_account,b.content,b.pn,b.pn_score FROM instabuilder.post  as a
-                                                left join instabuilder.comment as b on a.post_no = b.post_no 
-                                                left join userpost as c on b.post_no = c.post_no 
-                                                left join userinstaaccount as d on c.account_id = d.account_id 
-                                                left join user as e on d.user_id = e.user_id
-                                                where e.signup_email = '" . $_SESSION["account"] . "'
+                                                $sql = "SELECT count(pn_score) as allcomment from instabuilder.comment where post_no in(
+                                                    select post_no from instabuilder.userpost where account_id=(
+                                                     select account_id from instabuilder.userinstaaccount where user_id=(
+                                                      select user_id from instabuilder.user where user.signup_email = '" . $_SESSION["account"] . "'))) 
+                                                ";
+                                                $sql = "SELECT count(pn_score) as positive from instabuilder.comment where post_no in(
+                                                    select post_no from instabuilder.userpost where account_id=(
+                                                     select account_id from instabuilder.userinstaaccount where user_id=(
+                                                      select user_id from instabuilder.user where user.signup_email = '" . $_SESSION["account"] . "'))) and pn_score>0;
+                                                ";
+                                                $sql = "SELECT count(pn_score) as negativet from instabuilder.comment where post_no in(
+                                                    ​​select post_no from instabuilder.userpost where account_id=(
+                                                    ​​​select account_id from instabuilder.userinstaaccount where user_id=(
+                                                    ​​​​select user_id from instabuilder.user where user.signup_email = '" . $_SESSION["account"] . "'))) and pn_score<0
+                                                ";
+                                                $sql = "SELECT count(pn_score) as medium from instabuilder.comment where post_no in(
+                                                    ​​select post_no from instabuilder.userpost where account_id=(
+                                                    ​​​select account_id from instabuilder.userinstaaccount where user_id=(
+                                                    ​​​​select user_id from instabuilder.user where user.signup_email = '" . $_SESSION["account"] . "'))) and pn_score=0
                                                 ";
                                                 $result = $db->query($sql);
                                                 while ($row = $result->fetch(PDO::FETCH_OBJ)) {
                                                     //PDO::FETCH_OBJ 指定取出資料的型態
                                                     echo '<tr>';
-                                                    echo '<td>'
-                                                    //echo '<td>' . $row->account_id . "</td>"
-                                                    //. "<td>" . $row->fans_amount. "</td>"
-                                                    . $row->post_content . "</td>"
-                                                    . "<td>" . $row->comment_account. "</td>"
-                                                    . "<td>" . $row->content . "</td>"
-                                                    . "<td>" . $row->pn . "</td>"
-                                                    . "<td>" . $row->pn_score . "</td>";
+                                                    echo '<td>'. $row->allcomment . "</td>"
+                                                    . "<td>" . $row->positive. "</td>"
+                                                    . "<td>" . $row->positive. "</td>"
+                                                    . "<td>" . $row->positive . "</td>";
                                                     //. "<td>" . $row->貼文留言數量 . "</td>";
                                                     echo '</tr>';
-                                                }
+                                                }*/
                                                 ?>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
-                            </div>-->
-<!--                        </div> 
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">貼心小提醒:留言正負向比例為負代表留言篇為負向喔!</li>
-                        </ol> -->
+                            </div>
+                        </div> -->
+                        
                         <div class="row">
                             <div class="col-xs-6 col-sm-6" >
                                 <div class="card bg-blue text-white mb-4" style="border-radius: 55rem;">
@@ -349,6 +468,8 @@ if ($_SESSION["account"] == "") {
                                         <hr size="8px" text-align="center" width="100%">
                                         <h3>
                                             <?php
+                                            $db = DB();
+                                            $id = $_SESSION['account'];
                                             $sql = "SELECT before_all.user_id, before_like_avg, after_like_avg , round(after_like_avg/before_like_avg,2) as '按讚成長率' from
                                             (
                                              select temp_post_before.user_id, like_num/post_num as before_like_avg from 
@@ -357,7 +478,7 @@ if ($_SESSION["account"] == "") {
                                               left join instabuilder.userinstaaccount on user.user_id = userinstaaccount.user_id
                                               left join instabuilder.userpost on userinstaaccount.account_id = userpost.account_id
                                               left join instabuilder.post on userpost.post_no = post.post_no                                              
-                                              where post.announce_time <= user.signup_datetime and instabuilder.user.signup_email = '" . $_SESSION["account"] . "' 
+                                              where post.announce_time <= user.signup_datetime and user.signup_email = '" . $_SESSION["account"] . "'
                                               group by user_id
                                              ) as temp_post_before                                             
                                              left join                                             
@@ -367,7 +488,7 @@ if ($_SESSION["account"] == "") {
                                               left join instabuilder.userpost on userinstaaccount.account_id = userpost.account_id
                                               left join instabuilder.post on userpost.post_no = post.post_no
                                               left join instabuilder.like on like.post_no = post.post_no                                              
-                                              where post.announce_time <= user.signup_datetime
+                                              where post.announce_time <= user.signup_datetime and user.signup_email = '" . $_SESSION["account"] . "'
                                               group by user_id
                                              ) as temp_like_before                                             
                                              on temp_post_before.user_id = temp_like_before.user_id
@@ -380,7 +501,7 @@ if ($_SESSION["account"] == "") {
                                               left join instabuilder.userinstaaccount on user.user_id = userinstaaccount.user_id
                                               left join instabuilder.userpost on userinstaaccount.account_id = userpost.account_id
                                               left join instabuilder.post on userpost.post_no = post.post_no                                              
-                                              where post.announce_time >= user.signup_datetime
+                                              where post.announce_time >= user.signup_datetime and user.signup_email = '" . $_SESSION["account"] . "'
                                               group by user_id
                                              ) as temp_post_after                                             
                                              left join                                             
@@ -390,7 +511,7 @@ if ($_SESSION["account"] == "") {
                                               left join instabuilder.userpost on userinstaaccount.account_id = userpost.account_id
                                               left join instabuilder.post on userpost.post_no = post.post_no
                                               left join instabuilder.like on like.post_no = post.post_no                                              
-                                              where post.announce_time >= user.signup_datetime
+                                              where post.announce_time >= user.signup_datetime and user.signup_email = '" . $_SESSION["account"] . "'
                                               group by user_id
                                              ) as temp_like_after                                             
                                              on temp_post_after.user_id = temp_like_after.user_id
@@ -417,6 +538,8 @@ if ($_SESSION["account"] == "") {
                                         <hr size="8px" text-align="center" width="100%">
                                         <h3>
                                             <?php
+                                            $db = DB();
+                                            $id = $_SESSION['account'];
                                             $sql = "SELECT before_all.user_id, before_comment_avg, after_comment_avg , round(after_comment_avg/before_comment_avg,2) as '留言成長率' from
                                             (
                                              select temp_post_before.user_id, comment_num/post_num as before_comment_avg from 
@@ -426,7 +549,7 @@ if ($_SESSION["account"] == "") {
                                               left join instabuilder.userpost on userinstaaccount.account_id = userpost.account_id
                                               left join instabuilder.post on userpost.post_no = post.post_no
                                               
-                                              where post.announce_time <= user.signup_datetime and instabuilder.user.signup_email = '" . $_SESSION["account"] . "' 
+                                              where post.announce_time <= user.signup_datetime and user.signup_email = '" . $_SESSION["account"] . "'
                                               group by user_id
                                              ) as temp_post_before
                                              
@@ -439,7 +562,7 @@ if ($_SESSION["account"] == "") {
                                               left join instabuilder.post on userpost.post_no = post.post_no
                                               left join instabuilder.comment on comment.post_no = post.post_no
                                               
-                                              where post.announce_time <= user.signup_datetime 
+                                              where post.announce_time <= user.signup_datetime and user.signup_email = '" . $_SESSION["account"] . "'
                                               group by user_id
                                              ) as temp_comment_before
                                              
@@ -457,7 +580,7 @@ if ($_SESSION["account"] == "") {
                                               left join instabuilder.userpost on userinstaaccount.account_id = userpost.account_id
                                               left join instabuilder.post on userpost.post_no = post.post_no
                                               
-                                              where post.announce_time >= user.signup_datetime
+                                              where post.announce_time >= user.signup_datetime and user.signup_email = '" . $_SESSION["account"] . "'
                                               group by user_id
                                              ) as temp_post_after
                                              
@@ -470,7 +593,7 @@ if ($_SESSION["account"] == "") {
                                               left join instabuilder.post on userpost.post_no = post.post_no
                                               left join instabuilder.comment on comment.post_no = post.post_no
                                               
-                                              where post.announce_time >= user.signup_datetime
+                                              where post.announce_time >= user.signup_datetime and user.signup_email = '" . $_SESSION["account"] . "'
                                               group by user_id
                                              ) as temp_comment_after
                                              
