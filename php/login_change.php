@@ -25,6 +25,7 @@ function SendtoDB($id , $name , $email , $url) {
     $result = $db->query($sql);
     $row = $result->fetch(PDO::FETCH_ASSOC);
     if ($row >= 1) {
+        $_SESSION["user_id"] = $row->$user_id;
         $_SESSION["account"] = $email;
         $_SESSION["name"] = $name;
         header('Location: ../dashboard/dashboard.php');
