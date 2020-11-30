@@ -264,7 +264,7 @@ if ($_SESSION["account"] == "") {
                                         <button class="btn btn-primary" id="comment_search" type="button">查詢</button>
                                     </div>
                                 </div>
-                            </div>
+                            </div> 
                             <div class="card-body" id = "post_comment_chart">
                                 <canvas id="post_comment" width="100" height="40"></canvas>
                             </div>
@@ -276,12 +276,12 @@ if ($_SESSION["account"] == "") {
                                         <hr size="8px" text-align="center" width="100%">
                                         <h3>
                                             <?php
-                                            $db = DB();
+                                            
                                             $id = $_SESSION['account'];
                                             $sql = "SELECT count(pn_score) as allcomment from instabuilder.comment where post_no in(
                                                 select post_no from instabuilder.userpost where account_id=(
                                                  select account_id from instabuilder.userinstaaccount where user_id=(
-                                                  select user_id from instabuilder.user where user.signup_email = '" . $_SESSION["account"] . "'))) 
+                                                  select user_id from instabuilder.user where user.signup_email = '" . $_SESSION["account"] . "' and user.user_name = '".$_SESSION["name"]."'))) 
                                             ";
                                             $result = $db->query($sql);
                                             while ($row = $result->fetch(PDO::FETCH_OBJ)) {
@@ -303,12 +303,12 @@ if ($_SESSION["account"] == "") {
                                         <hr size="8px" text-align="center" width="100%">
                                         <h3>
                                             <?php
-                                            $db = DB();
+                                            
                                             $id = $_SESSION['account'];
                                             $sql = "SELECT count(pn_score) as positive from instabuilder.comment where post_no in(
                                                 select post_no from instabuilder.userpost where account_id=(
                                                  select account_id from instabuilder.userinstaaccount where user_id=(
-                                                  select user_id from instabuilder.user where user.signup_email = '" . $_SESSION["account"] . "'))) and pn_score>0
+                                                  select user_id from instabuilder.user where user.signup_email = '" . $_SESSION["account"] . "'  and user.user_name = '".$_SESSION["name"]."'))) and pn_score>0
                                             ";
                                             $result = $db->query($sql);
                                             while ($row = $result->fetch(PDO::FETCH_OBJ)) {
@@ -330,12 +330,12 @@ if ($_SESSION["account"] == "") {
                                         <hr size="8px" text-align="center" width="100%">
                                         <h3>
                                             <?php
-                                            $db = DB();
+                                            
                                             $id = $_SESSION['account'];
                                             $sql = "SELECT count(pn_score) as negative from instabuilder.comment where post_no in(
                                                 select post_no from instabuilder.userpost where account_id=(
                                                  select account_id from instabuilder.userinstaaccount where user_id=(
-                                                  select user_id from instabuilder.user where user.signup_email = '" . $_SESSION["account"] . "'))) and pn_score<0
+                                                  select user_id from instabuilder.user where user.signup_email = '" . $_SESSION["account"] . "'  and user.user_name = '".$_SESSION["name"]."'))) and pn_score<0
                                             ";
                                             $result = $db->query($sql);
                                             while ($row = $result->fetch(PDO::FETCH_OBJ)) {
@@ -357,12 +357,12 @@ if ($_SESSION["account"] == "") {
                                         <hr size="8px" text-align="center" width="100%">
                                         <h3>
                                             <?php
-                                            $db = DB();
+                                            
                                             $id = $_SESSION['account'];
                                             $sql = "SELECT count(pn_score) as medium from instabuilder.comment where post_no in(
                                                 select post_no from instabuilder.userpost where account_id=(
                                                  select account_id from instabuilder.userinstaaccount where user_id=(
-                                                  select user_id from instabuilder.user where user.signup_email = '" . $_SESSION["account"] . "'))) and pn_score=0
+                                                  select user_id from instabuilder.user where user.signup_email = '" . $_SESSION["account"] . "'  and user.user_name = '".$_SESSION["name"]."'))) and pn_score=0
                                             ";
                                             $result = $db->query($sql);
                                             while ($row = $result->fetch(PDO::FETCH_OBJ)) {
@@ -420,7 +420,7 @@ if ($_SESSION["account"] == "") {
                                         <tbody>
                                             <tr>              
                                                 <?php
-                                                /*$db = DB();
+                                                /*
                                                 $id = $_SESSION['account'];
                                                 $sql = "SELECT count(pn_score) as allcomment from instabuilder.comment where post_no in(
                                                     select post_no from instabuilder.userpost where account_id=(
@@ -468,7 +468,7 @@ if ($_SESSION["account"] == "") {
                                         <hr size="8px" text-align="center" width="100%">
                                         <h3>
                                             <?php
-                                            $db = DB();
+                                            
                                             $id = $_SESSION['account'];
                                             $sql = "SELECT before_all.user_id, before_like_avg, after_like_avg , round(after_like_avg/before_like_avg,2) as '按讚成長率' from
                                             (
@@ -538,7 +538,7 @@ if ($_SESSION["account"] == "") {
                                         <hr size="8px" text-align="center" width="100%">
                                         <h3>
                                             <?php
-                                            $db = DB();
+                                            
                                             $id = $_SESSION['account'];
                                             $sql = "SELECT before_all.user_id, before_comment_avg, after_comment_avg , round(after_comment_avg/before_comment_avg,2) as '留言成長率' from
                                             (
