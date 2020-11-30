@@ -15,18 +15,6 @@ require_once "../vendor/fukuball/jieba-php/src/class/JiebaAnalyse.php";
 use Fukuball\Jieba\Jieba;
 use Fukuball\Jieba\Finalseg;
 use Fukuball\Jieba\JiebaAnalyse;
-//----------------------------------------------- baidu -----------------------------------------------
-//require_once '../baidu/AipNlp.php';
-//const APP_ID = '21859116';
-//const API_KEY = '59ENG3lpaaO2twkZoswNZV95';
-//const SECRET_KEY = 'xY6TSzna5T4as0VLCdZoyT74r1tw9sKx';
-//$client = new AipNlp(APP_ID, API_KEY, SECRET_KEY);
-//$title = "欧洲冠军杯足球赛";
-//$content = "欧洲冠军联赛是欧洲足球协会联盟主办的年度足球比赛，代表欧洲俱乐部足球最高荣誉和水平，被认为是全世界最高素质、最具影响力以及最高水平的俱乐部赛事，亦是世界上奖金最高的足球赛事和体育赛事之一。";
-//$client->topic($title,$content);
-////print_r($client->topic($title,$content));
-//echo json_encode($client->topic($title,$content), JSON_UNESCAPED_UNICODE);
-//-------------------------------------------------------------------------------------------------------
 
 //用戶所選的文章分類編號 / 寫的文章 
 $user_content = $_POST["user_content"];
