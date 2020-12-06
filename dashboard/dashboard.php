@@ -144,7 +144,7 @@ if ($_SESSION["account"] == "") {
                                         FROM instabuilder.userpost as a
                                         left join userinstaaccount as b on a.account_id = b.account_id 
                                         left join user as c on b.user_id = c.user_id 
-                                        where c.user_id = ".$_SESSION["user_id"]."
+                                        where c.signup_email = '" . $_SESSION["account"] . "' 
                                         group by a.account_id 
                                         ";
                                             $result = $db->query($sql);
@@ -168,7 +168,7 @@ if ($_SESSION["account"] == "") {
                                             $sql = "SELECT following_amount FROM instabuilder.instaaccountfollower as a
                                         left join userinstaaccount as b on a.account_id = b.account_id 
                                         left join user as c on b.user_id = c.user_id 
-                                        where c.user_id = ".$_SESSION["user_id"]."
+                                        where c.signup_email = '" . $_SESSION["account"] . "'
                                         order by a.record_time desc
                                         limit 1
                                         ";
@@ -194,7 +194,7 @@ if ($_SESSION["account"] == "") {
                                             $sql = "SELECT fans_amount FROM instabuilder.instaaccountfollower as a
                                         left join userinstaaccount as b on a.account_id = b.account_id 
                                         left join user as c on b.user_id = c.user_id 
-                                        where c.user_id = ".$_SESSION["user_id"]."
+                                        where c.signup_email = '" . $_SESSION["account"] . "'
                                         order by a.record_time desc
                                         limit 1
                                         ";
@@ -221,7 +221,7 @@ if ($_SESSION["account"] == "") {
                                         left join userpost as b on a.post_no = b.post_no 
                                         left join userinstaaccount as c on b.account_id = c.account_id 
                                         left join user as d on c.user_id = d.user_id 
-                                        where d.user_id = ".$_SESSION["user_id"]."
+                                        where d.signup_email = '" . $_SESSION["account"] . "'
                                         ";
                                             $result = $db->query($sql);
                                             while ($row = $result->fetch(PDO::FETCH_OBJ)) {
@@ -277,11 +277,11 @@ if ($_SESSION["account"] == "") {
                                         <h3>
                                             <?php
                                             
-                                            
+                                            $id = $_SESSION['account'];
                                             $sql = "SELECT count(pn_score) as allcomment from instabuilder.comment where post_no in(
                                                 select post_no from instabuilder.userpost where account_id=(
                                                  select account_id from instabuilder.userinstaaccount where user_id=(
-                                                  select user_id from instabuilder.user where user_id = ".$_SESSION["user_id"]."))) 
+                                                  select user_id from instabuilder.user where user.signup_email = '" . $_SESSION["account"] . "' and user.user_name = '".$_SESSION["name"]."'))) 
                                             ";
                                             $result = $db->query($sql);
                                             while ($row = $result->fetch(PDO::FETCH_OBJ)) {
@@ -308,7 +308,7 @@ if ($_SESSION["account"] == "") {
                                             $sql = "SELECT count(pn_score) as positive from instabuilder.comment where post_no in(
                                                 select post_no from instabuilder.userpost where account_id=(
                                                  select account_id from instabuilder.userinstaaccount where user_id=(
-                                                  select user_id from instabuilder.user where user_id = ".$_SESSION["user_id"]."))) and pn_score>0
+                                                  select user_id from instabuilder.user where user.signup_email = '" . $_SESSION["account"] . "'  and user.user_name = '".$_SESSION["name"]."'))) and pn_score>0
                                             ";
                                             $result = $db->query($sql);
                                             while ($row = $result->fetch(PDO::FETCH_OBJ)) {
@@ -335,7 +335,7 @@ if ($_SESSION["account"] == "") {
                                             $sql = "SELECT count(pn_score) as negative from instabuilder.comment where post_no in(
                                                 select post_no from instabuilder.userpost where account_id=(
                                                  select account_id from instabuilder.userinstaaccount where user_id=(
-                                                  select user_id from instabuilder.user where  user_id = ".$_SESSION["user_id"]."))) and pn_score<0
+                                                  select user_id from instabuilder.user where user.signup_email = '" . $_SESSION["account"] . "'  and user.user_name = '".$_SESSION["name"]."'))) and pn_score<0
                                             ";
                                             $result = $db->query($sql);
                                             while ($row = $result->fetch(PDO::FETCH_OBJ)) {
@@ -362,7 +362,7 @@ if ($_SESSION["account"] == "") {
                                             $sql = "SELECT count(pn_score) as medium from instabuilder.comment where post_no in(
                                                 select post_no from instabuilder.userpost where account_id=(
                                                  select account_id from instabuilder.userinstaaccount where user_id=(
-                                                  select user_id from instabuilder.user where user_id = ".$_SESSION["user_id"]."))) and pn_score=0
+                                                  select user_id from instabuilder.user where user.signup_email = '" . $_SESSION["account"] . "'  and user.user_name = '".$_SESSION["name"]."'))) and pn_score=0
                                             ";
                                             $result = $db->query($sql);
                                             while ($row = $result->fetch(PDO::FETCH_OBJ)) {
@@ -478,7 +478,7 @@ if ($_SESSION["account"] == "") {
                                               left join instabuilder.userinstaaccount on user.user_id = userinstaaccount.user_id
                                               left join instabuilder.userpost on userinstaaccount.account_id = userpost.account_id
                                               left join instabuilder.post on userpost.post_no = post.post_no                                              
-                                              where post.announce_time <= user.signup_datetime and  user.user_id = ".$_SESSION["user_id"]."
+                                              where post.announce_time <= user.signup_datetime and user.signup_email = '" . $_SESSION["account"] . "'
                                               group by user_id
                                              ) as temp_post_before                                             
                                              left join                                             
@@ -488,7 +488,7 @@ if ($_SESSION["account"] == "") {
                                               left join instabuilder.userpost on userinstaaccount.account_id = userpost.account_id
                                               left join instabuilder.post on userpost.post_no = post.post_no
                                               left join instabuilder.like on like.post_no = post.post_no                                              
-                                              where post.announce_time <= user.signup_datetime and  user.user_id = ".$_SESSION["user_id"]."
+                                              where post.announce_time <= user.signup_datetime and user.signup_email = '" . $_SESSION["account"] . "'
                                               group by user_id
                                              ) as temp_like_before                                             
                                              on temp_post_before.user_id = temp_like_before.user_id
@@ -501,7 +501,7 @@ if ($_SESSION["account"] == "") {
                                               left join instabuilder.userinstaaccount on user.user_id = userinstaaccount.user_id
                                               left join instabuilder.userpost on userinstaaccount.account_id = userpost.account_id
                                               left join instabuilder.post on userpost.post_no = post.post_no                                              
-                                              where post.announce_time >= user.signup_datetime and  user.user_id = ".$_SESSION["user_id"]."
+                                              where post.announce_time >= user.signup_datetime and user.signup_email = '" . $_SESSION["account"] . "'
                                               group by user_id
                                              ) as temp_post_after                                             
                                              left join                                             
@@ -511,18 +511,18 @@ if ($_SESSION["account"] == "") {
                                               left join instabuilder.userpost on userinstaaccount.account_id = userpost.account_id
                                               left join instabuilder.post on userpost.post_no = post.post_no
                                               left join instabuilder.like on like.post_no = post.post_no                                              
-                                              where post.announce_time >= user.signup_datetime and  user.user_id = ".$_SESSION["user_id"]."
+                                              where post.announce_time >= user.signup_datetime and user.signup_email = '" . $_SESSION["account"] . "'
                                               group by user_id
                                              ) as temp_like_after                                             
                                              on temp_post_after.user_id = temp_like_after.user_id
                                             ) as after_all
-                                            on before_all.user_id = after_all.user_id ;
+                                            on before_all.user_id = after_all.user_id
                                                     ";
                                             $result = $db->query($sql);
                                             while ($row = $result->fetch(PDO::FETCH_OBJ)) {
                                                 //PDO::FETCH_OBJ 指定取出資料的型態
                                                 echo '<tr>';
-                                                echo '<td>' . $row->按讚成長率. "</td>";
+                                                echo '<td>' . $row->按讚成長率 . "</td>";
                                                 //. "<td>" . $row->貼文留言數量 . "</td>";
                                                 echo '</tr>';
                                             }
@@ -549,7 +549,7 @@ if ($_SESSION["account"] == "") {
                                               left join instabuilder.userpost on userinstaaccount.account_id = userpost.account_id
                                               left join instabuilder.post on userpost.post_no = post.post_no
                                               
-                                              where post.announce_time <= user.signup_datetime and  user.user_id = ".$_SESSION["user_id"]."
+                                              where post.announce_time <= user.signup_datetime and user.signup_email = '" . $_SESSION["account"] . "'
                                               group by user_id
                                              ) as temp_post_before
                                              
@@ -562,7 +562,7 @@ if ($_SESSION["account"] == "") {
                                               left join instabuilder.post on userpost.post_no = post.post_no
                                               left join instabuilder.comment on comment.post_no = post.post_no
                                               
-                                              where post.announce_time <= user.signup_datetime and  user.user_id = ".$_SESSION["user_id"]."
+                                              where post.announce_time <= user.signup_datetime and user.signup_email = '" . $_SESSION["account"] . "'
                                               group by user_id
                                              ) as temp_comment_before
                                              
@@ -580,7 +580,7 @@ if ($_SESSION["account"] == "") {
                                               left join instabuilder.userpost on userinstaaccount.account_id = userpost.account_id
                                               left join instabuilder.post on userpost.post_no = post.post_no
                                               
-                                              where post.announce_time >= user.signup_datetime and user.user_id = ".$_SESSION["user_id"]."
+                                              where post.announce_time >= user.signup_datetime and user.signup_email = '" . $_SESSION["account"] . "'
                                               group by user_id
                                              ) as temp_post_after
                                              
@@ -593,7 +593,7 @@ if ($_SESSION["account"] == "") {
                                               left join instabuilder.post on userpost.post_no = post.post_no
                                               left join instabuilder.comment on comment.post_no = post.post_no
                                               
-                                              where post.announce_time >= user.signup_datetime and  user.user_id = ".$_SESSION["user_id"]."
+                                              where post.announce_time >= user.signup_datetime and user.signup_email = '" . $_SESSION["account"] . "'
                                               group by user_id
                                              ) as temp_comment_after
                                              
@@ -694,7 +694,7 @@ if ($_SESSION["account"] == "") {
                                 left join userinstaaccount as b on a.account_id = b.account_id 
                                 left join user as c on b.user_id = c.user_id 
                                 left join followers as d on b.account_id = d.account_id
-                                where c.user_id = ".$_SESSION["user_id"]."
+                                where c.signup_email = '" . $_SESSION["account"] . "' 
                                 order by follow_date desc limit 10
                                 ";
                         $result = $db->query($sql);
