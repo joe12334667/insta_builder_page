@@ -799,7 +799,7 @@ if ($_SESSION["account"] == "") {
                     });
                 }
                 catch (e) {
-                    console.log('e);
+                    console.log(e);
                 }
                 
                 document.location.href = "../php/logOut.php";
