@@ -23,12 +23,16 @@ function SendtoDB($id , $name , $email , $url) {
     $sql = "SELECT * FROM instabuilder.user where user_name = \"".$name."\" and signup_email = \"".$email."\"; ";
     //如果有資料
     $result = $db->query($sql);
-    $row = $result->fetch(PDO::FETCH_ASSOC);
+    $row = $result->fetch(PDO::FETCH_OBJ);
     if ($row >= 1) {
-        $_SESSION["user_id"] = $row->$user_id;
-        $_SESSION["account"] = $email;
-        $_SESSION["name"] = $name;
-        header('Location: ../dashboard/dashboard.php');
+        while ($row = $result->fetch(PDO::FETCH_OBJ)) {
+            
+            $_SESSION["user_id"] = $row->$user_id;
+            $_SESSION["account"] = $email;
+            $_SESSION["name"] = $name;
+            header('Location: ../dashboard/dashboard.php');
+        }
+        
     } else {
         $_SESSION["account"] = $email;
         $_SESSION["name"] = $name;
