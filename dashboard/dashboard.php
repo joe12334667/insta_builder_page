@@ -13,10 +13,7 @@ if ($_SESSION["account"] == "") {
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <!--GOOGLE SIGNOUT-->
-        <meta name="google-signin-client_id" content="48428020310-lh0fm5ch27hfpjurv55ico6o8i6n8of7.apps.googleusercontent.com">
         <meta name="google-signin-client_id" content="48428020310-9hp17cjtr6crev5tvl6litg2qi8i0521.apps.googleusercontent.com">
-        <meta name="google-signin-client_id" content="48428020310-9hp17cjtr6crev5tvl6litg2qi8i0521.apps.googleusercontent.com">
-        <meta name="google-signin-client_id" content="815491116462-0ooiteovcl08la9u5t4mik8sj9nsepct.apps.googleusercontent.com">
         <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
         <meta name="google-signin-scope" content="profile email">
         <!------------>        
@@ -785,8 +782,7 @@ if ($_SESSION["account"] == "") {
         <script src="../node_modules/chart.js/dist/Chart.js"></script>
         <script src="js/jquery.min.js"></script>
         <script src="https://apis.google.com/js/platform.js" async defer></script>
-        <meta name="google-signin-scope" content="profile email">
-
+        <meta name="google-signin-client_id" content="48428020310-9hp17cjtr6crev5tvl6litg2qi8i0521.apps.googleusercontent.com">      
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
         <script type="text/javascript" src="../node_modules/wordcloud/src/wordcloud2.js"></script>
         <script>
