@@ -92,8 +92,8 @@ if ($_SESSION["privilege"] != 2) {
                             <div class="collapse" id="collapseLayouts-analysis" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="../dashboard/dashboard.php">貼文分析</a>
+                                    <a class="nav-link" href="../dashboard/dashboard.php">標籤分析</a>                                    
                                     <a class="nav-link" href="../dashboard/dashboard.php">粉絲分析</a>
-                                    <a class="nav-link" href="../dashboard/dashboard.php">標籤分析</a>
                                 </nav>
                             </div>
 

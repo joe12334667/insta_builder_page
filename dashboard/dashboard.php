@@ -105,9 +105,9 @@ if ($_SESSION["account"] == "") {
                             </a>
                             <div class="collapse" id="collapseLayouts-analysis" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="#one">貼文分析</a>
-                                    <a class="nav-link" href="#three">粉絲分析</a>
+                                    <a class="nav-link" href="#one">貼文分析</a>                                    
                                     <a class="nav-link" href="#wc">標籤分析</a>
+                                    <a class="nav-link" href="#three">粉絲分析</a>
                                 </nav>
                             </div>
 

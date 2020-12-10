@@ -80,7 +80,7 @@ if (isset($_POST["next"])) {
             }
             .align-center  .login_forget{
 
-                margin-left: 300px;
+                /* margin-left: 300px; */
                 margin-bottom: 150px;
             }
 
