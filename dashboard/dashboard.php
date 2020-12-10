@@ -516,7 +516,8 @@ if ($_SESSION["account"] == "") {
                                              ) as temp_like_after                                             
                                              on temp_post_after.user_id = temp_like_after.user_id
                                             ) as after_all
-                                            on before_all.user_id = after_all.user_id ";
+                                            on before_all.user_id = after_all.user_id ;
+                                                    ";
                                             $result = $db->query($sql);
                                             while ($row = $result->fetch(PDO::FETCH_OBJ)) {
                                                 //PDO::FETCH_OBJ 指定取出資料的型態
