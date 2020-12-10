@@ -19,12 +19,9 @@ if (isset($_SESSION["account"])) {
 //由analyed...頁面傳出unlog來判斷
 if (isset($_SESSION["unLog"])) {
     if ($_SESSION["unLog"]) {
-        echo '<script>  swal.fire({
-                text: "未登入或登入逾時！",
-                icon: "error",
-                button: false,
-                timer: 2000,
-                }); </script>';
+        echo '<script>  
+                alert("未登入或登入逾時！");
+                </script>';
         session_unset();
     }
 }
